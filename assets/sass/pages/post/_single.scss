@@ -1,0 +1,45 @@
+/* Single Post
+----------------- */
+.site-content {
+  margin-top: 3em;
+}
+
+.site-main {
+	margin-bottom: 3.5em;
+}
+
+#secondary {
+  margin-top: 1em;
+}
+
+.entry-categories {
+  text-align: center;
+}
+
+.entry-content a {
+  color: $color__primary;
+  border-bottom: 1px solid $color__primary;
+
+  &:hover {
+    color: $color__accent;
+    border-bottom: 1px solid $color__accent;
+  }
+}
+
+.entry-content {
+  line-height: 1.6em;
+  color: $color__primary;
+
+  p {
+    font-size: 1.15em;
+  }
+}
+
+.posts-navigation {
+  margin-bottom: 4em;
+
+  p {
+    margin-bottom: 0.5em;
+    font: $font__menu-small;
+  }
+}

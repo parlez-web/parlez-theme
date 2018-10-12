@@ -1,0 +1,65 @@
+//* Site Variables
+
+
+/* TYPOGRAPHY
+--------------- */
+//Primary font for headings
+$font-primary: "Quattrocento Sans";
+// Secondary font for menu, categories, etc.
+$font-secondary: $font-primary;
+// Tertiary font for body text (if not the same as 2nd)
+$font-tertiary: $font-primary;
+
+
+$font__text: normal 400 0.875em $font-tertiary, Georgia, Times New Roman;
+$font__headline: normal 700 1.55em $font-primary, Montserrat, Arial;
+$font__menu: normal 400 0.875em $font-secondary, Montserrat, Arial;
+$font__menu-small: normal 300 0.65em $font-secondary, Montserrat, Arial;
+
+$font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+$font__pre: "Courier 10 Pitch", Courier, monospace;
+$font__line-height-body: 1.5;
+$font__line-height-pre: 1.6;
+$font__letter-spacing: .07em;
+
+
+/* COLORS
+--------------- */
+$color__primary: #0c0c0c;
+$color__secondary: #faf1ed;
+$color__accent: #ddaba8;
+
+
+$color__background-body: #ffffff;
+$color__background-screen: #f1f1f1;
+$color__background-hr: #cccccc;
+$color__background-button: transparent;
+$color__background-pre: #eeeeee;
+$color__background-ins: #fff9c0;
+
+$color__text-screen: #21759b;
+$color__text-input: #666666;
+$color__text-input-focus: #111;
+$color__link: #666666;
+$color__link-visited: #0c0c0c;
+$color__link-hover: $color__accent;
+$color__text-main: #111111;
+
+$color__border-button: #cccccc #cccccc #bbbbbb;
+$color__border-button-hover: #cccccc #bbbbbb #aaaaaa;
+$color__border-button-focus: #aaaaaa #bbbbbb #bbbbbb;
+$color__border-input: #cccccc;
+$color__border-abbr: #666666;
+
+
+/* STRUCTURE
+--------------- */
+$size__site-main: 100%;
+$size__site-sidebar: 25%;
+
+$max_size__site-main: 75em;
+
+$padding__general: .785em;
+
+$thumbnail_height: 250px;
+$thumbnail_mobile_height: 400px;

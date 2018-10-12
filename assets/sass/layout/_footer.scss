@@ -1,0 +1,61 @@
+.before-footer {
+	margin-top: 1.5em;
+}
+
+footer.site-footer {
+	margin-top: -2em;
+	padding-top: 2em;
+}
+
+.footer-widget-area {
+	padding: 0 $padding__general;
+	text-align: center;
+
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.widget {
+		width: 100%;
+
+		@include breakpoint(tablet) {
+			width: 32%;
+		}
+	}
+}
+
+.footer-menu {
+	@include menu-font();
+	padding: 0 $padding__general;
+
+	ul#footer-menu {
+		list-style: none;
+		padding: 0;
+		margin: 1.7em auto;
+		text-align: center;
+
+		li {
+			display: inline-block;
+			padding: 0.785em;
+		}
+	}
+
+	a {
+		color: $color__primary;
+	}
+}
+
+.site-info {
+	padding: $padding__general;
+	text-align: center;
+	font: $font__menu-small;
+
+	a {
+		
+	}
+}
+
+

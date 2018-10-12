@@ -1,0 +1,59 @@
+/* Archive Page
+------------------- */
+.site-content {
+	margin-top: 3em;
+}
+
+#primary {
+	width: 100%;
+}
+
+.site-main {
+	@include breakpoint(tablet) {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	.page-header {
+		width: 100%;
+		margin-bottom: 2em;
+	}
+
+	article {
+		width: 100%;
+		display: block;
+
+		@include breakpoint(tablet) {
+			width: 31%;
+		}
+
+		.entry-thumbnail {
+			height: 400px;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			width: 100%;
+
+			@include breakpoint(tablet) {
+				height: 250px;
+			}
+		}
+
+		.entry-body {
+			width: 100%;
+			padding: 0;
+			margin-top: 0.75em;
+			align-self: flex-start;
+
+			.entry-content {
+				margin-top: 0.5em;
+			}
+		}
+	}
+}
+
+.posts-navigation {
+	width: 100%;
+}

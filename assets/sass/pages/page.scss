@@ -1,0 +1,76 @@
+/* Static Page
+----------------- */
+.page-title {
+	text-align: center;
+}
+
+.search .page-content, .error-404 .page-content {
+	text-align: center;
+}
+
+.error404 {
+
+  #primary {
+    width: 100%;
+  }
+
+  .error-404 .notice-404 {
+    font: $font__menu;
+    font-size: 10em;
+    color: $color__secondary;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .page-content .searchform {
+    input {
+      width: 300px;
+      margin: 2em auto;
+      padding: 0.25em;
+    }
+  }
+
+}
+
+.page-template-default {
+  #primary {
+    width: 100%;
+    max-width: 50em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 2em;
+  }
+
+
+  .entry-content a {
+    color: $color__primary;
+    border-bottom: 1px solid $color__primary;
+
+    &:hover {
+      color: $color__accent;
+      border-bottom: 1px solid $color__accent;
+    }
+  }
+
+  .entry-content {
+    line-height: 1.6em;
+    color: $color__primary;
+
+    p {
+      font-size: 1.15em;
+    }
+  }
+}
+
+
+/* No results Search Page */
+.no-results {
+  margin: 0 auto;
+  margin-bottom: 6em;
+
+  .searchform {
+    input {
+      width: 200px;
+    }
+  }
+}

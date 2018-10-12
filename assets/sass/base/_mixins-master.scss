@@ -1,0 +1,60 @@
+// Rem output with px fallback
+@mixin font-size($sizeValue: 1) {
+	font-size: ($sizeValue * 16) * 1px;
+	font-size: $sizeValue * 1rem;
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Media Queries
+@mixin breakpoint($point) {
+  @if $point == "smartphone" {
+    @media (min-width: 24em) { @content; }
+  }
+  @else if $point == "tablet" {
+    @media (min-width: 50em) { @content; }
+  }
+  @else if $point == "desktop" {
+    @media (min-width: 64em)  { @content; }
+  }
+}
+
+/* Menu and other small stuff font style */
+@mixin menu-font() {
+	font: $font__menu;
+	text-transform: uppercase;
+	letter-spacing: $font__letter-spacing;
+}
+@mixin menu-font-small() {
+	@include menu-font();
+	font-size: .765em;
+}
+
+// Slider Arrow position 
+@mixin slider-arrows() {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width:50px;
+	height:50px;
+	position: absolute;
+	top:50%;
+	transform: translate(0,-50%);
+}

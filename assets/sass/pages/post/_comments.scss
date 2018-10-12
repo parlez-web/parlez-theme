@@ -1,0 +1,66 @@
+.comment-list {
+	list-style: none;
+	padding: 1em;
+
+	.children {
+		display: block!important;
+		margin-top: 2em;
+		list-style: none;
+
+		li {
+			margin-bottom: 1.75em;
+		}
+	}
+}
+.comment-content a {
+	word-wrap: break-word;
+}
+.comment-metadata {
+	font: $font__menu-small;
+}
+
+.bypostauthor {
+	display: block;
+}
+.comment-author.vcard img {
+	margin-right: .35em;
+}
+#commentform {
+	input, textarea {
+		border-radius: 0px;
+	}
+
+	label {
+		@include menu-font-small();
+		text-transform: none;
+		letter-spacing: 0;
+	}
+	p {
+		margin: .45em 0;
+	}
+	.form-submit {
+		margin-top: .75em;
+		color: white;
+	}
+}
+
+img.avatar {
+	border-radius: 50%;
+}
+
+.fn a {
+	color: $color__primary;
+}
+
+.comment-reply-link {
+	color: $color__primary;
+	font-weight: bold;
+	font-size: 0.975em;
+}
+
+.comment-content p {
+	font-size: 0.975em;
+}
+#reply-title small {
+	font-size: 48%
+}

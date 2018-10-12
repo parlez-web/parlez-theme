@@ -1,0 +1,324 @@
+.site-content {
+	max-width: $max_size__site-main;
+	margin: 0 auto;
+	padding: $padding__general 1.25em;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+
+	@include breakpoint(tablet) {
+		padding: $padding__general;
+	}
+}
+
+#primary {
+	width: 100%;
+
+	@include breakpoint(tablet) {
+		width: 65%;
+		margin-right: auto;
+	}
+
+}
+
+#secondary {
+	width: 100%;
+	max-width: 25em;
+	margin: auto;
+
+	@include breakpoint(tablet) {
+		width: 27%;
+		margin-left: auto;
+		// position: sticky;
+		// top: 60px;
+		align-self: flex-start;
+		max-width: 100%;
+		margin-top: 0;
+		margin-bottom: 0;
+		margin-right: 0;
+
+		&.sticky {
+			position: sticky;
+			top: 60px;
+		}
+	}
+}
+
+.sticky {
+	display: block;
+}
+
+.hentry {
+	margin: 0 0 3.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 0;
+	font: $font__text;
+	color: $color__text-main;
+	line-height: 1.5em;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
+
+/* Post-specific styles */
+.entry-categories {
+	margin-top: 1.45em;
+	.cat-links a {
+		@include menu-font-small();
+	}
+}
+.tags-links {
+	@include menu-font-small();
+	text-transform: none;
+	letter-spacing: 0;
+}
+.comments-link {
+	display: block;
+}
+
+.entry-meta {
+	font: $font__menu-small;
+	margin-bottom: 1.5em;
+	color: $color__primary;
+
+	a {
+		color: $color__primary;
+
+		&:hover {
+			color: $color__accent;
+		}
+	}
+}
+
+.entry-title {
+	margin: 0.55em 0;
+
+	a {
+		color: $color__primary;
+	}
+}
+
+.btn.read-more {
+	display: block;
+	margin-top: 1.2em;
+}
+
+.entry-footer {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	flex-direction: row-reverse;
+	margin-top: 2em;
+	border-bottom: 1px solid #dddddd;
+	padding-bottom: 1em;
+
+	.share, .comments-link {
+		font: $font__menu-small;
+		font-size: 0.75em;
+
+		a {
+			color: $color__primary;
+		}
+	}
+
+	.share {
+		width: 20%;
+		text-align: right;
+		
+		a {
+			margin: 0 0.5em;
+		}
+	}
+}
+
+/* First Article */
+article.first-post {
+	.entry-title {
+		margin-top: 0;
+	}
+
+	.entry-content {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: space-between;
+
+		p {
+			width: 100%;
+			margin: 1em 0;
+
+			@include breakpoint(tablet) {
+				width: 78%;
+				margin-right: auto;
+			}
+		}
+
+		a {
+			width: 100%;
+			display: block;
+			font-size: 1.2em;
+			text-align: center;
+
+			@include breakpoint(tablet) {
+				width: 17%;
+			}
+
+			button {
+				background: none;
+				color: $color__primary;
+				font-weight: bold;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				text-align: center;
+
+				&:hover {
+					color: $color__accent;
+				}
+			}
+		}
+	}
+}
+
+
+
+.site-main {
+	article {
+		margin-bottom: 3.5em;
+
+		/* Smaller Articles Homepage */
+		&.small {
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+			align-items: stretch;
+
+			.entry-body {
+				width: 100%;
+				border-bottom: 1px solid #dddddd;
+
+				@include breakpoint(tablet) {
+					width: 47%;
+					padding: 1em;
+					display: flex;
+					flex-direction: column;
+					justify-content: center;
+					padding-bottom: 0.25em;
+				}
+
+				.entry-content {
+					margin: 1.5em 0;
+
+					button {
+						background: none;
+						color: $color__primary;
+						font-weight: bold;
+						padding: 0;
+						font-size: 0.975em;
+						margin: 0;
+					}
+				}
+			}
+
+			.entry-thumbnail {
+				width: 100%;
+
+				@include breakpoint(tablet) {
+					height: 400px;
+					width: 50%;
+				}
+
+				img {
+					object-fit: cover;
+					width: 100%;
+					height: 400px;
+				}
+			}
+
+			.readmore {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-top: 2.5em;
+
+				button:hover {
+					color: $color__accent;
+				}
+
+				i {
+					color: $color__primary;
+					font-size: 1.5em;
+				}
+			}
+
+			.entry-footer {
+				.share a:hover {
+					color: $color__accent;
+				}
+			}
+		}
+	}
+
+	.entry-title {
+		text-transform: uppercase;
+		margin-bottom: 0.35em;
+	}
+}
+
+.nav-links {
+	font: $font__menu-small;
+	font-size: 1.2em;
+	text-transform: uppercase;
+	letter-spacing: 0.03em;
+	margin-bottom: 2em;
+
+	@include breakpoint(tablet) {
+		font-size: 0.975em;
+	}
+
+	a {
+		color: $color__primary;
+		font-weight: bold;
+
+		&:hover {
+			color: $color__accent;
+		}
+	}
+}
+
+
+/* Before & After Content Area Hoempage 
+------------------------------------ */
+.after-content-home, .before-content-home {
+	max-width: $max_size__site-main;
+	margin: 2em auto;
+	padding: $padding__general;
+
+	.widgettitle {
+		text-align: center;
+		font-weight: 400;
+		text-transform: uppercase;
+		margin-top: 2em;
+
+		@include breakpoint(tablet) {
+			margin-top: 0em;
+		}
+	}
+}
+
+.before-content-home .widgettitle {
+	font-weight: 600;
+	font-size: 1.25em;
+}
