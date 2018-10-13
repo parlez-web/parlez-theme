@@ -1,10 +1,10 @@
 <?php
 /**
- * Jouy Theme functions and definitions
+ * cosmo Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package Jouy_Theme
+ * @package cosmo_Theme
  */
 
 
@@ -15,7 +15,7 @@ require_once( get_template_directory() . '/lib/fox.php' );
 new Fox();
 
 
-if ( ! function_exists( 'jouy_setup' ) ) :
+if ( ! function_exists( 'cosmo_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -23,14 +23,14 @@ if ( ! function_exists( 'jouy_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function jouy_setup() {
+	function cosmo_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on MP Starter Theme, use a find and replace
-		 * to change 'jouy' to the name of your theme in all the template files.
+		 * to change 'cosmo' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'jouy', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'cosmo', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -52,8 +52,8 @@ if ( ! function_exists( 'jouy_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'jouy' ),
-			'footer-menu' => esc_html__( 'Footer Menu', 'jouy' )
+			'menu-1' => esc_html__( 'Primary', 'cosmo' ),
+			'footer-menu' => esc_html__( 'Footer Menu', 'cosmo' )
 		) );
 
 		/*
@@ -69,7 +69,7 @@ if ( ! function_exists( 'jouy_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'jouy_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'cosmo_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -95,18 +95,18 @@ if ( ! function_exists( 'jouy_setup' ) ) :
 		 * Add support for custom images sizes.
 		 */
 		add_image_size( 'slider', 0, 500, true );
-		add_image_size( 'large-home', 640, 640, true );
+		add_image_size( 'large-home', 800, 800, true );
 
 		/*
 		* Add Theme Support calls from the Fox Framework.
 		*/
-		// Popular Posts: jouy_popular_posts()
+		// Popular Posts: cosmo_popular_posts()
 		add_theme_support('popular-posts');
 
-		// Featured Posts in a row: jouy_featured_row()
+		// Featured Posts in a row: cosmo_featured_row()
 		add_theme_support('featured-row-posts');
 
-		// Featured Posts in slick slider: jouy_post_slider()
+		// Featured Posts in slick slider: cosmo_post_slider()
 		add_theme_support('featured-slick-slider');
 
 		// Youtube Recent Videos Widget
@@ -129,7 +129,7 @@ if ( ! function_exists( 'jouy_setup' ) ) :
 		add_editor_style( 'assets/css/editor-styles.css' );
 	}
 endif;
-add_action( 'after_setup_theme', 'jouy_setup', 5 );
+add_action( 'after_setup_theme', 'cosmo_setup', 5 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -138,21 +138,21 @@ add_action( 'after_setup_theme', 'jouy_setup', 5 );
  *
  * @global int $content_width
  */
-function jouy_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'jouy_content_width', 640 );
+function cosmo_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'cosmo_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'jouy_content_width', 0 );
+add_action( 'after_setup_theme', 'cosmo_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function jouy_widgets_init() {
+function cosmo_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'jouy' ),
+		'name'          => esc_html__( 'Sidebar', 'cosmo' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'jouy' ),
+		'description'   => esc_html__( 'Add widgets here.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -160,38 +160,38 @@ function jouy_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Homepage Before Content', 'jouy' ),
+		'name'          => esc_html__( 'Homepage Before Content', 'cosmo' ),
 		'id'            => 'before-content-home',
-		'description'   => esc_html__( 'Widget Area before main content that shows only on the homepage.', 'jouy' ),
+		'description'   => esc_html__( 'Widget Area before main content that shows only on the homepage.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Homepage After Content', 'jouy' ),
+		'name'          => esc_html__( 'Homepage After Content', 'cosmo' ),
 		'id'            => 'after-content-home',
-		'description'   => esc_html__( 'Widget Area after main content that shows only on the homepage.', 'jouy' ),
+		'description'   => esc_html__( 'Widget Area after main content that shows only on the homepage.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Before Footer Instagram', 'jouy' ),
+		'name'          => esc_html__( 'Before Footer Instagram', 'cosmo' ),
 		'id'            => 'before-footer',
-		'description'   => esc_html__( 'Add the Instagram Widget here.', 'jouy' ),
+		'description'   => esc_html__( 'Add the Instagram Widget here.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area', 'jouy' ),
+		'name'          => esc_html__( 'Footer Widget Area', 'cosmo' ),
 		'id'            => 'footer-widgets',
-		'description'   => esc_html__( 'Space inside the footer to add a logo, menu or other widgets. You can choose to display 3 columns on desktop screens in the Customizer.', 'jouy' ),
+		'description'   => esc_html__( 'Space inside the footer to add a logo, menu or other widgets. You can choose to display 3 columns on desktop screens in the Customizer.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 }
-add_action( 'widgets_init', 'jouy_widgets_init' );
+add_action( 'widgets_init', 'cosmo_widgets_init' );
 
 
 /*
@@ -199,27 +199,27 @@ add_action( 'widgets_init', 'jouy_widgets_init' );
 */
 require get_template_directory() . '/plugin-update-checker-4.4/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-  'http://themes.munichparisstudio.com/server/?action=get_metadata&slug=jouy',
+  'http://themes.munichparisstudio.com/server/?action=get_metadata&slug=cosmo',
   __FILE__,
-  'jouy'
+  'cosmo'
 );
 
 
 /**
  * Enqueue scripts and styles.
  */
-function jouy_scripts() {
-	wp_enqueue_style( 'jouy-style', get_stylesheet_uri() );
+function cosmo_scripts() {
+	wp_enqueue_style( 'cosmo-style', get_stylesheet_uri() );
 	// Enqueue customizer color css
-	$custom_css = jouy_get_customizer_css();
-  	wp_add_inline_style( 'jouy-style', $custom_css );
+	$custom_css = cosmo_get_customizer_css();
+  	wp_add_inline_style( 'cosmo-style', $custom_css );
 
 	//Enqueue custom minified and concatenated js
-	wp_enqueue_script( 'jouy-custom-slick-min', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'cosmo-custom-slick-min', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '', true );
 	
-	wp_enqueue_script( 'jouy-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'cosmo-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true );
 	
-	wp_enqueue_style( 'jouy-slick-style', get_template_directory_uri() . '/assets/css/slick.css' );
+	wp_enqueue_style( 'cosmo-slick-style', get_template_directory_uri() . '/assets/css/slick.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -227,7 +227,7 @@ function jouy_scripts() {
 
 
 }
-add_action( 'wp_enqueue_scripts', 'jouy_scripts' );
+add_action( 'wp_enqueue_scripts', 'cosmo_scripts' );
 
 
 /**
@@ -248,7 +248,7 @@ add_filter( 'get_the_archive_title', function ($title) {
 /*
 * Generate the color scheme from the Customizer
 */
-function jouy_get_customizer_css() {
+function cosmo_get_customizer_css() {
     ob_start();
 
     $bg_color = get_theme_mod( 'secondary_color', '#faf1ed' );

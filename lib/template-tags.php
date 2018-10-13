@@ -7,11 +7,11 @@
  * @package MP_Starter_Theme
  */
 
-if ( ! function_exists( 'jouy_posted_on' ) ) :
+if ( ! function_exists( 'cosmo_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function jouy_posted_on() {
+	function cosmo_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -26,13 +26,13 @@ if ( ! function_exists( 'jouy_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'jouy' ),
+			esc_html_x( '%s', 'post date', 'cosmo' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		// $byline = sprintf(
 		// 	/* translators: %s: post author. */
-		// 	esc_html_x( 'by %s', 'post author', 'jouy' ),
+		// 	esc_html_x( 'by %s', 'post author', 'cosmo' ),
 		// 	'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		// );
 
@@ -41,35 +41,35 @@ if ( ! function_exists( 'jouy_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'jouy_entry_categories' ) ) :
+if ( ! function_exists( 'cosmo_entry_categories' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function jouy_entry_categories() {
+	function cosmo_entry_categories() {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'jouy' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'cosmo' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">in: ' . esc_html__( '%1$s', 'jouy' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'cosmo' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}
 endif;
 
-if ( ! function_exists( 'jouy_entry_footer' ) ) :
+if ( ! function_exists( 'cosmo_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function jouy_entry_footer() {
+	function cosmo_entry_footer() {
 		// Share functionality
-		jouy_share_buttons();
+		cosmo_share_buttons();
 
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() && is_single() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'jouy' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'cosmo' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'jouy' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'cosmo' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
@@ -79,7 +79,7 @@ if ( ! function_exists( 'jouy_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'jouy' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'cosmo' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -96,7 +96,7 @@ if ( ! function_exists( 'jouy_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'jouy' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'cosmo' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -111,11 +111,11 @@ if ( ! function_exists( 'jouy_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'jouy_social_media' ) ) :
+if ( ! function_exists( 'cosmo_social_media' ) ) :
 	/**
 	 * Prints social media icons with links set in the customizer
 	 */
-	function jouy_social_media() {
+	function cosmo_social_media() {
 		?>
 		<div class="social-media-icons">
 
@@ -150,11 +150,11 @@ if ( ! function_exists( 'jouy_social_media' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'jouy_related_posts_tags' ) ) :
+if ( ! function_exists( 'cosmo_related_posts_tags' ) ) :
 	/**
 	 * Shows related Posts by tags
 	 */
-	function jouy_related_posts_tags() {
+	function cosmo_related_posts_tags() {
 	    global $post;
 	    $orig_post = $post;
 	    
@@ -174,7 +174,7 @@ if ( ! function_exists( 'jouy_related_posts_tags' ) ) :
 	    
 	    	if( $my_query->have_posts() ) {
 	    		?>
-	    		<div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('jouy_related_headline', 'You might also enjoy');?></h3>
+	    		<div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('cosmo_related_headline', 'You might also enjoy');?></h3>
 	    		<?php
 
 	    		while( $my_query->have_posts() ) {
@@ -192,11 +192,11 @@ if ( ! function_exists( 'jouy_related_posts_tags' ) ) :
     }
 endif;
 
-if ( ! function_exists( 'jouy_related_posts_categories' ) ) :
+if ( ! function_exists( 'cosmo_related_posts_categories' ) ) :
 	/**
 	 * Shows related Posts by categories
 	 */
-	function jouy_related_posts_categories() {
+	function cosmo_related_posts_categories() {
 			global $post;
 		    $orig_post = $post;
 		    
@@ -217,7 +217,7 @@ if ( ! function_exists( 'jouy_related_posts_categories' ) ) :
 		    
 		    	if( $my_query->have_posts() ) {
 		    		?>
-				    <div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('jouy_related_headline', 'You might also enjoy');?></h3>
+				    <div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('cosmo_related_headline', 'You might also enjoy');?></h3>
 				    <?php
 				    while( $my_query->have_posts() ) {
 				    	$my_query->the_post();
@@ -234,11 +234,11 @@ if ( ! function_exists( 'jouy_related_posts_categories' ) ) :
 		}
 endif;
 
-if ( ! function_exists( 'jouy_share_buttons' ) ) :
+if ( ! function_exists( 'cosmo_share_buttons' ) ) :
 	/**
 	 * Shows social share buttons
 	 */
-	function jouy_share_buttons() {
+	function cosmo_share_buttons() {
 		?>
 		<div class="share social-media-widget">
 			<a href="mailto:?subject=<?php the_title();?>&amp;body=<?php the_permalink() ?>" target="_blank" title="Send this article to a friend!"><i class="icon-mail-bold"></i></a>
@@ -252,11 +252,11 @@ endif;
 
 
 
-if ( ! function_exists( 'jouy_custom_query' ) ) :
+if ( ! function_exists( 'cosmo_custom_query' ) ) :
 	/**
 	 * Simple custom WP Query Function
 	 */
-	function jouy_custom_query($args, $template) {
+	function cosmo_custom_query($args, $template) {
 		// Define query args
 		$my_args = $args;
 

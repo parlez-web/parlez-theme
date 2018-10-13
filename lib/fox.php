@@ -173,7 +173,7 @@ if ( ! class_exists( 'Fox' ) ) {
 
 
 		/**
-		 * Load jouy theme components.  Themes must use `add_theme_support( $component )`
+		 * Load cosmo theme components.  Themes must use `add_theme_support( $component )`
 		 * to use a specific extension within the theme.
 		 *
 		 * @access public
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Fox' ) ) {
 		}
 
 		/**
-		 * Load jouy theme widgets that are not part of the jouy Plugin. 
+		 * Load cosmo theme widgets that are not part of the cosmo Plugin. 
 		 * Themes must use `add_theme_support( $widget )` to add a widget.
 		 *
 		 * @access public
@@ -202,6 +202,8 @@ if ( ! class_exists( 'Fox' ) ) {
 			require_if_theme_supports( 'profile-widget', $this->dir . 'widgets/profile-widget/profile-widget.php' );
 			//require_if_theme_supports( 'linklist-widget', $this->dir . 'widgets/youtube-widget - Kopie/linklist-widget.php' );
 			require_if_theme_supports( 'linklist-widget', $this->dir . 'widgets/post-preview-widget/post-preview-widget.php' );
+
+			require_once( $this->dir . 'widgets/widget-options.php' );
 		}
 	}
 

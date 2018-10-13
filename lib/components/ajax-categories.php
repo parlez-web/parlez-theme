@@ -4,7 +4,7 @@
 * Enqueue necessary scripts.
 */
 function enqueue_genre_ajax_scripts() {
-    wp_localize_script( 'jouy-custom', 'ajaxpagination', array(
+    wp_localize_script( 'cosmo-custom', 'ajaxpagination', array(
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	));
 }
@@ -20,11 +20,11 @@ require_once( get_template_directory() . '/lib/customizer/customizer-ajax-catego
 /* 
 * AJAX Loading for Category Posts on Homepage
 */
-add_action('wp_ajax_nopriv_jouy_category_post_ajax', 'jouy_load_ajax_category');
-add_action('wp_ajax_jouy_category_post_ajax', 'jouy_load_ajax_category');
+add_action('wp_ajax_nopriv_cosmo_category_post_ajax', 'cosmo_load_ajax_category');
+add_action('wp_ajax_cosmo_category_post_ajax', 'cosmo_load_ajax_category');
  
-if (!function_exists('jouy_load_ajax_category')) {
-	function jouy_load_ajax_category(){ 
+if (!function_exists('cosmo_load_ajax_category')) {
+	function cosmo_load_ajax_category(){ 
 
    		$post_cat = sanitize_text_field($_POST['cat']);
  
@@ -59,20 +59,20 @@ if (!function_exists('jouy_load_ajax_category')) {
 }
 
 
-if ( ! function_exists( 'jouy_ajax_categories' ) ) :
+if ( ! function_exists( 'cosmo_ajax_categories' ) ) :
 	/**
 	 * Shows posts from different categories by ajax
 	 * 
 	 * @param $ppp: Posts per page
 	 * @param $template: Content template to use
 	 */
-	function jouy_ajax_categories($template, $ppp) {
+	function cosmo_ajax_categories($template, $ppp) {
 
-		$first_cat = get_theme_mod('jouy_ajax_first_cat');
+		$first_cat = get_theme_mod('cosmo_ajax_first_cat');
 		$first_cat_name = get_cat_name($first_cat);
-		$second_cat = get_theme_mod('jouy_ajax_second_cat');
+		$second_cat = get_theme_mod('cosmo_ajax_second_cat');
 		$second_cat_name = get_cat_name($second_cat);
-		$third_cat = get_theme_mod('jouy_ajax_third_cat');
+		$third_cat = get_theme_mod('cosmo_ajax_third_cat');
 		$third_cat_name = get_cat_name($third_cat);
 
 		?>
@@ -86,7 +86,7 @@ if ( ! function_exists( 'jouy_ajax_categories' ) ) :
 
 			$ajax_category_args = array(
 			    'posts_per_page' => $ppp,
-			    'cat' => get_theme_mod('jouy_ajax_first_cat'),
+			    'cat' => get_theme_mod('cosmo_ajax_first_cat'),
 			    'order'=> 'DESC'
 			);
 			  

@@ -2,9 +2,9 @@
 /**
  * A class to create a dropdown for all categories in your wordpress site
  */
-add_action( 'customize_register', 'jouy_customize_classes_register' );
+add_action( 'customize_register', 'cosmo_customize_classes_register' );
 
-function jouy_customize_classes_register($wp_customize) {
+function cosmo_customize_classes_register($wp_customize) {
  class Category_Dropdown_Custom_Control extends WP_Customize_Control {
     private $cats = false;
     public function __construct($manager, $id, $args = array(), $options = array())
@@ -54,7 +54,7 @@ function jouy_customize_classes_register($wp_customize) {
  * @param WP_Customize_Setting $setting Setting instance.
  * @return string Sanitized slug if it is a valid choice; otherwise, the setting default.
  */
-function jouy_sanitize_select( $input, $setting ){
+function cosmo_sanitize_select( $input, $setting ){
          
     //input must be a slug: lowercase alphanumeric characters, dashes and underscores are allowed only
     $input = sanitize_key($input);
@@ -76,7 +76,7 @@ function jouy_sanitize_select( $input, $setting ){
  * @param bool $checked Whether the checkbox is checked.
  * @return bool Whether the checkbox is checked.
  */
-function jouy_sanitize_checkbox( $checked ) {
+function cosmo_sanitize_checkbox( $checked ) {
   // Boolean check.
   return ( ( isset( $checked ) && true == $checked ) ? true : false );
 }
@@ -96,7 +96,7 @@ function jouy_sanitize_checkbox( $checked ) {
  * @param WP_Customize_Setting $setting Setting instance.
  * @return int Sanitized number; otherwise, the setting default.
  */
-function jouy_sanitize_number_absint( $number, $setting ) {
+function cosmo_sanitize_number_absint( $number, $setting ) {
   // Ensure $number is an absolute integer (whole number, zero or greater).
   $number = absint( $number );
   

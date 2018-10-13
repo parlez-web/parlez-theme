@@ -9,11 +9,6 @@
  * @package MP_Starter_Theme
  */
 
-// Close the primary/secondary container on fullwidth pages
-if(!is_home() || !is_single()) {
-	echo '</div>';
-}
-
 ?>
 	<div class="before-footer">
 		<?php dynamic_sidebar( 'before-footer' ); ?> 
@@ -37,7 +32,7 @@ if(!is_home() || !is_single()) {
 			<p>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( '%1$s by %2$s.', 'jouy' ), 'Jouy Theme', '<a href="https://munichparisstudio.com" target="_blank">MunichParis Studio</a>' );
+				printf( esc_html__( '%1$s by %2$s.', 'cosmo' ), 'cosmo Theme', '<a href="https://munichparisstudio.com" target="_blank">MunichParis Studio</a>' );
 			?>
 			</p>
 		</div><!-- .site-info -->

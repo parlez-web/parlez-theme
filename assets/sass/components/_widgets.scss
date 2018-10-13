@@ -1,10 +1,26 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: 3.5em auto;
+	padding: $padding__general;
+	max-width: $max_size__site-main;
 
 	/* Make sure select elements fit in widgets. */
 	select {
 		max-width: 100%;
 	}
+
+	/* Fullwidth widget with border */
+	&.fullwidth {
+		border-top: 1px solid $color__accent;
+		border-bottom: 1px solid $color__accent;
+		padding: 60px 0 60px 0;
+		max-width: 100%;
+
+		.widget-content {
+				max-width: $max_size__site-main;
+				margin: 0 auto;
+		}
+	}
+
 }
 
 .widget-title, .widgettitle {
@@ -49,9 +65,11 @@
 		display: flex;
 		flex-wrap: wrap;
 		flex-direction: row;
+		justify-content: center;
 
 		li {
-			width: 12.5%;
+			width: 23%;
+			margin: 0.5%;
 		}
 	}
 }
@@ -83,7 +101,7 @@
 	flex-wrap: wrap;
 	margin: 2em auto;
 	max-width: $max_size__site-main;
-	padding: 0 1em;
+	padding: 0;
 	text-align: center;
 	margin-bottom: 0;
 
@@ -109,12 +127,12 @@
 		}
 
 		@include breakpoint(tablet) {
-			width: 24%;
+			width: 32%;
 		}
 	}
 
 	.entry-thumbnail {
-		
+		margin-bottom: 1.5em;
 	}
 
 	.entry-title {
@@ -122,22 +140,18 @@
 		text-transform: uppercase;
 	}
 
-	.cat-links {
-		display: none;
-	}
-
 	.entry-meta {
-		font: $font__menu-small;
+		font: $font__menu;
+		font-size: 0.875em;
+		margin-top: 0.75em;
 	}
 }
 
 
-/* SLICK RECENT POST SLIDER */
+/* SLICK RECENT POST SLIDER 
+----------------------------- */
 .slick {
 	margin: 0 auto;
-	margin-bottom: 3.5em;
-	max-width: $max_size__site-main;
-	padding: $padding__general;
 }
 
 article.slick-slide {
@@ -151,43 +165,37 @@ article.slick-slide {
 	margin-bottom: 0;
 
 	@include breakpoint(tablet) {
-		height: 450px;
+		height: 550px;
 	}
 	
 	.entry-thumbnail {
 		width: 100%;
-		height: 450px;
+		height: 550px;
 
 		@include breakpoint(tablet) {
-			width: 50%;
+			width: 100%;
 		}
 
 		img {
 			object-fit: cover;
-			width:100%;
-			height:100%;
+			width: 100%;
+			height: 100%;
 		}
 	}
 
-	.entry-body {
-		width: 90%;
-		padding: 4em 3.5em;
+	.entry-header {
+		width: 100%;
+		max-width: 35%;
+		padding: 3em 3.5em;
 		color: $color__primary;
-		background-color: $color__secondary;
-		margin-top: -4em;
-
-		@include breakpoint(tablet) {
-			width: 50%;
-			margin-top: 0;
-			margin-left: -4em;
-		}
+		background-color: white;
+		position: absolute;
+		bottom: 15%;
+		left: 10%;
+		z-index: 9955;
 
 		.entry-title {
-			text-transform: uppercase;
-		}
-
-		.entry-meta {
-			font: $font__menu-small;
+			font-size: 1.5em;
 		}
 
 		.entry-content {
@@ -216,10 +224,6 @@ article.slick-slide {
 
 .slick-slide {
 	height: auto;
-
-	@include breakpoint(tablet) {
-		height: 500px!important;
-	}
 }
 
 .slick-dots {
@@ -227,10 +231,6 @@ article.slick-slide {
 	text-align: center;
 	padding-left: 0;
 	margin-top: 2em;
-
-	@include breakpoint(tablet) {
-		margin-top: 0;
-	}
 
 	li {
 		display: inline-block;
@@ -425,7 +425,50 @@ article.slick-slide {
 
 /* Profile Widget
 -------------------- */
-.about-widget {
+.about-widget .widget-content {
+	display: flex;
+	align-items: center;
+
+	.about-image {
+		max-height: 500px;
+		overflow: hidden;
+		display: flex;
+		align-items: center;
+		width: 50%;
+	}
+
+	.about-content {
+		width: 50%;
+		background-color: transparent;
+		margin-top: 2em;
+
+		.widgettitle {
+			text-align: right;
+			margin-right: 1em;
+			font-size: 1.75em;
+			margin-bottom: 0;
+		}
+
+		.about-text {
+			background-color: white;
+			margin-left: -5em;
+			padding: 3em 2em;
+			line-height: 1.875em;
+			font-size: 0.975em;
+		}
+
+		a {
+			display: block;
+			text-align: right;
+			text-transform: uppercase;
+			letter-sapcing: 0.05em;
+			font-style: italic;
+			margin-right: 1em;
+		}
+	}
+}
+
+.sidebar.about-widget {
 	.widget-title {
 		font-family: 'Audrey';
 		font-size: 5em;
@@ -548,13 +591,13 @@ article.slick-slide {
 		margin: 0.5em 0;
 
 		.entry-thumbnail {
-			height: 250px;
+			height: 350px;
 			overflow: hidden;
 
 			img {
 				object-fit: cover;
 				width: 100%;
-				height: 250px;
+				height: 350px;
 			}
 		}
 	}

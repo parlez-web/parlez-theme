@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Jouy_LinkList_Widget extends WP_Widget {
+class cosmo_LinkList_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -32,7 +32,7 @@ class Jouy_LinkList_Widget extends WP_Widget {
      *
      * @var      string
      */
-    protected $widget_slug = 'jouy-linklist-widget';
+    protected $widget_slug = 'cosmo-linklist-widget';
 	/*--------------------------------------------------*/
 	/* Constructor
 	/*--------------------------------------------------*/
@@ -42,14 +42,14 @@ class Jouy_LinkList_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'jouy' ) );		
+		add_action( 'init', array( $this, 'cosmo' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Jouy LinkList Widget', 'jouy' ),
+			__( 'cosmo LinkList Widget', 'cosmo' ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'jouy' )
+				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'cosmo' )
 			)
 		);
 		// Register admin styles and scripts
@@ -157,7 +157,7 @@ class Jouy_LinkList_Widget extends WP_Widget {
 	  ?>
 		 
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'jouy'); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'cosmo'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" 
 			name="<?php echo $this->get_field_name('title'); ?>" type="text" 
 			value="<?php echo esc_attr($title); ?>" />
@@ -165,7 +165,7 @@ class Jouy_LinkList_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'jouy'); ?>
+			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'cosmo'); ?>
 			<textarea id="<?php echo $this->get_field_id('description'); ?>" 
 			name="<?php echo $this->get_field_name('description'); ?>"><?php echo esc_attr($description); ?>" /></textarea>
 			</label>
@@ -181,11 +181,11 @@ class Jouy_LinkList_Widget extends WP_Widget {
 			?>
 			<h4>Link #<?php echo $key ?></h4>
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'jouy'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'cosmo'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" value="<?php echo $value['name']; ?>" type="url"/>
 			</label> 
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'jouy'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'cosmo'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" value="<?php echo $value['link']; ?>" type="url"/>
 			</label> 
 
@@ -208,8 +208,8 @@ class Jouy_LinkList_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function jouy() {
-		// TODO be sure to change 'jouy-profile-widget' to the name of *your* plugin
+	public function cosmo() {
+		// TODO be sure to change 'cosmo-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -274,10 +274,10 @@ class Jouy_LinkList_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("Jouy_LinkList_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("cosmo_LinkList_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-register_activation_hook( __FILE__, array( 'Jouy LinkList Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Jouy LinkList Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'cosmo LinkList Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'cosmo LinkList Widget', 'deactivate' ) );
 
 

@@ -9,7 +9,7 @@ require_once( get_template_directory() . '/lib/customizer/customizer-featured-bo
 /**
 * Shows featured boxes on top of homepage
 */
-function jouy_featured_boxes() {
+function cosmo_featured_boxes() {
 
 	$featuredBoxes = array(
 		'box1' => 'Featured Box 1',
@@ -17,10 +17,10 @@ function jouy_featured_boxes() {
 		'box3' => 'Featured Box 3',
 	);	
 
-	$featured_image1 = get_theme_mod('jouy_featured_box1_image');
-	$featured_image2 = get_theme_mod('jouy_featured_box2_image');
-	$featured_image3 = get_theme_mod('jouy_featured_box3_image');
-	$featured_title = get_theme_mod('jouy_featured_box_title');
+	$featured_image1 = get_theme_mod('cosmo_featured_box1_image');
+	$featured_image2 = get_theme_mod('cosmo_featured_box2_image');
+	$featured_image3 = get_theme_mod('cosmo_featured_box3_image');
+	$featured_title = get_theme_mod('cosmo_featured_box_title');
 
 	if(!empty($featured_image1) || !empty($featured_image2) || !empty($featured_image3)) { ?>
 
@@ -28,19 +28,19 @@ function jouy_featured_boxes() {
 
 			<?php 
 			if(!empty($featured_title)) {
-				echo '<h2>' . get_theme_mod('jouy_featured_box_title') . '</h2>';
+				echo '<h2>' . get_theme_mod('cosmo_featured_box_title') . '</h2>';
 			}
 			?>
 
 			<?php
 			foreach($featuredBoxes as $key => $box) {
 
-				$key_image = get_theme_mod('jouy_featured_' . $key . '_image');
+				$key_image = get_theme_mod('cosmo_featured_' . $key . '_image');
 
 				if(!empty($key_image)) {
 					?>
-					<div class="box" style="background-image: url(<?php echo get_theme_mod( 'jouy_featured_' . $key . '_image' ); ?>)">
-						<a href="<?php echo esc_url(get_theme_mod('jouy_featured_' . $key . '_link'))?>"><h3 class="box-title"><?php echo get_theme_mod('jouy_featured_' . $key . '_title')?></h3></a>
+					<div class="box" style="background-image: url(<?php echo get_theme_mod( 'cosmo_featured_' . $key . '_image' ); ?>)">
+						<a href="<?php echo esc_url(get_theme_mod('cosmo_featured_' . $key . '_link'))?>"><h3 class="box-title"><?php echo get_theme_mod('cosmo_featured_' . $key . '_title')?></h3></a>
 					</div>
 					<?php
 				}

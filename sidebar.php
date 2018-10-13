@@ -9,7 +9,7 @@
 
 $sticky = '';
 
-if(get_theme_mod('jouy_stickysidebar_checkbox', true) == true ) {
+if(get_theme_mod('cosmo_stickysidebar_checkbox', true) == true ) {
 	$sticky = 'sticky';
 }
 

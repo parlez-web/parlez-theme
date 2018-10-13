@@ -69,13 +69,13 @@ Components/Modules
 Getting Started
 ---------------
 
-The default text-domain is 'jouy'. It is recommended to use this domain for all MP Studio WordPress themes. Still, if you want to change it, follow these steps:
+The default text-domain is 'cosmo'. It is recommended to use this domain for all MP Studio WordPress themes. Still, if you want to change it, follow these steps:
 
-1. Search for: `'jouy'` and replace with: `'your-text-domain'`
-2. Search for: `jouy_` and replace with: `your_text_domain_`
-3. Search for: `Text Domain: jouy` and replace with: `Text Domain: Your_text_domain` in style.css.
-4. Search for: <code>&nbsp;jouy</code> and replace with: <code>&nbsp;Your_text_domain</code>
-5. Search for: `jouy-` and replace with: `your-text-domain-`s
+1. Search for: `'cosmo'` and replace with: `'your-text-domain'`
+2. Search for: `cosmo_` and replace with: `your_text_domain_`
+3. Search for: `Text Domain: cosmo` and replace with: `Text Domain: Your_text_domain` in style.css.
+4. Search for: <code>&nbsp;cosmo</code> and replace with: <code>&nbsp;Your_text_domain</code>
+5. Search for: `cosmo-` and replace with: `your-text-domain-`s
 
 
 Now you're ready to go! Make an awesome new MP Studio Theme.

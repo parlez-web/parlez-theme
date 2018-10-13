@@ -25,7 +25,7 @@ add_action( 'pre_get_posts', 'wpsites_query' );
 
 
 // Re-build posts navigation
-function jouy_posts_navigation() {
+function cosmo_posts_navigation() {
 	?>
 	<nav class="posts-navigation">
 		<div class="nav-links">

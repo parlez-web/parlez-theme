@@ -1,4 +1,4 @@
-=== Jouy Theme ===
+=== cosmo Theme ===
 
 Requires at least: 4.0
 Tested up to: 4.9

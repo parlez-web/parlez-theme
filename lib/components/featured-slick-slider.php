@@ -3,7 +3,7 @@
 * Slick slider that shows featured posts from category 'featured'.
 *
 */
-if ( ! function_exists( 'jouy_post_slider' ) ) :
+if ( ! function_exists( 'cosmo_post_slider' ) ) :
 	/**
 	 * Show a featured post slider
    *
@@ -11,9 +11,9 @@ if ( ! function_exists( 'jouy_post_slider' ) ) :
    * @param $template: Content template to use
    *
 	 */
-	function jouy_post_slider($ppp, $template) {
+	function cosmo_post_slider($ppp, $template) {
 
-      if(get_theme_mod('jouy_slider_type', 'latest') == 'latest') {
+      if(get_theme_mod('cosmo_slider_type', 'latest') == 'latest') {
         $cat_name = '';
       } else {
         $cat_name = 'featured';

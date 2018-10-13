@@ -7,6 +7,9 @@
 	letter-spacing: 0.04em;
 	height: auto;
 	font-size: 1em;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 
 	.nav-inner {
 		display: none;
@@ -20,6 +23,12 @@
 		background-color: rgba(255,255,255,0.9);
 		justify-content: center;
 		flex-direction: column;
+		flex: 1;
+	}
+
+	.social-media-icons, .searchform {
+		display: flex;
+		align-items: center;
 	}
 
 	ul {
@@ -70,6 +79,8 @@
 		position: relative;
 		display: block;
 		padding: 1em 1.5em;
+		letter-spacing: 0.05em;
+		font-size: 1.05em;
 
 		&:hover > a,
 		&.focus > a {
@@ -268,6 +279,11 @@
 	}
 }
 
+
+/*
+* Desktop Menu
+------------------
+*/
 @include breakpoint(tablet) {
 	.menu-toggle, .nav-headline {
 		display: none;
@@ -279,10 +295,10 @@
 
 	.main-navigation {
 	clear: both;
-	display: block;
 	width: 100%;
 	position: relative;
 	height: auto;
+	padding: 2.5em 2em;
 
 		.nav-inner {
 			display: flex;
@@ -290,13 +306,21 @@
 			align-items: center;
 			justify-content: center;
 			flex-wrap: wrap;
-			padding: .4em;
 			position: relative;
 			background-color: transparent;
 			height: auto;
+			padding: 0 0.75em;
+		}
+
+		.social-search {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
 
 			.social-media-icons {
-				display: none;
+				margin: 0;
+				margin-right: 0.75em;
 			}
 		}
 

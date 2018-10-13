@@ -17,7 +17,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			jouy_posts_navigation();
+			cosmo_posts_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -33,12 +33,12 @@ get_header(); ?>
 	<?php get_sidebar(); ?>
 
 	<?php
-	if( get_theme_mod('jouy_related_checkbox', true) == true) {
-		if ( get_theme_mod('jouy_related_type', 'categories') == 'categories' ) {
-			jouy_related_posts_categories();
+	if( get_theme_mod('cosmo_related_checkbox', true) == true) {
+		if ( get_theme_mod('cosmo_related_type', 'categories') == 'categories' ) {
+			cosmo_related_posts_categories();
 		}
 		else {
-			jouy_related_posts_tags();
+			cosmo_related_posts_tags();
 		}
 	}
 	?>

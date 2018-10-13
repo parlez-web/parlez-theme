@@ -46,10 +46,10 @@ class MPS_Profile_Widget extends WP_Widget {
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Jouy Profile Widget', $this->get_widget_slug() ),
+			__( 'cosmo Profile Widget', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Profile Widget for Sidebar of Jouy Theme.', $this->get_widget_slug() )
+				'description' => __( 'Profile Widget for Sidebar of cosmo Theme.', $this->get_widget_slug() )
 			)
 		);
 		// Register admin styles and scripts
@@ -93,7 +93,6 @@ class MPS_Profile_Widget extends WP_Widget {
 	   $description = ! empty( $instance['description'] ) ? $instance['description'] : '';
 	   $button_text = ! empty( $instance['button_text'] ) ? $instance['button_text'] : '';
 	   $button_link = ! empty( $instance['button_link'] ) ? $instance['button_link'] : '';
-	   $socialmedia_check = ! empty( $instance[ 'socialmedia_check' ] ) ? 'true' : 'false';
 	 
 	   $before_widget = str_replace('class="', 'class="about-widget ', $args["before_widget"]);
 
@@ -101,33 +100,34 @@ class MPS_Profile_Widget extends WP_Widget {
 	   echo $before_widget;
 	   
 	   ?>
+
+	   <div class="widget-content">
 	 
-	   <?php if($image): ?>
-	      <img src="<?php echo esc_url($image); ?>" alt="">
-	   <?php endif; ?>
+		   <?php if($image): ?>
+		      <div class="about-image"><img src="<?php echo esc_url($image); ?>" alt=""></div>
+		   <?php endif; ?>
 
-	   <div class="about-content light-bg">
+		   <div class="about-content light-bg">
 
-	   		<?php 
-			if ( ! empty( $instance['title'] ) ) {
-			    echo $args['before_title'] . $title . $args['after_title'];
-			}
-	   		?>
+		   		<?php 
+				if ( ! empty( $instance['title'] ) ) {
+				    echo $args['before_title'] . $title . $args['after_title'];
+				}
+		   		?>
 
-			<?php if($description) : ?>
-				<p class='about-text'><?php echo $description ?></p>
-			<?php endif; ?>
+				<?php if($description) : ?>
+					<p class='about-text'><?php echo $description ?></p>
+				<?php endif; ?>
 
-			<?php if($button_text && $button_link) : ?>
-				<a href='<?php echo esc_url($button_link) ?>'><p class="dark"><?php echo $button_text ?></p></a>
-			<?php endif; ?>
+				<?php if($button_text && $button_link) : ?>
+					<a href='<?php echo esc_url($button_link) ?>'><p class="dark"><?php echo $button_text ?> >></p></a>
+				<?php endif; ?>
+
+			</div> 
 
 		</div>
-
-		<?php if($socialmedia_check) : ?>
-			<?php jouy_social_media(); ?>
-		<?php endif; 
 	 
+	   <?php
 	   echo $args['after_widget'];
 
 	   ob_end_flush();
@@ -154,8 +154,7 @@ class MPS_Profile_Widget extends WP_Widget {
 	   $instance['description'] =  strip_tags($new_instance['description']);
 	   $instance['button_text'] =  strip_tags($new_instance['button_text']);
 	   $instance['button_link'] = strip_tags($new_instance['button_link']);
-	   $instance[ 'socialmedia_check' ] = ( ! empty( $new_instance[ 'socialmedia_check' ] ) ) ? 'true' : 'false';
-	 
+
 	   return $instance;
 
 	}
@@ -173,7 +172,6 @@ class MPS_Profile_Widget extends WP_Widget {
 	   $description = ! empty ( $instance['description']) ? esc_textarea($instance['description']) : '';
 	   $button_link = ! empty ( $instance['button_link'] ) ? esc_attr($instance['button_link']): '';
 	   $button_text = ! empty( $instance['button_text'] ) ? esc_attr($instance['button_text']) : '';
-	   $socialmedia_check = ! empty( $instance['socialmedia_check'] ) ? $instance['socialmedia_check'] : 'false';
 	  
 
 	   ?>
@@ -226,12 +224,6 @@ class MPS_Profile_Widget extends WP_Widget {
 		       type="text"
 		       class="widefat"
 		/>
-		</p>
-
-		<!-- Checkbox Social Media Icons -->
-		<p>
-		    <input class="checkbox" type="checkbox" <?php checked( $socialmedia_check, 'true' ); ?> id="<?php echo $this->get_field_id( 'socialmedia_check' ); ?>" name="<?php echo $this->get_field_name( 'socialmedia_check' ); ?>" /> 
-		    <label for="<?php echo $this->get_field_id( 'socialmedia_check' ); ?>"> Show Social Media Icons</label>
 		</p>
 
 

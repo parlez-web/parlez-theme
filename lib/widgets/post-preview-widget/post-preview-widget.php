@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Jouy_Posts_Widget extends WP_Widget {
+class cosmo_Posts_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -42,11 +42,11 @@ class Jouy_Posts_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'jouy' ) );		
+		add_action( 'init', array( $this, 'cosmo' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'Jouy Posts Widget', $this->get_widget_slug() ),
+			__( 'cosmo Posts Widget', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
 				'description' => __( 'Show featured posts in different theme locations.', $this->get_widget_slug() )
@@ -105,12 +105,12 @@ class Jouy_Posts_Widget extends WP_Widget {
 	   	if($type == 'category' && !empty($category)) {
 	   		$cat_slug = get_cat_name( $category );
 
-	   		jouy_featured_row('featured', $number, $cat_slug);
+	   		cosmo_featured_row('featured-small', $number, $cat_slug);
 
 	  	} else if ($type == 'popular') {
-	  		jouy_popular_posts('featured', $number);
+	  		cosmo_popular_posts('featured-small', $number);
 	  	} else if ($type == 'featured') {
-	  		jouy_featured_row('featured', $number, 'featured');
+	  		cosmo_featured_row('featured-small', $number, 'featured-small');
 	  	}
 
 	  	// No category set (if type is category)
@@ -155,7 +155,7 @@ class Jouy_Posts_Widget extends WP_Widget {
 	 * @param array instance The array of keys and values for the widget.
 	 */
 	public function form( $instance ) {
-	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'jouy' );
+	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'cosmo' );
 
 	   $number = ! empty ( $instance['number']) ? $instance['number'] : 4;
 	   $type = ! empty ( $instance['type'] ) ? esc_attr($instance['type']): 'featured';
@@ -173,7 +173,7 @@ class Jouy_Posts_Widget extends WP_Widget {
 	   <!-- Type of posts -->
 	   <p>
 			<label for="<?php echo $this->get_field_id( 'type' ) ?>">
-				<?php esc_html_e( 'Which kind of posts would you like to show?', 'jouy' ); ?>
+				<?php esc_html_e( 'Which kind of posts would you like to show?', 'cosmo' ); ?>
 			</label>
 			
 			<select class="widefat" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>">
@@ -189,7 +189,7 @@ class Jouy_Posts_Widget extends WP_Widget {
 		<p>
 
 			<label for="<?php echo $this->get_field_id( 'type' ) ?>">
-				<?php esc_html_e( 'Category', 'jouy' ); ?>
+				<?php esc_html_e( 'Category', 'cosmo' ); ?>
 			</label>
 
 		<?php 
@@ -211,7 +211,7 @@ class Jouy_Posts_Widget extends WP_Widget {
 		<!-- Number of posts -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'number' ) ?>">
-				<?php esc_html_e( 'Number of Posts to show', 'jouy' ); ?>
+				<?php esc_html_e( 'Number of Posts to show', 'cosmo' ); ?>
 			</label>
 			<input id="<?php echo $this->get_field_id( 'number' ) ?>"
 		       name="<?php echo $this->get_field_name( 'number' ) ?>"
@@ -231,8 +231,8 @@ class Jouy_Posts_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function jouy() {
-		// TODO be sure to change 'jouy-profile-widget' to the name of *your* plugin
+	public function cosmo() {
+		// TODO be sure to change 'cosmo-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -297,10 +297,10 @@ class Jouy_Posts_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("Jouy_Posts_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("cosmo_Posts_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-register_activation_hook( __FILE__, array( 'Jouy Posts Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'Jouy Posts Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'cosmo Posts Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'cosmo Posts Widget', 'deactivate' ) );
 
 

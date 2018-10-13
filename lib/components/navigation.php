@@ -2,14 +2,14 @@
 /**
  * Different Navigations for different use cases
  *
- * @package jouy
+ * @package cosmo
  */
 
-if ( ! function_exists( 'jouy_top_sticky_navigation' ) ) :
+if ( ! function_exists( 'cosmo_top_sticky_navigation' ) ) :
 	/**
 	 * Top Sticky Navigation (different view on desktop and mobile)
 	 */
-	function jouy_top_sticky_navigation() {
+	function cosmo_top_sticky_navigation() {
 		?>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="top-social">

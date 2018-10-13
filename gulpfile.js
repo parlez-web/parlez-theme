@@ -36,7 +36,7 @@ const
   sort         = require('gulp-sort'), // Recommended to prevent unnecessary changes in pot-file.
 
 
-  build     = './jouy/', // Files that you want to package into a zip go here
+  build     = './cosmo/', // Files that you want to package into a zip go here
   buildInclude  = [
         // include common file types
         '**/*.php',
@@ -70,9 +70,9 @@ var browsersync = false;
 
 // START Editing Project Variables.
 // Project related.
-var project                 = 'Jouy'; // Project Name.
+var project                 = 'cosmo'; // Project Name.
 var projectURL              = 'new-collection.test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
-var productURL              = './jouy'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
+var productURL              = './cosmo'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 
 // Style related.

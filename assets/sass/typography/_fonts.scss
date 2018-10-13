@@ -1,55 +1,33 @@
 @font-face {
-  font-family: "Quattrocento Sans";
-  src:url("assets/fonts/quattrocentosans-regular-webfont.eot");
-  src:url("assets/fonts/quattrocentosans-regular-webfont.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/quattrocentosans-regular-webfont.woff") format("woff"),
-    url("assets/fonts/quattrocentosans-regular.ttf") format("truetype"),
-    url("assets/fonts/quattrocentosans-regular-webfont.svg#quattrocentosans-regular") format("svg");
+  font-family: "Poppins";
+  src:url("assets/fonts/poppins-regular-webfont.eot");
+  src:url("assets/fonts/poppins-regular-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/poppins-regular-webfont.woff") format("woff"),
+    url("assets/fonts/poppins-regular.ttf") format("truetype"),
+    url("assets/fonts/poppins-regular-webfont.svg#poppins-regular") format("svg");
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Quattrocento Sans";
-  src:url("assets/fonts/quattrocentosans-italic-webfont.eot");
-  src:url("assets/fonts/quattrocentosans-italic-webfont.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/quattrocentosans-italic-webfont.woff") format("woff"),
-    url("assets/fonts/quattrocentosans-italic.ttf") format("truetype"),
-    url("assets/fonts/quattrocentosans-italic-webfont.svg#quattrocentosans-italic") format("svg");
+  font-family: "Poppins";
+  src:url("assets/fonts/poppins-italic-webfont.eot");
+  src:url("assets/fonts/poppins-italic-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/poppins-italic-webfont.woff") format("woff"),
+    url("assets/fonts/poppins-italic.ttf") format("truetype"),
+    url("assets/fonts/poppins-italic-webfont.svg#poppins-italic") format("svg");
   font-weight: 400;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Quattrocento Sans";
-  src:url("assets/fonts/quattrocentosans-bold-webfont.eot");
-  src:url("assets/fonts/quattrocentosans-bold-webfont.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/quattrocentosans-bold-webfont.woff") format("woff"),
-    url("assets/fonts/quattrocentosans-bold.ttf") format("truetype"),
-    url("assets/fonts/quattrocentosans-bold-webfont.svg#quattrocentosans-bold") format("svg");
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Quattrocento Sans";
-  src:url("assets/fonts/quattrocentosans-bolditalic-webfont.eot");
-  src:url("assets/fonts/quattrocentosans-bolditalic-webfont.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/quattrocentosans-bolditalic-webfont.woff") format("woff"),
-    url("assets/fonts/quattrocentosans-bolditalic.ttf") format("truetype"),
-    url("assets/fonts/quattrocentosans-bolditalic-webfont.svg#quattrocentosans-bolditalic") format("svg");
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: "Audrey";
-  src:url("assets/fonts/audrey_and_louis_one-webfont.eot");
-  src:url("assets/fonts/audrey_and_louis_one-webfont.eot?#iefix") format("embedded-opentype"),
-    url("assets/fonts/audrey_and_louis_one-webfont.woff") format("woff"),
-    url("assets/fonts/audrey_and_louis_one.ttf") format("truetype"),
-    url("assets/fonts/audrey_and_louis_one-webfont.svg#audrey_and_louis_one") format("svg");
-  font-weight: 400;
+  font-family: "Poppins";
+  src:url("assets/fonts/poppins-medium-webfont.eot");
+  src:url("assets/fonts/poppins-medium-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/poppins-medium-webfont.woff") format("woff"),
+    url("assets/fonts/poppins-medium.ttf") format("truetype"),
+    url("assets/fonts/poppins-medium-webfont.svg#poppins-medium") format("svg");
+  font-weight: 600;
   font-style: normal;
 }
 

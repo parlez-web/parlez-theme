@@ -21,8 +21,8 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php jouy_posted_on(); ?> /
-			<?php jouy_entry_categories(); ?>
+			<?php cosmo_posted_on(); ?> /
+			<?php cosmo_entry_categories(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -33,7 +33,7 @@
 			the_content( sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'jouy' ),
+					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'cosmo' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -44,13 +44,13 @@
 			) );
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'jouy' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cosmo' ),
 				'after'  => '</div>',
 			) );
 		?>
 	</div><!-- .entry-content -->
 
 	<footer class="entry-footer">
-		<?php jouy_entry_footer(); ?>
+		<?php cosmo_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

@@ -12,7 +12,10 @@
  * @package MP_Starter_Theme
  */
 
-get_header(); ?>
+get_header(); 
+
+
+?>
 
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
@@ -63,11 +66,18 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 	<?php 
-	get_sidebar();
-	?>
+
+	if($sidebar) {
+		get_sidebar();
+	}
+	
+
+	// Close the primary/secondary container on fullwidth pages
+	if(!is_home() || !is_single()) {
+		echo '</div>';
+	}
 
 	
-	<?php 
 	if(is_home()) { ?>
 		<div id="after-content-home" class="widget-area after-content-home">
 			<?php dynamic_sidebar( 'after-content-home' ); ?>
