@@ -177,16 +177,17 @@ function cosmo_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Before Footer Instagram', 'cosmo' ),
+		'name'          => esc_html__( 'Before Footer Area', 'cosmo' ),
 		'id'            => 'before-footer',
-		'description'   => esc_html__( 'Add the Instagram Widget here.', 'cosmo' ),
+		'description'   => esc_html__( 'This widget areas shows right before the footer, on all pages, inlcuding homepage and single posts.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
+	
 	register_sidebar( array(
-		'name'          => esc_html__( 'Footer Widget Area', 'cosmo' ),
-		'id'            => 'footer-widgets',
-		'description'   => esc_html__( 'Space inside the footer to add a logo, menu or other widgets. You can choose to display 3 columns on desktop screens in the Customizer.', 'cosmo' ),
+		'name'          => esc_html__( 'After Single Post Area', 'cosmo' ),
+		'id'            => 'single-post-widgets',
+		'description'   => esc_html__( 'Insert Widgets specifially after single posts, right before the footer.', 'cosmo' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
@@ -253,12 +254,23 @@ function cosmo_get_customizer_css() {
 
     $bg_color = get_theme_mod( 'secondary_color', '#faf1ed' );
     $accent_color = get_theme_mod( 'accent_color', '#ddaba8' );
+    $navfooter_bg_color = get_theme_mod( 'cosmo_footer_bg', '#111111' );
+    $navfooter_color = get_theme_mod( 'cosmo_footer_font_color', '#ffffff' );
 
-    if ( ! empty( $bg_color ) || ! empty( $accent_color ) ) {
+    $navfooter_shade = ($navfooter_color == 'dark') ? '#0c0c0c' : '#ffffff';
+
+
+    if ( ! empty( $bg_color ) || ! empty( $accent_color ) || ! empty($navfooter_color) || ! empty($navfooter_bg_color) ) {
       ?>
-      .light-bg, .main-navigation.fixed, .main-navigation ul .sub-menu, article.slick-slide .entry-body, .widget_yikes_easy_mc_widget {
+      .light-bg, .widget_yikes_easy_mc_widget {
         background-color: <?php echo sanitize_hex_color($bg_color); ?>;
       }
+      .main-navigation.fixed, footer.site-footer, .main-navigation:not(.toggled) ul .sub-menu {
+      	background-color: <?php echo sanitize_hex_color($navfooter_bg_color); ?>;
+  	  }
+  	  .main-navigation.fixed a, .main-navigation:not(.toggled) .sub-menu a, .main-navigation.fixed li a, .site-header a, .main-navigation.fixed .social-media-icons a, .main-navigation.fixed .searchform, .footer-info, .footer-info a, .footer-menu a, .footer-container .footer-info p.site-title a  {
+  	  	color: <?php echo sanitize_hex_color($navfooter_shade); ?>;
+  	  }
       button, input[type="submit"], .widget_yikes_easy_mc_widget form .yikes-easy-mc-submit-button:hover {
       	background-color: <?php echo sanitize_hex_color($accent_color); ?>;
   	  }

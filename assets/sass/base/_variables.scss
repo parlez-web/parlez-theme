@@ -8,10 +8,11 @@ $font-primary: "Poppins";
 // Secondary font for menu, categories, etc.
 $font-secondary: $font-primary;
 // Tertiary font for body text (if not the same as 2nd)
-$font-tertiary: $font-primary;
+$font-tertiary: "Cormorant Garamond";
 
 
-$font__text: normal 400 0.875em $font-tertiary, Georgia, Times New Roman;
+$font__text-single: normal 400 1.15em $font-tertiary, Georgia, Times New Roman;
+$font__text: normal 400 0.875em $font-primary, Montserrat, Arial;
 $font__headline: normal 600 1.55em $font-primary, Montserrat, Arial;
 $font__menu: normal 400 1em $font-secondary, Montserrat, Arial;
 $font__menu-small: normal 300 0.65em $font-secondary, Montserrat, Arial;
@@ -57,7 +58,7 @@ $color__border-abbr: #666666;
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
-$max_size__site-main: 75em;
+$max_size__site-main: 1180px;
 
 $padding__general: .785em;
 

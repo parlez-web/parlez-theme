@@ -167,7 +167,7 @@ if ( ! function_exists( 'cosmo_related_posts_tags' ) ) :
 			$args=array(
 				'tag__in' => $tag_ids,
 				'post__not_in' => array($post->ID),
-				'posts_per_page' => 4, // Number of related posts that will be shown.
+				'posts_per_page' => 3, // Number of related posts that will be shown.
 				'ignore_sticky_posts' => 1
 			);
 	    	$my_query = new wp_query( $args );
@@ -209,7 +209,7 @@ if ( ! function_exists( 'cosmo_related_posts_categories' ) ) :
 		    	$args=array(
 				    'category__in' => $category_ids,
 				    'post__not_in' => array($post->ID),
-				    'posts_per_page'=> 4, // Number of related posts that will be shown
+				    'posts_per_page'=> 3, // Number of related posts that will be shown
 				    'ignore_sticky_posts'=> 1
 			    );
 

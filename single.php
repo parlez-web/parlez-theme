@@ -30,7 +30,13 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
-	<?php get_sidebar(); ?>
+	<?php 
+	$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	
+	if($sidebar) {
+		get_sidebar();
+	}
+	?>
 
 	<?php
 	if( get_theme_mod('cosmo_related_checkbox', true) == true) {
@@ -41,9 +47,13 @@ get_header(); ?>
 			cosmo_related_posts_tags();
 		}
 	}
-	?>
-
 	
+
+	// Single Post and Page Widget
+	?>
+	<div id="after-single-post" class="widget-area single-post-widgets">
+		<?php dynamic_sidebar( 'single-post-widgets' ); ?>
+	</div><!-- #after-single-post -->
 
 <?php
 get_footer();

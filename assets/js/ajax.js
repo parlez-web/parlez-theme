@@ -23,7 +23,6 @@ $category_button.on('click', function(event) {
     $(this).addClass('selected');
     // Then call ajax function with slug 
     load_ajax_cat_posts( cat_slug );
-    console.log("Category: " + cat_slug);
 });
 
 //* Ajax Cat Function for Homepage
@@ -56,9 +55,8 @@ function load_ajax_cat_posts( slug ) {
             },
             error : function (jqXHR, textStatus, errorThrown) {
                 $loader.html($.parseJSON(jqXHR.responseText) + ' :: ' + textStatus + ' :: ' + errorThrown);
-                console.log(jqXHR);
+                // console.log(jqXHR);
                 // $no_posts.show();
-                ("Didn't work");
             },
         });
 }

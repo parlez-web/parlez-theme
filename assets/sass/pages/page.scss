@@ -1,5 +1,10 @@
 /* Static Page
 ----------------- */
+.site-content {
+  max-width: 100%;
+  padding: 0;
+}
+
 .page-title {
 	text-align: center;
 }
@@ -39,6 +44,7 @@
     margin-left: auto;
     margin-right: auto;
     margin-top: 2em;
+    padding: $padding__general;
   }
 
 

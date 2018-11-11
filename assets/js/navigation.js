@@ -48,7 +48,6 @@
 
 	// Close mechanism
 	$('.close').on('click', function() {
-		console.log('Called');
 		
 		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
 			container.className = container.className.replace( ' toggled', '' );
@@ -141,7 +140,6 @@
 * Navigation sticky on scroll
 */
 $(window).scroll(function () {
-      console.log($(window).scrollTop())
     if ($(window).scrollTop() > 350) {
       $('.main-navigation').addClass('fixed');
     }

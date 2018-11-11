@@ -2,42 +2,52 @@
 ------------------- */
 .site-content {
 	margin-top: 3em;
+	max-width: 1280px;
+}
+
+.site-content.has-sidebar #primary {
+    width: 100%;
 }
 
 #primary {
 	width: 100%;
 }
 
+.page-header {
+	width: 100%;
+	margin-bottom: 2em;
+}
+
 .site-main {
-	@include breakpoint(tablet) {
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 40px;
+
+	@include breakpoint(smartphone) {
+		grid-template-columns: 1fr 1fr;
 	}
 
-	.page-header {
-		width: 100%;
-		margin-bottom: 2em;
+	@include breakpoint(tablet) {
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 
 	article {
 		width: 100%;
-		display: block;
+		margin-bottom: 0em;
 
 		@include breakpoint(tablet) {
-			width: 31%;
+			margin-bottom: 3.5em;
 		}
 
 		.entry-thumbnail {
-			height: 400px;
+			height: 350px;
 			overflow: hidden;
 			display: flex;
 			align-items: center;
 			width: 100%;
 
 			@include breakpoint(tablet) {
-				height: 250px;
+				height: 350px;
 			}
 		}
 
@@ -50,6 +60,15 @@
 			.entry-content {
 				margin-top: 0.5em;
 			}
+		}
+
+		.entry-title {
+			font-size: 1.5em;
+		}
+
+		.entry-meta {
+			margin: 1em auto 1.35em auto;
+			font-size: 0.875em;
 		}
 	}
 }

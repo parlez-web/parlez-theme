@@ -35,6 +35,21 @@
 				<<?php echo $heading_tag; ?> class="site-title">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
 						<?php the_header_image_tag(); ?>
+
+						<!-- Custom Logo for fixed -->
+						<?php
+						$custom_logo = get_theme_mod('cosmo_footer_logo');
+
+						if($custom_logo != '') {
+
+							echo '<img class="fixed-logo" src="' . $custom_logo . '" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">';
+
+						} else {
+							
+							echo '<span class="fixed-logo">' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '</span>';
+
+						}
+						?>
 					</a>
 				</<?php echo $heading_tag; ?>>
 			<?php else : ?>
@@ -68,7 +83,16 @@
 					'theme_location' => 'menu-1',
 					'menu_id'        => 'primary-menu',
 				) );
+
+				cosmo_social_media();
+				
 			?>
+
+			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
+				<label for="search-nav"><i class="icon-search-bold"></i></label>
+			    <input type="text" id="search-nav" placeholder="<?php echo esc_attr( 'Type search', 'cosmo' ); ?>" value="" name="s" id="s" />
+			</form>
+
 		</div>
 
 		<div class="social-search">
@@ -94,7 +118,9 @@
 	}
 
 
-	$sidebar = get_theme_mod('cosmo_has_sidebar_home', false);
+	$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+
+	$sidebar_class = ($sidebar) ? 'has-sidebar' : '';
 	?>
 
-	<div id="content" class="site-content <?php ($sidebar) ? 'has-sidebar' : '' ?>">
+	<div id="content" class="site-content <?php echo $sidebar_class ?>">

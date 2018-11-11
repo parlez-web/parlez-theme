@@ -1,9 +1,9 @@
 .site-header {
-	text-align: center;
+	text-align: left;
   margin-top: 0;
   width: auto;
-  flex: 1;
   justify-content: flex-start;
+  flex: 1;
 
 	.site-branding {
 		width: 100%;
@@ -17,6 +17,19 @@
     margin-bottom: 0em;
     text-transform: lowercase;
     text-align: left;
+
+    a {
+      text-align: left;
+    }
+
+    img {
+      max-height: 70px;
+      width: auto;
+
+      &.fixed-logo {
+        max-height: 55px;
+      }
+    }
 	}
 
 	.site-description {
@@ -26,4 +39,18 @@
 
 
 
+.main-navigation {
+  .fixed-logo {
+    display: none
+  }
 
+  &.fixed {
+    .fixed-logo {
+      display: block;
+    }
+
+    .site-title a *:not(.fixed-logo) {
+      display: none;
+    }
+  }
+}

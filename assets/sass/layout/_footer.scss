@@ -1,60 +1,104 @@
 .before-footer {
-	margin-top: 1.5em;
+	width: 100%;
 }
 
 footer.site-footer {
-	margin-top: -2em;
+	margin-top: -3.5em;
 	padding-top: 2em;
+	color: white!important;
+	width: 100%;
 }
 
-.footer-widget-area {
-	padding: 0 $padding__general;
-	text-align: center;
+.footer-container {
+	max-width: $max_size__site-main;
+	padding: $padding__general;
+	margin: 2em auto;
+	display: flex;
+	align-items: flex-start;
+	flex-direction: column-reverse;
 
-	@include breakpoint(tablet) {
-		display: flex;
+	@include breakpoint(smartphone) {
 		flex-direction: row;
-		flex-wrap: wrap;
-		justify-content: space-between;
+		
+		.footer-info, .footer-menu {
+			flex: 1;
+		}
 	}
 
-	.widget {
-		width: 100%;
+	.footer-info {
+		padding-right: 0em;
+		line-height: 1.65em;
+		text-align: center;
 
 		@include breakpoint(tablet) {
-			width: 32%;
+			padding-right: 10em;
 		}
+
+		@include breakpoint(smartphone) {
+			padding-right: 3em;
+			text-align: left;
+		}
+
+		p.site-title {
+			font: normal 600 1.55em "Poppins", Montserrat, Arial;
+			font-size: 1.55em;
+			font-size: 2.35em;
+			margin-bottom: 1em;
+			text-transform: lowercase;
+
+			a {
+				color: white;
+			}
+		}
+
+		.blog-description {
+			margin-top: 0em;
+			margin-bottom: 3em;
+		}
+	}
+
+	.footer-menu {
+		padding-left: 1em;
 	}
 }
 
 .footer-menu {
 	@include menu-font();
 	padding: 0 $padding__general;
+	color: white;
 
 	ul#footer-menu {
 		list-style: none;
 		padding: 0;
 		margin: 1.7em auto;
 		text-align: center;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
 
 		li {
 			display: inline-block;
 			padding: 0.785em;
+			text-align: left;
+			font-size: 1.2em;
 		}
 	}
 
 	a {
-		color: $color__primary;
+		color: white;
 	}
 }
 
 .site-info {
-	padding: $padding__general;
 	text-align: center;
 	font: $font__menu-small;
+	margin-top: 2em;
+
+	@include breakpoint(smartphone) {
+		text-align: left;
+	}
 
 	a {
-		
+		color: white;
 	}
 }
 

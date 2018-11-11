@@ -14,6 +14,7 @@
 
 get_header(); 
 
+$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
 ?>
 
@@ -52,7 +53,7 @@ get_header();
 			endwhile;
 
 			// Older and newer posts
-			the_posts_navigation();
+			cosmo_numeric_posts_nav();
 
 		else :
 

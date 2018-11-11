@@ -12,12 +12,12 @@
 	&.fullwidth {
 		border-top: 1px solid $color__accent;
 		border-bottom: 1px solid $color__accent;
-		padding: 60px 0 60px 0;
+		padding: 60px 20px;
 		max-width: 100%;
 
 		.widget-content {
-				max-width: $max_size__site-main;
-				margin: 0 auto;
+			max-width: $max_size__site-main;
+			margin: 0 auto;
 		}
 	}
 
@@ -42,20 +42,6 @@
 }
 
 /* INSTAGRAM FEED by WP Instagram Widget */
-.before-footer {
-	.widgettitle {
-		font-weight: 400;
-		text-align: center;
-		text-transform: uppercase;
-		letter-spacing: 0.03em;
-		font-size: 1em;
-
-		span {
-			display: block;
-		}
-	}
-}
-
 .null-instagram-feed {
 
 	ul {
@@ -136,8 +122,8 @@
 	}
 
 	.entry-title {
-		font-size: 1.1em;
-		text-transform: uppercase;
+		font-size: 1.25em;
+		text-transform: none;
 	}
 
 	.entry-meta {
@@ -185,14 +171,21 @@ article.slick-slide {
 
 	.entry-header {
 		width: 100%;
-		max-width: 35%;
+		max-width: 80%;
 		padding: 3em 3.5em;
 		color: $color__primary;
 		background-color: white;
 		position: absolute;
 		bottom: 15%;
-		left: 10%;
+		left: 50%;
+		transform: translateX(-50%);
 		z-index: 9955;
+
+		@include breakpoint(tablet) {
+			max-width: 35%;
+			left: 10%;
+			transform: none;
+		}
 
 		.entry-title {
 			font-size: 1.5em;
@@ -274,6 +267,7 @@ article.slick-slide {
 	transform: translate(0,-50%);
 	font-size: 2em;
 	cursor: pointer;
+	display: none!important;
 
 	&:before {
 		display: block;
@@ -282,6 +276,7 @@ article.slick-slide {
 	@include breakpoint(tablet) {
 		top: 50%;
 		right: 30px;
+		display: block;
 	}
 }
 
@@ -325,18 +320,19 @@ article.slick-slide {
 /* RELATED POSTS */
 #related-posts {
 	margin: 0 auto;
-	max-width: $max_size__site-main;
+	max-width: 1280px;
 	padding: $padding__general;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	margin-top: 2em;
+	width: 100%;
 
 	h3.related-title {
 		text-align: center;
-		text-transform: uppercase;
-		font-size: 1em;
+		text-transform: none;
+		font-size: 1.45em;
 		letter-spacing: 0.03em;
 		width: 100%;
 		margin-bottom: 1.5em;
@@ -346,28 +342,51 @@ article.slick-slide {
 		width: 100%;
 
 		@include breakpoint(tablet) {
-			width: 24%;
+			width: 32%;
 		}
 
 		.entry-meta {
 			text-align: center;
+			font-size: 0.875em;
 
 			.posted-on {
 				display: none;
 			}
 		}
 
-		.entry-title {
-			line-height: 1.3em;
-			margin: 0.55em auto 0.25em auto;
-			font-size: 1.1em;
-			letter-spacing: 0;
-			text-transform: uppercase;
-			text-align: center;
+		.entry-header {
+			width: 95%;
 		}
 
+		.entry-thumbnail {
+			width: 100%;
+			height: 350px;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+
+			@include breakpoint(tablet) {
+				height: 350px;
+			}
+
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 350px;
+			}
+		}
+
+		.entry-title {
+			line-height: 1.3em;
+			margin: 0.5em auto;
+			font-size: 1.35em;
+			letter-spacing: 0;
+			text-transform: none;
+			text-align: center;
+		}
 	}
 }
+
 
 
 /* Youtube Widget */
@@ -426,35 +445,57 @@ article.slick-slide {
 /* Profile Widget
 -------------------- */
 .about-widget .widget-content {
-	display: flex;
-	align-items: center;
+	display: block;
+
+	@include breakpoint(tablet) {
+		display: flex;
+		align-items: center;
+	}
 
 	.about-image {
 		max-height: 500px;
 		overflow: hidden;
 		display: flex;
 		align-items: center;
-		width: 50%;
+		width: 100%;
+		justify-content: center;
+
+		@include breakpoint(tablet) {
+			width: 50%;
+		}
 	}
 
 	.about-content {
-		width: 50%;
+		width: 80%;
 		background-color: transparent;
+		margin: 0 auto;
 		margin-top: 2em;
 
+		@include breakpoint(tablet) {
+			width: 50%;
+		}
+
 		.widgettitle {
-			text-align: right;
+			text-align: center;
 			margin-right: 1em;
 			font-size: 1.75em;
 			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				text-align: right;
+			}
 		}
 
 		.about-text {
 			background-color: white;
-			margin-left: -5em;
-			padding: 3em 2em;
+			padding: 1em 2em;
 			line-height: 1.875em;
 			font-size: 0.975em;
+
+			@include breakpoint(tablet) {
+				margin-left: -5em;
+				padding: 3em 2em;
+			}
 		}
 
 		a {
@@ -468,39 +509,43 @@ article.slick-slide {
 	}
 }
 
-.sidebar.about-widget {
+#secondary .about-widget {
 	.widget-title {
-		font-family: 'Audrey';
-		font-size: 5em;
-		text-align: right;
-		font-weight: 400;
-		margin: 0;
-		letter-spacing: 0.02em;
-		line-height: 0.5em;
-		margin-top: -0.65em!important;
-		margin-right: 0.25em;
+		text-align: center;
 	}
 
 	img {
-		width: 90%;
+		width: 100%;
+	}
+
+	.widget-content {
+		display: block;
+	}
+
+	.about-image {
+		width: 100%;
 	}
 
 	.about-content {
-		padding: 0.5em 2em;
-		padding-top: 5.5em;
-		margin-top: -3.5em;
-		width: 90%;
-		margin-left: auto;
+		padding: 0.5em;
+		width: 100%;
+		margin-top: 0;
+
+		.widget-title {
+			margin: 1em auto;
+		}
 
 		.about-text {
 			font: $font__menu;
 			font-size: 0.85em;
 			line-height: 1.55em;
+			margin: 1em auto;
+			padding: 0em;
 		}
 
 		a {
 			color: $color__primary;
-			font-weight: bold;
+			font-weight: 400;
 		}
 	}
 }
@@ -549,6 +594,8 @@ article.slick-slide {
 	}
 
 	form {
+		display: block;
+
 		input {
 			border: none!important;
 			background-color: white!important;
@@ -572,6 +619,43 @@ article.slick-slide {
 			}
 		}
 	}
+}
+
+.widget-area:not(#secondary) .widget_yikes_easy_mc_widget {
+	max-width: 100%;
+
+	form {
+		max-width: $max_size__site-main;
+		margin: 0 auto;
+		display: block;
+
+		@include breakpoint(tablet) {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-end;
+		}
+
+		label, .yikes-easy-mc-submit-button {
+			width: 100%;
+			margin-bottom: 0;
+
+			@include breakpoint(tablet) {
+				width: 31%;
+			}
+		}
+
+		.yikes-easy-mc-submit-button {
+			max-height: 40px;
+			min-height: 0;
+			margin-bottom: 0.65em;
+			margin-top: 1em;
+
+			@include breakpoint(tablet) {
+				margin-top: 0;
+			}
+		}
+	}
+
 }
 
 /* Featured/Popular/Category Posts
@@ -649,12 +733,13 @@ article.slick-slide {
 			margin-bottom: 1em;
 			flex-direction: row-reverse;
 			border-bottom: 1px solid #eeeeee;
-			padding-bottom: 0.15em;
+			padding-bottom: 0.75em;
 
 			.entry-thumbnail {
 				margin-left: auto;
 				width: 100px;
 				height: auto;
+				margin-bottom: 0;
 
 				img {
 					width: 100px;

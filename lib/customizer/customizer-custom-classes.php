@@ -104,3 +104,63 @@ function cosmo_sanitize_number_absint( $number, $setting ) {
   return ( $number ? $number : $setting->default );
 }
 
+
+/**
+ * Image sanitization callback example.
+ *
+ * Checks the image's file extension and mime type against a whitelist. If they're allowed,
+ * send back the filename, otherwise, return the setting default.
+ *
+ * - Sanitization: image file extension
+ * - Control: text, WP_Customize_Image_Control
+ * 
+ * @see wp_check_filetype() https://developer.wordpress.org/reference/functions/wp_check_filetype/
+ *
+ * @param string               $image   Image filename.
+ * @param WP_Customize_Setting $setting Setting instance.
+ * @return string The image filename if the extension is allowed; otherwise, the setting default.
+ */
+function cosmo_sanitize_image( $image, $setting ) {
+  /*
+   * Array of valid image file types.
+   *
+   * The array includes image mime types that are included in wp_get_mime_types()
+   */
+    $mimes = array(
+        'jpg|jpeg|jpe' => 'image/jpeg',
+        'gif'          => 'image/gif',
+        'png'          => 'image/png',
+        'bmp'          => 'image/bmp',
+        'tif|tiff'     => 'image/tiff',
+        'ico'          => 'image/x-icon'
+    );
+  // Return an array with file extension and mime_type.
+    $file = wp_check_filetype( $image, $mimes );
+  // If $image has a valid mime_type, return it; otherwise, return the default.
+    return ( $file['ext'] ? $image : $setting->default );
+}
+
+
+/**
+ * HEX Color sanitization callback example.
+ *
+ * - Sanitization: hex_color
+ * - Control: text, WP_Customize_Color_Control
+ * 
+ * Note: sanitize_hex_color_no_hash() can also be used here, depending on whether
+ * or not the hash prefix should be stored/retrieved with the hex color value.
+ * 
+ * @see sanitize_hex_color() https://developer.wordpress.org/reference/functions/sanitize_hex_color/
+ * @link sanitize_hex_color_no_hash() https://developer.wordpress.org/reference/functions/sanitize_hex_color_no_hash/
+ *
+ * @param string               $hex_color HEX color to sanitize.
+ * @param WP_Customize_Setting $setting   Setting instance.
+ * @return string The sanitized hex color if not null; otherwise, the setting default.
+ */
+function cosmo_sanitize_hex_color( $hex_color, $setting ) {
+  // Sanitize $input as a hex value without the hash prefix.
+  $hex_color = sanitize_hex_color( $hex_color );
+  
+  // If $input is a valid hex value, return it; otherwise, return the default.
+  return ( ! is_null( $hex_color ) ? $hex_color : $setting->default );
+}

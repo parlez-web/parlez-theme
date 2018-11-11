@@ -23,12 +23,27 @@
 		background-color: rgba(255,255,255,0.9);
 		justify-content: center;
 		flex-direction: column;
-		flex: 1;
+		width: auto;
 	}
 
-	.social-media-icons, .searchform {
+	.searchform {
 		display: flex;
 		align-items: center;
+	}
+
+	.social-media-icons {
+		display: none;
+	}
+
+	@include breakpoint(desktop) {
+		.social-media-icons {
+			display: flex;
+			align-items: center;
+		}
+	}
+
+	.searchform i {
+		margin-right: 0.5em;
 	}
 
 	ul {
@@ -178,11 +193,21 @@
 		z-index: 9999; 
 		animation: fixed .5s ease forwards;
 		background-color: $color__secondary;
-		padding: 0.25em;
+		padding: 0.5em 1em;
 
 		li {
 			padding: 0.5em 1.5em;
+
+			a {
+				color: white;
+			}
 		}
+
+		.searchform input {
+			border-color: white;
+			padding: 0.25em 0;
+		}
+
 	}
 
 	.admin-bar .main-navigation.fixed { margin: 0; position: fixed-admin; top: 32px; left: 0; width: 100%; z-index: 9999; animation: fixed .5s ease forwards }
@@ -216,11 +241,11 @@
 .menu-toggle {
 	display: block;
 	position: relative;
-	width: 100%;
+	width: auto;
 	text-align: center;
 	border: none;
 	background: none;
-	padding: 0;
+	padding: 0 0.5em;
 	font-size: 2.5em;
 	color: $color__primary;
 	margin: 0;
@@ -263,20 +288,30 @@
 
 	.nav-inner {
 		display: flex;
+		width: 100%;
+	}
+
+	.searchform {
+		margin-top: 1.5em;
+		justify-content: center;
+
+		input {
+			width: 80%;
+		}
 	}
 
 	.social-media-icons {
 		margin: 1.875em 0 2em 0;
+		display: block;
 	}
 
 	#primary-menu {
 		margin: 1em auto;
 	}
 }
-.admin-bar {
-	.main-navigation {
-		top: 50px;
-	}
+
+.social-search {
+		display: none;
 }
 
 
@@ -293,12 +328,28 @@
     	top: 0px;
 	}
 
+	.searchform {
+		margin-left: 2em;
+
+		input {
+			width: 0;
+			padding: 0;
+			transition: width 0.3s ease-in-out;
+			background-color: transparent;
+
+			&:focus {
+				width: 200px;
+			}
+		}	
+		
+	}
+
 	.main-navigation {
 	clear: both;
 	width: 100%;
 	position: relative;
 	height: auto;
-	padding: 2.5em 2em;
+	padding: 2em 2em;
 
 		.nav-inner {
 			display: flex;
@@ -310,6 +361,10 @@
 			background-color: transparent;
 			height: auto;
 			padding: 0 0.75em;
+
+			.social-media-icons, .searchform {
+				display: none;
+			}
 		}
 
 		.social-search {
@@ -405,25 +460,10 @@
 		}
 	}
 
-	.searchform {
-		margin-left: 2em;
-
-		input {
-			width: 0;
-			padding: 0;
-			transition: width 0.3s ease-in-out;
-			background-color: transparent;
-
-			&:focus {
-				width: 200px;
-			}
-		}	
-		
-	}
-
 }
 
 .searchform {
+
 	label {
 		cursor: pointer;
 		vertical-align: middle;
@@ -433,6 +473,14 @@
 		border: none;
 		border-bottom: 1px solid $color__primary;
 		border-radius: 0px;
+		width: 0;
+		padding: 0;
+		transition: width 0.3s ease-in-out;
+		background-color: transparent;
+
+		&:focus {
+			width: 200px;
+		}
 	}
 }
 
@@ -447,12 +495,24 @@
 
 	.nav-previous {
 		float: left;
-		width: 50%;
+		width: 100%;
+		margin-bottom: 1em;
+
+		@include breakpoint(tablet) {
+			width: 50%;
+			margin-bottom: 0em;
+		}
 	}
 
 	.nav-next {
 		float: right;
 		text-align: right;
-		width: 50%;
+		width: 100%;
+		margin-top: 1em;
+
+		@include breakpoint(tablet) {
+			width: 50%;
+			margin-top: 0;
+		}
 	}
 }

@@ -11,21 +11,35 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-	<header class="entry-header">
-		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+	<?php 
+	if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+		?><div class="entry-thumbnail site-max-width">
+           <?php the_post_thumbnail(); ?>
+        </div>
+    <?php } ?>
 
+	<header class="entry-header site-max-width">
+		<?php	
 		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php cosmo_posted_on(); ?> /
-			<?php cosmo_entry_categories(); ?>
+		<div class="entry-meta site-max-width">
+			<?php cosmo_entry_categories(); ?> |
+			<?php cosmo_posted_on(); ?> 
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
+
+		<?php
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title site-max-width">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif;
+		?>
+
+		<?php if ( has_excerpt() ) : // Only show custom excerpts not autoexcerpts ?>
+		    <p class="entry-excerpt site-max-width"><?php echo get_the_excerpt(); ?></p>
+		<?php endif; ?>
+
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -50,7 +64,7 @@
 		?>
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
+	<footer class="entry-footer site-max-width">
 		<?php cosmo_entry_footer(); ?>
 	</footer><!-- .entry-footer -->
 </article><!-- #post-<?php the_ID(); ?> -->

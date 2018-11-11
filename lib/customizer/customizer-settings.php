@@ -77,6 +77,15 @@ $wp_customize->add_section( 'cosmo_general_section', array(
         'title'          => __('General Options', 'cosmo'),
         'description'    => __('General settings for the cosmo Theme.', 'cosmo'),
     ) );
+
+// Footer & Navigation Settings
+$wp_customize->add_section( 'cosmo_footer_nav_section', array(
+	    'title'          => esc_attr__( 'Navigation & Footer Settings', 'cosmo' ),
+	    'description'    => esc_attr__( 'Set custom logo, styles and colors for sticky navigation and the footer.', 'cosmo' ),
+	    'panel'          => 'cosmo_theme_options_panel',
+	    'priority'       => 10,
+	) );
+
 }
 add_action( 'customize_register', 'cosmo_customizer_sections_register' );
 
@@ -122,10 +131,10 @@ add_action( 'customize_register', 'cosmo_color_customize_register' );
 */
 function cosmo_social_customize_register( $wp_customize ) {
 	$wp_customize->add_section( 'cosmo_social_media' , array(
-	    'title'      => __( 'Social Media', 'mps' ),
+	    'title'      => __( 'Social Media', 'cosmo' ),
 	    'priority'   => 70,
 	    'panel'		 => 'cosmo_theme_options_panel',
-	    'description' => __( 'Please add the links to your social media channels here. The URLs need to have a http:// or https:// in front, so it is best to simply copy the URL from the browser address tab. <br/> <a href="#">Find more information in our documentation</a>.', 'mps' )
+	    'description' => __( 'Please add the links to your social media channels here. The URLs need to have a http:// or https:// in front, so it is best to simply copy the URL from the browser address tab. <br/> <a href="#">Find more information in our documentation</a>.', 'cosmo' )
 	) );
 
 	$wp_customize->add_setting( 'facebook_link' , array(
@@ -408,13 +417,38 @@ add_action( 'customize_register', 'cosmo_readmore_customize_register' );
 * Add Sticky Sidebar Customizer Settings
 */
 function cosmo_sidebar_customize_register( $wp_customize ) {
+
+	//* Add Customizer Setting: Sidebar on Homepage + Single
+	$wp_customize->add_setting( 'cosmo_show_sidebar' , array(
+	    'default'     => 'fullwidth',
+	    'transport'   => 'refresh',
+	    'sanitize_callback' => 'cosmo_sanitize_select'
+	) );
+
+   //* Add Customizer Control: Sidebar on Homepage + Single Radioboxes Control
+   	$wp_customize->add_control('cosmo_show_sidebar',
+		array(
+			'settings'		=> 'cosmo_show_sidebar',
+			'section'		=> 'cosmo_general_section',
+			'type'			=> 'radio',
+			'label'			=> __( 'Show Sidebar', 'cosmo' ),
+			'description'	=> __( 'Please select if you want to show a sidebar next to your posts on homepage and single posts.', 'cosmo' ),
+			'choices'		=> array(
+				'sidebar' => __( 'Show Sidebar', 'cosmo' ),
+				'fullwidth' => __( 'Full-Width Posts', 'cosmo' )
+			)
+		)
+	);
+
+
+
 	$wp_customize->add_setting( 'cosmo_stickysidebar_checkbox' , array(
 	    'default'     => TRUE,
 	    'transport'   => 'refresh',
 	    'sanitize_callback'	=> 'cosmo_sanitize_checkbox'
 	) );
 
-   //* Add Customizer Control: Checkbox Related Posts
+   //* Add Customizer Control: Checkbox Sticky Sidebar
    $wp_customize->add_control( 'cosmo_stickysidebar_checkbox',
 		array(
 			'settings'		=> 'cosmo_stickysidebar_checkbox',
@@ -423,7 +457,6 @@ function cosmo_sidebar_customize_register( $wp_customize ) {
 			'label'			=> __( 'Make the sidebar stick to the top when scrolling', 'cosmo' ),
 		)
 	);
-
 
    //* Add Customizer Setting: Mobile Navigation Headline
 	$wp_customize->add_setting( 'cosmo_mobnav_headline' , array(
@@ -495,3 +528,78 @@ function cosmo_slider_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'cosmo_slider_customize_register' );
 
 
+
+/*
+* Add support for the custom footer logo and more settings
+*/
+function cosmo_footer_customize_register( $wp_customize ) {
+
+	//* Add Customizer Setting: Footer Logo Upload
+	$wp_customize->add_setting( 'cosmo_footer_logo' , array(
+	    'default'     => 0,
+	    'transport'   => 'refresh',
+	    'sanitize_callback'	=> 'cosmo_sanitize_image'
+	) );
+
+	// Add Customizer control: Footer Logo Upload
+    $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'cosmo_footer_logo', array(
+       	'label'    => __( 'Upload a logo for the footer and sticky navigation', 'cosmo' ),
+        'section'  => 'cosmo_footer_nav_section',
+        'settings' => 'cosmo_footer_logo',
+    ) ) );
+
+    // Color Picker for Bg Color
+	$wp_customize->add_setting('cosmo_footer_bg', array(
+            'default' => '#0c0c0c',
+            'type' => 'theme_mod',
+            'sanitize_callback' => 'cosmo_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'cosmo_footer_bg_color', array(
+		'label' => __( 'Set a background color', 'cosmo' ), 
+        'section' => 'cosmo_footer_nav_section',
+        'settings' => 'cosmo_footer_bg',
+        'type' => 'color',
+    ) ) );
+
+    //* Based on set background color: Choose light or dark font color
+	$wp_customize->add_setting( 'cosmo_footer_font_color' , array(
+	    'default'     => 'light',
+	    'transport'   => 'refresh',
+	    'sanitize_callback' => 'cosmo_sanitize_select'
+	) );
+
+   //* Add Customizer Control: Category or Tags for Related Posts Radioboxes Control
+   	$wp_customize->add_control('cosmo_footer_font_color',
+		array(
+			'settings'		=> 'cosmo_footer_font_color',
+			'section'		=> 'cosmo_footer_nav_section',
+			'type'			=> 'radio',
+			'label'			=> __( 'Set a font color', 'cosmo' ),
+			'description'	=> __( 'Please select if the footer font should be light or dark (based on the background color you chose before).', 'cosmo' ),
+			'choices'		=> array(
+				'light' => __( 'Light', 'cosmo' ),
+				'dark' => __( 'Dark', 'cosmo' )
+			)
+		)
+	);
+
+
+	// Footer Credit/Copyright Text
+    $wp_customize->add_setting( 'cosmo_footer_description' , array(
+	    'default'     => '',
+	    'transport'   => 'refresh',
+	    'sanitize_callback' => 'sanitize_text_field'
+	) );
+
+   //* Add Customizer Controls
+   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'cosmo_footer_description', array(
+		'label'        => __( 'Footer site description', 'mp' ),
+		'description'	=> __( 'The theme will automatically fetch your blog description if this field is empty.', 'cosmo' ),
+		'type' => 'textarea',
+		'section'    => 'cosmo_footer_nav_section',
+		'settings'   => 'cosmo_footer_description',
+	) ) );
+}
+add_action( 'customize_register', 'cosmo_footer_customize_register' );

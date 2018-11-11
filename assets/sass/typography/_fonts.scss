@@ -31,6 +31,39 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Cormorant Garamond";
+  src:url("assets/fonts/cormorantgaramond-regular-webfont.eot");
+  src:url("assets/fonts/cormorantgaramond-regular-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/cormorantgaramond-regular-webfont.woff") format("woff"),
+    url("assets/fonts/cormorantgaramond-regular.ttf") format("truetype"),
+    url("assets/fonts/cormorantgaramond-regular-webfont.svg#cormorantgaramond-regular") format("svg");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src:url("assets/fonts/cormorantgaramond-italic-webfont.eot");
+  src:url("assets/fonts/cormorantgaramond-italic-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/cormorantgaramond-italic-webfont.woff") format("woff"),
+    url("assets/fonts/cormorantgaramond-italic.ttf") format("truetype"),
+    url("assets/fonts/cormorantgaramond-italic-webfont.svg#cormorantgaramond-italic") format("svg");
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  src:url("assets/fonts/cormorantgaramond-semibold-webfont.eot");
+  src:url("assets/fonts/cormorantgaramond-semibold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("assets/fonts/cormorantgaramond-semibold-webfont.woff") format("woff"),
+    url("assets/fonts/cormorantgaramond-semibold.ttf") format("truetype"),
+    url("assets/fonts/cormorantgaramond-semibold-webfont.svg#cormorantgaramond-semibold") format("svg");
+  font-weight: 700;
+  font-style: normal;
+}
+
 @charset "UTF-8";
 @font-face {
   font-family: "mps-icons";
