@@ -173,7 +173,7 @@ if ( ! class_exists( 'Fox' ) ) {
 
 
 		/**
-		 * Load cosmo theme components.  Themes must use `add_theme_support( $component )`
+		 * Load myboutique theme components.  Themes must use `add_theme_support( $component )`
 		 * to use a specific extension within the theme.
 		 *
 		 * @access public
@@ -190,7 +190,7 @@ if ( ! class_exists( 'Fox' ) ) {
 		}
 
 		/**
-		 * Load cosmo theme widgets that are not part of the cosmo Plugin. 
+		 * Load myboutique theme widgets that are not part of the myboutique Plugin. 
 		 * Themes must use `add_theme_support( $widget )` to add a widget.
 		 *
 		 * @access public

@@ -4,12 +4,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 $sticky = '';
 
-if(get_theme_mod('cosmo_stickysidebar_checkbox', true) == true ) {
+if(get_theme_mod('myboutique_stickysidebar_checkbox', true) == true ) {
 	$sticky = 'sticky';
 }
 

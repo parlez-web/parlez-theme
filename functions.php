@@ -1,10 +1,10 @@
 <?php
 /**
- * cosmo Theme functions and definitions
+ * myboutique Theme functions and definitions
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
- * @package cosmo_Theme
+ * @package myboutique_Theme
  */
 
 
@@ -15,7 +15,7 @@ require_once( get_template_directory() . '/lib/fox.php' );
 new Fox();
 
 
-if ( ! function_exists( 'cosmo_setup' ) ) :
+if ( ! function_exists( 'myboutique_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
 	 *
@@ -23,14 +23,14 @@ if ( ! function_exists( 'cosmo_setup' ) ) :
 	 * runs before the init hook. The init hook is too late for some features, such
 	 * as indicating support for post thumbnails.
 	 */
-	function cosmo_setup() {
+	function myboutique_setup() {
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
 		 * If you're building a theme based on MP Starter Theme, use a find and replace
-		 * to change 'cosmo' to the name of your theme in all the template files.
+		 * to change 'myboutique' to the name of your theme in all the template files.
 		 */
-		load_theme_textdomain( 'cosmo', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'myboutique', get_template_directory() . '/languages' );
 
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -52,8 +52,8 @@ if ( ! function_exists( 'cosmo_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'cosmo' ),
-			'footer-menu' => esc_html__( 'Footer Menu', 'cosmo' )
+			'menu-1' => esc_html__( 'Primary', 'myboutique' ),
+			'footer-menu' => esc_html__( 'Footer Menu', 'myboutique' )
 		) );
 
 		/*
@@ -69,7 +69,7 @@ if ( ! function_exists( 'cosmo_setup' ) ) :
 		) );
 
 		// Set up the WordPress core custom background feature.
-		add_theme_support( 'custom-background', apply_filters( 'cosmo_custom_background_args', array(
+		add_theme_support( 'custom-background', apply_filters( 'myboutique_custom_background_args', array(
 			'default-color' => 'ffffff',
 			'default-image' => '',
 		) ) );
@@ -100,13 +100,13 @@ if ( ! function_exists( 'cosmo_setup' ) ) :
 		/*
 		* Add Theme Support calls from the Fox Framework.
 		*/
-		// Popular Posts: cosmo_popular_posts()
+		// Popular Posts: myboutique_popular_posts()
 		add_theme_support('popular-posts');
 
-		// Featured Posts in a row: cosmo_featured_row()
+		// Featured Posts in a row: myboutique_featured_row()
 		add_theme_support('featured-row-posts');
 
-		// Featured Posts in slick slider: cosmo_post_slider()
+		// Featured Posts in slick slider: myboutique_post_slider()
 		add_theme_support('featured-slick-slider');
 
 		// Youtube Recent Videos Widget
@@ -129,7 +129,7 @@ if ( ! function_exists( 'cosmo_setup' ) ) :
 		add_editor_style( 'assets/css/editor-styles.css' );
 	}
 endif;
-add_action( 'after_setup_theme', 'cosmo_setup', 5 );
+add_action( 'after_setup_theme', 'myboutique_setup', 5 );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
@@ -138,21 +138,21 @@ add_action( 'after_setup_theme', 'cosmo_setup', 5 );
  *
  * @global int $content_width
  */
-function cosmo_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'cosmo_content_width', 640 );
+function myboutique_content_width() {
+	$GLOBALS['content_width'] = apply_filters( 'myboutique_content_width', 640 );
 }
-add_action( 'after_setup_theme', 'cosmo_content_width', 0 );
+add_action( 'after_setup_theme', 'myboutique_content_width', 0 );
 
 /**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
-function cosmo_widgets_init() {
+function myboutique_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'cosmo' ),
+		'name'          => esc_html__( 'Sidebar', 'myboutique' ),
 		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'cosmo' ),
+		'description'   => esc_html__( 'Add widgets here.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
 		'before_title'  => '<h2 class="widget-title">',
@@ -160,39 +160,39 @@ function cosmo_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Homepage Before Content', 'cosmo' ),
+		'name'          => esc_html__( 'Homepage Before Content', 'myboutique' ),
 		'id'            => 'before-content-home',
-		'description'   => esc_html__( 'Widget Area before main content that shows only on the homepage.', 'cosmo' ),
+		'description'   => esc_html__( 'Widget Area before main content that shows only on the homepage.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Homepage After Content', 'cosmo' ),
+		'name'          => esc_html__( 'Homepage After Content', 'myboutique' ),
 		'id'            => 'after-content-home',
-		'description'   => esc_html__( 'Widget Area after main content that shows only on the homepage.', 'cosmo' ),
+		'description'   => esc_html__( 'Widget Area after main content that shows only on the homepage.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Before Footer Area', 'cosmo' ),
+		'name'          => esc_html__( 'Before Footer Area', 'myboutique' ),
 		'id'            => 'before-footer',
-		'description'   => esc_html__( 'This widget areas shows right before the footer, on all pages, inlcuding homepage and single posts.', 'cosmo' ),
+		'description'   => esc_html__( 'This widget areas shows right before the footer, on all pages, inlcuding homepage and single posts.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 	
 	register_sidebar( array(
-		'name'          => esc_html__( 'After Single Post Area', 'cosmo' ),
+		'name'          => esc_html__( 'After Single Post Area', 'myboutique' ),
 		'id'            => 'single-post-widgets',
-		'description'   => esc_html__( 'Insert Widgets specifially after single posts, right before the footer.', 'cosmo' ),
+		'description'   => esc_html__( 'Insert Widgets specifially after single posts, right before the footer.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );
 }
-add_action( 'widgets_init', 'cosmo_widgets_init' );
+add_action( 'widgets_init', 'myboutique_widgets_init' );
 
 
 /*
@@ -200,27 +200,27 @@ add_action( 'widgets_init', 'cosmo_widgets_init' );
 */
 require get_template_directory() . '/plugin-update-checker-4.4/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-  'http://themes.munichparisstudio.com/server/?action=get_metadata&slug=cosmo',
+  'http://themes.munichparisstudio.com/server/?action=get_metadata&slug=myboutique',
   __FILE__,
-  'cosmo'
+  'myboutique'
 );
 
 
 /**
  * Enqueue scripts and styles.
  */
-function cosmo_scripts() {
-	wp_enqueue_style( 'cosmo-style', get_stylesheet_uri() );
+function myboutique_scripts() {
+	wp_enqueue_style( 'myboutique-style', get_stylesheet_uri() );
 	// Enqueue customizer color css
-	$custom_css = cosmo_get_customizer_css();
-  	wp_add_inline_style( 'cosmo-style', $custom_css );
+	$custom_css = myboutique_get_customizer_css();
+  	wp_add_inline_style( 'myboutique-style', $custom_css );
 
 	//Enqueue custom minified and concatenated js
-	wp_enqueue_script( 'cosmo-custom-slick-min', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'myboutique-custom-slick-min', get_template_directory_uri() . '/assets/js/slick.min.js', array('jquery'), '', true );
 	
-	wp_enqueue_script( 'cosmo-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true );
+	wp_enqueue_script( 'myboutique-custom', get_template_directory_uri() . '/js/custom.min.js', array('jquery'), '', true );
 	
-	wp_enqueue_style( 'cosmo-slick-style', get_template_directory_uri() . '/assets/css/slick.css' );
+	wp_enqueue_style( 'myboutique-slick-style', get_template_directory_uri() . '/assets/css/slick.css' );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -228,7 +228,7 @@ function cosmo_scripts() {
 
 
 }
-add_action( 'wp_enqueue_scripts', 'cosmo_scripts' );
+add_action( 'wp_enqueue_scripts', 'myboutique_scripts' );
 
 
 /**
@@ -249,13 +249,13 @@ add_filter( 'get_the_archive_title', function ($title) {
 /*
 * Generate the color scheme from the Customizer
 */
-function cosmo_get_customizer_css() {
+function myboutique_get_customizer_css() {
     ob_start();
 
     $bg_color = get_theme_mod( 'secondary_color', '#faf1ed' );
     $accent_color = get_theme_mod( 'accent_color', '#ddaba8' );
-    $navfooter_bg_color = get_theme_mod( 'cosmo_footer_bg', '#111111' );
-    $navfooter_color = get_theme_mod( 'cosmo_footer_font_color', '#ffffff' );
+    $navfooter_bg_color = get_theme_mod( 'myboutique_footer_bg', '#111111' );
+    $navfooter_color = get_theme_mod( 'myboutique_footer_font_color', '#ffffff' );
 
     $navfooter_shade = ($navfooter_color == 'dark') ? '#0c0c0c' : '#ffffff';
 

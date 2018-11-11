@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 ?>
@@ -23,7 +23,7 @@
 			<?php
 			if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php cosmo_entry_categories(); ?>
+				<?php myboutique_entry_categories(); ?>
 			</div><!-- .entry-meta -->
 			<?php
 			endif; ?>
@@ -37,19 +37,19 @@
 			<?php
 				the_excerpt( sprintf(
 					/* translators: %s: Name of current post. */
-					wp_kses( __( 'Continue reading %s<span class="meta-nav">&rarr;</span>', 'cosmo' ), array( 'span' => array( 'class' => array() ) ) ),
+					wp_kses( __( 'Continue reading %s<span class="meta-nav">&rarr;</span>', 'myboutique' ), array( 'span' => array( 'class' => array() ) ) ),
 					the_title( '<span class="screen-reader-text">"', '"</span>', false )
 				) );
 
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'cosmo' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'myboutique' ),
 					'after'  => '</div>',
 				) );
 			?>
 		</div><!-- .entry-content -->
 
 		<!-- <footer class="entry-footer">
-			<?php //cosmo_entry_footer(); ?>
+			<?php //myboutique_entry_footer(); ?>
 		</footer> .entry-footer -->
 
 	</div>	

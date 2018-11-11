@@ -9,12 +9,12 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 get_header(); 
 
-$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
 ?>
 
@@ -53,7 +53,7 @@ $sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? tru
 			endwhile;
 
 			// Older and newer posts
-			cosmo_numeric_posts_nav();
+			myboutique_numeric_posts_nav();
 
 		else :
 

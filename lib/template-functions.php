@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function cosmo_body_classes( $classes ) {
+function myboutique_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -19,36 +19,36 @@ function cosmo_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'cosmo_body_classes' );
+add_filter( 'body_class', 'myboutique_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function cosmo_pingback_header() {
+function myboutique_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'cosmo_pingback_header' );
+add_action( 'wp_head', 'myboutique_pingback_header' );
 
 
 /**
 * Replace [...] after automatic excerpts
 */
-function cosmo_excerpt_readmore($more) {
+function myboutique_excerpt_readmore($more) {
 	global $post;
-	if(get_theme_mod('cosmo_readmore_checkbox', true) == true)
+	if(get_theme_mod('myboutique_readmore_checkbox', true) == true)
 		return ' ...';
 }
-add_filter('excerpt_more', 'cosmo_excerpt_readmore');
+add_filter('excerpt_more', 'myboutique_excerpt_readmore');
 
 //Read More Button For Excerpt
-function cosmo_excerpt_read_more_link( $output ) {
+function myboutique_excerpt_read_more_link( $output ) {
 	global $post;
-	if(get_theme_mod('cosmo_readmore_checkbox', true) == true)
-		return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('cosmo_readmore_text', 'Read more') . ' >></button></a>';
+	if(get_theme_mod('myboutique_readmore_checkbox', true) == true)
+		return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('myboutique_readmore_text', 'Read more') . ' >></button></a>';
 }
-add_filter( 'the_excerpt', 'cosmo_excerpt_read_more_link' );
+add_filter( 'the_excerpt', 'myboutique_excerpt_read_more_link' );
 
 
 
@@ -115,7 +115,7 @@ return $urls;
 * http://www.wpbeginner.com/wp-themes/how-to-add-numeric-pagination-in-your-wordpress-theme/
 *
 */
-function cosmo_numeric_posts_nav() {
+function myboutique_numeric_posts_nav() {
  
     if( is_singular() )
         return;

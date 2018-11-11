@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php cosmo_entry_categories(); ?>
+			<?php myboutique_entry_categories(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -31,7 +31,7 @@
 			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		?>
 
-		<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('cosmo_readmore_text', 'Read more') ?> >></a>
+		<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('myboutique_readmore_text', 'Read more') ?> >></a>
 
 	</header><!-- .entry-header -->
 

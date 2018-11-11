@@ -2,7 +2,7 @@
 /**
  * All theme custom functions and tags (not in the framework) go in here.
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 // Allow HTML tags in Widget title 
@@ -25,7 +25,7 @@ add_action( 'pre_get_posts', 'wpsites_query' );
 
 
 // Re-build posts navigation
-function cosmo_posts_navigation() {
+function myboutique_posts_navigation() {
 	?>
 	<nav class="posts-navigation">
 		<div class="nav-links">

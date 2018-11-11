@@ -4,7 +4,7 @@
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 ?>
@@ -24,7 +24,7 @@
 		
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php cosmo_posted_on(); ?>
+			<?php myboutique_posted_on(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>

@@ -36,7 +36,7 @@ function load_ajax_cat_posts( slug ) {
             url: ajaxpagination.ajaxurl,
             data: {
                 'cat': slug,
-                'action': 'cosmo_category_post_ajax'
+                'action': 'myboutique_category_post_ajax'
             },
             beforeSend : function () {
                 // $content.html( $loading );

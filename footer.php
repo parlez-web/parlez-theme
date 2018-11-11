@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 ?>
@@ -18,7 +18,7 @@
 		<div class="footer-container">
 			<div class="footer-info">
 				<?php
-				$custom_logo = get_theme_mod('cosmo_footer_logo');
+				$custom_logo = get_theme_mod('myboutique_footer_logo');
 
 				if($custom_logo != '') {
 
@@ -31,7 +31,7 @@
 				}
 
 				
-				$footer_description = get_theme_mod('cosmo_footer_description');
+				$footer_description = get_theme_mod('myboutique_footer_description');
 
 				if($footer_description != '') {
 
@@ -47,7 +47,7 @@
 				<p class="site-info">
 					<?php
 						/* translators: 1: Theme name, 2: Theme author. */
-						printf( esc_html__( '%1$s by %2$s.', 'cosmo' ), '<a href="https://munichparisstudio.com" target="_blank">Cosmo WordPress Theme</a>', 'MunichParis Studio' );
+						printf( esc_html__( '%1$s by %2$s.', 'myboutique' ), '<a href="https://munichparisstudio.com" target="_blank">myboutique WordPress Theme</a>', 'MunichParis Studio' );
 					?>
 				</p><!-- .site-info -->
 			</div>

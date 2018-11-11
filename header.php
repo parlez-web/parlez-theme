@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 ?>
@@ -22,7 +22,7 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'cosmo' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'myboutique' ); ?></a>
 
 	<nav id="site-navigation" class="main-navigation">	
 
@@ -38,7 +38,7 @@
 
 						<!-- Custom Logo for fixed -->
 						<?php
-						$custom_logo = get_theme_mod('cosmo_footer_logo');
+						$custom_logo = get_theme_mod('myboutique_footer_logo');
 
 						if($custom_logo != '') {
 
@@ -74,8 +74,8 @@
 		<div class="nav-inner">
 			<div class="nav-headline">
 				<i class="close icon-delete"></i>
-				<?php if(get_theme_mod('cosmo_mobnav_headline', 'What are you looking for?')) : ?>
-					<h3><?php echo get_theme_mod('cosmo_mobnav_headline', 'What are you looking for?') ?></h3>
+				<?php if(get_theme_mod('myboutique_mobnav_headline', 'What are you looking for?')) : ?>
+					<h3><?php echo get_theme_mod('myboutique_mobnav_headline', 'What are you looking for?') ?></h3>
 				<?php endif; ?>
 			</div>
 			<?php
@@ -84,20 +84,20 @@
 					'menu_id'        => 'primary-menu',
 				) );
 
-				cosmo_social_media();
+				myboutique_social_media();
 				
 			?>
 
 			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
 				<label for="search-nav"><i class="icon-search-bold"></i></label>
-			    <input type="text" id="search-nav" placeholder="<?php echo esc_attr( 'Type search', 'cosmo' ); ?>" value="" name="s" id="s" />
+			    <input type="text" id="search-nav" placeholder="<?php echo esc_attr( 'Type search', 'myboutique' ); ?>" value="" name="s" id="s" />
 			</form>
 
 		</div>
 
 		<div class="social-search">
 			<?php 
-				cosmo_social_media();
+				myboutique_social_media();
 				get_search_form();
 			?>
 		</div>	
@@ -106,8 +106,8 @@
 
 	<?php if(is_home()) {
 		
-		if(get_theme_mod('cosmo_slider_checkbox', true) == true) {
-			cosmo_post_slider(4, 'featured');
+		if(get_theme_mod('myboutique_slider_checkbox', true) == true) {
+			myboutique_post_slider(4, 'featured');
 		}
 
 		?>
@@ -118,7 +118,7 @@
 	}
 
 
-	$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
 	$sidebar_class = ($sidebar) ? 'has-sidebar' : '';
 	?>

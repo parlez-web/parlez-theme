@@ -8,7 +8,7 @@
  * or theme author for support.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.6.1 for parent theme cosmo for publication on ThemeForest
+ * @version   2.6.1 for parent theme myboutique for publication on ThemeForest
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -331,77 +331,77 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 			// Load class strings.
 			$this->strings = array(
-				'page_title'                      => __( 'Install Required Plugins', 'cosmo' ),
-				'menu_title'                      => __( 'Install Plugins', 'cosmo' ),
+				'page_title'                      => __( 'Install Required Plugins', 'myboutique' ),
+				'menu_title'                      => __( 'Install Plugins', 'myboutique' ),
 				/* translators: %s: plugin name. */
-				'installing'                      => __( 'Installing Plugin: %s', 'cosmo' ),
+				'installing'                      => __( 'Installing Plugin: %s', 'myboutique' ),
 				/* translators: %s: plugin name. */
-				'updating'                        => __( 'Updating Plugin: %s', 'cosmo' ),
-				'oops'                            => __( 'Something went wrong with the plugin API.', 'cosmo' ),
+				'updating'                        => __( 'Updating Plugin: %s', 'myboutique' ),
+				'oops'                            => __( 'Something went wrong with the plugin API.', 'myboutique' ),
 				'notice_can_install_required'     => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'notice_can_install_recommended'  => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'notice_ask_to_update'            => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'notice_ask_to_update_maybe'      => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'notice_can_activate_required'    => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'notice_can_activate_recommended' => _n_noop(
 					/* translators: 1: plugin name(s). */
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
-					'cosmo'
+					'myboutique'
 				),
 				'install_link'                    => _n_noop(
 					'Begin installing plugin',
 					'Begin installing plugins',
-					'cosmo'
+					'myboutique'
 				),
 				'update_link'                     => _n_noop(
 					'Begin updating plugin',
 					'Begin updating plugins',
-					'cosmo'
+					'myboutique'
 				),
 				'activate_link'                   => _n_noop(
 					'Begin activating plugin',
 					'Begin activating plugins',
-					'cosmo'
+					'myboutique'
 				),
-				'return'                          => __( 'Return to Required Plugins Installer', 'cosmo' ),
-				'dashboard'                       => __( 'Return to the Dashboard', 'cosmo' ),
-				'plugin_activated'                => __( 'Plugin activated successfully.', 'cosmo' ),
-				'activated_successfully'          => __( 'The following plugin was activated successfully:', 'cosmo' ),
+				'return'                          => __( 'Return to Required Plugins Installer', 'myboutique' ),
+				'dashboard'                       => __( 'Return to the Dashboard', 'myboutique' ),
+				'plugin_activated'                => __( 'Plugin activated successfully.', 'myboutique' ),
+				'activated_successfully'          => __( 'The following plugin was activated successfully:', 'myboutique' ),
 				/* translators: 1: plugin name. */
-				'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'cosmo' ),
+				'plugin_already_active'           => __( 'No action taken. Plugin %1$s was already active.', 'myboutique' ),
 				/* translators: 1: plugin name. */
-				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'cosmo' ),
+				'plugin_needs_higher_version'     => __( 'Plugin not activated. A higher version of %s is needed for this theme. Please update the plugin.', 'myboutique' ),
 				/* translators: 1: dashboard link. */
-				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'cosmo' ),
-				'dismiss'                         => __( 'Dismiss this notice', 'cosmo' ),
-				'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'cosmo' ),
-				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'cosmo' ),
+				'complete'                        => __( 'All plugins installed and activated successfully. %1$s', 'myboutique' ),
+				'dismiss'                         => __( 'Dismiss this notice', 'myboutique' ),
+				'notice_cannot_install_activate'  => __( 'There are one or more required or recommended plugins to install, update or activate.', 'myboutique' ),
+				'contact_admin'                   => __( 'Please contact the administrator of this site for help.', 'myboutique' ),
 			);
 
 			do_action( 'tgmpa_register' );
@@ -604,8 +604,8 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			$actions['update'] = sprintf(
 				'<a href="%1$s" title="%2$s" class="edit">%3$s</a>',
 				esc_url( $this->get_tgmpa_status_url( 'update' ) ),
-				esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'cosmo' ),
-				esc_html__( 'Update Required', 'cosmo' )
+				esc_attr__( 'This plugin needs to be updated to be compatible with your theme.', 'myboutique' ),
+				esc_html__( 'Update Required', 'myboutique' )
 			);
 
 			return $actions;

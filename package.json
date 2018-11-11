@@ -1,7 +1,7 @@
 {
-  "name": "cosmo",
+  "name": "myboutique",
   "version": "1.0.0",
-  "description": "cosmo Starter Theme",
+  "description": "myboutique Starter Theme",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

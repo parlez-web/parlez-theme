@@ -46,10 +46,10 @@ class MPS_Profile_Widget extends WP_Widget {
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'cosmo Profile Widget', $this->get_widget_slug() ),
+			__( 'myboutique Profile Widget', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Profile Widget for Sidebar of cosmo Theme.', $this->get_widget_slug() )
+				'description' => __( 'Profile Widget for Sidebar of myboutique Theme.', $this->get_widget_slug() )
 			)
 		);
 		// Register admin styles and scripts

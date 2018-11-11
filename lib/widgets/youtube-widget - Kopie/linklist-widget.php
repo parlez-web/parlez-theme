@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class cosmo_LinkList_Widget extends WP_Widget {
+class myboutique_LinkList_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -32,7 +32,7 @@ class cosmo_LinkList_Widget extends WP_Widget {
      *
      * @var      string
      */
-    protected $widget_slug = 'cosmo-linklist-widget';
+    protected $widget_slug = 'myboutique-linklist-widget';
 	/*--------------------------------------------------*/
 	/* Constructor
 	/*--------------------------------------------------*/
@@ -42,14 +42,14 @@ class cosmo_LinkList_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'cosmo' ) );		
+		add_action( 'init', array( $this, 'myboutique' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'cosmo LinkList Widget', 'cosmo' ),
+			__( 'myboutique LinkList Widget', 'myboutique' ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'cosmo' )
+				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'myboutique' )
 			)
 		);
 		// Register admin styles and scripts
@@ -157,7 +157,7 @@ class cosmo_LinkList_Widget extends WP_Widget {
 	  ?>
 		 
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'cosmo'); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'myboutique'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" 
 			name="<?php echo $this->get_field_name('title'); ?>" type="text" 
 			value="<?php echo esc_attr($title); ?>" />
@@ -165,7 +165,7 @@ class cosmo_LinkList_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'cosmo'); ?>
+			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'myboutique'); ?>
 			<textarea id="<?php echo $this->get_field_id('description'); ?>" 
 			name="<?php echo $this->get_field_name('description'); ?>"><?php echo esc_attr($description); ?>" /></textarea>
 			</label>
@@ -181,11 +181,11 @@ class cosmo_LinkList_Widget extends WP_Widget {
 			?>
 			<h4>Link #<?php echo $key ?></h4>
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'cosmo'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'myboutique'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" value="<?php echo $value['name']; ?>" type="url"/>
 			</label> 
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'cosmo'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'myboutique'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" value="<?php echo $value['link']; ?>" type="url"/>
 			</label> 
 
@@ -208,8 +208,8 @@ class cosmo_LinkList_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function cosmo() {
-		// TODO be sure to change 'cosmo-profile-widget' to the name of *your* plugin
+	public function myboutique() {
+		// TODO be sure to change 'myboutique-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -274,10 +274,10 @@ class cosmo_LinkList_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("cosmo_LinkList_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_LinkList_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-register_activation_hook( __FILE__, array( 'cosmo LinkList Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'cosmo LinkList Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'myboutique LinkList Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'myboutique LinkList Widget', 'deactivate' ) );
 
 

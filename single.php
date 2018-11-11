@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package MP_Starter_Theme
+ * @package My_Boutique_Theme
  */
 
 get_header(); ?>
@@ -17,7 +17,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content', get_post_type() );
 
-			cosmo_posts_navigation();
+			myboutique_posts_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -31,7 +31,7 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 	<?php 
-	$sidebar = (get_theme_mod('cosmo_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 	
 	if($sidebar) {
 		get_sidebar();
@@ -39,12 +39,12 @@ get_header(); ?>
 	?>
 
 	<?php
-	if( get_theme_mod('cosmo_related_checkbox', true) == true) {
-		if ( get_theme_mod('cosmo_related_type', 'categories') == 'categories' ) {
-			cosmo_related_posts_categories();
+	if( get_theme_mod('myboutique_related_checkbox', true) == true) {
+		if ( get_theme_mod('myboutique_related_type', 'categories') == 'categories' ) {
+			myboutique_related_posts_categories();
 		}
 		else {
-			cosmo_related_posts_tags();
+			myboutique_related_posts_tags();
 		}
 	}
 	
