@@ -44,7 +44,7 @@ if (!function_exists('myboutique_load_ajax_category')) {
 	    if ($cat_loop -> have_posts()) :
 	    	while ($cat_loop -> have_posts()) : $cat_loop -> the_post();
 
-				get_template_part( 'template-parts/content-home', get_post_format() );
+				get_template_part( 'template-parts/content/content-home', get_post_format() );
 				
 	    	endwhile;
 	    else: 
@@ -97,7 +97,7 @@ if ( ! function_exists( 'myboutique_ajax_categories' ) ) :
 			<div class="category-posts">
 				<?php  
 				while( $ajax_category_loop->have_posts() ): $ajax_category_loop->the_post();
-				    get_template_part( 'template-parts/content', $template );
+				    get_template_part( 'template-parts/content/content', $template );
 				endwhile;
 				wp_reset_query();
 			?></div>

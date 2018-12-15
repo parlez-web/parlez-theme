@@ -24,89 +24,12 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'myboutique' ); ?></a>
 
-	<nav id="site-navigation" class="main-navigation">	
-
-		<header id="masthead" class="site-header">
-			<div class="site-branding">
-			<?php
-				$heading_tag = ( is_home() || is_front_page() ) ? 'h1' : 'div';
-				if( has_header_image() ) :
-			?>
-				<<?php echo $heading_tag; ?> class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-						<?php the_header_image_tag(); ?>
-
-						<!-- Custom Logo for fixed -->
-						<?php
-						$custom_logo = get_theme_mod('myboutique_footer_logo');
-
-						if($custom_logo != '') {
-
-							echo '<img class="fixed-logo" src="' . $custom_logo . '" alt="' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '">';
-
-						} else {
-							
-							echo '<span class="fixed-logo">' . esc_attr( get_bloginfo( 'name', 'display' ) ) . '</span>';
-
-						}
-						?>
-					</a>
-				</<?php echo $heading_tag; ?>>
-			<?php else : ?>
-				<<?php echo $heading_tag; ?> class="site-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home">
-						<?php bloginfo( 'name' ); ?>
-					</a>
-				</<?php echo $heading_tag; ?>>
-				<?php
-				$description = get_bloginfo( 'description', 'display' );
-				if ( $description || is_customize_preview() ) : ?>
-					<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php endif; 
-			endif; ?>
-
-			</div><!-- .site-branding -->
-
-		</header><!-- #masthead -->
-	
-		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><i class="icon-menu"></i></button>
-
-		<div class="nav-inner">
-			<div class="nav-headline">
-				<i class="close icon-delete"></i>
-				<?php if(get_theme_mod('myboutique_mobnav_headline', 'What are you looking for?')) : ?>
-					<h3><?php echo get_theme_mod('myboutique_mobnav_headline', 'What are you looking for?') ?></h3>
-				<?php endif; ?>
-			</div>
-			<?php
-				wp_nav_menu( array(
-					'theme_location' => 'menu-1',
-					'menu_id'        => 'primary-menu',
-				) );
-
-				myboutique_social_media();
-				
-			?>
-
-			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
-				<label for="search-nav"><i class="icon-search-bold"></i></label>
-			    <input type="text" id="search-nav" placeholder="<?php echo esc_attr( 'Type search', 'myboutique' ); ?>" value="" name="s" id="s" />
-			</form>
-
-		</div>
-
-		<div class="social-search">
-			<?php 
-				myboutique_social_media();
-				get_search_form();
-			?>
-		</div>	
-	</nav><!-- #site-navigation -->
-
+	<?php get_template_part( 'template-parts/header/header', 'style-2' ); ?>
 
 	<?php if(is_home()) {
 		
 		if(get_theme_mod('myboutique_slider_checkbox', true) == true) {
+			//myboutique_featured_row('featured', 4, 'featured', 'top');
 			myboutique_post_slider(4, 'featured');
 		}
 
@@ -123,4 +46,4 @@
 	$sidebar_class = ($sidebar) ? 'has-sidebar' : '';
 	?>
 
-	<div id="content" class="site-content <?php echo $sidebar_class ?>">
+	<div id="content" class="site-content small-width <?php echo $sidebar_class ?>">

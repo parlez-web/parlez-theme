@@ -42,11 +42,31 @@ $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') 
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				if($i == 0) {
-					get_template_part( 'template-parts/content', 'home' );
+
+				// Style 1: Big - small small - big - small small - big ...
+				if($i % 3 == 0) {
+					get_template_part( 'template-parts/content/content', 'home' );
 				} else {
-					get_template_part( 'template-parts/content', 'home-small' );
+					get_template_part( 'template-parts/content/content', 'home-small' );
 				}
+
+				// Style 2: Big - small small - small small ...
+				// if($i == 0) {
+				// 	get_template_part( 'template-parts/content/content', 'home' );
+				// } else {
+				// 	get_template_part( 'template-parts/content/content', 'home-small' );
+				// }
+
+				// Style 3: Big - Big - Big ... (centered)
+				// get_template_part( 'template-parts/content/content', 'home' );
+
+				// Style 4: Alternating left/right
+				// if($i % 2 == 0) {
+				// 	get_template_part( 'template-parts/content/content', 'alternating-left' );
+				// } else {
+				// 	get_template_part( 'template-parts/content/content', 'alternating-right' );
+				// }
+
 
 				$i++;
 
@@ -57,7 +77,7 @@ $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') 
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			get_template_part( 'template-parts/content/content', 'none' );
 
 		endif; ?>
 

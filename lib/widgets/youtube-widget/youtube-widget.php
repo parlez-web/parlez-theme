@@ -281,7 +281,7 @@ class myboutique_Youtube_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_Youtube_Widget");' ) );
+//add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_Youtube_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
 register_activation_hook( __FILE__, array( 'myboutique Youtube Widget', 'activate' ) );

@@ -29,6 +29,7 @@ $font__letter-spacing: .07em;
 $color__primary: #0c0c0c;
 $color__secondary: #faf1ed;
 $color__accent: #aaaaaa;
+$color__light-bg: #f8dfdf;
 
 
 $color__background-body: #ffffff;
@@ -58,9 +59,22 @@ $color__border-abbr: #666666;
 $size__site-main: 100%;
 $size__site-sidebar: 25%;
 
-$max_size__site-main: 1180px;
+$max_size__site-main: 1280px;
 
-$padding__general: .785em;
+$padding__general: 20px;
 
 $thumbnail_height: 250px;
 $thumbnail_mobile_height: 400px;
+
+
+.fullwidth-padding {
+  width: 100%;
+  padding: $padding__general;
+}
+
+.small-width {
+  width: 100%;
+  max-width: $max_size__site-main;
+  padding: $padding__general;
+  margin: 0 auto;
+}

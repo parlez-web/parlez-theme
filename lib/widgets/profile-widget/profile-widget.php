@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 // TODO: change 'Widget_Name' to the name of your plugin
-class MPS_Profile_Widget extends WP_Widget {
+class Myboutique_Profile_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -167,7 +167,7 @@ class MPS_Profile_Widget extends WP_Widget {
 	 */
 	public function form( $instance ) {
 	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'mps' );
-	   $image = ! empty( $instance['image'] ) ? $instance['image'] : '';
+	   $image = ! empty( $instance['image'] ) ? $instance['image'] : get_template_directory_uri() . '/lib/widgets/profile-widget/no-image.PNG';
 
 	   $description = ! empty ( $instance['description']) ? esc_textarea($instance['description']) : '';
 	   $button_link = ! empty ( $instance['button_link'] ) ? esc_attr($instance['button_link']): '';
@@ -298,11 +298,26 @@ class MPS_Profile_Widget extends WP_Widget {
 		wp_enqueue_script( $this->get_widget_slug().'-script', '/js/widget.js', array('jquery') );
 	} // end register_widget_script
 
+
+	/**
+	 * Registers Widget.
+	 */
+	public function register_the_widget() {
+		register_widget("MPS_Profile_Widget");
+	} // end register_widget_script
+
 } // end class
 
 
+/*
+* Register the widget.
+*/
+function myboutique_load_profile_widget() {
+	register_widget( 'Myboutique_Profile_Widget' );
+}
+
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("MPS_Profile_Widget");' ) );
+add_action( 'widgets_init', 'myboutique_load_profile_widget' );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
 register_activation_hook( __FILE__, array( 'MPS Profile Widget', 'activate' ) );

@@ -31,7 +31,7 @@ const
   sourcemaps   = require('gulp-sourcemaps'), // Maps code in a compressed file (E.g. style.css) back to it’s original position in a source file (E.g. structure.scss, which was later combined with other css files to generate style.css)
   notify       = require('gulp-notify'), // Sends message notification to you
   browserSync  = require('browser-sync').create(), // Reloads browser and injects CSS. Time-saving synchronised browser testing.
-  reload       = browserSync.reload, // For manual browser reload.
+  //reload       = browserSync.reload, // For manual browser reload.
   wpPot        = require('gulp-wp-pot'), // For generating the .pot file.
   sort         = require('gulp-sort'), // Recommended to prevent unnecessary changes in pot-file.
 
@@ -71,7 +71,7 @@ var browsersync = false;
 // START Editing Project Variables.
 // Project related.
 var project                 = 'myboutique'; // Project Name.
-var projectURL              = 'new-collection.test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
+var projectURL              = 'boutique.test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
 var productURL              = './myboutique'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 
@@ -127,7 +127,7 @@ const AUTOPREFIXER_BROWSERS = [
  *    6. Minifies the CSS file and generates style.min.css
  *    7. Injects CSS or reloads the browser via browserSync
  */
- gulp.task('styles', function () {
+ gulp.task('styles', function (done) {
     gulp.src( styleSRC )
     .pipe( sourcemaps.init() )
     .pipe( sass( {
@@ -162,6 +162,9 @@ const AUTOPREFIXER_BROWSERS = [
     .pipe( filter( '**/*.css' ) ) // Filtering stream to only css files
     .pipe( browserSync.stream() )// Reloads style.min.css if that is enqueued.
     .pipe( notify( { message: 'TASK: "styles" Completed! 💯', onLast: true } ) )
+
+    done();
+    
  });
 
 
@@ -176,7 +179,7 @@ const AUTOPREFIXER_BROWSERS = [
   *     3. Renames the JS file with suffix .min.js
   *     4. Uglifes/Minifies the JS file and generates custom.min.js
   */
- gulp.task( 'customJS', function() {
+ gulp.task( 'customJS', function(done) {
     gulp.src( jsCustomSRC )
     .pipe( concat( jsCustomFile + '.js' ) )
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
@@ -190,6 +193,9 @@ const AUTOPREFIXER_BROWSERS = [
     .pipe( lineec() ) // Consistent Line Endings for non UNIX systems.
     .pipe( gulp.dest( jsCustomDestination ) )
     .pipe( notify( { message: 'TASK: "customJs" Completed! 💯', onLast: true } ) );
+
+    done();
+
  });
 
  /**
@@ -205,7 +211,7 @@ const AUTOPREFIXER_BROWSERS = [
   * This task will run only once, if you want to run it
   * again, do it with the command `gulp images`.
   */
- gulp.task( 'images', function() {
+ gulp.task( 'images', function(done) {
   gulp.src( imagesSRC )
     .pipe( imagemin( {
           progressive: true,
@@ -215,11 +221,14 @@ const AUTOPREFIXER_BROWSERS = [
         } ) )
     .pipe(gulp.dest( imagesDestination ))
     .pipe( notify( { message: 'TASK: "images" Completed! 💯', onLast: true } ) );
+
+    done();
+
 });
 
 
 // browser-sync task for starting the server.
-gulp.task('browser-sync', function() {
+gulp.task('browser-sync', function(done) {
     //watch files
     var files = [
     './*.php',
@@ -229,11 +238,18 @@ gulp.task('browser-sync', function() {
     //initialize browsersync
     browserSync.init(files, {
     //browsersync with a php server
-    proxy: "http://new-collection.test/",
+    proxy: "http://boutique.test/",
     port: 3020,
-    notify: false
+    notify: false,
     });
+
+    done();
 });
+
+function reload(done) {
+  browserSync.reload();
+  done();
+}
 
 
 /*
@@ -250,10 +266,12 @@ gulp.task('clean', function () {
   * buildFiles copies all the files in buildInclude to build folder - check variable values at the top
   * buildImages copies all the images from img folder in assets while ignoring images inside raw folder if any
   */
-  gulp.task('build', function() {
+  gulp.task('build', function(done) {
     return  gulp.src(buildInclude)
       .pipe(gulp.dest(build))
       .pipe(notify({ message: 'Copy from buildFiles complete', onLast: true }));
+
+      done();
 });
 
 
@@ -262,8 +280,10 @@ gulp.task('clean', function () {
   *
   * Watches for file changes and runs specific tasks.
   */
- gulp.task( 'default', ['styles', 'customJS', 'images', 'browser-sync'], function () {
-  gulp.watch( projectPHPWatchFiles, reload ); // Reload on PHP file changes.
-  gulp.watch( styleWatchFiles, [ 'styles', reload ] ); // Reload on SCSS file changes.
-  gulp.watch( customJSWatchFiles, [ 'customJS', reload ] ); // Reload on customJS file changes.
-});
+ gulp.task( 'default', gulp.parallel('styles', 'customJS', 'images', 'browser-sync', function (done) {
+  gulp.watch( projectPHPWatchFiles, gulp.parallel(reload) ); // Reload on PHP file changes.
+  gulp.watch( styleWatchFiles, gulp.parallel( 'styles', reload ) ); // Reload on SCSS file changes.
+  gulp.watch( customJSWatchFiles, gulp.parallel( 'customJS', reload ) ); // Reload on customJS file changes.
+
+  done();
+}));

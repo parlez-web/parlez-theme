@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="first-post" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" class="left" <?php post_class(); ?>>
 		<?php 
 		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 				?><div class="entry-thumbnail">

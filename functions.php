@@ -27,7 +27,7 @@ if ( ! function_exists( 'myboutique_setup' ) ) :
 		/*
 		 * Make theme available for translation.
 		 * Translations can be filed in the /languages/ directory.
-		 * If you're building a theme based on MP Starter Theme, use a find and replace
+		 * If you're building a theme based on Boutique Starter Theme, use a find and replace
 		 * to change 'myboutique' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'myboutique', get_template_directory() . '/languages' );
@@ -52,7 +52,8 @@ if ( ! function_exists( 'myboutique_setup' ) ) :
 
 		// This theme uses wp_nav_menu() in two locations.
 		register_nav_menus( array(
-			'menu-1' => esc_html__( 'Primary', 'myboutique' ),
+			'primary-menu' => esc_html__( 'Primary Menu', 'myboutique' ),
+			'secondary-menu' => esc_html__( 'Secondary Menu', 'myboutique' ),
 			'footer-menu' => esc_html__( 'Footer Menu', 'myboutique' )
 		) );
 
@@ -115,11 +116,11 @@ if ( ! function_exists( 'myboutique_setup' ) ) :
 		// Profile Widget
 		add_theme_support('profile-widget');
 
-		// Linklist Widget
-		add_theme_support('linklist-widget');
-
 		// Posts Widget
 		add_theme_support('post-preview-widget');
+
+		// Thumbnails Widget
+		add_theme_support('thumbnails-widget');
 
 
 		/*
@@ -127,6 +128,9 @@ if ( ! function_exists( 'myboutique_setup' ) ) :
 		 * specifically font, colors, and column width.
 		 */
 		add_editor_style( 'assets/css/editor-styles.css' );
+
+		// Woocommerce Support
+		add_theme_support( 'woocommerce' );
 	}
 endif;
 add_action( 'after_setup_theme', 'myboutique_setup', 5 );
@@ -177,9 +181,9 @@ function myboutique_widgets_init() {
 	) );
 
 	register_sidebar( array(
-		'name'          => esc_html__( 'Before Footer Area', 'myboutique' ),
+		'name'          => esc_html__( 'Instagram Area', 'myboutique' ),
 		'id'            => 'before-footer',
-		'description'   => esc_html__( 'This widget areas shows right before the footer, on all pages, inlcuding homepage and single posts.', 'myboutique' ),
+		'description'   => esc_html__( 'The widget area to add an Instagram feed right above the footer.', 'myboutique' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>'
 	) );

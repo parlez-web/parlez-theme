@@ -1,7 +1,5 @@
 .widget {
 	margin: 3.5em auto;
-	padding: $padding__general;
-	max-width: $max_size__site-main;
 
 	/* Make sure select elements fit in widgets. */
 	select {
@@ -19,6 +17,31 @@
 			max-width: $max_size__site-main;
 			margin: 0 auto;
 		}
+	}
+
+	&:not(.null-instagram-feed) {
+
+		// General widgets styling
+		ul {
+			list-style: none;
+			padding-left: 0;
+
+			li {
+				text-align: center;
+				padding: 0.75em 1.5em;
+				border: 1px solid #dddddd;
+				margin: 1em auto;
+
+				&:hover {
+					background-color: $color__light-bg;
+				}
+			}
+
+			a {
+				color: $color__primary;
+			}
+		}
+		
 	}
 
 }
@@ -39,25 +62,6 @@
 
 #secondary .widget-title, #secondary .widgettitle {
 	margin-top: 3em;
-}
-
-/* INSTAGRAM FEED by WP Instagram Widget */
-.null-instagram-feed {
-
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		justify-content: center;
-
-		li {
-			width: 23%;
-			margin: 0.5%;
-		}
-	}
 }
 
 /* SOCIAL MEDIA ICONS */
@@ -133,152 +137,6 @@
 	}
 }
 
-
-/* SLICK RECENT POST SLIDER 
------------------------------ */
-.slick {
-	margin: 0 auto;
-}
-
-article.slick-slide {
-	width: 100%;
-	position: relative;
-	height: auto;
-	display: flex!important;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	margin-bottom: 0;
-
-	@include breakpoint(tablet) {
-		height: 550px;
-	}
-	
-	.entry-thumbnail {
-		width: 100%;
-		height: 550px;
-
-		@include breakpoint(tablet) {
-			width: 100%;
-		}
-
-		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	.entry-header {
-		width: 100%;
-		max-width: 80%;
-		padding: 3em 3.5em;
-		color: $color__primary;
-		background-color: white;
-		position: absolute;
-		bottom: 15%;
-		left: 50%;
-		transform: translateX(-50%);
-		z-index: 9955;
-
-		@include breakpoint(tablet) {
-			max-width: 35%;
-			left: 10%;
-			transform: none;
-		}
-
-		.entry-title {
-			font-size: 1.5em;
-		}
-
-		.entry-content {
-			margin-top: 1.5em;
-			font-size: 0.85em;
-			line-height: 1.3em;
-		}
-
-		.readmore {
-
-			.btn.read-more {
-				margin-top: 1.875em;
-				background-color: $color__primary!important;
-
-				&:hover {
-					background-color: $color__accent!important;
-				}
-			}
-
-			i {
-				display: none;
-			}
-		}
-	}
-}
-
-.slick-slide {
-	height: auto;
-}
-
-.slick-dots {
-	list-style: none;
-	text-align: center;
-	padding-left: 0;
-	margin-top: 2em;
-
-	li {
-		display: inline-block;
-		width: 11px;
-		height: 11px;
-		border: 1px solid #bbbbbb;
-		margin: 0 0.5em;
-		border-radius: 50%;
-		cursor: pointer;
-
-		&.slick-active {
-			background-color: #bbbbbb;
-		}
-
-		button {
-			display: none;
-		}
-	}
-}
-
-.slick-navigation {
-	color: $color__primary;
-	font-size: 2.75em;
-	cursor: pointer;
-
-	.prev {
-		left:0px;
-		@include slider-arrows();
-
-	}
-	.next {
-		right:0px;
-		@include slider-arrows();
-	}
-}
-
-.next-slide {
-	position: absolute;
-	top: 85%;
-	right: 15px;
-	transform: translate(0,-50%);
-	font-size: 2em;
-	cursor: pointer;
-	display: none!important;
-
-	&:before {
-		display: block;
-	}
-
-	@include breakpoint(tablet) {
-		top: 50%;
-		right: 30px;
-		display: block;
-	}
-}
 
 /* CATEGORY THUMBNAILS ON HOMEPAGE */
 .category-thumbnails {
@@ -687,12 +545,65 @@ article.slick-slide {
 	}
 }
 
-.popular-posts {
+.popular-posts, .featured-row {
 	display: flex;
 	align-items: flex-start;
 	justify-content: space-between;
 	flex-wrap: wrap;
-	padding: 0 1em;
+	padding: 0;
+
+	&.columns-2 {
+
+		article {
+			width: 49%;
+			margin: 0.5em 0;
+
+			@include breakpoint(tablet) {
+				width: 49%;
+			}
+
+		}
+
+	}
+	&.columns-3 {
+
+		article {
+			width: 100%;
+			margin: 0.5em 0;
+
+			@include breakpoint(tablet) {
+				width: 32%;
+			}
+
+		}
+		
+	}
+	&.columns-4 {
+
+		article {
+			width: 49%;
+			margin: 0.5em 0;
+
+			@include breakpoint(tablet) {
+				width: 24%;
+			}
+
+		}
+		
+	}
+	&.columns-5 {
+
+		article {
+			width: 49%;
+			margin: 0.5em 0;
+
+			@include breakpoint(tablet) {
+				width: 19%;
+			}
+
+		}
+		
+	}
 
 	article {
 		width: 49%;
@@ -766,3 +677,43 @@ article.slick-slide {
 }
 
 
+/* Thumbnails Widget
+----------------------- */
+.thumbnails-row {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	max-width: 100%;
+
+	.thumbnail {
+		width: 100%;
+		height: 350px;
+		background-size: cover;
+		background-position: center;
+		position: relative;
+		margin: 2em;
+
+		@include breakpoint(tablet) {
+			width: 32%;
+			margin: 0;
+		}
+
+		p {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+			background-color: white;
+			font: $font__menu;
+			text-transform: uppercase;
+			letter-spacing: 0.04em;
+			padding: 0.75em 1.75em;
+			margin: 0;
+
+			a {
+				color: $color__primary;
+			}
+		}
+	}
+}

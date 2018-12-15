@@ -1,7 +1,6 @@
 .site-content {
 	max-width: $max_size__site-main;
 	margin: 0 auto;
-	padding: $padding__general 1.25em;
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
@@ -29,7 +28,7 @@
 		width: 100%;
 
 		@include breakpoint(tablet) {
-			width: 65%;
+			width: 67%;
 			margin-right: auto;
 		}
 
@@ -43,7 +42,7 @@
 	padding: 0px 20px;
 
 	@include breakpoint(tablet) {
-		width: 27%;
+		width: 30%;
 		margin-left: auto;
 		// position: sticky;
 		// top: 60px;
@@ -174,8 +173,8 @@
 	justify-content: space-between;
 	flex-wrap: wrap;
 	flex-direction: row-reverse;
-	margin-top: 2em;
-	padding-bottom: 1em;
+	margin-top: 3em;
+	padding-bottom: 0em;
 
 	.share, .comments-link {
 		font: $font__menu-small;
@@ -186,21 +185,16 @@
 		}
 	}
 
-	.share {
-		width: 100%;
-		text-align: center;
-		font-size: 1.25em;
-		
-		a {
-			margin: 0 0.5em;
-		}
+	.share a {
+		margin: 0 0.5em;
 	}
+
 }
 
 /* First Article */
 article.first-post {
 	border-bottom: 1px solid #dddddd;
-	padding-bottom: 2em;
+	padding-bottom: 0!important;
 
 	.entry-title {
 		margin-top: 0;
@@ -255,7 +249,6 @@ article.first-post {
 		padding-bottom: 2em;
 
 		.entry-body {
-			max-width: 40em;
 			margin: 2em auto;
 			text-align: center;
 		}
@@ -332,7 +325,15 @@ article.first-post {
 	}
 
 	.entry-title {
+		margin: 0 auto;
 		margin-bottom: 0.35em;
+		max-width: 40em;
+	}
+
+	.entry-content {
+		max-width: 40em;
+		margin: 0 auto;
+		margin-top: 1em;
 	}
 }
 

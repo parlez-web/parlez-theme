@@ -36,3 +36,19 @@ function myboutique_posts_navigation() {
 	<?php 
 }
 			
+
+// Popup Search Function
+function myboutique_popup_search() {
+	?>
+	<div class="popup-search">
+		<div class="search-container">
+			<i class="icon-delete close-search"></i>
+			<h2><?php echo __('What are you looking for?', 'myboutique'); ?></h2>
+			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
+				<label for="search-top"><i class="icon-search-bold"></i></label>
+			    <input type="text" id="search-top" placeholder="<?php echo esc_attr( 'Type search', 'myboutique' ); ?>" value="" name="s" id="s" />
+			</form>
+		</div>
+	</div>
+	<?php
+}

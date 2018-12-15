@@ -1,0 +1,370 @@
+.main-navigation {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	font: $font__menu;
+	padding: 1em;
+
+	&.slide {
+		flex-direction: column;
+	}
+
+	&.toggled.slide {
+		.menu {
+			display: block;
+			position: relative;
+			height: auto;
+		}
+	}
+
+	&.toggled.fullwidth {
+		height: auto;
+		min-height: 100vh;
+		display: block;
+		z-index: 7777;
+
+		.menu-container {
+			display: flex;
+			width: 100%;
+		}
+
+		.searchform {
+			margin-top: 1.5em;
+			justify-content: center;
+
+			input {
+				width: 80%;
+			}
+		}
+
+		.social-media-icons {
+			margin: 1.875em 0 2em 0;
+			display: block;
+		}
+
+		#primary-menu {
+			margin: 1em auto;
+		}
+	}
+
+	.menu-toggle {
+		display: block;
+		position: relative;
+		width: auto;
+		text-align: center;
+		border: none;
+		background: none;
+		padding: 0 0.5em;
+		font-size: 2.5em;
+		color: $color__primary;
+		margin: 0;
+		z-index: 999;
+	}
+
+	.close.icon-delete {
+		font-size: 3em;
+		margin: 1em auto;
+		color: $color__primary;
+		cursor: pointer;
+	}
+
+	.menu-container, .menu {
+		display: none;
+		text-align: center;
+		padding: 3.25em 1.5em;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100vh;
+		background-color: rgba(255,255,255,0.9);
+		justify-content: center;
+		flex-direction: column;
+		width: auto;
+		flex: 1;
+
+		// Menu Items
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+			height: auto;
+			width: 100%;
+
+			ul {
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 99999;
+				padding: 10px 0px 20px 0px;
+				height: auto;
+				display: none;
+
+				ul {
+					left: 0;
+					top: 0;
+				}
+
+				li {
+
+					&:hover > ul,
+					&.focus > ul {
+						left: 0;
+					}
+				}
+
+				:hover > a,
+				.focus > a {
+				}
+
+				a:hover,
+				a.focus {
+				}
+			}
+
+			li:hover > ul,
+			li.focus > ul {
+				left: auto;
+			}
+		}
+
+		li {
+			position: relative;
+			display: block;
+			padding: 1em 1.5em;
+			letter-spacing: 0.05em;
+			font-size: 1.05em;
+
+			&:hover > a,
+			&.focus > a {
+			}
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			text-align: center;
+			color: $color__primary;
+
+			i {
+				margin-left: 0.45em;
+
+				&.icon-down, &.icon-up {
+					font-size: 1.2em;
+					vertical-align: middle;
+
+					@include breakpoint(tablet) {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+
+	.social-search-container {
+		display: flex;
+		align-items: center;
+		flex: 1;
+		justify-content: flex-end;
+		
+		.social-media-icons {
+			display: none;
+		}
+
+		.searchform i {
+			margin-right: 0.5em;
+		}
+	}
+}
+
+
+
+/*
+* Desktop Menu
+------------------
+*/
+@include breakpoint(tablet) {
+	.admin-bar .main-navigation {
+    	top: 0px;
+	}
+
+	.main-navigation {
+	clear: both;
+	width: 100%;
+	position: relative;
+	height: auto;
+
+	&.slide {
+		flex-direction: row;
+	}
+
+		.menu-toggle {
+			display: none;
+		}
+
+		.menu-container, .menu {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: flex-start;
+			flex-wrap: wrap;
+			position: relative;
+			background-color: transparent;
+			height: auto;
+			padding: 0;
+
+			ul {
+				display: flex;
+				flex-direction: row;
+				flex-wrap: wrap;
+				align-items: center;
+				list-style: none;
+				margin: 0;
+				padding-left: 0;
+				height: auto;
+				width: 100%;
+
+				ul {
+					float: left;
+					position: absolute;
+					top: 100%;
+					left: -999em;
+					z-index: 99999;
+					display: inline-block;
+					background-color: $color__secondary;
+
+					ul {
+						left: -999em;
+						top: -20px;
+						transition: top 0.3s ease-in-out;
+					}
+
+					li {
+						text-align: center;
+
+						&:hover > ul,
+						&.focus > ul {
+							float: none;
+							left: 100%;
+							top: 0;
+							transform: translateX(0);
+						}
+					}
+				}
+
+				li:hover > .sub-menu,
+				li.focus > .sub-menu {
+					float: none;
+					left: 50%;
+					transform: translateX(-50%);
+					width: 200px;
+				}
+			}
+
+			li {
+				position: relative;
+
+				&:hover > a,
+				&.focus > a {
+				}
+			}
+
+			a {
+				text-decoration: none;
+				display: inline-block;
+				vertical-align: middle;
+			}
+
+			.current_page_item > a,
+			.current-menu-item > a,
+			.current_page_ancestor > a,
+			.current-menu-ancestor > a {
+			}
+		
+		}
+
+		.social-search-container {
+			flex: 1;
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
+
+			.social-media-icons {
+				display: block;
+				margin: 0;
+				margin-right: 0.75em;
+			}
+
+			.searchform {
+				margin-left: 2em;
+				display: block;
+
+				label {
+					cursor: pointer;
+					vertical-align: middle;
+				}
+
+				input {
+					border: none;
+					border-bottom: 1px solid $color__primary;
+					border-radius: 0px;
+					width: 0;
+					padding: 0;
+					transition: width 0.3s ease-in-out;
+					background-color: transparent;
+
+					&:focus {
+						width: 200px;
+					}
+				}	
+			}
+		}
+	}
+}
+
+.comment-navigation,
+.posts-navigation,
+.post-navigation {
+
+	.site-main & {
+		margin: 0 0 1.5em;
+		overflow: hidden;
+	}
+
+	.nav-previous {
+		float: left;
+		width: 100%;
+		margin-bottom: 1em;
+
+		@include breakpoint(tablet) {
+			width: 50%;
+			margin-bottom: 0em;
+		}
+	}
+
+	.nav-next {
+		float: right;
+		text-align: right;
+		width: 100%;
+		margin-top: 1em;
+
+		@include breakpoint(tablet) {
+			width: 50%;
+			margin-top: 0;
+		}
+	}
+}
+
+
+/* Sub-Navigation 
+--------------------- */
+.main-navigation.sub-navigation {
+	margin-top: 2em;
+
+	.menu {
+		ul {
+			justify-content: center;
+		}
+	}
+}

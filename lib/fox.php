@@ -169,6 +169,7 @@ if ( ! class_exists( 'Fox' ) ) {
 		private function setup_actions() {
 			add_action( 'after_setup_theme', array( $this, 'components'    ),  20 );
 			add_action( 'after_setup_theme', array( $this, 'widgets'    ),  20 );
+			add_action( 'after_setup_theme', array( $this, 'admin'    ),  20 );
 		}
 
 
@@ -189,6 +190,19 @@ if ( ! class_exists( 'Fox' ) ) {
 
 		}
 
+
+		/**
+		 * Load myboutique theme admin functionality.
+		 *
+		 * @access public
+		 * @return void
+		 */
+		public function admin() {
+
+			require_once( $this->dir . 'admin/nav-menu-boxes.php' );
+
+		}
+
 		/**
 		 * Load myboutique theme widgets that are not part of the myboutique Plugin. 
 		 * Themes must use `add_theme_support( $widget )` to add a widget.
@@ -200,8 +214,8 @@ if ( ! class_exists( 'Fox' ) ) {
 
 			require_if_theme_supports( 'youtube-widget', $this->dir . 'widgets/youtube-widget/youtube-widget.php' );
 			require_if_theme_supports( 'profile-widget', $this->dir . 'widgets/profile-widget/profile-widget.php' );
-			//require_if_theme_supports( 'linklist-widget', $this->dir . 'widgets/youtube-widget - Kopie/linklist-widget.php' );
-			require_if_theme_supports( 'linklist-widget', $this->dir . 'widgets/post-preview-widget/post-preview-widget.php' );
+			require_if_theme_supports( 'post-preview-widget', $this->dir . 'widgets/post-preview-widget/post-preview-widget.php' );
+			require_if_theme_supports( 'thumbnails-widget', $this->dir . 'widgets/thumbnails-widget/thumbnails-widget.php' );
 
 			require_once( $this->dir . 'widgets/widget-options.php' );
 		}

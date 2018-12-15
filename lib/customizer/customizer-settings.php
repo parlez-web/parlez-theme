@@ -69,6 +69,15 @@ $wp_customize->add_section( 'myboutique_article_section', array(
         'description'    => __('Settings for the single posts in this theme', 'myboutique'),
     ) );
 
+// Theme Colors
+$wp_customize->add_section( 'myboutique_color_section', array(
+        'priority'       => 4,
+        'capability'     => 'edit_theme_options',
+        'panel'		 	 => 'myboutique_theme_options_panel',
+        'title'          => __('Colors', 'myboutique'),
+        'description'    => __('Set Color Scheme and Theme Colors', 'myboutique'),
+    ) );
+
 // General
 $wp_customize->add_section( 'myboutique_general_section', array(
         'priority'       => 4,
@@ -104,7 +113,7 @@ function myboutique_color_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
-      'section' => 'myboutique_general_section',
+      'section' => 'myboutique_color_section',
       'label'   => esc_html__( 'Light Background Color', 'myboutique' ),
     ) ) );
 
@@ -116,7 +125,7 @@ function myboutique_color_customize_register( $wp_customize ) {
     ) );
 
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
-      'section' => 'myboutique_general_section',
+      'section' => 'myboutique_color_section',
       'label'   => esc_html__( 'Accent Color (e.g. for links, buttons etc.)', 'myboutique' ),
     ) ) );
 }

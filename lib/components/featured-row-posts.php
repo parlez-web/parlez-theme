@@ -6,12 +6,12 @@ if ( ! function_exists( 'myboutique_featured_row' ) ) :
 	 * @param $ppp: Number of posts to show
 	 * @param $template: Content template to use
 	 */
-	function myboutique_featured_row($template, $ppp, $cat) {
+	function myboutique_featured_row($template, $ppp, $cat, $classname) {
 
 		$featured_args = array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'category_name' => $cat); //WP Query for Featured Posts on top 
 		?>
 
-		<section class="featured-row">
+		<section class="featured-row <?php echo $classname ?>">
       
 	        <?php
 	        /* 

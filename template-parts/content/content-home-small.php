@@ -6,7 +6,6 @@
  *
  * @package My_Boutique_Theme
  */
-
 ?>
 
 <article class="small" <?php post_class(); ?>>

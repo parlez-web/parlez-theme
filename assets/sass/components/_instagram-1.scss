@@ -1,0 +1,27 @@
+/* 
+*
+* INSTAGRAM FEED by WP Instagram Widget 
+* Type 1 - Centered Feed with 4 columns
+*
+*/
+.null-instagram-feed {
+	margin: 3.5em auto;
+	padding: $padding__general;
+	max-width: $max_size__site-main;
+	position: relative;
+
+	ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+		display: flex;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+
+		li {
+			width: 23%;
+			margin: 0.5%;
+		}
+	}
+}

@@ -180,7 +180,7 @@ if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
 	    		while( $my_query->have_posts() ) {
 	    			$my_query->the_post();
 
-	    			get_template_part( 'template-parts/content', 'featured' );
+	    			get_template_part( 'template-parts/content/content', 'featured' );
 
 	    		} ?>
 	    		</div>
@@ -222,7 +222,7 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 				    while( $my_query->have_posts() ) {
 				    	$my_query->the_post();
 
-		    			get_template_part( 'template-parts/content', 'featured' );
+		    			get_template_part( 'template-parts/content/content', 'featured' );
 
 		    		} ?>
 		    		</div>
@@ -267,7 +267,7 @@ if ( ! function_exists( 'myboutique_custom_query' ) ) :
 	    if( $my_query->have_posts() ) :
 		    while( $my_query->have_posts() ): $my_query->the_post();
 		    	// Insert the specific content template
-			    get_template_part( 'template-parts/content', $template );
+			    get_template_part( 'template-parts/content/content', $template );
 			endwhile;
 		else:
 			echo 'No posts found.';

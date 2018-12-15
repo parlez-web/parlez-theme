@@ -1,9 +1,9 @@
 /*!
-Theme Name: myboutique Theme
+Theme Name: MyBoutique Theme
 Theme URI: https://www.demo.munichparisstudio.com/myboutique
 Author: MunichParis Studio
 Author URI: https://munichparisstudio.com
-Description: myboutique is a minimal and lightweight WordPress Theme for bloggers
+Description: MyBoutique Themes are elegant and feminine WordPress theme for bloggers and stylish entrepreneuers
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -71,7 +71,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
-@import "components/navigation";
+//@import "components/navigation-1";
+@import "components/navigation-2";
 
 /*--------------------------------------------------------------
 # Modules: Accessibility, Alignments, Clearings
@@ -82,6 +83,11 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Widgets
 --------------------------------------------------------------*/
 @import "components/widgets";
+@import "components/slider-1";
+@import "components/slider-2";
+@import "components/featured-row-top";
+//@import "components/instagram-1";
+@import "components/instagram-2";
 
 /*--------------------------------------------------------------
 # Content
@@ -101,6 +107,13 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Pages
 --------------------------------------------------------------*/
 @import "pages/page";
+
+/*--------------------------------------------------------------
+# Woocommerce
+--------------------------------------------------------------*/
+.woocommerce, .woocommerce-page {
+  @import "pages/woocommerce";
+}
 
 /*--------------------------------------------------------------
 # Footer

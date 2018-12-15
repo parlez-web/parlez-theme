@@ -164,3 +164,21 @@ function myboutique_sanitize_hex_color( $hex_color, $setting ) {
   // If $input is a valid hex value, return it; otherwise, return the default.
   return ( ! is_null( $hex_color ) ? $hex_color : $setting->default );
 }
+
+
+/*
+* Remove sections from the Customizer
+*/
+function mytheme_customize_register( $wp_customize ) {
+  //All our sections, settings, and controls will be added here
+
+  // $wp_customize->remove_section( 'title_tagline');
+  $wp_customize->remove_section( 'colors');
+  $wp_customize->remove_section( 'header_image');
+  // $wp_customize->remove_section( 'background_image');
+  // $wp_customize->remove_panel( 'nav_menus');
+  // $wp_customize->remove_section( 'static_front_page');
+  $wp_customize->remove_section( 'custom_css');
+
+}
+add_action( 'customize_register', 'mytheme_customize_register',50 );

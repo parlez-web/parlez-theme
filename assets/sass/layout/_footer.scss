@@ -9,7 +9,9 @@ footer.site-footer {
 	width: 100%;
 }
 
-.footer-container {
+
+// Style 1
+.footer-container.big-menu {
 	max-width: $max_size__site-main;
 	padding: $padding__general;
 	margin: 2em auto;
@@ -58,48 +60,126 @@ footer.site-footer {
 	}
 
 	.footer-menu {
-		padding-left: 1em;
-	}
-}
+		@include menu-font();
+		padding: 0 $padding__general;
+		color: white;
 
-.footer-menu {
-	@include menu-font();
-	padding: 0 $padding__general;
-	color: white;
+		ul#footer-menu {
+			list-style: none;
+			padding: 0;
+			margin: 1.7em auto;
+			text-align: center;
+			display: grid;
+			grid-template-columns: 1fr 1fr;
 
-	ul#footer-menu {
-		list-style: none;
-		padding: 0;
-		margin: 1.7em auto;
-		text-align: center;
-		display: grid;
-		grid-template-columns: 1fr 1fr;
+			li {
+				display: inline-block;
+				padding: 0.785em;
+				text-align: left;
+				font-size: 1.2em;
+			}
+		}
 
-		li {
-			display: inline-block;
-			padding: 0.785em;
-			text-align: left;
-			font-size: 1.2em;
+		a {
+			color: white;
 		}
 	}
 
-	a {
-		color: white;
-	}
-}
+	.site-info {
+		text-align: center;
+		font: $font__menu-small;
+		margin-top: 2em;
 
-.site-info {
-	text-align: center;
-	font: $font__menu-small;
-	margin-top: 2em;
+		@include breakpoint(smartphone) {
+			text-align: left;
+		}
 
-	@include breakpoint(smartphone) {
-		text-align: left;
-	}
-
-	a {
-		color: white;
+		a {
+			color: white;
+		}
 	}
 }
 
 
+// Style 2
+.footer-container.minimal-menu {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 1em;
+	padding-bottom: 0.5em;
+
+	.footer-info {
+		width: 100%;
+		font-size: 0.75em;
+
+		@include breakpoint(tablet) {
+			width: auto;
+		}
+	}
+
+	.footer-menu {
+		margin: 2em auto;
+		width: 100%;
+
+		@include breakpoint(tablet) {
+			margin: 0;
+			width: auto;
+		}
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+
+			@include breakpoint(tablet) {
+				text-align: left;
+			}
+		}
+
+		li {
+			display: inline-block;
+			padding: 0 1em;
+		}
+
+	}
+}
+
+
+// Style 3
+.footer-container.big-logo {
+	display: block;
+	max-width: 960px;
+	padding: $padding__general;
+	margin: 0 auto;
+
+	.footer-logo {
+		text-align: center;
+		margin-top: 2em;
+
+		.site-title a {
+			color: white;
+		}
+	}
+
+	.footer-menu {
+		margin: 4em auto;
+
+		ul {
+			list-style: none;
+			padding-left: 0;
+			text-align: center;
+		}
+
+		li {
+			display: inline-block;
+			padding: 0 1em;
+		}
+	}
+
+	.footer-info {
+		text-align: center;
+		font-size: 0.75em;
+	}
+}

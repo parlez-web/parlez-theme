@@ -12,7 +12,7 @@ if ( ! function_exists( 'myboutique_popular_posts' ) ) :
 	 * @param $templates: Content template
 	 * @param $ppp: Posts per page
 	 */
-	function myboutique_popular_posts($template, $ppp) {
+	function myboutique_popular_posts($template, $ppp, $classname = '') {
 
 		$popular_posts_args = array(
 		    'posts_per_page' => $ppp,
@@ -23,11 +23,11 @@ if ( ! function_exists( 'myboutique_popular_posts' ) ) :
 		  
 		$popular_posts_loop = new WP_Query( $popular_posts_args ); ?>
 		
-		<div class="popular-posts">
+		<div class="popular-posts <?php echo $classname ?>">
 			
 			<?php  
 			while( $popular_posts_loop->have_posts() ): $popular_posts_loop->the_post();
-			    get_template_part( 'template-parts/content', $template );
+			    get_template_part( 'template-parts/content/content', $template );
 			endwhile;
 			wp_reset_query(); ?>
 

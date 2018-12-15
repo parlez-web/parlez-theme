@@ -98,6 +98,8 @@ class myboutique_Posts_Widget extends WP_Widget {
 	   ob_start();
 	   echo $before_widget;
 
+	   echo '<div class="widget-content small-width">';
+
 	   if (!empty($title)) {
 	   	echo $args['before_title'] . $title . $args['after_title'];
 	   }
@@ -105,18 +107,18 @@ class myboutique_Posts_Widget extends WP_Widget {
 	   	if($type == 'category' && !empty($category)) {
 	   		$cat_slug = get_cat_name( $category );
 
-	   		myboutique_featured_row('featured-small', $number, $cat_slug);
+	   		myboutique_featured_row('featured-small', $number, $cat_slug, 'columns-' . $number);
 
 	  	} else if ($type == 'popular') {
-	  		myboutique_popular_posts('featured-small', $number);
-	  	} else if ($type == 'featured') {
-	  		myboutique_featured_row('featured-small', $number, 'featured-small');
-	  	}
+	  		myboutique_popular_posts('featured-small', $number, 'columns-' . $number );
+	  	} 
 
 	  	// No category set (if type is category)
 	  	if($type == 'category' && empty($category)) {
 	  		echo 'Please specify the category in the widget settings.';
 	  	}
+
+	  	echo '</div>';
 
 	   echo $args['after_widget'];
 
@@ -178,7 +180,6 @@ class myboutique_Posts_Widget extends WP_Widget {
 			
 			<select class="widefat" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>">
 
-               <option value="featured" <?php selected( $type, 'featured');?> >Featured Posts</option>
                <option value="category" <?php selected( $type, 'category');?>>Category Posts</option>
                <option value="popular" <?php selected( $type, 'popular');?>>Popular Posts</option>
 
@@ -218,6 +219,7 @@ class myboutique_Posts_Widget extends WP_Widget {
 		       value="<?php echo $number ?>"
 		       type="number"
 		       class="widefat"
+		       max="5"
 		/>
 		</p>
 
@@ -293,13 +295,20 @@ class myboutique_Posts_Widget extends WP_Widget {
 		wp_enqueue_script( $this->get_widget_slug().'-script', '/js/widget.js', array('jquery') );
 	} // end register_widget_script
 
+
 } // end class
 
+/*
+* Register the widget.
+*/
+function myboutique_load_widget() {
+	register_widget( 'myboutique_Posts_Widget' );
+}
+
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_Posts_Widget");' ) );
+add_action( 'widgets_init', 'myboutique_load_widget' );
 // Hooks fired when the Widget is activated and deactivated
-// TODO: Remember to change 'Widget_Name' to match the class name definition
 register_activation_hook( __FILE__, array( 'myboutique Posts Widget', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'myboutique Posts Widget', 'deactivate' ) );
 

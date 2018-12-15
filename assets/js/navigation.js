@@ -7,19 +7,14 @@
 ( function($) {
 	var container, button, menu, links, i, len;
 
-	container = document.getElementById( 'site-navigation' );
-	if ( ! container ) {
-		return;
-	}
+	container = $('.main-navigation');
 
-	button = container.getElementsByTagName( 'button' )[0];
+	button = $('.menu-toggle');
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
-	menu = container.getElementsByTagName( 'ul' )[0];
-
-	$headline = $('.nav-headline');
+	menu = container.find('ul').first();
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -27,39 +22,75 @@
 		return;
 	}
 
-	menu.setAttribute( 'aria-expanded', 'false' );
-	if ( -1 === menu.className.indexOf( 'nav-menu' ) ) {
-		menu.className += ' nav-menu';
+	menu.attr( 'aria-expanded', 'false' );
+	if ( -1 === menu.hasClass( 'nav-menu' ) ) {
+		menu.addClass('nav-menu');
 	}
 
-	button.onclick = function() {
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			button.innerHTML = '<i class="icon-menu"></i>';
-			menu.setAttribute( 'aria-expanded', 'false' );
+	button.on('click', function() {
+		var container = $(this).parents('nav');
+		var menu = container.find('ul');
+
+		if ( $(this).hasClass('slide-down') ) {
+			slideDownMenu(container, menu);
 		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			button.innerHTML = '';
-			menu.setAttribute( 'aria-expanded', 'true' );
+			showFullwidthMenu(container, menu);
 		}
-	};
+	});
+
+	$('.menu-toggle.slide-2').on('click', function() {
+		var container = $('#mobile-navigation');
+		var menu = $('#mobile-navigation');
+		slideDownMenu(container, menu);
+	})
+
+	function slideDownMenu(container, menu) {
+		var button = container.find('button');
+
+		if ( container.hasClass( 'toggled' ) ) {
+			button.attr( 'aria-expanded', 'false' );
+			button.innerHTML = '<i class="icon-menu"></i>';
+			menu.attr( 'aria-expanded', 'false' );
+		} else {
+			button.attr( 'aria-expanded', 'true' );
+			button.innerHTML = '<i class="icon-delete close"></i>';
+			menu.attr( 'aria-expanded', 'true' );
+		}
+
+		container.toggleClass('toggled');
+		//menu.slideToggle();
+	}
+
+	function showFullwidthMenu(container, menu) {
+		var button = container.find('button');
+		
+		if ( container.hasClass( 'toggled' ) ) {
+			container.toggleClass('toggled');
+			button.attr( 'aria-expanded', 'false' );
+			button.html('<i class="icon-menu"></i>');
+			menu.attr( 'aria-expanded', 'false' );
+		} else {
+			container.toggleClass('toggled');
+			button.attr( 'aria-expanded', 'true' );
+			button.html('<i class="icon-delete close"></i>');
+			menu.attr( 'aria-expanded', 'true' );
+		}
+	}
 
 	// Close mechanism
 	$('.close').on('click', function() {
 		
-		if ( -1 !== container.className.indexOf( 'toggled' ) ) {
-			container.className = container.className.replace( ' toggled', '' );
-			button.setAttribute( 'aria-expanded', 'false' );
-			button.innerHTML = '<i class="icon-menu"></i>';
-			menu.setAttribute( 'aria-expanded', 'false' );
+		if ( container.hasClass( 'toggled' ) ) {
+			button.attr( 'aria-expanded', 'false' );
+			button.html('<i class="icon-menu"></i>');
+			menu.attr( 'aria-expanded', 'false' );
 		} else {
-			container.className += ' toggled';
-			button.setAttribute( 'aria-expanded', 'true' );
-			button.innerHTML = '';
-			menu.setAttribute( 'aria-expanded', 'true' );
+			button.attr( 'aria-expanded', 'true' );
+			button.html('<i class="icon-delete close"></i>');
+			menu.attr( 'aria-expanded', 'true' );
 		}
+
+		container.toggleClass('toggled');
 		//$('#site-navigation .nav-menu').slideToggle();
 	});
 
@@ -75,7 +106,7 @@
 	})
 
 	// Get all the link elements within the menu.
-	links    = menu.getElementsByTagName( 'a' );
+	links    = menu.find( 'a' );
 
 	// Each time a menu link is focused or blurred, toggle focus.
 	for ( i = 0, len = links.length; i < len; i++ ) {
@@ -110,7 +141,7 @@
 	 */
 	( function( container ) {
 		var touchStartFn, i,
-			parentLink = container.querySelectorAll( '.menu-item-has-children > a, .page_item_has_children > a' );
+			parentLink = container.find( '.menu-item-has-children > a, .page_item_has_children > a' );
 
 		if ( 'ontouchstart' in window ) {
 			touchStartFn = function( e ) {
@@ -139,14 +170,19 @@
 /*
 * Navigation sticky on scroll
 */
-$(window).scroll(function () {
-    if ($(window).scrollTop() > 350) {
-      $('.main-navigation').addClass('fixed');
-    }
-    if ($(window).scrollTop() < 351) {
-      $('.main-navigation').removeClass('fixed');
-    }
-  });
+// $(window).scroll(function () {
+//     if ($(window).scrollTop() > 350) {
+//       $('.main-navigation').addClass('fixed');
+//     }
+//     if ($(window).scrollTop() < 351) {
+//       $('.main-navigation').removeClass('fixed');
+//     }
+//   });
+
+// Open Search Pop
+$('.search-icon, .close-search').on('click', function() {
+	$('.popup-search').fadeToggle();
+});
 
 
 })(jQuery);
