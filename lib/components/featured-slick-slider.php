@@ -15,16 +15,14 @@ if ( ! function_exists( 'myboutique_post_slider' ) ) :
 	 */
 	function myboutique_post_slider($ppp, $template) {
 
-      if(get_theme_mod('myboutique_slider_type', 'latest') == 'latest') {
-        $cat_name = '';
-      } else {
-        $cat_name = 'featured';
-      }
+      $category = get_theme_mod('myboutique_featured_category', 0);
 
-    	$loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'category_name' => $cat_name));  
+      $layout_type = get_theme_mod('myboutique_featured_layout', 'slider_fullwidth');
+
+    	$loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'cat' => $category));  
         
       if( $loop->have_posts() ) { ?>
-        <div class="slick">
+        <div class="slick <?php echo ($layout_type == 'slider_contentwidth') ? 'small-width' : '' ?> <?php echo ($layout_type == 'slider_overlay') ? 'slider-overlay small-width' : '' ?>">
           <?php while ( $loop->have_posts() ) : $loop->the_post(); 
             get_template_part( 'template-parts/content/content', $template );
           endwhile; 
@@ -52,13 +50,9 @@ if ( ! function_exists( 'myboutique_centered_slider' ) ) :
    */
   function myboutique_centered_slider($ppp, $template) {
 
-      if(get_theme_mod('myboutique_slider_type', 'latest') == 'latest') {
-        $cat_name = '';
-      } else {
-        $cat_name = 'featured';
-      }
+      $category = get_theme_mod('myboutique_featured_category', 0);
 
-      $loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'category_name' => $cat_name));  
+      $loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'cat' => $category));  
         
       if( $loop->have_posts() ) { ?>
         <div class="centered-slider">

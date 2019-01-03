@@ -16,10 +16,11 @@ get_header();
 
 $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
+$post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+		<main id="main" class="site-main <?php echo ($post_layout == 'side_magazine') ? 'side-magazine' : '' ?>">
 
 		<?php
 		if ( have_posts() ) :
@@ -34,6 +35,7 @@ $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') 
 
 			$i = 0;
 
+
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
@@ -43,30 +45,44 @@ $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') 
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
 
-				// Style 1: Big - small small - big - small small - big ...
-				if($i % 3 == 0) {
+				if($post_layout == 'featured_magazine') {
+
+					// Style 2: Big - small small - small small ...
+					if($i == 0) {
+						get_template_part( 'template-parts/content/content', 'home' );
+					} else {
+						get_template_part( 'template-parts/content/content', 'home-small' );
+					}
+
+				} else if($post_layout == 'normal' || $post_layout == 'side_magazine') {
+
+					// Style 3: Big - Big - Big ... (centered)
 					get_template_part( 'template-parts/content/content', 'home' );
+
+				}  else if($post_layout == 'alternating') {
+
+					// Style 4: Alternating left/right
+					if($i % 2 == 0) {
+						get_template_part( 'template-parts/content/content', 'alternating-left' );
+					} else {
+						get_template_part( 'template-parts/content/content', 'alternating-right' );
+					}
+					
+				} else if($post_layout == 'complex_magazine') {
+
+					// Style 1: Big - small small - big - small small - big ...
+					if($i % 3 == 0) {
+						get_template_part( 'template-parts/content/content', 'home' );
+					} else {
+						get_template_part( 'template-parts/content/content', 'home-small' );
+					}
+
 				} else {
+
+					// Style 5: Bsmall small - small small ...
 					get_template_part( 'template-parts/content/content', 'home-small' );
+
 				}
-
-				// Style 2: Big - small small - small small ...
-				// if($i == 0) {
-				// 	get_template_part( 'template-parts/content/content', 'home' );
-				// } else {
-				// 	get_template_part( 'template-parts/content/content', 'home-small' );
-				// }
-
-				// Style 3: Big - Big - Big ... (centered)
-				// get_template_part( 'template-parts/content/content', 'home' );
-
-				// Style 4: Alternating left/right
-				// if($i % 2 == 0) {
-				// 	get_template_part( 'template-parts/content/content', 'alternating-left' );
-				// } else {
-				// 	get_template_part( 'template-parts/content/content', 'alternating-right' );
-				// }
-
 
 				$i++;
 
@@ -94,7 +110,7 @@ $sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') 
 	
 
 	// Close the primary/secondary container on fullwidth pages
-	if(!is_home() || !is_single()) {
+	if(!is_home() && !is_single()) {
 		echo '</div>';
 	}
 

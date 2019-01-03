@@ -96,14 +96,14 @@ $('.featured-row').each(function() {
 ( function($) {
 	var container, button, menu, links, i, len;
 
-	container = $('.main-navigation');
+	container = $('#mobile-navigation');
 
 	button = $('.menu-toggle');
 	if ( 'undefined' === typeof button ) {
 		return;
 	}
 
-	menu = container.find('ul').first();
+	menu = $('.mobile-menu-container');
 
 	// Hide menu toggle button if menu is empty and return early.
 	if ( 'undefined' === typeof menu ) {
@@ -117,14 +117,14 @@ $('.featured-row').each(function() {
 	}
 
 	button.on('click', function() {
-		var container = $(this).parents('nav');
-		var menu = container.find('ul');
+		// var container = $(this).parents('nav');
+		// var menu = container.find('ul');
 
-		if ( $(this).hasClass('slide-down') ) {
-			slideDownMenu(container, menu);
-		} else {
+		// if ( $(this).hasClass('slide-down') ) {
+		// 	slideDownMenu(container, menu);
+		// } else {
 			showFullwidthMenu(container, menu);
-		}
+		//}
 	});
 
 	$('.menu-toggle.slide-2').on('click', function() {
@@ -134,7 +134,7 @@ $('.featured-row').each(function() {
 	})
 
 	function slideDownMenu(container, menu) {
-		var button = container.find('button');
+		//var button = container.find('button');
 
 		if ( container.hasClass( 'toggled' ) ) {
 			button.attr( 'aria-expanded', 'false' );
@@ -155,13 +155,15 @@ $('.featured-row').each(function() {
 		
 		if ( container.hasClass( 'toggled' ) ) {
 			container.toggleClass('toggled');
+			menu.slideUp();
 			button.attr( 'aria-expanded', 'false' );
-			button.html('<i class="icon-menu"></i>');
+			button.find('i').attr('class', 'icon-menu'); //html('<i class="icon-menu"></i>');
 			menu.attr( 'aria-expanded', 'false' );
 		} else {
 			container.toggleClass('toggled');
+			menu.slideDown();
 			button.attr( 'aria-expanded', 'true' );
-			button.html('<i class="icon-delete close"></i>');
+			button.find('i').attr('class', 'icon-delete close'); //html('<i class="icon-delete close"></i>');
 			menu.attr( 'aria-expanded', 'true' );
 		}
 	}
@@ -184,11 +186,11 @@ $('.featured-row').each(function() {
 	});
 
 
-	/* Add icons and click listeners to mobile submenus */
-	$submenu_link = $('.nav-menu .menu-item-has-children');
+	/* Add icons and click listeners to submenus */
+	$submenu_link = $('.menu .menu-item-has-children');
 	$submenu_link.find('a:eq(0)').append('<i class="icon-down"></i>');
 	
-	$('.menu-item-has-children .icon-down').on('click', function(event) {
+	$('#mobile-navigation .menu-item-has-children .icon-down').on('click', function(event) {
 		event.preventDefault();
 		$(this).parents('.menu-item').find('ul.sub-menu').slideToggle();
 		$(this).toggleClass("icon-up");

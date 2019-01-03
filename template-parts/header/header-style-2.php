@@ -10,9 +10,11 @@
 
 <?php myboutique_popup_search(); ?>
 
-<div class="header-container">
-	<button class="menu-toggle slide-2" aria-controls="primary-menu" aria-expanded="false"><i class="icon-menu"></i></button>
+<!-- Mobile Navigation -->
+<?php get_template_part( 'template-parts/header/mobile', 'nav' ); ?>
 
+<div class="header-container">
+	
 	<!-- Left Navigation Menu -->
 	<nav id="left-navigation" class="main-navigation left-navigation">
 		<div class="menu-container">
@@ -56,28 +58,3 @@
 		</div>
 	</nav>
 </div>
-
-
-<!-- Mobile Navigation Menu -->
-<nav id="mobile-navigation">
-	<div class="menu-container">
-	<?php
-		wp_nav_menu( array(
-			'theme_location' => 'primary-menu',
-			'menu_id'        => 'primary-menu',
-		) );		
-		?>
-	<?php
-	wp_nav_menu( array(
-		'theme_location' => 'secondary-menu',
-		'menu_id'        => 'secondary-menu',
-	) );		
-	?>
-	</div>
-	<div class="social-search-container">
-		<?php 
-		myboutique_social_media();
-		get_search_form();
-		?>
-	</div>
-</nav>

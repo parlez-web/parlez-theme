@@ -36,7 +36,7 @@
 		<p class="site-info">
 			<?php
 			/* translators: 1: Theme name, 2: Theme author. */
-			printf( esc_html__( '%1$s by %2$s.', 'myboutique' ), '<a href="https://munichparisstudio.com" target="_blank">myboutique WordPress Theme</a>', 'MunichParis Studio' );
+			printf( esc_html__( '%1$s by %2$s.', 'myboutique' ), '<a href="https://munichparisstudio.com" target="_blank">myboutique WordPress Theme</a>', 'My Boutique Themes' );
 			?>
 		</p><!-- .site-info -->
 	</div>

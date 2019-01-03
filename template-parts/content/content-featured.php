@@ -7,6 +7,8 @@
  * @package My_Boutique_Theme
  */
 
+
+$show_overlay = get_theme_mod('myboutique_featured_overlay_checkbox', true);
 ?>
 
 <article <?php post_class(); ?>>
@@ -17,6 +19,8 @@
          		</div>
          	<?php } 
          ?>
+
+    <?php if($show_overlay) : ?>
 	<header class="entry-header">
 		<?php
 
@@ -34,5 +38,6 @@
 		<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('myboutique_readmore_text', 'Read more') ?> >></a>
 
 	</header><!-- .entry-header -->
+	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

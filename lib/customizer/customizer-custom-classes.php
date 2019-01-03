@@ -7,11 +7,11 @@ add_action( 'customize_register', 'myboutique_customize_classes_register' );
 function myboutique_customize_classes_register($wp_customize) {
  class Category_Dropdown_Custom_Control extends WP_Customize_Control {
     private $cats = false;
-    public function __construct($manager, $id, $args = array(), $options = array())
-    {
+    public function __construct($manager, $id, $args = array(), $options = array()) {
         $this->cats = get_categories($options);
         parent::__construct( $manager, $id, $args );
     }
+
     /**
      * Render the content of the category dropdown
      *
@@ -23,8 +23,10 @@ function myboutique_customize_classes_register($wp_customize) {
             {
                 ?>
                     <label>
-                      <span class="customize-category-select-control"><?php echo esc_html( $this->label ); ?></span>
+                      <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                      <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
                       <select <?php $this->link(); ?>>
+                          <option value="0">All Categories</option>
                            <?php
                                 foreach ( $this->cats as $cat )
                                 {
@@ -182,3 +184,222 @@ function mytheme_customize_register( $wp_customize ) {
 
 }
 add_action( 'customize_register', 'mytheme_customize_register',50 );
+
+
+if ( ! class_exists( 'WP_Customize_Control' ) )
+    return NULL;
+/**
+ * Class to create a custom slider layout control
+ */
+class Slider_Picker_Custom_Control extends WP_Customize_Control {
+      /**
+       * Render the content on the theme customizer page
+       */
+      public function render_content() {
+
+            $finalImageDirectory = get_template_directory_uri() . '/lib/customizer/img/';
+
+            ?>
+                <label>
+                  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                  <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+                  <ul class="radio-image-control">
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[slider_fullwidth]" value="slider_fullwidth" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[slider_fullwidth]"><img src="<?php echo $finalImageDirectory; ?>slider-1-col-fullwidth.png" alt="Full Width Slider" /></label>
+                      <p>Fullwidth (Slider)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[slider_contentwidth]" value="slider_contentwidth" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[slider_contentwidth]"><img src="<?php echo $finalImageDirectory; ?>slider-1-col.png" alt="Content Width Slider"  /></label>
+                      <p>Content-Width (Slider)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[slider_centered_3]" value="slider_centered" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[slider_centered_3]"><img src="<?php echo $finalImageDirectory; ?>slider-3-col.png" alt="Centered Full Width Slider 3 Columns" /></label>
+                      <p>3 Columns (Slider)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[slider_overlay]" value="slider_overlay" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[slider_overlay]"><img src="<?php echo $finalImageDirectory; ?>slider-1-col-overlay.png" alt="Slider with Overlay" /></label>
+                      <p>With Overlay (Slider)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[vertical_posts]" value="vertical_posts" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[vertical_posts]"><img src="<?php echo $finalImageDirectory; ?>posts-3-vertical.png" alt="Vertically aligned posts" /></label>
+                      <p>Vertically Aligned (Posts)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[no_featured_section]" value="no_featured_section" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[no_featured_section]"><img src="<?php echo $finalImageDirectory; ?>no-section.png" alt="No featured section" /></label>
+                      <p>No Featured Section</p>
+                    </li>
+                  </ul>
+                </label>
+            <?php
+       }
+}
+
+
+/**
+ * Class to create a custom post layout control
+ */
+class Layout_Picker_Custom_Control extends WP_Customize_Control {
+      /**
+       * Render the content on the theme customizer page
+       */
+      public function render_content() {
+
+            $finalImageDirectory = get_template_directory_uri() . '/lib/customizer/img/';
+
+            ?>
+                <label>
+                  <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                  <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+                  <ul class="radio-image-control">
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[normal]" value="normal" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[normal]"><img src="<?php echo $finalImageDirectory; ?>post-layout-normal.png" alt="Normal Posts" /></label>
+                      <p>Normal Blog</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[featured_magazine]" value="featured_magazine" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[featured_magazine]"><img src="<?php echo $finalImageDirectory; ?>post-layout-featured-magazine.png" alt="Featured Magazine"  /></label>
+                      <p>Fetaured Magazine (2 Columns)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[magazine]" value="magazine" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[magazine]"><img src="<?php echo $finalImageDirectory; ?>post-layout-magazine.png" alt="Magazine, 2 Columns" /></label>
+                      <p>Magazine (2 Columns)</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[side_magazine]" value="side_magazine" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[side_magazine]"><img src="<?php echo $finalImageDirectory; ?>post-layout-side-magazine.png" alt="Side Magazine" /></label>
+                      <p>Side Magazine</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[alternating]" value="alternating" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[alternating]"><img src="<?php echo $finalImageDirectory; ?>post-layout-alternating.png" alt="Alternating Posts" /></label>
+                      <p>Alternating Posts</p>
+                    </li>
+                    <li>
+                      <input type="radio" name="_customize-radio-<?php echo $this->id; ?>" id="<?php echo $this->id; ?>[complex_magazine]" value="complex_magazine" <?php $this->link(); ?>/>
+                      <label for="<?php echo $this->id; ?>[complex_magazine]"><img src="<?php echo $finalImageDirectory; ?>post-layout-complex-magazine.png" alt="Complex Magazine" /></label>
+                      <p>Complex Magazine (2 Columns)</p>
+                    </li>
+                  </ul>
+                </label>
+            <?php
+       }
+}
+
+/**
+ * Class to create a custom post layout control
+ */
+class GoogleFonts_Picker_Custom_Control extends WP_Customize_Control {
+    private $fonts = false;
+    public function __construct($manager, $id, $args = array(), $options = array()) {
+        $this->fonts = array(
+          'open-sans' => 'Open Sans',
+          'oswald' => 'Oswald',
+          'amiri' => 'Amiri',
+          'playfair-display' => 'Playfair Display',
+          'montserrat' => 'Montserrat',
+          'raleway' => 'Raleway',
+          'droid-sans' => 'Droid Sans',
+          'lato' => 'Lato',
+          'arvo' => 'Arvo',
+          'lora' => 'Lora',
+          'source-sans-pro' => 'Source Sans Pro',
+          'merriweather' => 'Merriweather',
+          'oxygen' => 'Oxygen',
+          'pt-serif' => 'PT Serif',
+          'pt-sans' => 'PT Sans',
+          'pt-sans-narrow' => 'PT Sans Narrow',
+          'cabin' => 'Cabin',
+          'fjalla-one' => 'Fjalla One',
+          'francois-one' => 'Francois One',
+          'josefin-sans' => 'Josefin Sans',
+          'libre-baskerville' => 'Libre Baskerville',
+          'arimo' => 'Arimo',
+          'ubuntu' => 'Ubuntu',
+          'bitter' => 'Bitter',
+          'droid-serif' => 'Droid Serif',
+          'roboto' => 'Roboto',
+          'open-sans-condensed' => 'Open Sans Condensed',
+          'roboto-condensed' => 'Roboto Condensed',
+          'roboto-slab' => 'Roboto Slab',
+          'rokkitt' => 'Rokkitt',
+        );
+        parent::__construct( $manager, $id, $args );
+    }
+
+      /**
+       * Render the content on the theme customizer page
+       */
+      public function render_content() {
+        if(!empty($this->fonts))
+            {
+                ?>
+                    <label>
+                      <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                      <span class="description customize-control-description"><?php echo esc_html( $this->description ); ?></span>
+                      <select <?php $this->link(); ?>>
+                           <?php
+                                foreach ( $this->fonts as $key => $name )
+                                {
+                                    printf('<option value="%s" %s>%s</option>', $key, selected($this->value(), $key, false), $name);
+                                }
+                           ?>
+                      </select>
+                    </label>
+                <?php
+            }
+            
+       }
+}
+
+
+function myboutique_upload_google_fonts($fontname) {
+  // 1. Get the font zip from the API
+  $url = "https://google-webfonts-helper.herokuapp.com/api/fonts/" . $fontname . "?download=zip&subsets=latin&formats=woff,eot,svg,ttf&variants=regular";
+
+  $response = wp_remote_get( $url );
+
+  $fontZip = wp_remote_retrieve_body($response);
+
+  $fontPath = get_template_directory() . '/assets/fonts/' . $fontname . '.zip';
+  $fontPathRes = get_template_directory() . '/assets/fonts/' . $fontname;
+
+  if(!file_exists($fontPathRes)) {
+    $zip = file_get_contents($url);
+    file_put_contents($fontPath, $zip);
+  }
+
+  $zip = new ZipArchive;
+  $res = $zip->open($fontPath);
+
+  if ($res === TRUE) {
+    // extract it to the path we determined above
+    $zip->extractTo($fontPathRes);
+    $zip->close();
+
+    // Delete the original zip
+    unlink($fontPath);
+
+  }
+
+}
+
+
+function myboutique_google_fonts_ajax() {
+
+  $fontname = (isset($_POST['font']) ? sanitize_text_field($_POST['font']) : 'open-sans');
+
+  myboutique_upload_google_fonts($fontname);
+
+  die();
+
+}
+add_action( 'wp_ajax_nopriv_myboutique_google_fonts_ajax', 'myboutique_google_fonts_ajax' );
+add_action( 'wp_ajax_myboutique_google_fonts_ajax', 'myboutique_google_fonts_ajax' );

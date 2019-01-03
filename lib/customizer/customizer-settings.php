@@ -17,14 +17,6 @@ function myboutique_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'myboutique_customize_register' );
 
-/**
- * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
- */
-function myboutique_customize_preview_js() {
-	wp_enqueue_script( 'myboutique_customizer', get_template_directory_uri() . '/js/customizer/customizer.js', array( 'customize-preview' ), '20151215', true );
-}
-add_action( 'customize_preview_init', 'myboutique_customize_preview_js' );
-
 
 /**
 * Register Theme Options Panel.
@@ -56,8 +48,7 @@ $wp_customize->add_section( 'myboutique_homepage_section', array(
         'priority'       => 2,
         'capability'     => 'edit_theme_options',
         'panel'		 	 => 'myboutique_theme_options_panel',
-        'title'          => __('Homepage Settings', 'myboutique'),
-        'description'    => __('Settings for the homepage in this theme', 'myboutique'),
+        'title'          => __('Homepage', 'myboutique'),
     ) );
 
 // Single Article
@@ -65,8 +56,7 @@ $wp_customize->add_section( 'myboutique_article_section', array(
         'priority'       => 4,
         'capability'     => 'edit_theme_options',
         'panel'		 	 => 'myboutique_theme_options_panel',
-        'title'          => __('Article View Settings', 'myboutique'),
-        'description'    => __('Settings for the single posts in this theme', 'myboutique'),
+        'title'          => __('Articles & Pages', 'myboutique'),
     ) );
 
 // Theme Colors
@@ -75,7 +65,14 @@ $wp_customize->add_section( 'myboutique_color_section', array(
         'capability'     => 'edit_theme_options',
         'panel'		 	 => 'myboutique_theme_options_panel',
         'title'          => __('Colors', 'myboutique'),
-        'description'    => __('Set Color Scheme and Theme Colors', 'myboutique'),
+    ) );
+
+// Theme Fonts
+$wp_customize->add_section( 'myboutique_fonts_section', array(
+        'priority'       => 4,
+        'capability'     => 'edit_theme_options',
+        'panel'		 	 => 'myboutique_theme_options_panel',
+        'title'          => __('Fonts', 'myboutique'),
     ) );
 
 // General
@@ -84,12 +81,11 @@ $wp_customize->add_section( 'myboutique_general_section', array(
         'capability'     => 'edit_theme_options',
         'panel'		 	 => 'myboutique_theme_options_panel',
         'title'          => __('General Options', 'myboutique'),
-        'description'    => __('General settings for the myboutique Theme.', 'myboutique'),
     ) );
 
 // Footer & Navigation Settings
 $wp_customize->add_section( 'myboutique_footer_nav_section', array(
-	    'title'          => esc_attr__( 'Navigation & Footer Settings', 'myboutique' ),
+	    'title'          => esc_attr__( 'Footer', 'myboutique' ),
 	    'description'    => esc_attr__( 'Set custom logo, styles and colors for sticky navigation and the footer.', 'myboutique' ),
 	    'panel'          => 'myboutique_theme_options_panel',
 	    'priority'       => 10,
@@ -106,15 +102,16 @@ add_action( 'customize_register', 'myboutique_customizer_sections_register' );
 */
 function myboutique_color_customize_register( $wp_customize ) {
     // Secondary Color
-    $wp_customize->add_setting( 'secondary_color', array(
+    $wp_customize->add_setting( 'light_bg_color', array(
       'default'   => '',
       'transport' => 'refresh',
       'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'secondary_color', array(
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'light_bg_color', array(
       'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Light Background Color', 'myboutique' ),
+      'label'   => esc_html__( 'Accent Color 1', 'myboutique' ),
+      'description' => esc_html__( 'Background Color of Widgets', 'myboutique' )
     ) ) );
 
     // Accent Color
@@ -126,7 +123,136 @@ function myboutique_color_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
       'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Accent Color (e.g. for links, buttons etc.)', 'myboutique' ),
+      'label'   => esc_html__( 'Accent Color 2', 'myboutique' ),
+      'description' => esc_html__( 'Color for links, icon hover etc.', 'myboutique' )
+    ) ) );
+
+     // Title Font Color
+    $wp_customize->add_setting( 'title_font_color', array(
+      'default'   => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_font_color', array(
+      'section' => 'myboutique_color_section',
+      'label'   => esc_html__( 'Title Font Color', 'myboutique' ),
+      'description' => esc_html__( 'Post Title, Page Title, Widget Title, etc.', 'myboutique' )
+    ) ) );
+
+    // Body Font Color
+    $wp_customize->add_setting( 'body_font_color', array(
+      'default'   => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_font_color', array(
+      'section' => 'myboutique_color_section',
+      'label'   => esc_html__( 'Body Font Color', 'myboutique' ),
+      'description' => esc_html__( 'Post Body Text, Page Text, Widget Text', 'myboutique' )
+    ) ) );
+
+    // Button Background Color
+    $wp_customize->add_setting( 'button_bg_color', array(
+      'default'   => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_bg_color', array(
+      'section' => 'myboutique_color_section',
+      'label'   => esc_html__( 'Button Background Color', 'myboutique' )
+    ) ) );
+
+    // Button Font Color
+    $wp_customize->add_setting( 'button_font_color', array(
+      'default'   => '',
+      'transport' => 'refresh',
+      'sanitize_callback' => 'sanitize_hex_color',
+    ) );
+
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_font_color', array(
+      'section' => 'myboutique_color_section',
+      'label'   => esc_html__( 'Button Font Color', 'myboutique' ),
+    ) ) );
+
+     // Color Picker for Footer Bg Color
+	$wp_customize->add_setting('footer_bg_color', array(
+        'default' => '#0c0c0c',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
+		'label' => __( 'Footer Background Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
+    ) ) );
+
+     // Color Picker for Footer Bg Color
+	$wp_customize->add_setting('footer_font_color', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_font_color', array(
+		'label' => __( 'Footer Font Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
+    ) ) );
+
+    // Color Picker for Navbar Bg Color
+	$wp_customize->add_setting('navbar_bg_color', array(
+        'default' => '#0c0c0c',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'navbar_bg_color', array(
+		'label' => __( 'Navbar Background Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
+    ) ) );
+
+     // Color Picker for Navbar Bg Color
+	$wp_customize->add_setting('navbar_font_color', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'navbar_font_color', array(
+		'label' => __( 'Navbar Font Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
+    ) ) );
+
+    // Color Picker for Slider Overlay Bg Color
+	$wp_customize->add_setting('overlay_bg_color', array(
+        'default' => '#0c0c0c',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_bg_color', array(
+		'label' => __( 'Slider Overlay Background Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
+    ) ) );
+
+     // Color Picker for Slider Overlay Font Color
+	$wp_customize->add_setting('overlay_font_color', array(
+        'default' => '#ffffff',
+        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+        )
+    );
+	// Color Control
+	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_font_color', array(
+		'label' => __( 'Slider Overlay Font Color', 'myboutique' ), 
+        'section' => 'myboutique_color_section',
+        'type' => 'color',
     ) ) );
 }
 add_action( 'customize_register', 'myboutique_color_customize_register' );
@@ -176,11 +302,11 @@ function myboutique_social_customize_register( $wp_customize ) {
     	'sanitize_callback' => 'sanitize_text_field'
 	) );
 
-    $wp_customize->add_setting( 'google_link' , array(
-    	'default'     => 'Your Google+ link here',
-    	'transport'   => 'refresh',
-    	'sanitize_callback' => 'sanitize_text_field'
-	) );
+ //    $wp_customize->add_setting( 'google_link' , array(
+ //    	'default'     => 'Your Google+ link here',
+ //    	'transport'   => 'refresh',
+ //    	'sanitize_callback' => 'sanitize_text_field'
+	// ) );
 
 	$wp_customize->add_setting( 'youtube_link' , array(
     	'default'     => 'Your Youtube link here',
@@ -256,11 +382,11 @@ function myboutique_social_customize_register( $wp_customize ) {
 		'settings'   => 'pinterest_link',
 	) ) );
 
-   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'google_link', array(
-		'label'        => __( 'Google+ Link', 'mp' ),
-		'section'    => 'myboutique_social_media',
-		'settings'   => 'google_link',
-	) ) );
+ //   $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'google_link', array(
+	// 	'label'        => __( 'Google+ Link', 'mp' ),
+	// 	'section'    => 'myboutique_social_media',
+	// 	'settings'   => 'google_link',
+	// ) ) );
 
    $wp_customize->add_control( new WP_Customize_Control( $wp_customize, 'youtube_link', array(
 		'label'        => __( 'Youtube Link', 'mp' ),
@@ -394,32 +520,6 @@ function myboutique_related_posts_customize_register( $wp_customize ) {
 add_action( 'customize_register', 'myboutique_related_posts_customize_register' );
 
 
-/**
-* Add Read More Functionality
-*/
-function myboutique_readmore_customize_register( $wp_customize ) {
-
-   //* Add Customizer Setting: Read More Button Text
-	$wp_customize->add_setting( 'myboutique_readmore_text' , array(
-	    'default'     => 'Read More',
-	    'transport'   => 'refresh',
-	    'sanitize_callback' => 'sanitize_text_field'
-	) );
-
-   //* Add Customizer Control: Read More Button Text
-   $wp_customize->add_control( 'myboutique_readmore_text',
-		array(
-			'settings'		=> 'myboutique_readmore_text',
-			'section'		=> 'myboutique_homepage_section',
-			'type'			=> 'text',
-			'label'			=> __( 'Read More Button Text', 'myboutique' ),
-			'description'	=> __( 'Set the text to display on the read more button, e.g. "Continue Reading" or simply "Read More".', 'myboutique' )
-		)
-	);
-
-}
-add_action( 'customize_register', 'myboutique_readmore_customize_register' );
-
 
 
 /**
@@ -494,47 +594,196 @@ add_action( 'customize_register', 'myboutique_sidebar_customize_register' );
 * Add Sticky Sidebar Customizer Settings
 */
 function myboutique_slider_customize_register( $wp_customize ) {
-	$wp_customize->add_setting( 'myboutique_slider_checkbox' , array(
+	//* Add Customizer Setting: Slider/Top Section Layout
+	$wp_customize->add_setting( 'myboutique_featured_layout' , array(
+	    'default'     => 'slider_fullwidth',
+	    'transport'   => 'refresh',
+	    //'sanitize_callback' => 'myboutique_sanitize_select'
+	) );
+
+   //* Add Customizer Control: Slider/Top Section Layout
+   	$wp_customize->add_control(new Slider_Picker_Custom_Control( $wp_customize, 'myboutique_featured_layout',
+		array(
+			'settings'		=> 'myboutique_featured_layout',
+			'section'		=> 'myboutique_homepage_section',
+			'type'			=> 'radio',
+			'label'			=> __( 'Featured Section Layout', 'myboutique' ),
+			'description'	=> __( 'Please select the Layout of the top featured section', 'myboutique' ),
+			// 'choices'		=> array(
+			// 	'latest' => __( 'Latest Posts', 'myboutique' ),
+			// 	'featured' => __( 'Featured Posts (posts that have the category "featured")', 'myboutique' )
+			// )
+		)
+	));
+
+
+	//* Add Customizer Setting: Checkbox Featured Section Overlay
+	$wp_customize->add_setting( 'myboutique_featured_overlay_checkbox' , array(
 	    'default'     => TRUE,
 	    'transport'   => 'refresh',
 	    'sanitize_callback'	=> 'myboutique_sanitize_checkbox'
 	) );
 
-   //* Add Customizer Control: Checkbox Related Posts
-   $wp_customize->add_control( 'myboutique_slider_checkbox',
+   //* Add Customizer Control: Checkbox Featured Section Overlay
+   $wp_customize->add_control( 'myboutique_featured_overlay_checkbox',
 		array(
-			'settings'		=> 'myboutique_slider_checkbox',
 			'section'		=> 'myboutique_homepage_section',
 			'type'			=> 'checkbox',
-			'label'			=> __( 'Show the Post Slider in the top section', 'myboutique' ),
+			'label'			=> __( 'Show Overlay (Post Title, Categories, etc.)', 'myboutique' ),
 		)
 	);
 
    //* Add Customizer Setting: Category or Tags for Related Posts
-	$wp_customize->add_setting( 'myboutique_slider_type' , array(
-	    'default'     => 'latest',
+	// $wp_customize->add_setting( 'myboutique_slider_type' , array(
+	//     'default'     => 'latest',
+	//     'transport'   => 'refresh',
+	//     'sanitize_callback' => 'myboutique_sanitize_select'
+	// ) );
+
+ //   //* Add Customizer Control: Category or Tags for Related Posts Radioboxes Control
+ //   	$wp_customize->add_control('myboutique_slider_type',
+	// 	array(
+	// 		'settings'		=> 'myboutique_slider_type',
+	// 		'section'		=> 'myboutique_homepage_section',
+	// 		'type'			=> 'radio',
+	// 		'label'			=> __( 'Featured Section Posts Type', 'myboutique' ),
+	// 		'description'	=> __( 'Please select which kind of posts should be shown in the top featured section.', 'myboutique' ),
+	// 		'choices'		=> array(
+	// 			'latest' => __( 'Recent Posts', 'myboutique' ),
+	// 			'category' => __( 'Category Posts', 'myboutique' )
+	// 		)
+	// 	)
+	// );
+
+
+	//* Add Customizer Setting: Category Dropdown for Featured Section
+	$wp_customize->add_setting( 'myboutique_featured_category' , array(
+	    'default'     => '0',
 	    'transport'   => 'refresh',
-	    'sanitize_callback' => 'myboutique_sanitize_select'
+	    //'sanitize_callback' => 'myboutique_sanitize_select'
 	) );
 
-   //* Add Customizer Control: Category or Tags for Related Posts Radioboxes Control
-   	$wp_customize->add_control('myboutique_slider_type',
+   //* Add Customizer Control: Category Dropdown for Featured Section
+   	$wp_customize->add_control(new Category_Dropdown_Custom_Control($wp_customize, 'myboutique_featured_category',
 		array(
-			'settings'		=> 'myboutique_slider_type',
+			'settings'		=> 'myboutique_featured_category',
+			'section'		=> 'myboutique_homepage_section',
+			'type'			=> 'select',
+			'label'			=> __( 'Select the Featured Posts Category', 'myboutique' ),
+			'description'	=> __( 'Hint: Choose "All Categories" for the most recent posts and create an extra "featured" category to choose exact posts.', 'myboutique' ),
+			// 'choices'		=> array(
+			// 	'latest' => __( 'Recent Posts', 'myboutique' ),
+			// 	'category' => __( 'Category Posts', 'myboutique' )
+			// )
+		)
+	));
+
+
+	//* Add Customizer Setting: Homepage Post Layout Picker
+	$wp_customize->add_setting( 'myboutique_posts_layout' , array(
+	    'default'     => 'normal',
+	    'transport'   => 'refresh',
+	    //'sanitize_callback' => 'myboutique_sanitize_select'
+	) );
+
+   //* Add Customizer Control: Homepage Post Layout Picker
+   	$wp_customize->add_control(new Layout_Picker_Custom_Control( $wp_customize, 'myboutique_posts_layout',
+		array(
+			'settings'		=> 'myboutique_posts_layout',
 			'section'		=> 'myboutique_homepage_section',
 			'type'			=> 'radio',
-			'label'			=> __( 'Slider Posts Type', 'myboutique' ),
-			'description'	=> __( 'Please select what posts should be shown in the top slider.', 'myboutique' ),
-			'choices'		=> array(
-				'latest' => __( 'Latest Posts', 'myboutique' ),
-				'featured' => __( 'Featured Posts (posts that have the category "featured")', 'myboutique' )
-			)
+			'label'			=> __( 'Homepage Posts Layout', 'myboutique' ),
+			'description'	=> __( 'Please select the layout of the blog post loop on the homepage.', 'myboutique' ),
+			// 'choices'		=> array(
+			// 	'latest' => __( 'Latest Posts', 'myboutique' ),
+			// 	'featured' => __( 'Featured Posts (posts that have the category "featured")', 'myboutique' )
+			// )
 		)
-	);
+	));
 
 
 }
 add_action( 'customize_register', 'myboutique_slider_customize_register' );
+
+
+/**
+* Add Read More Functionality
+*/
+function myboutique_readmore_customize_register( $wp_customize ) {
+
+   //* Add Customizer Setting: Read More Button Text
+	$wp_customize->add_setting( 'myboutique_readmore_text' , array(
+	    'default'     => 'Read More',
+	    'transport'   => 'refresh',
+	    'sanitize_callback' => 'sanitize_text_field'
+	) );
+
+   //* Add Customizer Control: Read More Button Text
+   $wp_customize->add_control( 'myboutique_readmore_text',
+		array(
+			'settings'		=> 'myboutique_readmore_text',
+			'section'		=> 'myboutique_homepage_section',
+			'type'			=> 'text',
+			'label'			=> __( 'Read More Button Text', 'myboutique' ),
+			'description'	=> __( 'Set the text to display on the read more button, e.g. "Continue Reading" or simply "Read More".', 'myboutique' )
+		)
+	);
+
+}
+add_action( 'customize_register', 'myboutique_readmore_customize_register' );
+
+
+
+/**
+* (Google) Fonts Functionality
+
+function myboutique_googlefonts_customize_register( $wp_customize ) {
+
+   //* Add Customizer Setting: Title Google Font 
+	$wp_customize->add_setting( 'title_font', array(
+	    'default'     => 'open-sans',
+	    'transport'   => 'refresh'
+	) );
+
+   //* Add Customizer Control: Title Google Font 
+   $wp_customize->add_control( new GoogleFonts_Picker_Custom_Control( $wp_customize, 'title_font',
+		array(
+			'section'		=> 'myboutique_fonts_section',
+			'label'			=> __( 'Title Font', 'myboutique' ),
+		)
+	));
+
+   //* Add Customizer Setting: Body Google Font
+	$wp_customize->add_setting( 'body_font', array(
+	    'default'     => 'lora',
+	    'transport'   => 'refresh'
+	) );
+
+   //* Add Customizer Control: Body Google Font
+   $wp_customize->add_control( new GoogleFonts_Picker_Custom_Control( $wp_customize, 'body_font',
+		array(
+			'section'		=> 'myboutique_fonts_section',
+			'label'			=> __( 'Body Font', 'myboutique' ),
+		)
+	));
+
+   //* Add Customizer Setting: Menu Google Font
+	$wp_customize->add_setting( 'menu_font', array(
+	    'default'     => 'montserrat',
+	    'transport'   => 'refresh'
+	) );
+
+   //* Add Customizer Control: Menu Google Font
+   $wp_customize->add_control( new GoogleFonts_Picker_Custom_Control( $wp_customize, 'menu_font',
+		array(
+			'section'		=> 'myboutique_fonts_section',
+			'label'			=> __( 'Menu & Button Font', 'myboutique' ),
+		)
+	));
+
+}
+add_action( 'customize_register', 'myboutique_googlefonts_customize_register' );
+*/
 
 
 
@@ -556,44 +805,6 @@ function myboutique_footer_customize_register( $wp_customize ) {
         'section'  => 'myboutique_footer_nav_section',
         'settings' => 'myboutique_footer_logo',
     ) ) );
-
-    // Color Picker for Bg Color
-	$wp_customize->add_setting('myboutique_footer_bg', array(
-            'default' => '#0c0c0c',
-            'type' => 'theme_mod',
-            'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'myboutique_footer_bg_color', array(
-		'label' => __( 'Set a background color', 'myboutique' ), 
-        'section' => 'myboutique_footer_nav_section',
-        'settings' => 'myboutique_footer_bg',
-        'type' => 'color',
-    ) ) );
-
-    //* Based on set background color: Choose light or dark font color
-	$wp_customize->add_setting( 'myboutique_footer_font_color' , array(
-	    'default'     => 'light',
-	    'transport'   => 'refresh',
-	    'sanitize_callback' => 'myboutique_sanitize_select'
-	) );
-
-   //* Add Customizer Control: Category or Tags for Related Posts Radioboxes Control
-   	$wp_customize->add_control('myboutique_footer_font_color',
-		array(
-			'settings'		=> 'myboutique_footer_font_color',
-			'section'		=> 'myboutique_footer_nav_section',
-			'type'			=> 'radio',
-			'label'			=> __( 'Set a font color', 'myboutique' ),
-			'description'	=> __( 'Please select if the footer font should be light or dark (based on the background color you chose before).', 'myboutique' ),
-			'choices'		=> array(
-				'light' => __( 'Light', 'myboutique' ),
-				'dark' => __( 'Dark', 'myboutique' )
-			)
-		)
-	);
-
 
 	// Footer Credit/Copyright Text
     $wp_customize->add_setting( 'myboutique_footer_description' , array(

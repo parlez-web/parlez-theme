@@ -10,16 +10,18 @@
 
 <?php myboutique_popup_search(); ?>
 
-<!-- Main Navigation -->
-<nav id="site-navigation" class="main-navigation">
-	<button class="menu-toggle fullwidth" aria-controls="primary-menu" aria-expanded="false"><i class="icon-menu"></i></button>
+<!-- Mobile Navigation -->
+<?php get_template_part( 'template-parts/header/mobile', 'nav' ); ?>
 
+<!-- Main Navigation -->
+<?php if ( has_nav_menu( 'primary-menu' ) ) : ?>
+<nav id="site-navigation" class="main-navigation">
 	<div class="menu-container fullwidth">
 		<?php
-		wp_nav_menu( array(
-			'theme_location' => 'primary-menu',
-			'menu_id'        => 'primary-menu',
-		) );		
+			wp_nav_menu( array(
+				'theme_location' => 'primary-menu',
+				'menu_id'        => 'primary-menu',
+			) );	
 		?>
 	</div>
 	<div class="social-search-container">
@@ -39,17 +41,19 @@
 		<?php } ?>
 	</div>
 </nav>
+<?php endif; ?>
 
 <!-- Site Header -->
 <?php get_template_part( 'template-parts/header/site', 'title' ); ?>
 
 <!-- Optional Navigation Menu -->
-<nav id="sub-navigation" class="sub-navigation main-navigation slide">
-	<button class="menu-toggle slide-down" aria-controls="primary-menu" aria-expanded="false"><i class="icon-menu"></i></button>
+<?php if ( has_nav_menu( 'secondary-menu' ) ) : ?>
+<nav id="sub-navigation" class="sub-navigation main-navigation">
 	<?php
-	wp_nav_menu( array(
-		'theme_location' => 'secondary-menu',
-		'menu_id'        => 'secondary-menu',
-	) );		
+		wp_nav_menu( array(
+			'theme_location' => 'secondary-menu',
+			'menu_id'        => 'secondary-menu',
+		) );		
 	?>
 </nav>
+<?php endif; ?>

@@ -230,9 +230,36 @@ function myboutique_scripts() {
 		wp_enqueue_script( 'comment-reply' );
 	}
 
-
 }
 add_action( 'wp_enqueue_scripts', 'myboutique_scripts' );
+
+
+// Admin CSS
+function myboutique_admin_style() {
+  wp_enqueue_style('admin-styles', get_template_directory_uri() . '/assets/css/admin.css');
+
+  wp_enqueue_script( 
+		  'myboutique-customizer-js',			//Give the script an ID
+		  get_template_directory_uri() . '/assets/js/customizer/customizer.js',//Point to file
+		  array( 'jquery','customize-preview' ),	//Define dependencies
+		  '',						//Define a version (optional) 
+		  true						//Put script in footer?
+	);
+}
+add_action('admin_enqueue_scripts', 'myboutique_admin_style');
+
+
+// Customizer Preview JS
+function myboutique_customizer_live_preview() {
+	wp_enqueue_script( 
+		  'myboutique-customizer',			//Give the script an ID
+		  get_template_directory_uri() . '/assets/js/customizer/customizer.js',//Point to file
+		  array( 'jquery','customize-preview' ),	//Define dependencies
+		  '',						//Define a version (optional) 
+		  true						//Put script in footer?
+	);
+}
+add_action( 'customize_preview_init', 'myboutique_customizer_live_preview', 30 );
 
 
 /**
@@ -256,24 +283,31 @@ add_filter( 'get_the_archive_title', function ($title) {
 function myboutique_get_customizer_css() {
     ob_start();
 
-    $bg_color = get_theme_mod( 'secondary_color', '#faf1ed' );
+    $bg_color = get_theme_mod( 'light_bg_color', '#faf1ed' );
     $accent_color = get_theme_mod( 'accent_color', '#ddaba8' );
-    $navfooter_bg_color = get_theme_mod( 'myboutique_footer_bg', '#111111' );
-    $navfooter_color = get_theme_mod( 'myboutique_footer_font_color', '#ffffff' );
+    $footer_bg_color = get_theme_mod( 'footer_bg_color', '#111111' );
+    $footer_font_color = get_theme_mod( 'footer_font_color', '#ffffff' );
 
-    $navfooter_shade = ($navfooter_color == 'dark') ? '#0c0c0c' : '#ffffff';
+    $navbar_bg = get_theme_mod( 'navbar_bg_color', '#ffffff' );
+    $navbar_font_color = get_theme_mod( 'navbar_font_color', '#0c0c0c' );
+
+    $overlay_bg = get_theme_mod( 'overlay_bg_color', '#ffffff' );
+    $overlay_font_color = get_theme_mod( 'overlay_font_color', '#0c0c0c' );
+
+    $title_font = get_theme_mod('title_font', 'lora');
+    $title_files = array_diff(scandir(get_template_directory().'/assets/fonts/'.$title_font), array('.', '..'));
 
 
-    if ( ! empty( $bg_color ) || ! empty( $accent_color ) || ! empty($navfooter_color) || ! empty($navfooter_bg_color) ) {
+    if ( ! empty( $bg_color ) || ! empty( $accent_color ) || ! empty($footer_color) || ! empty($footer_bg_color) ) {
       ?>
       .light-bg, .widget_yikes_easy_mc_widget {
         background-color: <?php echo sanitize_hex_color($bg_color); ?>;
       }
       .main-navigation.fixed, footer.site-footer, .main-navigation:not(.toggled) ul .sub-menu {
-      	background-color: <?php echo sanitize_hex_color($navfooter_bg_color); ?>;
+      	background-color: <?php echo sanitize_hex_color($footer_bg_color); ?>;
   	  }
   	  .main-navigation.fixed a, .main-navigation:not(.toggled) .sub-menu a, .main-navigation.fixed li a, .site-header a, .main-navigation.fixed .social-media-icons a, .main-navigation.fixed .searchform, .footer-info, .footer-info a, .footer-menu a, .footer-container .footer-info p.site-title a  {
-  	  	color: <?php echo sanitize_hex_color($navfooter_shade); ?>;
+  	  	color: <?php echo sanitize_hex_color($footer_font_color); ?>;
   	  }
       button, input[type="submit"], .widget_yikes_easy_mc_widget form .yikes-easy-mc-submit-button:hover {
       	background-color: <?php echo sanitize_hex_color($accent_color); ?>;
@@ -288,8 +322,40 @@ function myboutique_get_customizer_css() {
 		color: <?php echo sanitize_hex_color($accent_color); ?>;
 		border-bottom: 1px solid <?php echo sanitize_hex_color($accent_color); ?>;
 	  }
-      <?php
-    }
+
+	  /* Fonts 
+	  @font-face {
+		  font-family: <?php echo $title_font ?>;
+
+		  <?php foreach($title_files as $file) : ?>
+
+		  	<?php 
+		  	$path = get_template_directory_uri().'/assets/fonts/'.$title_font.'/'.$file;
+		  	?>
+
+			  <?php if (strpos($file, 'eot') !== false) { ?>
+				  src:url("<?php echo $path ?>"),
+			  	  url("<?php echo $path ?>?#iefix") format("embedded-opentype");
+			  <?php } elseif (strpos($file, 'woff') !== false) { ?>
+			    src:url("<?php echo $path ?>") format("woff");
+			  <?php } elseif (strpos($file, 'ttf') !== false) { ?>
+			    src:url("<?php echo $path ?>") format("truetype");
+			  <?php } elseif (strpos($file, 'svg') !== false) { ?>
+			    src:url("<?php echo $path ?>#<?php echo $title_font ?>") format("svg");
+			  <?php } ?>
+
+	      <?php endforeach; ?>
+
+		  font-weight: 400;
+		  font-style: normal;
+	  }
+
+	  h1, h2, h3, h4, h5, h6 {
+		font-family: <?php echo $title_font ?>
+	  }
+	  */
+
+    <?php }
 
     $css = ob_get_clean();
     return $css;

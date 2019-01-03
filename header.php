@@ -24,13 +24,17 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'myboutique' ); ?></a>
 
-	<?php get_template_part( 'template-parts/header/header', 'style-2' ); ?>
+	<?php get_template_part( 'template-parts/header/header', 'style-1' ); ?>
 
 	<?php if(is_home()) {
+
+		$featured_layout = get_theme_mod('myboutique_featured_layout', 'slider-fullwidth');
 		
-		if(get_theme_mod('myboutique_slider_checkbox', true) == true) {
+		if($featured_layout == 'slider_fullwidth' || $featured_layout == 'slider_contentwidth' || $featured_layout == 'slider_overlay') {
 			//myboutique_featured_row('featured', 4, 'featured', 'top');
 			myboutique_post_slider(4, 'featured');
+		} else if($featured_layout == 'slider_centered') {
+			myboutique_centered_slider(4, 'featured');
 		}
 
 		?>

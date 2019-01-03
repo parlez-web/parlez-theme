@@ -1,9 +1,8 @@
 /* SLICK RECENT POST SLIDER 
 *
-* Slider Type 1
+* Slider Type 2
 *
-* One slide fullwidth slider 
-* (adapted to overall top container width)
+* Centered Slider with 3 columns
 *
 */
 .slick {
@@ -19,6 +18,7 @@ article.slick-slide {
 	align-items: center;
 	flex-wrap: wrap;
 	margin-bottom: 0;
+	padding: 20px;
 
 	@include breakpoint(tablet) {
 		height: 550px;

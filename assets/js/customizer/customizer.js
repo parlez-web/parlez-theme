@@ -39,4 +39,26 @@
 			}
 		} );
 	} );
+
+	// Ajax Function for Google Fonts Download
+	wp.customize( 'title_font', function( value ) {
+	    value.bind( function( to ) {
+	        $.ajax({
+				url: ajaxurl,
+				type: 'post',
+				data: {
+					action: 'myboutique_google_fonts_ajax',
+					font: to
+				},
+				success: function( response ) {
+					//console.log('WORKED??', response)
+				},
+				error: function(error) {
+					//console.log('DIDNT WORK', error)
+				}
+			});
+	    });
+	});
+	
+
 } )( jQuery );

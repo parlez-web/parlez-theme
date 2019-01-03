@@ -129,7 +129,7 @@ if ( ! function_exists( 'myboutique_social_media' ) ) :
 				
 			<?php if(get_theme_mod('bloglovin_link')) : ?><a href="<?php echo esc_url( get_theme_mod('bloglovin_link') ); ?>" target="_blank"><i class="icon-heart"></i></a><?php endif; ?>
 				
-			<?php if(get_theme_mod('google_link')) : ?><a href="<?php echo esc_url( get_theme_mod('google_link') ); ?>" target="_blank"><i class="icon-gplus"></i></a><?php endif; ?>
+			<!-- <?php //if(get_theme_mod('google_link')) : ?><a href="<?php //echo esc_url( get_theme_mod('google_link') ); ?>" target="_blank"><i class="icon-gplus"></i></a><?php //endif; ?> -->
 
 			<?php if(get_theme_mod('youtube_link')) : ?><a href="<?php echo esc_url( get_theme_mod('youtube_link') ); ?>" target="_blank"><i class="icon-youtube"></i></a><?php endif; ?>
 

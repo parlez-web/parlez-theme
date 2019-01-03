@@ -10,8 +10,8 @@ if ( !class_exists('JMO_Custom_Nav')) {
     class JMO_Custom_Nav {
         public function add_nav_menu_meta_boxes() {
         	add_meta_box(
-        		'wl_login_nav_link',
-        		__('WishList Login'),
+        		'mbt_menu_items',
+        		__('MBT Menu Items'),
         		array( $this, 'nav_menu_link'),
         		'nav-menus',
         		'side',
@@ -20,7 +20,8 @@ if ( !class_exists('JMO_Custom_Nav')) {
         }
         
         public function nav_menu_link() {
-        	$search_icon = "<i class='icon-search-bold'></i>";
+        	$search_icon = "<i class='icon-search-bold search-icon'></i>";
+        	$newsletter_icon = "<i class='icon-mail-bold'></i>";
 
         	?>
         	<div id="posttype-wl-login" class="posttypediv">
@@ -28,20 +29,20 @@ if ( !class_exists('JMO_Custom_Nav')) {
         			<ul id ="wishlist-login-checklist" class="categorychecklist form-no-clear">
         				<li>
         					<label class="menu-item-title">
-        						<input type="checkbox" class="menu-item-checkbox" name="menu-item[-1][menu-item-object-id]" value="-1"> Login/Logout Link
+        						<input type="checkbox" class="menu-item-checkbox" name="menu-item[11][menu-item-object-id]" value="3"><?php echo $newsletter_icon . 'Newsletter Popup'; ?>
         					</label>
         					<label class="menu-item-title">
-        						<input type="checkbox" class="menu-item-checkbox" name="menu-item[3][menu-item-object-id]" value="3"> Search
+        						<input type="checkbox" class="menu-item-checkbox" name="menu-item[33][menu-item-object-id]" value="3"><?php echo $search_icon . 'Search'; ?>
         					</label>
-        					<input type="hidden" class="menu-item-type" name="menu-item[-1][menu-item-type]" value="custom">
-        					<input type="hidden" class="menu-item-title" name="menu-item[-1][menu-item-title]" value="Login">
-        					<input type="hidden" class="menu-item-url" name="menu-item[-1][menu-item-url]" value="<?php bloginfo('wpurl'); ?>/wp-login.php">
-        					<input type="hidden" class="menu-item-classes" name="menu-item[-1][menu-item-classes]" value="wl-login-pop">
+        					<input type="hidden" class="menu-item-type" name="menu-item[11][menu-item-type]" value="custom">
+        					<input type="hidden" class="menu-item-title" name="menu-item[11][menu-item-title]" value="<?php echo $newsletter_icon ?>">
+        					<input type="hidden" class="menu-item-url" name="menu-item[11][menu-item-url]" value="#">
+        					<input type="hidden" class="menu-item-classes" name="menu-item[11][menu-item-classes]" value="newsletter-popup mbt-item">
 
-        					<input type="hidden" class="menu-item-type" name="menu-item[3][menu-item-type]" value="custom">
-        					<input type="hidden" class="menu-item-title" name="menu-item[3][menu-item-title]" value="<?php echo $search_icon ?>">
-        					<input type="hidden" class="menu-item-url" name="menu-item[3][menu-item-url]" value="">
-        					<input type="hidden" class="menu-item-classes" name="menu-item[3][menu-item-classes]" value="wl-login-pop">
+        					<input type="hidden" class="menu-item-type" name="menu-item[33][menu-item-type]" value="custom">
+        					<input type="hidden" class="menu-item-title" name="menu-item[33][menu-item-title]" value="<?php echo $search_icon ?>">
+        					<input type="hidden" class="menu-item-url" name="menu-item[33][menu-item-url]" value="">
+        					<input type="hidden" class="menu-item-classes" name="menu-item[33][menu-item-classes]" value="mbt-item">
         				</li>
         			</ul>
         		</div>
@@ -98,14 +99,64 @@ function custom_menu_meta_box(){
 
 	$icons = array(
 		(object) array( 
-			'url' => get_theme_mod('facebook_link', 'https://instagram.com'),
-			'title' => '<i class="icon-instagram"></i> Instagram',
-			'icon' => ''
+			'url' => get_theme_mod('instagram_link', 'https://instagram.com'),
+			'title' => "<i class='icon-instagram'></i>",
+			'menu_title' => 'Instagram'
 		),
 		(object) array(
 			'url' => get_theme_mod('facebook_link', 'https://facebook.com'),
-			'title' => '<i class="icon-facebook"></i> Facebook',
-			'icon' => '<i class="icon-facebook"></i>'
+			'title' => "<i class='icon-facebook'></i>",
+			'menu_title' => 'Facebook'
+		), 
+		(object) array(
+			'url' => get_theme_mod('twitter_link', 'https://twitter.com'),
+			'title' => "<i class='icon-twitter'></i>",
+			'menu_title' => 'Twitter'
+		), 
+		(object) array(
+			'url' => get_theme_mod('bloglovin_link', 'https://bloglovin.com'),
+			'title' => "<i class='icon-heart'></i>",
+			'menu_title' => 'Bloglovin'
+		), 
+		(object) array(
+			'url' => get_theme_mod('pinterest_link', 'https://pinterest.com'),
+			'title' => "<i class='icon-pinterest'></i>",
+			'menu_title' => 'Pinterest'
+		), 
+		(object) array(
+			'url' => get_theme_mod('youtube_link', 'https://youtube.com'),
+			'title' => "<i class='icon-youtube'></i>",
+			'menu_title' => 'Youtube'
+		), 
+		(object) array(
+			'url' => get_theme_mod('snapchat_link', 'https://snapchat.com'),
+			'title' => "<i class='icon-snapchat'></i>",
+			'menu_title' => 'Snapchat'
+		), 
+		(object) array(
+			'url' => get_theme_mod('vimeo_link', 'https://vimeo.com'),
+			'title' => "<i class='icon-vimeo'></i>",
+			'menu_title' => 'Vimeo'
+		), 
+		(object) array(
+			'url' => get_theme_mod('dribbble_link', 'https://dribbble.com'),
+			'title' => "<i class='icon-dribbble'></i>",
+			'menu_title' => 'Dribbble'
+		), 
+		(object) array(
+			'url' => get_theme_mod('rss_link', 'https://rss.com'),
+			'title' => "<i class='icon-rss'></i>",
+			'menu_title' => 'RSS'
+		), 
+		(object) array(
+			'url' => get_theme_mod('linkedin_link', 'https://linkedin.com'),
+			'title' => "<i class='icon-linkedin'></i>",
+			'menu_title' => 'Linkedin'
+		), 
+		(object) array(
+			'url' => get_theme_mod('soundcloud_link', 'https://soundcloud.com'),
+			'title' => "<i class='icon-soundcloud'></i>",
+			'menu_title' => 'Soundcloud'
 		), 
 	);
 
@@ -113,7 +164,7 @@ function custom_menu_meta_box(){
 
 	/* set values to required item properties */
 	foreach ( $icons as $icon ) {
-		$icon->classes = array();
+		$icon->classes = "social-item social-media-menu";
 		$icon->type = 'custom';
 		$icon->object_id = $id;
 		$icon->object = 'custom';
@@ -133,7 +184,22 @@ function custom_menu_meta_box(){
 		<div id="tabs-panel-authorarchive-all" class="tabs-panel tabs-panel-view-all <?php echo ( 'all' == $current_tab ? 'tabs-panel-active' : 'tabs-panel-inactive' ); ?>">
 			<ul id="authorarchive-checklist-all" class="categorychecklist form-no-clear">
 			<?php
-				echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', $icons), 0, (object) array( 'walker' => $walker) );
+				//echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', $icons), 0, (object) array( 'walker' => $walker) );
+
+				foreach( $icons as $icon ) {
+					?>
+					<li>
+        				<label class="menu-item-title">
+        					<input type="checkbox" class="menu-item-checkbox" name="menu-item[<?php echo $icon->db_id ?>][menu-item-object-id]" value="3"><?php echo $icon->title . $icon->menu_title; ?>
+        				</label>
+
+        				<input type="hidden" class="menu-item-type" name="menu-item[<?php echo $icon->db_id ?>][menu-item-type]" value="custom">
+        				<input type="hidden" class="menu-item-title" name="menu-item[<?php echo $icon->db_id ?>][menu-item-title]" value="<?php echo $icon->title ?>">
+        				<input type="hidden" class="menu-item-url" name="menu-item[<?php echo $icon->db_id ?>][menu-item-url]" value="<?php echo $icon->url ?>">
+        				<input type="hidden" class="menu-item-classes" name="menu-item[<?php echo $icon->db_id ?>][menu-item-classes]" value="<?php echo $icon->classes ?>">
+        			</li>
+					<?php
+				}
 			?>
 			</ul>
 		</div><!-- /.tabs-panel -->
