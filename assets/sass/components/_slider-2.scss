@@ -9,142 +9,145 @@
 	margin: 0 auto;
 }
 
-article.slick-slide {
-	width: 100%;
-	position: relative;
-	height: auto;
-	display: flex!important;
-	justify-content: center;
-	align-items: center;
-	flex-wrap: wrap;
-	margin-bottom: 0;
-	padding: 20px;
+.centered-slider {
 
-	@include breakpoint(tablet) {
-		height: 550px;
-	}
-	
-	.entry-thumbnail {
+	article.slick-slide {
 		width: 100%;
-		height: 550px;
+		position: relative;
+		height: auto;
+		display: flex!important;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		margin-bottom: 0;
+		padding: 20px;
 
 		@include breakpoint(tablet) {
+			height: 550px;
+		}
+		
+		.entry-thumbnail {
 			width: 100%;
-		}
+			height: 550px;
 
-		img {
-			object-fit: cover;
-			width: 100%;
-			height: 100%;
-		}
-	}
-
-	.entry-header {
-		width: 100%;
-		max-width: 80%;
-		padding: 3em 3.5em;
-		color: $color__primary;
-		background-color: white;
-		position: absolute;
-		bottom: 15%;
-		left: 10%;
-		z-index: 9955;
-
-		@include breakpoint(tablet) {
-			max-width: 80%;
-			margin: 0 auto;
-			transform: none;
-		}
-
-		.entry-title {
-			font-size: 1.5em;
-		}
-
-		.entry-content {
-			margin-top: 1.5em;
-			font-size: 0.85em;
-			line-height: 1.3em;
-		}
-
-		.readmore {
-
-			.btn.read-more {
-				margin-top: 1.875em;
-				background-color: $color__primary!important;
-
-				&:hover {
-					background-color: $color__accent!important;
-				}
+			@include breakpoint(tablet) {
+				width: 100%;
 			}
 
-			i {
+			img {
+				object-fit: cover;
+				width: 100%;
+				height: 100%;
+			}
+		}
+
+		.entry-header {
+			width: 100%;
+			max-width: 80%;
+			padding: 3em 3.5em;
+			color: $color__primary;
+			background-color: white;
+			position: absolute;
+			bottom: 15%;
+			z-index: 9955;
+
+			@include breakpoint(tablet) {
+				max-width: 80%;
+				margin: 0 auto;
+				transform: none;
+			}
+
+			.entry-title {
+				font-size: 1.5em;
+			}
+
+			.entry-content {
+				margin-top: 1.5em;
+				font-size: 0.85em;
+				line-height: 1.3em;
+			}
+
+			.readmore {
+
+				.btn.read-more {
+					margin-top: 1.875em;
+					background-color: $color__primary!important;
+
+					&:hover {
+						background-color: $color__accent!important;
+					}
+				}
+
+				i {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.slick-slide {
+		height: auto;
+	}
+
+	.slick-dots {
+		list-style: none;
+		text-align: center;
+		padding-left: 0;
+		margin-top: 2em;
+
+		li {
+			display: inline-block;
+			width: 11px;
+			height: 11px;
+			border: 1px solid #bbbbbb;
+			margin: 0 0.5em;
+			border-radius: 50%;
+			cursor: pointer;
+
+			&.slick-active {
+				background-color: #bbbbbb;
+			}
+
+			button {
 				display: none;
 			}
 		}
 	}
-}
 
-.slick-slide {
-	height: auto;
-}
-
-.slick-dots {
-	list-style: none;
-	text-align: center;
-	padding-left: 0;
-	margin-top: 2em;
-
-	li {
-		display: inline-block;
-		width: 11px;
-		height: 11px;
-		border: 1px solid #bbbbbb;
-		margin: 0 0.5em;
-		border-radius: 50%;
+	.slick-navigation {
+		color: $color__primary;
+		font-size: 2.75em;
 		cursor: pointer;
 
-		&.slick-active {
-			background-color: #bbbbbb;
+		.prev {
+			left:0px;
+			@include slider-arrows();
+
+		}
+		.next {
+			right:0px;
+			@include slider-arrows();
+		}
+	}
+
+	.next-slide {
+		position: absolute;
+		top: 85%;
+		right: 15px;
+		transform: translate(0,-50%);
+		font-size: 2em;
+		cursor: pointer;
+		display: none!important;
+
+		&:before {
+			display: block;
 		}
 
-		button {
-			display: none;
+		@include breakpoint(tablet) {
+			top: 50%;
+			right: 30px;
+			display: block;
 		}
 	}
-}
-
-.slick-navigation {
-	color: $color__primary;
-	font-size: 2.75em;
-	cursor: pointer;
-
-	.prev {
-		left:0px;
-		@include slider-arrows();
-
-	}
-	.next {
-		right:0px;
-		@include slider-arrows();
-	}
-}
-
-.next-slide {
-	position: absolute;
-	top: 85%;
-	right: 15px;
-	transform: translate(0,-50%);
-	font-size: 2em;
-	cursor: pointer;
-	display: none!important;
-
-	&:before {
-		display: block;
-	}
-
-	@include breakpoint(tablet) {
-		top: 50%;
-		right: 30px;
-		display: block;
-	}
+	
 }

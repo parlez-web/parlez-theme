@@ -97,6 +97,14 @@
 	});
 
 
+	// Show newsletter popup box
+	$('.mbt-item.newsletter-popup').on('click', function(e) {
+		e.preventDefault();
+		$boxzillaId = $('body').find('.boxzilla-center').attr('id').replace('boxzilla-','');
+		Boxzilla.show(boxzillaId);
+	});
+
+
 	/* Add icons and click listeners to submenus */
 	$submenu_link = $('.menu .menu-item-has-children');
 	$submenu_link.find('a:eq(0)').append('<i class="icon-down"></i>');

@@ -35,8 +35,9 @@
 
 		<div class="entry-content entry-snippet">
 			<?php
-			if(get_theme_mod('myboutique_readmore_checkbox', true) == true)
+			if(get_theme_mod('myboutique_readmore_text', 'Read More') != '') {
 				$readmore = '... <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('myboutique_readmore_text', 'Read more') . ' >></button></a>';
+				}
 
 				echo wp_trim_words(get_the_excerpt(), 20, $readmore);
 

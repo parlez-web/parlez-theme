@@ -35,7 +35,11 @@ $show_overlay = get_theme_mod('myboutique_featured_overlay_checkbox', true);
 			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		?>
 
-		<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('myboutique_readmore_text', 'Read more') ?> >></a>
+		<?php if(get_theme_mod('myboutique_readmore_text', 'Read more') != '') : ?>
+
+			<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('myboutique_readmore_text', 'Read more') ?> >></a>
+
+		<?php endif; ?>
 
 	</header><!-- .entry-header -->
 	<?php endif; ?>

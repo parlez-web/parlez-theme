@@ -47,10 +47,6 @@ footer.site-footer {
 			font-size: 2.35em;
 			margin-bottom: 1em;
 			text-transform: lowercase;
-
-			a {
-				color: white;
-			}
 		}
 
 		.blog-description {
@@ -79,10 +75,6 @@ footer.site-footer {
 				font-size: 1.2em;
 			}
 		}
-
-		a {
-			color: white;
-		}
 	}
 
 	.site-info {
@@ -92,10 +84,6 @@ footer.site-footer {
 
 		@include breakpoint(smartphone) {
 			text-align: left;
-		}
-
-		a {
-			color: white;
 		}
 	}
 }
@@ -156,6 +144,8 @@ footer.site-footer {
 
 	.footer-logo {
 		text-align: center;
+		max-width: 300px;
+		margin: 0 auto;
 		margin-top: 2em;
 
 		.site-title a {

@@ -278,85 +278,52 @@ add_filter( 'get_the_archive_title', function ($title) {
 
 
 /*
+* Helper Function: Get Color Brightness
+*/
+function myboutique_get_brightness($hex) {
+
+	// strip off any leading #
+	$hex = str_replace('#', '', $hex);
+
+	$c_r = hexdec(substr($hex, 0, 2));
+	$c_g = hexdec(substr($hex, 2, 2));
+	$c_b = hexdec(substr($hex, 4, 2));
+
+	return (($c_r * 299) + ($c_g * 587) + ($c_b * 114)) / 1000;
+
+}
+
+
+/*
 * Generate the color scheme from the Customizer
 */
 function myboutique_get_customizer_css() {
     ob_start();
 
-    $bg_color = get_theme_mod( 'light_bg_color', '#faf1ed' );
+    $base_color = get_theme_mod( 'base_color', '#faf1ed' );
     $accent_color = get_theme_mod( 'accent_color', '#ddaba8' );
-    $footer_bg_color = get_theme_mod( 'footer_bg_color', '#111111' );
-    $footer_font_color = get_theme_mod( 'footer_font_color', '#ffffff' );
-
-    $navbar_bg = get_theme_mod( 'navbar_bg_color', '#ffffff' );
-    $navbar_font_color = get_theme_mod( 'navbar_font_color', '#0c0c0c' );
-
-    $overlay_bg = get_theme_mod( 'overlay_bg_color', '#ffffff' );
-    $overlay_font_color = get_theme_mod( 'overlay_font_color', '#0c0c0c' );
-
-    $title_font = get_theme_mod('title_font', 'lora');
-    $title_files = array_diff(scandir(get_template_directory().'/assets/fonts/'.$title_font), array('.', '..'));
 
 
-    if ( ! empty( $bg_color ) || ! empty( $accent_color ) || ! empty($footer_color) || ! empty($footer_bg_color) ) {
-      ?>
-      .light-bg, .widget_yikes_easy_mc_widget {
-        background-color: <?php echo sanitize_hex_color($bg_color); ?>;
-      }
-      .main-navigation.fixed, footer.site-footer, .main-navigation:not(.toggled) ul .sub-menu {
-      	background-color: <?php echo sanitize_hex_color($footer_bg_color); ?>;
-  	  }
-  	  .main-navigation.fixed a, .main-navigation:not(.toggled) .sub-menu a, .main-navigation.fixed li a, .site-header a, .main-navigation.fixed .social-media-icons a, .main-navigation.fixed .searchform, .footer-info, .footer-info a, .footer-menu a, .footer-container .footer-info p.site-title a  {
-  	  	color: <?php echo sanitize_hex_color($footer_font_color); ?>;
-  	  }
-      button, input[type="submit"], .widget_yikes_easy_mc_widget form .yikes-easy-mc-submit-button:hover {
-      	background-color: <?php echo sanitize_hex_color($accent_color); ?>;
-  	  }
-  	  article.slick-slide .entry-body .readmore .btn.read-more:hover {
-  	  	background-color: <?php echo sanitize_hex_color($accent_color);?>!important;
-  	  }
-  	  .youtube-gallery .youtube-thumb::after, .social-media-icons a:hover, .cat-links a:hover, .site-info p a:hover, .site-main article.small .entry-body .entry-content button:hover, .nav-links a:hover {
-      	color: <?php echo sanitize_hex_color($accent_color); ?>;
-  	  }
-  	  .single .entry-content a {
-		color: <?php echo sanitize_hex_color($accent_color); ?>;
-		border-bottom: 1px solid <?php echo sanitize_hex_color($accent_color); ?>;
-	  }
+	// Calculate brightness of the background to set font color accordingly
+	if (myboutique_get_brightness($base_color) > 130) {
+	 $font_color = '#0c0c0c'; 
+	}
+	else {
+	 $font_color = '#ffffff';
+	}
+	?>
 
-	  /* Fonts 
-	  @font-face {
-		  font-family: <?php echo $title_font ?>;
+	.base-color-bg, button, .sub-menu {
+		background-color: <?php echo sanitize_hex_color($base_color); ?>;
+		color: <?php echo sanitize_hex_color($font_color); ?>;
+	}
 
-		  <?php foreach($title_files as $file) : ?>
+	.sub-menu a, .footer-menu a, .footer-info, .site-info a {
+		color: <?php echo sanitize_hex_color($font_color); ?>;
+	}
 
-		  	<?php 
-		  	$path = get_template_directory_uri().'/assets/fonts/'.$title_font.'/'.$file;
-		  	?>
 
-			  <?php if (strpos($file, 'eot') !== false) { ?>
-				  src:url("<?php echo $path ?>"),
-			  	  url("<?php echo $path ?>?#iefix") format("embedded-opentype");
-			  <?php } elseif (strpos($file, 'woff') !== false) { ?>
-			    src:url("<?php echo $path ?>") format("woff");
-			  <?php } elseif (strpos($file, 'ttf') !== false) { ?>
-			    src:url("<?php echo $path ?>") format("truetype");
-			  <?php } elseif (strpos($file, 'svg') !== false) { ?>
-			    src:url("<?php echo $path ?>#<?php echo $title_font ?>") format("svg");
-			  <?php } ?>
-
-	      <?php endforeach; ?>
-
-		  font-weight: 400;
-		  font-style: normal;
-	  }
-
-	  h1, h2, h3, h4, h5, h6 {
-		font-family: <?php echo $title_font ?>
-	  }
-	  */
-
-    <?php }
-
+    <?php
     $css = ob_get_clean();
     return $css;
 }

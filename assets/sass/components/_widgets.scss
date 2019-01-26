@@ -64,6 +64,10 @@
 	margin-top: 3em;
 }
 
+#secondary .small-width {
+	padding: 0;
+}
+
 /* SOCIAL MEDIA ICONS */
 .social-media-icons {
 	text-align: center;
@@ -710,6 +714,8 @@
 			letter-spacing: 0.04em;
 			padding: 0.75em 1.75em;
 			margin: 0;
+			text-align: center;
+			line-height: 1.5em;
 
 			a {
 				color: $color__primary;

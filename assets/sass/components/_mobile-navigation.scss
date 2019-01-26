@@ -1,0 +1,184 @@
+#mobile-navigation {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	border-bottom: 1px solid #eeeeee;
+	margin-bottom: 1.75em;
+
+	.mobile-menu-container {
+		width: 100%;
+		background-color: white;
+		display: none;
+		margin-top: 1em;
+
+		.menu {
+			padding-left: 0;
+		}
+
+		li.social-item, li.mbt-item {
+			display: none;
+		}
+		li.mbt-item.newsletter-popup {
+			display: block;
+		}
+
+		.sub-menu {
+			display: none;
+		}
+	}
+
+	.menu-toggle {
+		span {
+			font-size: 0.33em;
+			letter-spacing: 0.08em;
+			vertical-align: middle;
+			margin-left: 0.875em;
+		}
+
+		i {
+			font-size: 0.875em;
+			line-height: 0.65em;
+			vertical-align: middle;
+		}
+	}
+
+	.search-icon {
+		font-size: 1.35em;
+		margin: 0.5em 0.25em;
+		vertical-align: middle;
+	}
+
+}
+
+.site-header {
+	padding: 0 2em;
+}
+
+.header-container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 1em;
+
+	@include breakpoint(tablet) {
+		position: sticky;
+		top: 0;
+		z-index: 999;
+		background-color: white;
+	}
+}
+
+#left-navigation, #right-navigation {
+	display: none;
+}
+
+.main-navigation {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	width: 100%;
+	font: $font__menu;
+	padding: 1em;
+	flex: 1;
+
+	.menu-toggle {
+		display: block;
+		position: relative;
+		width: auto;
+		text-align: center;
+		border: none;
+		background: none;
+		padding: 0;
+		font-size: 2.5em;
+		color: $color__primary;
+		margin: 0;
+		z-index: 999;
+	}
+
+	.close.icon-delete {
+		margin: 1em auto;
+		color: $color__primary;
+		cursor: pointer;
+	}
+
+	.menu-container, .menu {
+
+		// Menu Items
+		ul {
+			list-style: none;
+			margin: 0;
+			padding-left: 0;
+			height: auto;
+			width: 100%;
+
+			ul {
+				position: relative;
+				top: 0;
+				left: 0;
+				z-index: 99999;
+				padding: 10px 0px 20px 0px;
+				height: auto;
+				display: none;
+
+				ul {
+					left: 0;
+					top: 0;
+				}
+
+				li {
+
+					&:hover > ul,
+					&.focus > ul {
+						left: 0;
+					}
+				}
+
+				:hover > a,
+				.focus > a {
+				}
+
+				a:hover,
+				a.focus {
+				}
+			}
+
+			li:hover > ul,
+			li.focus > ul {
+				left: auto;
+			}
+		}
+
+		li {
+			position: relative;
+			display: block;
+			padding: 1em 1.5em;
+			letter-spacing: 0.05em;
+			font-size: 0.975em;
+
+			&:hover > a,
+			&.focus > a {
+			}
+		}
+
+		a {
+			display: block;
+			text-decoration: none;
+			text-align: left;
+			color: $color__primary;
+
+			i {
+				margin-left: 0.45em;
+
+				&.icon-down, &.icon-up {
+					font-size: 1.2em;
+					vertical-align: middle;
+				}
+			}
+		}
+	}
+
+	.social-media-icons {
+		margin: 1.5em auto;
+	}
+}
+

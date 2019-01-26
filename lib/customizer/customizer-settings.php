@@ -65,6 +65,7 @@ $wp_customize->add_section( 'myboutique_color_section', array(
         'capability'     => 'edit_theme_options',
         'panel'		 	 => 'myboutique_theme_options_panel',
         'title'          => __('Colors', 'myboutique'),
+        'description'  => __('<em>MBT Tip</em>: Are you unsure which colors to pick? Get inspired by our theme demos or download the exact color files directly from here.', 'myboutique')
     ) );
 
 // Theme Fonts
@@ -102,16 +103,16 @@ add_action( 'customize_register', 'myboutique_customizer_sections_register' );
 */
 function myboutique_color_customize_register( $wp_customize ) {
     // Secondary Color
-    $wp_customize->add_setting( 'light_bg_color', array(
+    $wp_customize->add_setting( 'base_color', array(
       'default'   => '',
       'transport' => 'refresh',
       'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'light_bg_color', array(
+    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'base_color', array(
       'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Accent Color 1', 'myboutique' ),
-      'description' => esc_html__( 'Background Color of Widgets', 'myboutique' )
+      'label'   => esc_html__( 'Base Color', 'myboutique' ),
+      'description' => esc_html__( 'Defines the base aesthetic of the theme. Choose a pastel color for a feminine look or a darker shade for a cool, more sophisticated color scheme.', 'myboutique' )
     ) ) );
 
     // Accent Color
@@ -123,137 +124,166 @@ function myboutique_color_customize_register( $wp_customize ) {
 
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'accent_color', array(
       'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Accent Color 2', 'myboutique' ),
-      'description' => esc_html__( 'Color for links, icon hover etc.', 'myboutique' )
+      'label'   => esc_html__( 'Accent Color', 'myboutique' ),
+      'description' => esc_html__( 'Is used for links, hover states, sometimes buttons and special titles. Give your design a popping look with a complimentary color (as opposed to the base color) or stay in the same family for a more harmonic color scheme.', 'myboutique' )
     ) ) );
 
-     // Title Font Color
-    $wp_customize->add_setting( 'title_font_color', array(
-      'default'   => '',
-      'transport' => 'refresh',
-      'sanitize_callback' => 'sanitize_hex_color',
-    ) );
+ //     // Title Font Color
+ //    $wp_customize->add_setting( 'title_font_color', array(
+ //      'default'   => '',
+ //      'transport' => 'refresh',
+ //      'sanitize_callback' => 'sanitize_hex_color',
+ //    ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_font_color', array(
-      'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Title Font Color', 'myboutique' ),
-      'description' => esc_html__( 'Post Title, Page Title, Widget Title, etc.', 'myboutique' )
-    ) ) );
+ //    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'title_font_color', array(
+ //      'section' => 'myboutique_color_section',
+ //      'label'   => esc_html__( 'Title Font Color', 'myboutique' ),
+ //      'description' => esc_html__( 'Post Title, Page Title, Widget Title, etc.', 'myboutique' )
+ //    ) ) );
 
-    // Body Font Color
-    $wp_customize->add_setting( 'body_font_color', array(
-      'default'   => '',
-      'transport' => 'refresh',
-      'sanitize_callback' => 'sanitize_hex_color',
-    ) );
+ //    // Body Font Color
+ //    $wp_customize->add_setting( 'body_font_color', array(
+ //      'default'   => '',
+ //      'transport' => 'refresh',
+ //      'sanitize_callback' => 'sanitize_hex_color',
+ //    ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_font_color', array(
-      'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Body Font Color', 'myboutique' ),
-      'description' => esc_html__( 'Post Body Text, Page Text, Widget Text', 'myboutique' )
-    ) ) );
+ //    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'body_font_color', array(
+ //      'section' => 'myboutique_color_section',
+ //      'label'   => esc_html__( 'Body Font Color', 'myboutique' ),
+ //      'description' => esc_html__( 'Post Body Text, Page Text, Widget Text', 'myboutique' )
+ //    ) ) );
 
-    // Button Background Color
-    $wp_customize->add_setting( 'button_bg_color', array(
-      'default'   => '',
-      'transport' => 'refresh',
-      'sanitize_callback' => 'sanitize_hex_color',
-    ) );
+ //    // Button Background Color
+ //    $wp_customize->add_setting( 'button_bg_color', array(
+ //      'default'   => '',
+ //      'transport' => 'refresh',
+ //      'sanitize_callback' => 'sanitize_hex_color',
+ //    ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_bg_color', array(
-      'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Button Background Color', 'myboutique' )
-    ) ) );
+ //    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_bg_color', array(
+ //      'section' => 'myboutique_color_section',
+ //      'label'   => esc_html__( 'Button Background Color', 'myboutique' )
+ //    ) ) );
 
-    // Button Font Color
-    $wp_customize->add_setting( 'button_font_color', array(
-      'default'   => '',
-      'transport' => 'refresh',
-      'sanitize_callback' => 'sanitize_hex_color',
-    ) );
+ //    // Button Font Color
+ //    $wp_customize->add_setting( 'button_font_color', array(
+ //      'default'   => '',
+ //      'transport' => 'refresh',
+ //      'sanitize_callback' => 'sanitize_hex_color',
+ //    ) );
 
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_font_color', array(
-      'section' => 'myboutique_color_section',
-      'label'   => esc_html__( 'Button Font Color', 'myboutique' ),
-    ) ) );
+ //    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'button_font_color', array(
+ //      'section' => 'myboutique_color_section',
+ //      'label'   => esc_html__( 'Button Font Color', 'myboutique' ),
+ //    ) ) );
 
-     // Color Picker for Footer Bg Color
-	$wp_customize->add_setting('footer_bg_color', array(
-        'default' => '#0c0c0c',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
-		'label' => __( 'Footer Background Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
+ //     // Color Picker for Footer Bg Color
+	// $wp_customize->add_setting('footer_bg_color', array(
+ //        'default' => '#0c0c0c',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_bg_color', array(
+	// 	'label' => __( 'Footer Background Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
 
-     // Color Picker for Footer Bg Color
-	$wp_customize->add_setting('footer_font_color', array(
-        'default' => '#ffffff',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_font_color', array(
-		'label' => __( 'Footer Font Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
+ //     // Color Picker for Footer Bg Color
+	// $wp_customize->add_setting('footer_font_color', array(
+ //        'default' => '#ffffff',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'footer_font_color', array(
+	// 	'label' => __( 'Footer Font Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
 
-    // Color Picker for Navbar Bg Color
-	$wp_customize->add_setting('navbar_bg_color', array(
-        'default' => '#0c0c0c',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'navbar_bg_color', array(
-		'label' => __( 'Navbar Background Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
+ //    // Color Picker for Primary Navbar Bg Color
+	// $wp_customize->add_setting('primary_navbar_bg_color', array(
+ //        'default' => '#0c0c0c',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'primary_navbar_bg_color', array(
+	// 	'label' => __( 'Primary (Top) Navbar Background Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
 
-     // Color Picker for Navbar Bg Color
-	$wp_customize->add_setting('navbar_font_color', array(
-        'default' => '#ffffff',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'navbar_font_color', array(
-		'label' => __( 'Navbar Font Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
+ //     // Color Picker for Primary Navbar Color
+	// $wp_customize->add_setting('primary_navbar_font_color', array(
+ //        'default' => '#ffffff',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'primary_navbar_font_color', array(
+	// 	'label' => __( 'Secondary (Top) Navbar Font Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
 
-    // Color Picker for Slider Overlay Bg Color
-	$wp_customize->add_setting('overlay_bg_color', array(
-        'default' => '#0c0c0c',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_bg_color', array(
-		'label' => __( 'Slider Overlay Background Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
 
-     // Color Picker for Slider Overlay Font Color
-	$wp_customize->add_setting('overlay_font_color', array(
-        'default' => '#ffffff',
-        'sanitize_callback' => 'myboutique_sanitize_hex_color'
-        )
-    );
-	// Color Control
-	$wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_font_color', array(
-		'label' => __( 'Slider Overlay Font Color', 'myboutique' ), 
-        'section' => 'myboutique_color_section',
-        'type' => 'color',
-    ) ) );
+ //   // Color Picker for Secondary Navbar Bg Color
+ //  $wp_customize->add_setting('secondary_navbar_bg_color', array(
+ //        'default' => '#0c0c0c',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+ //  // Color Control
+ //  $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'secondary_navbar_bg_color', array(
+ //    'label' => __( 'Secondary (below header) Navbar Background Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
+
+ //     // Color Picker for Secondary Navbar Color
+ //  $wp_customize->add_setting('secondary_navbar_font_color', array(
+ //        'default' => '#ffffff',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+ //  // Color Control
+ //  $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'secondary_navbar_font_color', array(
+ //    'label' => __( 'Secondary (below header) Navbar Font Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
+
+
+ //    // Color Picker for Slider Overlay Bg Color
+	// $wp_customize->add_setting('overlay_bg_color', array(
+ //        'default' => '#0c0c0c',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_bg_color', array(
+	// 	'label' => __( 'Slider Overlay Background Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
+
+ //     // Color Picker for Slider Overlay Font Color
+	// $wp_customize->add_setting('overlay_font_color', array(
+ //        'default' => '#ffffff',
+ //        'sanitize_callback' => 'myboutique_sanitize_hex_color'
+ //        )
+ //    );
+	// // Color Control
+	// $wp_customize->add_control(new WP_Customize_Color_Control( $wp_customize, 'overlay_font_color', array(
+	// 	'label' => __( 'Slider Overlay Font Color', 'myboutique' ), 
+ //        'section' => 'myboutique_color_section',
+ //        'type' => 'color',
+ //    ) ) );
 }
 add_action( 'customize_register', 'myboutique_color_customize_register' );
 
@@ -725,7 +755,7 @@ function myboutique_readmore_customize_register( $wp_customize ) {
 			'section'		=> 'myboutique_homepage_section',
 			'type'			=> 'text',
 			'label'			=> __( 'Read More Button Text', 'myboutique' ),
-			'description'	=> __( 'Set the text to display on the read more button, e.g. "Continue Reading" or simply "Read More".', 'myboutique' )
+			'description'	=> __( 'Set the text to display on the read more button, e.g. "Continue Reading" or simply "Read More". Leave blank to not show the button at all.', 'myboutique' )
 		)
 	);
 

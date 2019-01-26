@@ -14,8 +14,8 @@
 		<?php dynamic_sidebar( 'before-footer' ); ?> 
 	</div>
 
-	<footer id="colophon" class="site-footer">
-		<?php get_template_part('template-parts/footer/footer', 'style-3'); ?>
+	<footer id="colophon" class="site-footer base-color-bg">
+		<?php get_template_part('template-parts/footer/footer', 'style-1'); ?>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
 
