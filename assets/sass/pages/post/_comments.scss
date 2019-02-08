@@ -1,15 +1,34 @@
+.site-main article.comment-body {
+	padding-bottom: 0;
+	margin-bottom: 1em;
+}
+
 .comment-list {
 	list-style: none;
 	padding: 1em;
 
 	.children {
 		display: block!important;
-		margin-top: 2em;
 		list-style: none;
+		margin-bottom: 4.5em;
 
-		li {
-			margin-bottom: 1.75em;
+		article {
+			margin-bottom: 2.5em;
 		}
+
+		.comment-content {
+			background-color: #f4f4f4;
+			padding: 10px;
+			margin-top: 1.75em;
+
+			p {
+				margin: 0.5em;
+			}
+		}
+	}
+
+	li {
+		margin-bottom: 3em;
 	}
 }
 .comment-content a {
@@ -17,6 +36,11 @@
 }
 .comment-metadata {
 	font: $font__menu-small;
+
+	time {
+		margin-top: 0.25em;
+		display: block;
+	}
 }
 
 .bypostauthor {
@@ -52,6 +76,12 @@ img.avatar {
 	color: $color__primary;
 }
 
+.comments-title {
+	font-size: 0.875em;
+	text-transform: uppercase;
+	letter-spacing: 0.07em;
+}
+
 .comment-reply-link {
 	color: $color__primary;
 	font-weight: bold;
@@ -67,4 +97,80 @@ img.avatar {
 
 #comments {
 	margin: 0 auto;
+
+	form {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+
+	input, textarea {
+		border: none;
+		font-size: 0.85em;
+	}
+
+	.comment-form-comment, .comment-notes {
+		width: 100%;
+	}
+
+	.comment-form-author, .comment-form-email, .comment-form-url {
+		display: inline-block;
+		width: 100%;
+
+		@include breakpoint(tablet) {
+			width: 31%;
+		}
+	}
+}
+
+#respond {
+	width: 100%;
+	background-color: #f8f8f8;
+	padding: 30px;
+}
+
+.comment-body {
+	position: relative;
+	margin-bottom: 0;
+}
+
+.comment-meta {
+	padding-left: 60px;
+	line-height: 1.75em;
+
+	.says {
+		display: none;
+	}
+}
+
+.comment-content {
+	margin-top: 0.875em;
+	font-size: 0.875em;
+}
+
+.comment-author.vcard img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.comment-notes {
+	font-size: 0.75em;
+}
+
+.reply {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 0.7em;
+	text-transform: uppercase;
+	letter-spacing: 0.1em;
+	font-weight: 700;
+
+	&:hover {
+		opacity: 0.8;
+	}
 }

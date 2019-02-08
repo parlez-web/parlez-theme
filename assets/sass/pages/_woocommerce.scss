@@ -1,5 +1,10 @@
+.site-content.has-sidebar #primary {
+  width: 100%;
+}
+
 #primary {
   max-width: 1050px;
+  width: 100%;
   margin: 1em auto;
 
   .product {
@@ -47,8 +52,6 @@
 }
 
 button {
-  background-color: $color__secondary!important;
-  color: $color__primary!important;
   border-radius: 0!important;
   padding: 1em 1.75em!important;
   font-size: 0.875em!important;
@@ -61,10 +64,11 @@ button {
 
 .woocommerce-breadcrumb {
     width: 100%;
-    max-width: 1010px;
+    max-width: 1050px;
     margin: 0 auto;
     margin-top: 2em;
     font-size: 0.75em;
+    padding: 0 20px;
 
     a {
       color: $color__primary;
@@ -89,14 +93,14 @@ ul.products {
     float: none!important;
 
     .button {
-      background-color: $color__light-bg;
+      // background-color: $color__light-bg;
       border-radius: 0;
       font-size: 0.75em;
       font-weight: 400;
       text-transform: uppercase;
       letter-spacing: 0.05em;
       padding: 0.875em 1.5em;
-      color: $color__primary;
+      // color: $color__primary;
     }
   }
 }

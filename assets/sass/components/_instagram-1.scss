@@ -1,27 +1,52 @@
 /* 
 *
-* INSTAGRAM FEED by WP Instagram Widget 
+* INSTAGRAM FEED by WP Instagram Widget (deprecated) 
 * Type 1 - Centered Feed with 4 columns
 *
 */
-.null-instagram-feed {
-	margin: 3.5em auto;
-	padding: $padding__general;
+// .null-instagram-feed {
+// 	margin: 3.5em auto;
+// 	padding: $padding__general;
+// 	max-width: $max_size__site-main;
+// 	position: relative;
+
+// 	ul {
+// 		margin: 0;
+// 		padding: 0;
+// 		list-style: none;
+// 		display: flex;
+// 		flex-wrap: wrap;
+// 		flex-direction: row;
+// 		justify-content: center;
+
+// 		li {
+// 			width: 23%;
+// 			margin: 0.5%;
+// 		}
+// 	}
+// }
+
+
+/* Instagram Feed by WP My Instagram 
+-------------------------------------- *
+* - with padding
+* - boxed width
+*/
+.wp-my-instagram.wpmi {
 	max-width: $max_size__site-main;
-	position: relative;
+	padding: $padding__general;
+	margin: 0 auto;
 
-	ul {
-		margin: 0;
-		padding: 0;
-		list-style: none;
-		display: flex;
-		flex-wrap: wrap;
-		flex-direction: row;
-		justify-content: center;
+	ul li.wpmi-item {
+		border: none;
+		overflow: hidden;
+		padding: 5px;
+		transition: all 0.5s ease-in-out;
 
-		li {
-			width: 23%;
-			margin: 0.5%;
+		&:hover {
+			background-color: transparent;
+			opacity: 0.7;
 		}
+
 	}
 }

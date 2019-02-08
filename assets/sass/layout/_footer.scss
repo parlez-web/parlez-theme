@@ -19,7 +19,7 @@ footer.site-footer {
 	align-items: flex-start;
 	flex-direction: column-reverse;
 
-	@include breakpoint(smartphone) {
+	@include breakpoint(tablet) {
 		flex-direction: row;
 		
 		.footer-info, .footer-menu {
@@ -34,10 +34,6 @@ footer.site-footer {
 
 		@include breakpoint(tablet) {
 			padding-right: 10em;
-		}
-
-		@include breakpoint(smartphone) {
-			padding-right: 3em;
 			text-align: left;
 		}
 
@@ -50,7 +46,7 @@ footer.site-footer {
 		}
 
 		.blog-description {
-			margin-top: 0em;
+			margin-top: 0.5em;
 			margin-bottom: 3em;
 		}
 	}
@@ -63,10 +59,16 @@ footer.site-footer {
 		ul#footer-menu {
 			list-style: none;
 			padding: 0;
-			margin: 1.7em auto;
+			margin: 0 auto;
+			margin-bottom: 1em;
 			text-align: center;
-			display: grid;
-			grid-template-columns: 1fr 1fr;
+
+			@include breakpoint(tablet) {
+				margin-top: -0.875em;
+				display: grid;
+				grid-template-columns: 1fr 1fr;
+				margin-bottom: 0;
+			}
 
 			li {
 				display: inline-block;
@@ -82,7 +84,7 @@ footer.site-footer {
 		font: $font__menu-small;
 		margin-top: 2em;
 
-		@include breakpoint(smartphone) {
+		@include breakpoint(tablet) {
 			text-align: left;
 		}
 	}

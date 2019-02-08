@@ -56,4 +56,7 @@ get_header(); ?>
 	</div><!-- #after-single-post -->
 
 <?php
+myboutique_next_post_slider();
+
+
 get_footer();

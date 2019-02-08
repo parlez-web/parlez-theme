@@ -87,8 +87,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 @import "components/slider-1";
 @import "components/slider-2";
 @import "components/featured-row-top";
-//@import "components/instagram-1";
-@import "components/instagram-2";
+@import "components/instagram-1";
+//@import "components/instagram-2";
 
 /*--------------------------------------------------------------
 # Content
@@ -108,6 +108,10 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.io/normalize.css/
 # Pages
 --------------------------------------------------------------*/
 @import "pages/page";
+
+@import "pages/shopping-page";
+
+@import "pages/blocks";
 
 /*--------------------------------------------------------------
 # Woocommerce

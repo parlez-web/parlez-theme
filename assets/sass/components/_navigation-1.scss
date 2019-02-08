@@ -6,6 +6,12 @@
 	#mobile-navigation {
 		display: none;
 	}
+	#sub-navigation {
+		display: block;
+	}
+	#site-navigation {
+		display: flex;
+	}
 
 	.admin-bar .main-navigation {
     	top: 0px;
@@ -24,10 +30,6 @@
 	width: 100%;
 	position: relative;
 	height: auto;
-
-	&.slide {
-		flex-direction: row;
-	}
 
 		.menu-toggle {
 			display: none;
@@ -55,7 +57,7 @@
 			// 	height: auto;
 			// 	width: 100%;
 
-				ul {
+				.sub-menu {
 					float: left;
 					position: absolute;
 					top: 100%;
@@ -65,11 +67,17 @@
 					background-color: $color__secondary;
 					margin-top: -0.5em;
 					transition: 0.5s margin-top ease-in-out;
+					padding-bottom: 0.5em;
 
 					ul {
 						left: -999em;
 						top: -20px;
 						transition: top 0.3s ease-in-out;
+
+						a .icon-down {
+							transform: rotate(30deg);
+							font-size: 4em;
+						}
 					}
 
 					li {
@@ -95,9 +103,9 @@
 					transition: 0.5s margin-top ease-in-out;
 					margin-top: 0em;
 
-					li:hover {
-						opacity: 0.7;
-					}
+					// li:hover {
+					// 	opacity: 0.7;
+					// }
 				}
 			//}
 
@@ -151,6 +159,15 @@
 			display: flex;
 			align-items: center;
 			justify-content: flex-end;
+
+			.search-icon {
+				font-size: 1.25em;
+				margin-left: 0.25em;
+			}
+
+			.cart-contents {
+				margin-left: 2.5em;
+			}
 
 			.social-media-icons {
 				display: block;

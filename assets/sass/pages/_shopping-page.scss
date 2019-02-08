@@ -1,0 +1,30 @@
+/* Shopping Page
+------------------ */
+.page-template-page-shop article {
+  max-width: $max_size__article;
+  margin: 0 auto;
+}
+
+.shopping-menu {
+  width: 100%;
+  margin: 2em auto;
+  border-bottom: 1px solid #cccccc;
+
+  ul {
+    list-style: none;
+    text-align: center;
+
+    li {
+      display: inline-block;
+      padding: 1em;
+
+      &.current_page_item {
+        font-weight: bold;
+      }
+
+      &:first-of-type {
+        display: none;
+      }
+    }
+  }
+}

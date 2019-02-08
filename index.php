@@ -110,7 +110,7 @@ $post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
 	
 
 	// Close the primary/secondary container on fullwidth pages
-	if(!is_home() && !is_single()) {
+	if(!is_single()) {
 		echo '</div>';
 	}
 

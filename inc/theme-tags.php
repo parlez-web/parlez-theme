@@ -35,6 +35,31 @@ function myboutique_posts_navigation() {
 	</nav>
 	<?php 
 }
+
+// Next Post slide-in
+function myboutique_next_post_slider() {
+	$nextPost = get_next_post(true);
+        if($nextPost) {
+            $args = array(
+                'posts_per_page' => 1,
+                'include' => $nextPost->ID
+            );
+            $nextPost = get_posts($args);
+            foreach ($nextPost as $post) {
+                setup_postdata($post);
+		    	?>
+		        <div class="next-post-box">
+		            <a class="next" href="<?php the_permalink(); ?>"><?php echo __('Next Story &raquo;', 'myboutique') ?></a>
+		            <div class="next-thumbnail-title">
+		            	<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+		            	<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
+		        	</div>
+		        </div>
+		    <?php
+            wp_reset_postdata();
+            } //end foreach
+        } // end if
+}
 			
 
 // Popup Search Function

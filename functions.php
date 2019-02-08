@@ -249,6 +249,18 @@ function myboutique_admin_style() {
 add_action('admin_enqueue_scripts', 'myboutique_admin_style');
 
 
+// Add backend styles for Gutenberg.
+add_action( 'enqueue_block_editor_assets', 'myboutique_add_gutenberg_assets' );
+
+/**
+ * Load Gutenberg stylesheet.
+ */
+function myboutique_add_gutenberg_assets() {
+	// Load the theme styles within Gutenberg.
+	wp_enqueue_style( 'myboutique-gutenberg', get_template_directory_uri() . '/assets/css/gutenberg-editor-style.css' );
+}
+
+
 // Customizer Preview JS
 function myboutique_customizer_live_preview() {
 	wp_enqueue_script( 
@@ -306,20 +318,32 @@ function myboutique_get_customizer_css() {
 
 	// Calculate brightness of the background to set font color accordingly
 	if (myboutique_get_brightness($base_color) > 130) {
-	 $font_color = '#0c0c0c'; 
+	 $font_base_color = '#0c0c0c'; 
 	}
 	else {
-	 $font_color = '#ffffff';
+	 $font_base_color = '#ffffff';
+	}
+
+	if (myboutique_get_brightness($accent_color) > 130) {
+	 $font_accent_color = '#0c0c0c'; 
+	}
+	else {
+	 $font_accent_color = '#ffffff';
 	}
 	?>
 
 	.base-color-bg, button, .sub-menu {
 		background-color: <?php echo sanitize_hex_color($base_color); ?>;
-		color: <?php echo sanitize_hex_color($font_color); ?>;
+		color: <?php echo sanitize_hex_color($font_base_color); ?>;
 	}
 
 	.sub-menu a, .footer-menu a, .footer-info, .site-info a {
-		color: <?php echo sanitize_hex_color($font_color); ?>;
+		color: <?php echo sanitize_hex_color($font_base_color); ?>;
+	}
+
+	.woocommerce .button {
+		background-color: <?php echo sanitize_hex_color($base_color); ?>!important;
+		color: <?php echo sanitize_hex_color($font_base_color); ?>!important;
 	}
 
 
@@ -360,4 +384,10 @@ require get_template_directory() . '/lib/customizer/customizer-settings.php';
  */
 require get_template_directory() . '/inc/theme-tags.php';
 
+/*
+* Merlin Onboarding.
+*/
+require_once get_template_directory() . '/lib/merlin/vendor/autoload.php';
+require_once get_template_directory() . '/lib/merlin/class-merlin.php';
+require_once get_template_directory() . '/lib/merlin-config.php';
 

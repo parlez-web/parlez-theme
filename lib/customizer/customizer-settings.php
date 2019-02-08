@@ -597,24 +597,6 @@ function myboutique_sidebar_customize_register( $wp_customize ) {
 		)
 	);
 
-   //* Add Customizer Setting: Mobile Navigation Headline
-	$wp_customize->add_setting( 'myboutique_mobnav_headline' , array(
-	    'default'     => 'What are you looking for?',
-	    'transport'   => 'refresh',
-	    'sanitize_callback' => 'sanitize_text_field'
-	) );
-
-   //* Add Customizer Control: Mobile Navigation Headline
-   $wp_customize->add_control( 'myboutique_mobnav_headline',
-		array(
-			'settings'		=> 'myboutique_mobnav_headline',
-			'section'		=> 'myboutique_general_section',
-			'type'			=> 'text',
-			'label'			=> __( 'Mobile Navigation - Title', 'myboutique' ),
-			'description'	=> __( 'Set the title for the mobile navigation, e.g. "What are you looking for?".', 'myboutique' )
-		)
-	);
-
 }
 add_action( 'customize_register', 'myboutique_sidebar_customize_register' );
 
@@ -831,7 +813,7 @@ function myboutique_footer_customize_register( $wp_customize ) {
 
 	// Add Customizer control: Footer Logo Upload
     $wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'myboutique_footer_logo', array(
-       	'label'    => __( 'Upload a logo for the footer and sticky navigation', 'myboutique' ),
+       	'label'    => __( 'Upload a logo for the footer', 'myboutique' ),
         'section'  => 'myboutique_footer_nav_section',
         'settings' => 'myboutique_footer_logo',
     ) ) );

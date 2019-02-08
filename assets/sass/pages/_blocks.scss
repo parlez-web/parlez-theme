@@ -1,0 +1,21 @@
+// Woocommerce Gutenberg Blocks
+.wp-block-woocommerce-product-category {
+  ul.products {
+    &.columns-1 {
+      grid-template-columns: 1fr!important;
+    }
+    &.columns-2 {
+      grid-template-columns: 1fr 1fr!important;
+    }
+    &.columns-3 {
+      grid-template-columns: 1fr 1fr 1fr!important;
+    }
+    &.columns-4 {
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    li.product {
+      width: 100%!important;
+    }
+  }
+}

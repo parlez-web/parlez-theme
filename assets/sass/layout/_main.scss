@@ -412,3 +412,21 @@ article.first-post {
 		}
 	}
 }
+
+
+// Entry Characteristics
+blockquote, .wp-block-quote {
+	position: relative;
+
+	&:before {
+		content: "\201C";
+		font-size: 8em;
+		font-family: Georgia;
+		position: absolute;
+		top: -20px;
+		left: 0;
+		line-height: 1em;
+		color: $color__accent;
+		z-index: -1;
+	}
+}

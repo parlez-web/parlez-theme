@@ -25,6 +25,8 @@
 		?>
 	</div>
 	<div class="social-search-container">
+		<?php myboutique_social_media(); ?>
+		<i class="icon-search-bold search-icon"></i>
 		<?php 
 		//Woocommerce Icons
 		if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {

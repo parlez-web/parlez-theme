@@ -13,8 +13,8 @@ A minimal but versatile and highly customizable Blog Theme for Fashion and Lifes
 
 == Changelog ==
 
-= 1.0.0 - July 18 2018 =
-* Initial release
+= 1.0.0 -  =
+* Initial release / TODO
 
 == Credits ==
 
