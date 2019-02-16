@@ -1177,7 +1177,7 @@ class Merlin {
 
 			<h1><?php echo esc_html( $header ); ?></h1>
 
-			<p><?php echo esc_html( $paragraph ); ?></p>
+			<p><?php echo $paragraph; ?></p>
 
 			<?php if ( 1 < count( $this->import_files ) ) : ?>
 

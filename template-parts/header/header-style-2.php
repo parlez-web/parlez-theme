@@ -42,19 +42,17 @@
 		</div>
 		<div class="social-search-container">
 			<?php 
-			//Woocommerce Icons
+			//Woocommerce Icon
 			if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', get_option( 'active_plugins' ) ) ) ) {
-			 
-			    $count = WC()->cart->cart_contents_count;
-			    ?><a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>"><?php 
-			    if ( $count > 0 ) {
-			        ?>
-			        <span class="cart-contents-count"><?php echo esc_html( $count ); ?></span>
-			        <?php
-			    }
-			        ?></a>
-			 
-			<?php } ?>
+		 
+		    $count = WC()->cart->cart_contents_count;
+		   	?>
+		   	<a class="cart-contents" href="<?php echo WC()->cart->get_cart_url(); ?>" title="<?php _e( 'View your shopping cart' ); ?>">
+
+		        <span class="cart-contents"><i class="icon-shopping-bag"></i> <?php echo esc_html( $count ); ?></span>
+		    </a>
+		 
+		<?php } ?>
 		</div>
 	</nav>
 </div>

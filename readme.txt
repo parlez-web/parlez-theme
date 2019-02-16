@@ -8,7 +8,7 @@ License URI: LICENSE
 
 == Description ==
 
-A minimal but versatile and highly customizable Blog Theme for Fashion and Lifestyle Bloggers
+The starter theme for all My Boutique Themes - versatile, customizable WordPress Themes for Creatives, Bloggers and Entrepreneuers.
 
 
 == Changelog ==

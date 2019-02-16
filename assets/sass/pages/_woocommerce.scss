@@ -7,6 +7,21 @@
   width: 100%;
   margin: 1em auto;
 
+  .entry-header {
+    margin-top: -2em;
+    background-color: $color__light-bg;
+    padding: 1em;
+    margin-bottom: 0;
+
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+
+  .entry-content {
+    margin-top: 0;
+  }
+
   .product {
     width: 100%;
 
@@ -43,7 +58,7 @@
   }
 
   .entry-content {
-    max-width: 70em;
+    max-width: 1080px;
   }
 }
 
@@ -316,31 +331,18 @@ a.button.alt.checkout-button {
 
 // Cart Icon
 .cart-contents {
-  margin-right: 1em;
+  margin-right: 0.75em;
   color: $color__primary;
+  font-size: 0.975em;
 }
-.cart-contents:before {
-    font-family: WooCommerce;
-    content: "\e01d";
-    font-size: 24px;
-    margin-top:10px;
-    font-style:normal;
-    font-weight:400;
-    padding-right:0px;
-    vertical-align: bottom;
-}
-.cart-contents:hover {
-    text-decoration: none;
-}
-.cart-contents-count {
-    color: #fff;
-    background-color: $color__light-bg;
-    font-weight: bold;
-    border-radius: 50%;
-    padding: 2px 6px;
-    line-height: 1;
-    font-size: 12px;
-    font-family: Arial, Helvetica, sans-serif;
-    vertical-align: top;
-    margin-left: -5px;
+
+// Woocommerce Gallery Slider
+.product .images .flex-control-thumbs {
+  margin-top: 0.75em!important;
+  display: flex;
+  justify-content: space-between;
+
+  li {
+    width: 24%!important;
+  }
 }

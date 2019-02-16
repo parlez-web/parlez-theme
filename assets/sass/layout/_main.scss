@@ -40,6 +40,7 @@
 	width: 100%;
 	margin: auto;
 	padding: 0px 20px;
+	margin-top: -5em;
 
 	@include breakpoint(tablet) {
 		width: 30%;
@@ -276,6 +277,7 @@ article.first-post {
 					flex-direction: column;
 					justify-content: center;
 					padding-bottom: 0.25em;
+					margin-top: 1em;
 				}
 
 				.entry-content {
@@ -293,6 +295,7 @@ article.first-post {
 
 			.entry-thumbnail {
 				width: 100%;
+				max-height: 480px;
 			}
 
 			.readmore {
@@ -337,18 +340,124 @@ article.first-post {
 	}
 }
 
+/* Side Magazine */
+.site-main.side-magazine {
+	article {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		border-bottom: none;
+
+		@include breakpoint(tablet) {
+			flex-direction: row;
+			justify-content: space-between;
+		}
+
+		.entry-thumbnail, .entry-body {
+			width: 100%;
+
+			@include breakpoint(tablet) {
+				width: 46%;
+			}
+		}
+
+		.entry-thumbnail {
+			max-height: 450px;
+		}
+
+		.entry-body {
+			text-align: left;
+			padding-bottom: 1em;
+			border-bottom: 1px solid #dddddd;
+			margin-top: 2em;
+
+			@include breakpoint(tablet) {
+				margin-top: 1em;
+			}
+
+			.read-more {
+				text-align: left;
+			}
+
+			.entry-snippet {
+				justify-content: flex-start;
+				margin-left: 0;
+				margin-right: 0;
+			}
+		}
+
+		.entry-footer {
+
+			@include breakpoint(tablet) {
+				justify-content: flex-end;
+
+				.share {
+					margin-left: 1em;
+
+					&:before {
+						content: '//';
+						margin-right: 1em;
+					}
+				}
+
+			}
+		}
+	}
+}
+
+/* Alternating Posts */
+.site-main.alternating {
+	article {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+		@include breakpoint(tablet) {
+			margin-bottom: 5em;
+
+			.entry-thumbnail {
+				width: 50%;
+				max-height: 550px;
+			}
+			.entry-body {
+				margin: 0;
+				margin-top: 1em;
+			}
+		}
+	}
+	article:nth-of-type(odd) {
+		@include breakpoint(tablet) {
+			flex-direction: row-reverse;
+
+			.entry-body {
+				text-align: right;
+
+				.read-more {
+					text-align: right;
+				}
+
+				.entry-snippet {
+					justify-content: flex-end;
+				}
+				.entry-footer {
+					justify-content: flex-start;
+				}
+			}
+		}
+	}
+}
+
 .site-content.has-sidebar {
 	.entry-title {
 		font-size: 1.7em;
 	}
 
-	article:nth-of-type(n+2) .entry-body {
-		margin-top: 2em;
+	// article:nth-of-type(n+2) .entry-body {
+	// 	margin-top: 2em;
 
-		@include breakpoint(tablet) {
-			margin-top: 1em;
-		}
-	}
+	// 	@include breakpoint(tablet) {
+	// 		margin-top: 1em;
+	// 	}
+	// }
 }
 
 .nav-links {
@@ -410,6 +519,14 @@ article.first-post {
 		@include breakpoint(tablet) {
 			margin-top: 0em;
 		}
+	}
+}
+
+.before-content-home {
+	margin-top: -4em;
+
+	@include breakpoint(tablet) {
+		margin-top: 0;
 	}
 }
 

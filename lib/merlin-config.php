@@ -75,7 +75,7 @@ $wizard = new Merlin(
 		'plugins-success%s'        => esc_html__( 'The required WordPress plugins are all installed and up to date. Press "Next" to continue the setup wizard.', 'myboutique' ),
 		'plugins-action-link'      => esc_html__( 'Advanced', 'myboutique' ),
 		'import-header'            => esc_html__( 'Import Content', 'myboutique' ),
-		'import'                   => esc_html__( 'Let\'s import content to your website, to help you get familiar with the theme.', 'myboutique' ),
+		'import'                   => sprintf( 'Let\'s import content to your website, to help you get familiar with the theme. See all <a href="%s">Theme Demos</a>.', 'https://goo.gl' ),
 		'import-action-link'       => esc_html__( 'Advanced', 'myboutique' ),
 		'ready-header'             => esc_html__( 'All done. Have fun!', 'myboutique' ),
 		/* translators: Theme Author */
@@ -87,3 +87,27 @@ $wizard = new Merlin(
 		'ready-link-3'             => sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'customize.php' ), esc_html__( 'Start Customizing', 'myboutique' ) ),
 	)
 );
+
+function merlin_import_files() {
+	return array(
+		array(
+			'import_file_name'           => '1 - Fashion Blog w/ sidebar',
+			'import_file_url'            => 'http://www.your_domain.com/merlin/demo-content.xml',
+			'import_widget_file_url'     => 'http://www.your_domain.com/merlin/widgets.json',
+			'import_customizer_file_url' => 'http://www.your_domain.com/merlin/customizer.dat',
+			'import_preview_image_url'   => 'https://www.cameraegg.org/wp-content/uploads/2013/03/Canon-EOS-100D-Rebel-SL1-Sample-Image-1024x682.jpg',
+			'import_notice'              => __( 'Demo 1 - Fashion Blog with Sidebar', 'your-textdomain' ),
+			'preview_url'                => 'http://www.your_domain.com/my-demo-1',
+		),
+		array(
+			'import_file_name'           => '2 - Lifestyle Blog (Fullwidth)',
+			'import_file_url'            => 'http://www.your_domain.com/merlin/demo-content.xml',
+			'import_widget_file_url'     => 'http://www.your_domain.com/merlin/widgets.json',
+			'import_customizer_file_url' => 'http://www.your_domain.com/merlin/customizer.dat',
+			'import_preview_image_url'   => 'https://www.cameraegg.org/wp-content/uploads/2013/03/Canon-EOS-100D-Rebel-SL1-Sample-Image-1024x682.jpg',
+			'import_notice'              => __( 'Demo 2 - Lifestyle Blog with Sidebar', 'your-textdomain' ),
+			'preview_url'                => 'http://www.your_domain.com/my-demo-1',
+		),
+	);
+}
+add_filter( 'merlin_import_files', 'merlin_import_files' );

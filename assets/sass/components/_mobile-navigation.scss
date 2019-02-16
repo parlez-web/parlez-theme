@@ -28,6 +28,9 @@
 	}
 
 	.menu-toggle {
+		font-size: 2em;
+		line-height: 0.35em;
+		
 		span {
 			font-size: 0.33em;
 			letter-spacing: 0.08em;
@@ -36,7 +39,7 @@
 		}
 
 		i {
-			font-size: 0.875em;
+			font-size: 0.75em;
 			line-height: 0.65em;
 			vertical-align: middle;
 		}
@@ -45,6 +48,14 @@
 	.search-icon {
 		font-size: 1.35em;
 		margin: 0.5em 0.25em;
+		vertical-align: middle;
+	}
+
+	.cart-contents {
+		margin-left: 0.25em;
+		margin-right: 0;
+		color: $color__primary;
+		font-size: 0.975em;
 		vertical-align: middle;
 	}
 
@@ -186,3 +197,18 @@
 	display: none;
 }
 
+
+.woocommerce button.menu-toggle, .woocommerce-page button.menu-toggle {
+	span {
+		font-size: 0.33em;
+		letter-spacing: 0.08em;
+		vertical-align: middle;
+		margin-left: 0.875em;
+	}
+
+	i {
+		font-size: 0.875em;
+		line-height: 0.65em;
+		vertical-align: middle;
+	}
+}

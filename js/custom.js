@@ -196,9 +196,9 @@ $('.featured-row').each(function() {
 
 	/* Add icons and click listeners to submenus */
 	$submenu_link = $('.menu .menu-item-has-children');
-	$submenu_link.find('a:eq(0)').append('<i class="icon-down"></i>');
+	$submenu_link.find('a:eq(0)').append('<i class="icon-keyboard_arrow_down"></i>');
 	
-	$('#mobile-navigation .menu-item-has-children .icon-down').on('click', function(event) {
+	$('#mobile-navigation .menu-item-has-children .icon-keyboard_arrow_down').on('click', function(event) {
 		event.preventDefault();
 		$(this).parents('.menu-item').find('ul.sub-menu').slideToggle();
 		$(this).toggleClass("icon-up");
@@ -328,8 +328,8 @@ $('.search-icon, .close-search').on('click', function() {
 	    dots: true,
 	    infinite: true,
 	    speed: 300,
-	    prevArrow: '',
-	    nextArrow: '<i class="next-slide icon-arrow-right"></i>'
+	    prevArrow: '<i class="prev-slide icon-chevron-left"></i>',
+	    nextArrow: '<i class="next-slide icon-chevron-right"></i>'
 	});
 
 	// Slider Type 2
@@ -340,8 +340,8 @@ $('.search-icon, .close-search').on('click', function() {
 	  centerMode: true,
 	  centerPadding: '300px',
 	  slidesToShow: 1,
-	  prevArrow: '',
-	  nextArrow: '<i class="next-slide icon-arrow-right"></i>',
+	  prevArrow: '<i class="prev-slide icon-chevron-left"></i>',
+	  nextArrow: '<i class="next-slide icon-chevron-right"></i>',
 	  responsive: [
 	  	{
 	      breakpoint: 1024,

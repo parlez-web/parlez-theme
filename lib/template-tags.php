@@ -159,6 +159,8 @@ if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
 	    $orig_post = $post;
 	    
 	    $tags = wp_get_post_tags($post->ID);
+
+	    $number_posts = get_theme_mod('myboutique_related_number', 3);
 	    
 	    if ($tags) {
 	    	$tag_ids = array();
@@ -167,14 +169,14 @@ if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
 			$args=array(
 				'tag__in' => $tag_ids,
 				'post__not_in' => array($post->ID),
-				'posts_per_page' => 3, // Number of related posts that will be shown.
+				'posts_per_page' => $number_posts, // Number of related posts that will be shown.
 				'ignore_sticky_posts' => 1
 			);
 	    	$my_query = new wp_query( $args );
 	    
 	    	if( $my_query->have_posts() ) {
 	    		?>
-	    		<div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
+	    		<div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
 	    		<?php
 
 	    		while( $my_query->have_posts() ) {
@@ -201,6 +203,8 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 		    $orig_post = $post;
 		    
 		    $categories = get_the_category($post->ID);
+
+		    $number_posts = get_theme_mod('myboutique_related_number', 3);
 		    
 		    if ($categories) {
 		    	$category_ids = array();
@@ -209,7 +213,7 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 		    	$args=array(
 				    'category__in' => $category_ids,
 				    'post__not_in' => array($post->ID),
-				    'posts_per_page'=> 3, // Number of related posts that will be shown
+				    'posts_per_page'=> $number_posts, // Number of related posts that will be shown
 				    'ignore_sticky_posts'=> 1
 			    );
 
@@ -217,7 +221,7 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 		    
 		    	if( $my_query->have_posts() ) {
 		    		?>
-				    <div id="related-posts"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
+				    <div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
 				    <?php
 				    while( $my_query->have_posts() ) {
 				    	$my_query->the_post();

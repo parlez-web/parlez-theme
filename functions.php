@@ -131,6 +131,9 @@ if ( ! function_exists( 'myboutique_setup' ) ) :
 
 		// Woocommerce Support
 		add_theme_support( 'woocommerce' );
+		add_theme_support( 'wc-product-gallery-zoom' );
+		add_theme_support( 'wc-product-gallery-lightbox' );
+		add_theme_support( 'wc-product-gallery-slider' );
 	}
 endif;
 add_action( 'after_setup_theme', 'myboutique_setup', 5 );
@@ -249,9 +252,6 @@ function myboutique_admin_style() {
 add_action('admin_enqueue_scripts', 'myboutique_admin_style');
 
 
-// Add backend styles for Gutenberg.
-add_action( 'enqueue_block_editor_assets', 'myboutique_add_gutenberg_assets' );
-
 /**
  * Load Gutenberg stylesheet.
  */
@@ -259,6 +259,7 @@ function myboutique_add_gutenberg_assets() {
 	// Load the theme styles within Gutenberg.
 	wp_enqueue_style( 'myboutique-gutenberg', get_template_directory_uri() . '/assets/css/gutenberg-editor-style.css' );
 }
+add_action( 'enqueue_block_editor_assets', 'myboutique_add_gutenberg_assets' );
 
 
 // Customizer Preview JS
@@ -351,6 +352,23 @@ function myboutique_get_customizer_css() {
     $css = ob_get_clean();
     return $css;
 }
+
+
+/**
+ * Show cart contents / total Ajax
+ */
+function woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<a class="cart-customlocation" href="<?php echo esc_url(wc_get_cart_url()); ?>" title="<?php _e('View your shopping cart', 'woothemes'); ?>"><?php echo sprintf(_n('%d item', '%d items', $woocommerce->cart->cart_contents_count, 'woothemes'), $woocommerce->cart->cart_contents_count);?> - <?php echo $woocommerce->cart->get_cart_total(); ?></a>
+	<?php
+	$fragments['a.cart-customlocation'] = ob_get_clean();
+	return $fragments;
+}
+add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
 
 
 /**

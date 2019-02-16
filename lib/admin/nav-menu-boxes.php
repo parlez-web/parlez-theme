@@ -1,6 +1,6 @@
 <?php
 /**
- * myboutique Admin Functionality
+ * myboutique Admin Menu Functionality
  *
  * @package myboutique
  */

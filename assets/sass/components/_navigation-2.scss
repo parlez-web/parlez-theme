@@ -79,13 +79,14 @@
 					opacity: 0;
 					transition: 0.5s opacity ease-in-out;
 					padding-bottom: 0.5em;
+					margin-top: 1em;
 
 					ul {
 						left: -999em;
 						top: -20px;
 						transition: all 0.3s ease-in-out;
 
-						a .icon-down {
+						a .icon-keyboard_arrow_down {
 							transform: rotate(30deg);
 							font-size: 4em;
 						}
@@ -115,8 +116,9 @@
 					left: 50%;
 					transform: translateX(-50%);
 					width: 200px;
-					transition: 0.5s all ease-in-out;
 					opacity: 1;
+					transition: 0.5s margin-top ease-in-out;
+					margin-top: 0em;
 
 					li:hover {
 						opacity: 0.7;
@@ -152,7 +154,7 @@
 				}
 
 				i {
-					vertical-align: middle;
+					vertical-align: top;
 				}
 			}
 
@@ -179,6 +181,13 @@
 				display: block;
 				margin: 0;
 				margin-right: 0.75em;
+			}
+
+			.cart-contents {
+				margin-left: 1.25em;
+				margin-right: 0.5em;
+				color: $color__primary;
+				font-size: 0.975em;
 			}
 
 			.searchform {

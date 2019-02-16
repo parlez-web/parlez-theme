@@ -199,6 +199,7 @@ if ( ! class_exists( 'Fox' ) ) {
 		 */
 		public function admin() {
 
+			require_once( $this->dir . 'admin/admin-functions.php' );
 			require_once( $this->dir . 'admin/nav-menu-boxes.php' );
 
 		}

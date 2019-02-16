@@ -107,9 +107,9 @@
 
 	/* Add icons and click listeners to submenus */
 	$submenu_link = $('.menu .menu-item-has-children');
-	$submenu_link.find('a:eq(0)').append('<i class="icon-down"></i>');
+	$submenu_link.find('a:eq(0)').append('<i class="icon-keyboard_arrow_down"></i>');
 	
-	$('#mobile-navigation .menu-item-has-children .icon-down').on('click', function(event) {
+	$('#mobile-navigation .menu-item-has-children .icon-keyboard_arrow_down').on('click', function(event) {
 		event.preventDefault();
 		$(this).parents('.menu-item').find('ul.sub-menu').slideToggle();
 		$(this).toggleClass("icon-up");

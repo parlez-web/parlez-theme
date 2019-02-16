@@ -186,3 +186,17 @@ function myboutique_numeric_posts_nav() {
     echo '</ul></div>' . "\n";
  
 }
+
+
+/*
+* Add Images to RSS feed (for Bloglovin Support)
+*/
+function myboutique_rss_featured_image($content) {
+    global $post;
+    if ( has_post_thumbnail( $post->ID ) ){
+    $content = '<div>' . get_the_post_thumbnail( $post->ID, 'medium', array( 'style' => 'margin-bottom: 15px;' ) ) . '</div>' . $content;
+    }
+    return $content;
+}
+add_filter('the_excerpt_rss', 'myboutique_rss_featured_image');
+add_filter('the_content_feed', 'myboutique_rss_featured_image');

@@ -479,7 +479,7 @@ function myboutique_related_posts_customize_register( $wp_customize ) {
 	) );
 
    //* Add Customizer Control: Checkbox Related Posts
-   $wp_customize->add_control( 'myboutique_related_checkbox_control',
+   $wp_customize->add_control( 'myboutique_related_checkbox',
 		array(
 			'settings'		=> 'myboutique_related_checkbox',
 			'section'		=> 'myboutique_article_section',
@@ -496,7 +496,7 @@ function myboutique_related_posts_customize_register( $wp_customize ) {
 	) );
 
    //* Add Customizer Control: Headline Related Posts
-   $wp_customize->add_control( 'myboutique_related_headline_control',
+   $wp_customize->add_control( 'myboutique_related_headline',
 		array(
 			'settings'		=> 'myboutique_related_headline',
 			'section'		=> 'myboutique_article_section',
@@ -514,15 +514,21 @@ function myboutique_related_posts_customize_register( $wp_customize ) {
 	) );
 
    //* Add Customizer Control: Number Related Posts
-   $wp_customize->add_control( 'myboutique_related_number_control',
+   $wp_customize->add_control( 'myboutique_related_number',
 		array(
 			'settings'		=> 'myboutique_related_number',
 			'section'		=> 'myboutique_article_section',
 			'type'			=> 'number',
 			'label'			=> __( 'Number of Related Posts', 'myboutique' ),
-			'description'	=> __( 'Set the number of related posts to display below each article.', 'myboutique' )
+			'description'	=> __( 'Set the number of related posts to display below each article.', 'myboutique' ),
+			'input_attrs' => array(
+	            'min' => 1,
+	            'max' => 10,
+	            'step' => 1,
+            ),
 		)
 	);
+
 
    //* Add Customizer Setting: Category or Tags for Related Posts
 	$wp_customize->add_setting( 'myboutique_related_type' , array(

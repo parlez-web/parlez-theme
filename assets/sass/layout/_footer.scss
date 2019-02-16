@@ -31,10 +31,11 @@ footer.site-footer {
 		padding-right: 0em;
 		line-height: 1.65em;
 		text-align: center;
+		width: 100%;
 
 		@include breakpoint(tablet) {
-			padding-right: 10em;
 			text-align: left;
+			width: auto;
 		}
 
 		p.site-title {

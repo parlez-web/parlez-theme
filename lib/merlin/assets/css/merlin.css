@@ -2649,8 +2649,10 @@ body.exiting .merlin__content--content .merlin__content__footer {
 
 .merlin__select-control-wrapper {
 	margin: 9px auto -4px;
-	max-width: 200px;
+	max-width: 230px;
 	position: relative;
+	margin-top: 20px;
+	margin-bottom: 10px;
 }
 
 .merlin__select-control-wrapper .icon {
@@ -2736,4 +2738,11 @@ body.exiting .merlin__content--content .merlin__content__footer {
 
 .is-multi-import .merlin__content__footer {
 	margin-top: 7px;
+}
+
+
+.merlin__wrapper input[type="checkbox"] + label {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
 }

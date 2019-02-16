@@ -8,8 +8,8 @@
 	    dots: true,
 	    infinite: true,
 	    speed: 300,
-	    prevArrow: '',
-	    nextArrow: '<i class="next-slide icon-arrow-right"></i>'
+	    prevArrow: '<i class="prev-slide icon-chevron-left"></i>',
+	    nextArrow: '<i class="next-slide icon-chevron-right"></i>'
 	});
 
 	// Slider Type 2
@@ -20,8 +20,8 @@
 	  centerMode: true,
 	  centerPadding: '300px',
 	  slidesToShow: 1,
-	  prevArrow: '',
-	  nextArrow: '<i class="next-slide icon-arrow-right"></i>',
+	  prevArrow: '<i class="prev-slide icon-chevron-left"></i>',
+	  nextArrow: '<i class="next-slide icon-chevron-right"></i>',
 	  responsive: [
 	  	{
 	      breakpoint: 1024,

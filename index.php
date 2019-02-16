@@ -20,7 +20,7 @@ $post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
 ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main <?php echo ($post_layout == 'side_magazine') ? 'side-magazine' : '' ?>">
+		<main id="main" class="site-main <?php echo ($post_layout == 'side_magazine') ? 'side-magazine' : '' ?> <?php echo ($post_layout == 'alternating') ? 'side-magazine alternating' : '' ?>">
 
 		<?php
 		if ( have_posts() ) :
@@ -54,19 +54,19 @@ $post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
 						get_template_part( 'template-parts/content/content', 'home-small' );
 					}
 
-				} else if($post_layout == 'normal' || $post_layout == 'side_magazine') {
+				} else if($post_layout == 'normal' || $post_layout == 'side_magazine' || $post_layout == 'alternating') {
 
 					// Style 3: Big - Big - Big ... (centered)
 					get_template_part( 'template-parts/content/content', 'home' );
 
-				}  else if($post_layout == 'alternating') {
+				// }  else if($post_layout == 'alternating') {
 
-					// Style 4: Alternating left/right
-					if($i % 2 == 0) {
-						get_template_part( 'template-parts/content/content', 'alternating-left' );
-					} else {
-						get_template_part( 'template-parts/content/content', 'alternating-right' );
-					}
+				// 	// Style 4: Alternating left/right
+				// 	if($i % 2 == 0) {
+				// 		get_template_part( 'template-parts/content/content', 'alternating-left' );
+				// 	} else {
+				// 		get_template_part( 'template-parts/content/content', 'alternating-right' );
+				// 	}
 					
 				} else if($post_layout == 'complex_magazine') {
 

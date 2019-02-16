@@ -114,40 +114,8 @@
 		}
 	}
 
-	.slick-navigation {
-		color: $color__primary;
-		font-size: 2.75em;
-		cursor: pointer;
-
-		.prev {
-			left:0px;
-			@include slider-arrows();
-
-		}
-		.next {
-			right:0px;
-			@include slider-arrows();
-		}
-	}
-
-	.next-slide {
-		position: absolute;
-		top: 85%;
-		right: 15px;
-		transform: translate(0,-50%);
-		font-size: 2em;
-		cursor: pointer;
+	.slick-arrow {
 		display: none!important;
-
-		&:before {
-			display: block;
-		}
-
-		@include breakpoint(tablet) {
-			top: 50%;
-			right: 30px;
-			display: block;
-		}
 	}
 	
 }
