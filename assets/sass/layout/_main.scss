@@ -1,5 +1,4 @@
 .site-content {
-	max-width: $max_size__site-main;
 	margin: 0 auto;
 	display: flex;
 	flex-direction: row;
@@ -9,10 +8,6 @@
 
 	@include breakpoint(tablet) {
 		padding: $padding__general;
-	}
-
-	.home & {
-		max-width: $max_size__site-main;
 	}
 }
 
@@ -546,4 +541,9 @@ blockquote, .wp-block-quote {
 		color: $color__accent;
 		z-index: -1;
 	}
+}
+
+/* Elementor */
+.elementor-widget-heading.elementor-widget-heading .elementor-heading-title {
+    color: $color__primary!important;
 }

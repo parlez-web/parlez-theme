@@ -33,6 +33,14 @@ get_header(); ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
+	<?php 
+	$sidebar = (get_theme_mod('parlez_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	
+	if($sidebar) {
+		get_sidebar();
+	}
+	?>
+
 </div>
 <?php
 

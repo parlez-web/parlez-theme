@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 // TODO: change 'Widget_Name' to the name of your plugin
-class Myboutique_Profile_Widget extends WP_Widget {
+class parlez_Profile_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -46,10 +46,10 @@ class Myboutique_Profile_Widget extends WP_Widget {
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'myboutique Profile Widget', $this->get_widget_slug() ),
+			__( 'parlez Profile Widget', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Profile Widget for Sidebar of myboutique Theme.', $this->get_widget_slug() )
+				'description' => __( 'Profile Widget for Sidebar of parlez Theme.', $this->get_widget_slug() )
 			)
 		);
 		// Register admin styles and scripts
@@ -312,12 +312,12 @@ class Myboutique_Profile_Widget extends WP_Widget {
 /*
 * Register the widget.
 */
-function myboutique_load_profile_widget() {
-	register_widget( 'Myboutique_Profile_Widget' );
+function parlez_load_profile_widget() {
+	register_widget( 'parlez_Profile_Widget' );
 }
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', 'myboutique_load_profile_widget' );
+add_action( 'widgets_init', 'parlez_load_profile_widget' );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
 register_activation_hook( __FILE__, array( 'MPS Profile Widget', 'activate' ) );

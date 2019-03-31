@@ -1,8 +1,8 @@
 <?php
 /**
- * myboutique Admin Menu Functionality
+ * parlez Admin Menu Functionality
  *
- * @package myboutique
+ * @package parlez
  */
 
 

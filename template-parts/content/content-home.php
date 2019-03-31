@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" class="first-post" <?php post_class(); ?>>
+<article id="post-<?php the_ID(); ?>" class=<?php post_class(); ?>>
 		<?php 
 		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
 				?><div class="entry-thumbnail">
@@ -23,7 +23,7 @@
 			<?php
 			if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php myboutique_entry_categories(); ?>
+				<?php parlez_entry_categories(); ?>
 			</div><!-- .entry-meta -->
 			<?php
 			endif; ?>
@@ -35,14 +35,14 @@
 
 		<div class="entry-content entry-snippet">
 			<?php
-			if(get_theme_mod('myboutique_readmore_text', 'Read More') != '') {
-				$readmore = '... <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('myboutique_readmore_text', 'Read more') . ' >></button></a>';
+			if(get_theme_mod('parlez_readmore_text', 'Read More') != '') {
+				$readmore = '... <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('parlez_readmore_text', 'Read more') . ' >></button></a>';
 				}
 
 				echo wp_trim_words(get_the_excerpt(), 20, $readmore);
 
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'myboutique' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'parlez' ),
 					'after'  => '</div>',
 				) );
 
@@ -50,7 +50,7 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php myboutique_entry_footer(); ?>
+			<?php parlez_entry_footer(); ?>
 		</footer>
 
 	</div>	

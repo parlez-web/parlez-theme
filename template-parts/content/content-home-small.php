@@ -22,7 +22,7 @@
 			<?php
 			if ( 'post' === get_post_type() ) : ?>
 			<div class="entry-meta">
-				<?php myboutique_entry_categories(); ?>
+				<?php parlez_entry_categories(); ?>
 			</div><!-- .entry-meta -->
 			<?php
 			endif; ?>
@@ -37,14 +37,14 @@
 
 		<div class="entry-content entry-snippet">
 			<?php
-			if(get_theme_mod('myboutique_readmore_text', 'Read More') != '') {
-				$readmore = '... <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('myboutique_readmore_text', 'Read more') . ' >></button></a>';
+			if(get_theme_mod('parlez_readmore_text', 'Read More') != '') {
+				$readmore = '... <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('parlez_readmore_text', 'Read more') . ' >></button></a>';
 				}
 
 				echo wp_trim_words(get_the_excerpt(), 20, $readmore);
 
 				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'myboutique' ),
+					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'parlez' ),
 					'after'  => '</div>',
 				) );
 

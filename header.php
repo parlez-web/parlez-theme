@@ -22,19 +22,19 @@
 
 <body <?php body_class(); ?>>
 <div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'myboutique' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'parlez' ); ?></a>
 
 	<?php get_template_part( 'template-parts/header/header', 'style-1' ); ?>
 
 	<?php if(is_home()) {
 
-		$featured_layout = get_theme_mod('myboutique_featured_layout', 'slider-fullwidth');
+		$featured_layout = get_theme_mod('parlez_featured_layout', 'slider-fullwidth');
 		
 		if($featured_layout == 'slider_fullwidth' || $featured_layout == 'slider_contentwidth' || $featured_layout == 'slider_overlay') {
-			//myboutique_featured_row('featured', 4, 'featured', 'top');
-			myboutique_post_slider(4, 'featured');
+			//parlez_featured_row('featured', 4, 'featured', 'top');
+			parlez_post_slider(4, 'featured');
 		} else if($featured_layout == 'slider_centered') {
-			myboutique_centered_slider(4, 'featured');
+			parlez_centered_slider(4, 'featured');
 		}
 
 		?>
@@ -45,7 +45,7 @@
 	}
 
 
-	$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	$sidebar = (get_theme_mod('parlez_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
 	$sidebar_class = ($sidebar) ? 'has-sidebar' : '';
 	?>

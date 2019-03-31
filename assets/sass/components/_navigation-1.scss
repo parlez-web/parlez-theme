@@ -10,16 +10,25 @@
 		display: block;
 	}
 	#site-navigation {
-		display: flex;
+		display: inline-flex;
+		justify-content: space-between;
+		padding: 0.75em 1em;
+
+		&:before {
+			content: "";
+			width: 60px;
+			height: 3px;
+			background-color: $color__primary;
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 2em;
+		}
 	}
 
 	.admin-bar .main-navigation {
     	top: 0px;
 	}
 
-	.site-header {
-		margin: 2em auto 3em auto;
-	}
 	#site-navigation + .site-header {
 		margin-top: 3em;
 	}
@@ -27,7 +36,6 @@
 	.main-navigation {
 	display: block;
 	clear: both;
-	width: 100%;
 	position: relative;
 	height: auto;
 
@@ -64,10 +72,10 @@
 					left: -999em;
 					z-index: 99999;
 					display: inline-block;
-					background-color: $color__secondary;
+					background-color: white;
+					border: 1px solid $color__grey;
 					margin-top: 1em;
 					transition: 0.5s margin-top ease-in-out;
-					padding-bottom: 0.5em;
 
 					li.menu-item-has-children {
 
@@ -85,8 +93,9 @@
 					}
 
 					li {
-						text-align: center;
-						padding: 0.75em;
+						text-align: left;
+						padding: 1.2em 0.975em;
+						border-bottom: 1px solid $color__grey;
 
 						&:hover > ul,
 						&.focus > ul {
@@ -94,6 +103,14 @@
 							left: 100%;
 							top: 0;
 							transform: translateX(0);
+						}
+
+						&:last-of-type {
+							border: none;
+						}
+
+						&:hover {
+							background-color: $color__grey;
 						}
 					}
 				}
@@ -115,7 +132,7 @@
 
 			li {
 				position: relative;
-				padding: 0.75em 1.5em;
+				padding: 1.75em 2.5em;
 
 				&.social-item + .social-item {
 					padding-left: 0;
@@ -133,6 +150,12 @@
 					padding-left: 0;
 				}
 
+				&.button-item {
+					background-color: $color__yellow;
+					padding: 1em 1.5em;
+					margin-left: 2.5em;
+				}
+
 				i {
 					vertical-align: top;
 				}
@@ -145,7 +168,7 @@
 
 			a {
 				text-decoration: none;
-				text-align: center;
+				text-align: left;
 				display: inline-block;
 				vertical-align: bottom;
 			}

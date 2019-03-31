@@ -4,16 +4,16 @@
 /* TYPOGRAPHY
 --------------- */
 //Primary font for headings
-$font-primary: "Poppins";
+$font-primary: "Gotham";
 // Secondary font for menu, categories, etc.
 $font-secondary: $font-primary;
 // Tertiary font for body text (if not the same as 2nd)
-$font-tertiary: "Cormorant Garamond";
+$font-tertiary: "Gotham";
 
 
-$font__text-single: normal 400 1.15em $font-tertiary, Georgia, Times New Roman;
-$font__text: normal 400 0.875em $font-primary, Montserrat, Arial;
-$font__headline: normal 600 1.55em $font-primary, Montserrat, Arial;
+$font__text-single: normal 400 1.15em $font-tertiary, Montserrat, Times New Roman;
+$font__text: normal 400 1em $font-primary, Montserrat, Arial;
+$font__headline: normal 700 1.55em $font-primary, Montserrat, Arial;
 $font__menu: normal 400 1em $font-secondary, Montserrat, Arial;
 $font__menu-small: normal 300 0.65em $font-secondary, Montserrat, Arial;
 
@@ -30,7 +30,9 @@ $color__primary: #0c0c0c;
 $color__secondary: #faf1ed;
 $color__accent: #aaaaaa;
 $color__light-bg: #f8dfdf;
+$color__grey: #eeeeee;
 
+$color__yellow: #F9CC44;
 
 $color__background-body: #ffffff;
 $color__background-screen: #f1f1f1;

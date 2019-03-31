@@ -17,7 +17,7 @@ get_header(); ?>
 
 			get_template_part( 'template-parts/content/content', get_post_type() );
 
-			myboutique_posts_navigation();
+			parlez_posts_navigation();
 
 			// If comments are open or we have at least one comment, load up the comment template.
 			if ( comments_open() || get_comments_number() ) :
@@ -31,7 +31,7 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 	<?php 
-	$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+	$sidebar = (get_theme_mod('parlez_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 	
 	if($sidebar) {
 		get_sidebar();
@@ -39,12 +39,12 @@ get_header(); ?>
 	?>
 
 	<?php
-	if( get_theme_mod('myboutique_related_checkbox', true) == true) {
-		if ( get_theme_mod('myboutique_related_type', 'categories') == 'categories' ) {
-			myboutique_related_posts_categories();
+	if( get_theme_mod('parlez_related_checkbox', true) == true) {
+		if ( get_theme_mod('parlez_related_type', 'categories') == 'categories' ) {
+			parlez_related_posts_categories();
 		}
 		else {
-			myboutique_related_posts_tags();
+			parlez_related_posts_tags();
 		}
 	}
 	
@@ -56,7 +56,7 @@ get_header(); ?>
 	</div><!-- #after-single-post -->
 
 <?php
-myboutique_next_post_slider();
+parlez_next_post_slider();
 
 
 get_footer();

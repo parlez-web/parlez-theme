@@ -1,13 +1,13 @@
 /*!
-Theme Name: MyBoutique Theme
-Theme URI: https://www.demo.munichparisstudio.com/myboutique
+Theme Name: parlez Theme
+Theme URI: https://www.demo.munichparisstudio.com/parlez
 Author: MunichParis Studio
 Author URI: https://munichparisstudio.com
-Description: MyBoutique Themes are elegant and feminine WordPress theme for bloggers and stylish entrepreneuers
+Description: parlez Themes are elegant and feminine WordPress theme for bloggers and stylish entrepreneuers
 Version: 1.0.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
-Text Domain: myboutique
+Text Domain: parlez
 Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
@@ -60,8 +60,8 @@ td,th{padding:0}
 .edit-link{display:none}
 .fullwidth-padding{width:100%;padding:20px}
 .small-width{width:100%;max-width:1280px;padding:20px;margin:0 auto}
-body,button,input,select,optgroup,textarea{color:#111;font:normal 400 .875em "Poppins",Montserrat,Arial;font-size:16px;font-size:1rem;line-height:1.5}
-h1,h2,h3,h4,h5,h6{clear:both;font:normal 600 1.55em "Poppins",Montserrat,Arial;color:#0c0c0c}
+body,button,input,select,optgroup,textarea{color:#111;font:normal 400 1em "Gotham",Montserrat,Arial;font-size:16px;font-size:1rem;line-height:1.5}
+h1,h2,h3,h4,h5,h6{clear:both;font:normal 700 1.55em "Gotham",Montserrat,Arial;color:#0c0c0c}
 h1{font-size:1.75em}
 h2{font-size:1.35em}
 h3{font-size:1.2em}
@@ -77,12 +77,9 @@ code,kbd,tt,var{font-family:Monaco,Consolas,"Andale Mono","DejaVu Sans Mono",mon
 abbr,acronym{border-bottom:1px dotted #666;cursor:help}
 mark,ins{background:#fff9c0;text-decoration:none}
 big{font-size:125%}
-@font-face{font-family:"Poppins";src:url("assets/fonts/poppins-regular-webfont.eot");src:url("assets/fonts/poppins-regular-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/poppins-regular-webfont.woff") format("woff"),url("assets/fonts/poppins-regular.ttf") format("truetype"),url("assets/fonts/poppins-regular-webfont.svg#poppins-regular") format("svg");font-weight:400;font-style:normal}
-@font-face{font-family:"Poppins";src:url("assets/fonts/poppins-italic-webfont.eot");src:url("assets/fonts/poppins-italic-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/poppins-italic-webfont.woff") format("woff"),url("assets/fonts/poppins-italic.ttf") format("truetype"),url("assets/fonts/poppins-italic-webfont.svg#poppins-italic") format("svg");font-weight:400;font-style:italic}
-@font-face{font-family:"Poppins";src:url("assets/fonts/poppins-medium-webfont.eot");src:url("assets/fonts/poppins-medium-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/poppins-medium-webfont.woff") format("woff"),url("assets/fonts/poppins-medium.ttf") format("truetype"),url("assets/fonts/poppins-medium-webfont.svg#poppins-medium") format("svg");font-weight:600;font-style:normal}
-@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorantgaramond-regular-webfont.eot");src:url("assets/fonts/cormorantgaramond-regular-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/cormorantgaramond-regular-webfont.woff") format("woff"),url("assets/fonts/cormorantgaramond-regular.ttf") format("truetype"),url("assets/fonts/cormorantgaramond-regular-webfont.svg#cormorantgaramond-regular") format("svg");font-weight:400;font-style:normal}
-@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorantgaramond-italic-webfont.eot");src:url("assets/fonts/cormorantgaramond-italic-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/cormorantgaramond-italic-webfont.woff") format("woff"),url("assets/fonts/cormorantgaramond-italic.ttf") format("truetype"),url("assets/fonts/cormorantgaramond-italic-webfont.svg#cormorantgaramond-italic") format("svg");font-weight:400;font-style:italic}
-@font-face{font-family:"Cormorant Garamond";src:url("assets/fonts/cormorantgaramond-semibold-webfont.eot");src:url("assets/fonts/cormorantgaramond-semibold-webfont.eot?#iefix") format("embedded-opentype"),url("assets/fonts/cormorantgaramond-semibold-webfont.woff") format("woff"),url("assets/fonts/cormorantgaramond-semibold.ttf") format("truetype"),url("assets/fonts/cormorantgaramond-semibold-webfont.svg#cormorantgaramond-semibold") format("svg");font-weight:700;font-style:normal}
+@font-face{font-family:"Gotham";src:url("assets/fonts/gb-regular.eot");src:url("assets/fonts/gb-regular.eot?#iefix") format("embedded-opentype"),url("assets/fonts/gb-regular.woff") format("woff"),url("assets/fonts/gb-regular.ttf") format("truetype"),url("assets/fonts/gb-regular.svg#gb-regular") format("svg");font-weight:400;font-style:normal}
+@font-face{font-family:"Gotham";src:url("assets/fonts/gb-medium.eot");src:url("assets/fonts/gb-medium.eot?#iefix") format("embedded-opentype"),url("assets/fonts/gb-medium.woff") format("woff"),url("assets/fonts/gb-medium.ttf") format("truetype"),url("assets/fonts/gb-medium.svg#gb-medium") format("svg");font-weight:600;font-style:normal}
+@font-face{font-family:"Gotham";src:url("assets/fonts/gb-bold.eot");src:url("assets/fonts/gb-bold.eot?#iefix") format("embedded-opentype"),url("assets/fonts/gb-bold.woff") format("woff"),url("assets/fonts/gb-bold.ttf") format("truetype"),url("assets/fonts/gb-bold.svg#gb-bold") format("svg");font-weight:700;font-style:normal}
 @font-face{font-family:'mbt-icons';src:url("assets/fonts/mbt-icons.eot?z2gzag");src:url("assets/fonts/mbt-icons.eot?z2gzag#iefix") format("embedded-opentype"),url("assets/fonts/mbt-icons.ttf?z2gzag") format("truetype"),url("assets/fonts/mbt-icons.woff?z2gzag") format("woff"),url("assets/fonts/mbt-icons.svg?z2gzag#mbt-icons") format("svg");font-weight:normal;font-style:normal}
 [class^="icon-"],[class*=" icon-"]{font-family:'mbt-icons' !important;speak:none;font-style:normal;font-weight:normal;font-variant:normal;text-transform:none;line-height:1;letter-spacing:0;-webkit-font-feature-settings:"liga";-moz-font-feature-settings:"liga=1";-moz-font-feature-settings:"liga";-ms-font-feature-settings:"liga" 1;font-feature-settings:"liga";-webkit-font-variant-ligatures:discretionary-ligatures;-moz-font-variant-ligatures:discretionary-ligatures;font-variant-ligatures:discretionary-ligatures;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .icon-menu:before{content:"\e918"}
@@ -142,26 +139,30 @@ table{margin:0 0 1.5em;width:100%}
 .light-bg{background-color:#faf1ed}
 .site{position:relative}
 body{-webkit-animation:fadein 3s;animation:fadein 3s}
-input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea{color:#666;border:1px solid #ccc;border-radius:3px;padding:7px;width:100%}
+input[type="text"],input[type="email"],input[type="url"],input[type="password"],input[type="search"],input[type="number"],input[type="tel"],input[type="range"],input[type="date"],input[type="month"],input[type="week"],input[type="time"],input[type="datetime"],input[type="datetime-local"],input[type="color"],textarea{color:#666;border:1px solid #0c0c0c;border-radius:0;padding:.75em 1em;width:100%}
 input[type="text"]:focus,input[type="email"]:focus,input[type="url"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="number"]:focus,input[type="tel"]:focus,input[type="range"]:focus,input[type="date"]:focus,input[type="month"]:focus,input[type="week"]:focus,input[type="time"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="color"]:focus,textarea:focus{color:#111}
 select{border:1px solid #ccc}
 textarea{width:100%}
-button,input[type="button"],input[type="reset"],input[type="submit"]{border:0 solid #0c0c0c;background:#aaa;color:rgba(0,0,0,0.8);line-height:1;padding:.75em 1.25em;margin:.7em 0;font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;text-transform:uppercase;letter-spacing:.02em;color:#faf1ed;font-size:.875em}
+button,input[type="button"],input[type="reset"],input[type="submit"]{border:0 solid #0c0c0c;background:#f9cc44;color:rgba(0,0,0,0.8);line-height:1;padding:.75em 1.25em;margin:.7em 0;font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;font-weight:600;letter-spacing:.05em;color:#0c0c0c;font-size:.8em}
 button:hover,input[type="button"]:hover,input[type="reset"]:hover,input[type="submit"]:hover{border-color:#ccc #bbb #aaa}
 button:active,button:focus,input[type="button"]:active,input[type="button"]:focus,input[type="reset"]:active,input[type="reset"]:focus,input[type="submit"]:active,input[type="submit"]:focus{border-color:#aaa #bbb #bbb}
 .searchform input{width:85%}
+button.small-yellow,.small-yellow .elementor-button{font:normal 400 1em "Gotham",Montserrat,Arial !important;font-size:1.5em !important;font-weight:600 !important;border:none !important;border-radius:0 !important;padding:0 !important;background:white;background:-webkit-gradient(left top,left bottom,color-stop(0,white),color-stop(55%,white),color-stop(56%,#f9cc44),color-stop(61%,#f9cc44),color-stop(65%,#f9cc44),color-stop(68%,#f9cc44),color-stop(100%,#f9cc44));background:-webkit-linear-gradient(top,white 0,white 55%,#f9cc44 56%,#f9cc44 61%,#f9cc44 65%,#f9cc44 68%,#f9cc44 100%);background:-webkit-gradient(linear,left top,left bottom,from(white),color-stop(55%,white),color-stop(56%,#f9cc44),color-stop(61%,#f9cc44),color-stop(65%,#f9cc44),color-stop(68%,#f9cc44),to(#f9cc44));background:linear-gradient(to bottom,white 0,white 55%,#f9cc44 56%,#f9cc44 61%,#f9cc44 65%,#f9cc44 68%,#f9cc44 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff',endColorstr='#f9cc44',GradientType=0)}
+button.yellow,.yellow .elementor-button{font:normal 400 1em "Gotham",Montserrat,Arial !important;font-size:1.35em !important;font-weight:600 !important;border:none !important;border-radius:0 !important;background-color:#f9cc44 !important}
+.wpcf7 label{color:#0c0c0c;font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.05em;font-weight:600;font-size:.75em}
+.top-container{padding:20px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;width:100%}
 .popup-search{width:100%;height:100vh;background-color:#f8dfdf;position:fixed;top:0;left:0;z-index:7755;display:none}
 .popup-search .search-container{width:100%;height:100vh;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
-.popup-search h2{font:normal 600 1.55em "Poppins",Montserrat,Arial;text-align:center;margin-bottom:2em}
+.popup-search h2{font:normal 700 1.55em "Gotham",Montserrat,Arial;text-align:center;margin-bottom:2em}
 .popup-search form{width:80%;text-align:center}
 .popup-search form input{border:0;padding:1em}
 .popup-search form i{font-size:1.5em;vertical-align:middle;margin-right:.5em}
 .popup-search .close-search{position:absolute;top:20px;right:20px;font-size:2em;cursor:pointer;padding:.4em}
 .search-icon{cursor:pointer}
-.site-header{text-align:center;margin:0 auto;width:auto;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
+.site-header{text-align:center;width:auto;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around}
 .site-header .site-branding{width:100%;margin-top:0}
-.site-header .site-title{font:normal 600 1.55em "Poppins",Montserrat,Arial;font-size:2.35em;margin-top:0;margin-bottom:0;text-transform:lowercase;text-align:center}
-.site-header .site-title a{text-align:center}
+.site-header .site-title{font:normal 700 1.55em "Gotham",Montserrat,Arial;font-size:1.2em;letter-spacing:.875em;margin-top:0;margin-bottom:0;text-transform:uppercase;text-align:left}
+.site-header .site-title a{text-align:center;color:#0c0c0c}
 .site-header .site-title img{width:auto}
 .site-header .site-description{display:none}
 .main-navigation .fixed-logo{display:none}
@@ -172,6 +173,7 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 #mobile-navigation .mobile-menu-container .menu{padding-left:0}
 #mobile-navigation .mobile-menu-container li.social-item,#mobile-navigation .mobile-menu-container li.mbt-item{display:none}
 #mobile-navigation .mobile-menu-container li.mbt-item.newsletter-popup{display:block}
+#mobile-navigation .mobile-menu-container li.button-item{background-color:#f9cc44;padding:1em 1.5em}
 #mobile-navigation .mobile-menu-container .sub-menu{display:none}
 #mobile-navigation .menu-toggle{font-size:2em;line-height:.35em}
 #mobile-navigation .menu-toggle span{font-size:.33em;letter-spacing:.08em;vertical-align:middle;margin-left:.875em}
@@ -181,15 +183,15 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 .site-header{padding:0 2em}
 .header-container{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;margin-top:1em}
 #left-navigation,#right-navigation{display:none}
-.main-navigation{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;width:100%;font:normal 400 1em "Poppins",Montserrat,Arial;padding:1em;-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
+.main-navigation{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;font:normal 400 1em "Gotham",Montserrat,Arial;padding:1em}
 .main-navigation .menu-toggle{display:block;position:relative;width:auto;text-align:center;border:0;background:0;padding:0;font-size:2.5em;color:#0c0c0c;margin:0;z-index:999}
 .main-navigation .close.icon-delete{margin:1em auto;color:#0c0c0c;cursor:pointer}
 .main-navigation .menu-container ul,.main-navigation .menu ul{list-style:none;margin:0;padding-left:0;height:auto;width:100%}
-.main-navigation .menu-container ul ul,.main-navigation .menu ul ul{position:relative;top:0;left:0;z-index:99999;padding:10px 0 20px 0;height:auto;display:none}
+.main-navigation .menu-container ul ul,.main-navigation .menu ul ul{position:relative;top:0;left:0;z-index:99999;padding:0;height:auto;display:none}
 .main-navigation .menu-container ul ul ul,.main-navigation .menu ul ul ul{left:0;top:0}
 .main-navigation .menu-container ul ul li:hover>ul,.main-navigation .menu-container ul ul li.focus>ul,.main-navigation .menu ul ul li:hover>ul,.main-navigation .menu ul ul li.focus>ul{left:0}
 .main-navigation .menu-container ul li:hover>ul,.main-navigation .menu-container ul li.focus>ul,.main-navigation .menu ul li:hover>ul,.main-navigation .menu ul li.focus>ul{left:auto}
-.main-navigation .menu-container li,.main-navigation .menu li{position:relative;display:block;padding:1em 1.5em;letter-spacing:.05em;font-size:.975em}
+.main-navigation .menu-container li,.main-navigation .menu li{position:relative;display:block;padding:1em 1.5em;letter-spacing:.1em;font-size:.85em;text-transform:uppercase;font-weight:bold}
 .main-navigation .menu-container a,.main-navigation .menu a{display:block;text-decoration:none;text-align:left;color:#0c0c0c}
 .main-navigation .menu-container a i,.main-navigation .menu a i{margin-left:.45em}
 .main-navigation .menu-container a i.icon-down,.main-navigation .menu-container a i.icon-up,.main-navigation .menu a i.icon-down,.main-navigation .menu a i.icon-up{font-size:1.2em;vertical-align:middle}
@@ -218,7 +220,7 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 .widget:not(.null-instagram-feed) ul li,.widget:not(.wp-my-instagram) ul li{text-align:center;padding:.75em 1.5em;border:1px solid #ddd;margin:1em auto}
 .widget:not(.null-instagram-feed) ul li:hover,.widget:not(.wp-my-instagram) ul li:hover{background-color:#f8dfdf}
 .widget:not(.null-instagram-feed) ul a,.widget:not(.wp-my-instagram) ul a{color:#0c0c0c}
-.widget-title,.widgettitle{font:normal 600 1.55em "Poppins",Montserrat,Arial;font-size:1.2em}
+.widget-title,.widgettitle{font:normal 700 1.55em "Gotham",Montserrat,Arial;font-size:1.2em}
 .widget-title span,.widgettitle span{font-family:"Audrey";font-size:4em;vertical-align:middle;margin:0 .15em;font-weight:400;text-transform:none}
 #secondary .widget-title,#secondary .widgettitle{margin-top:3em}
 #secondary .small-width{padding:0}
@@ -230,7 +232,7 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 .featured-row article{width:100%}
 .featured-row .entry-thumbnail{margin-bottom:1.5em}
 .featured-row .entry-title{font-size:1.25em;text-transform:none}
-.featured-row .entry-meta{font:normal 400 1em "Poppins",Montserrat,Arial;font-size:.875em;margin-top:.75em}
+.featured-row .entry-meta{font:normal 400 1em "Gotham",Montserrat,Arial;font-size:.875em;margin-top:.75em}
 .category-thumbnails{text-align:center}
 .category-posts article{width:100%}
 .category-posts article .entry-thumbnail{width:100%;max-height:400px;overflow:hidden;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
@@ -262,17 +264,17 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 #secondary .about-widget .about-image{width:100%}
 #secondary .about-widget .about-content{padding:.5em;width:100%;margin-top:0}
 #secondary .about-widget .about-content .widget-title{margin:1em auto}
-#secondary .about-widget .about-content .about-text{font:normal 400 1em "Poppins",Montserrat,Arial;font-size:.85em;line-height:1.55em;margin:1em auto;padding:0}
+#secondary .about-widget .about-content .about-text{font:normal 400 1em "Gotham",Montserrat,Arial;font-size:.85em;line-height:1.55em;margin:1em auto;padding:0}
 #secondary .about-widget .about-content a{color:#0c0c0c;font-weight:400}
 .widget_search .searchform{margin-left:0}
 .widget_search .searchform label{margin-right:.25em}
 .widget_search .searchform input{border:0;border-bottom:1px solid #0c0c0c;border-radius:0;width:90%;padding:.25em .1em}
 .widget_yikes_easy_mc_widget{background-color:#faf1ed;padding:2em;margin-top:4em}
 .widget_yikes_easy_mc_widget .widget-title{text-align:center;text-transform:uppercase;letter-sapcing:.03em;font-size:1.1em;margin-top:1em !important}
-.widget_yikes_easy_mc_widget .yikes-mailchimp-form-description{text-align:center;font:normal 300 .65em "Poppins",Montserrat,Arial;font-size:.85em;margin:1.5em auto;line-height:1.5em}
+.widget_yikes_easy_mc_widget .yikes-mailchimp-form-description{text-align:center;font:normal 300 .65em "Gotham",Montserrat,Arial;font-size:.85em;margin:1.5em auto;line-height:1.5em}
 .widget_yikes_easy_mc_widget form{display:block}
 .widget_yikes_easy_mc_widget form input{border:none !important;background-color:white !important;padding:1em;font-size:.875em;border-radius:0 !important}
-.widget_yikes_easy_mc_widget form label span{font:normal 300 .65em "Poppins",Montserrat,Arial}
+.widget_yikes_easy_mc_widget form label span{font:normal 300 .65em "Gotham",Montserrat,Arial}
 .widget_yikes_easy_mc_widget form .yikes-easy-mc-submit-button{background-color:#0c0c0c;color:white;font-weight:bold;margin-top:0}
 .widget_yikes_easy_mc_widget form .yikes-easy-mc-submit-button:hover{background-color:#aaa}
 .widget-area:not(#secondary) .widget_yikes_easy_mc_widget{max-width:100%}
@@ -303,7 +305,7 @@ button:active,button:focus,input[type="button"]:active,input[type="button"]:focu
 #secondary .featured-row{padding:0;margin-top:0}
 .thumbnails-row{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;max-width:100%}
 .thumbnails-row .thumbnail{width:100%;height:250px;background-size:cover;background-position:center;position:relative}
-.thumbnails-row .thumbnail p{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:white;font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.04em;padding:.75em 1.75em;margin:0;text-align:center;line-height:1.5em}
+.thumbnails-row .thumbnail p{position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%);background-color:white;font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.04em;padding:.75em 1.75em;margin:0;text-align:center;line-height:1.5em}
 .thumbnails-row .thumbnail p a{color:#0c0c0c}
 .boxzilla{padding:0 !important;overflow-y:hidden !important}
 .boxzilla .boxzilla-content{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center}
@@ -353,12 +355,11 @@ article.slick-slide .entry-header .readmore i{display:none}
 .featured-row.top article{width:100%}
 .featured-row.top .entry-thumbnail{margin-bottom:1.5em}
 .featured-row.top .entry-title{font-size:1.25em;text-transform:none}
-.featured-row.top .entry-meta{font:normal 400 1em "Poppins",Montserrat,Arial;font-size:.875em;margin-top:.75em}
+.featured-row.top .entry-meta{font:normal 400 1em "Gotham",Montserrat,Arial;font-size:.875em;margin-top:.75em}
 .wp-my-instagram.wpmi{max-width:1280px;padding:20px;margin:0 auto}
 .wp-my-instagram.wpmi ul li.wpmi-item{border:0;overflow:hidden;padding:5px;-webkit-transition:all .5s ease-in-out;transition:all .5s ease-in-out}
 .wp-my-instagram.wpmi ul li.wpmi-item:hover{background-color:transparent;opacity:.7}
-.site-content{max-width:1280px;margin:0 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-sizing:border-box;box-sizing:border-box}
-.home .site-content{max-width:1280px}
+.site-content{margin:0 auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-justify-content:space-around;-ms-flex-pack:distribute;justify-content:space-around;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-sizing:border-box;box-sizing:border-box}
 #primary{width:100%;padding:20px}
 .site-content.has-sidebar{max-width:1280px}
 .site-content.has-sidebar #primary{width:100%}
@@ -368,15 +369,15 @@ article.slick-slide .entry-header .readmore i{display:none}
 .sticky{display:block}
 .hentry{margin:0 0 3.5em}
 .updated:not(.published){display:none}
-.page-content,.entry-content,.entry-summary{margin:0;font:normal 400 .875em "Poppins",Montserrat,Arial;color:#111;line-height:1.5em}
+.page-content,.entry-content,.entry-summary{margin:0;font:normal 400 1em "Gotham",Montserrat,Arial;color:#111;line-height:1.5em}
 .page-links{clear:both;margin:0 0 1.5em}
 .entry-categories{margin-top:1.45em}
-.entry-categories .cat-links a{font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em}
-.tags-links{font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;text-transform:none;letter-spacing:0}
+.entry-categories .cat-links a{font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em}
+.tags-links{font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;text-transform:none;letter-spacing:0}
 .comments-link{display:block}
 .entry-thumbnail{max-height:550px;overflow:hidden}
 .entry-thumbnail img{-o-object-fit:cover;object-fit:cover;width:100%;height:550px}
-.entry-meta{font:normal 400 1em "Poppins",Montserrat,Arial;margin-bottom:1.5em;color:#0c0c0c;text-transform:uppercase;letter-spacing:.05em}
+.entry-meta{font:normal 400 1em "Gotham",Montserrat,Arial;margin-bottom:1.5em;color:#0c0c0c;text-transform:uppercase;letter-spacing:.05em}
 .entry-meta a{color:#0c0c0c}
 .entry-meta a:hover{color:#aaa}
 .entry-meta .cat-links{font-weight:600}
@@ -385,7 +386,7 @@ article.slick-slide .entry-header .readmore i{display:none}
 .readmore{display:block;margin-top:1.2em;text-transform:uppercase;font-style:italic;color:#0c0c0c}
 .readmore:hover{color:#aaa}
 .entry-footer{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;-webkit-flex-direction:row-reverse;-ms-flex-direction:row-reverse;flex-direction:row-reverse;margin-top:3em;padding-bottom:0}
-.entry-footer .share,.entry-footer .comments-link{font:normal 300 .65em "Poppins",Montserrat,Arial;font-size:.75em}
+.entry-footer .share,.entry-footer .comments-link{font:normal 300 .65em "Gotham",Montserrat,Arial;font-size:.75em}
 .entry-footer .share a,.entry-footer .comments-link a{color:#0c0c0c}
 .entry-footer .share a{margin:0 .5em}
 article.first-post{border-bottom:1px solid #ddd;padding-bottom:0 !important}
@@ -418,10 +419,10 @@ article.first-post .entry-content a button:hover{color:#aaa}
 .site-main.side-magazine article .entry-body .entry-snippet{-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;margin-left:0;margin-right:0}
 .site-main.alternating article:last-of-type{margin-bottom:0}
 .site-content.has-sidebar .entry-title{font-size:1.7em}
-.nav-links{font:normal 300 .65em "Poppins",Montserrat,Arial;font-size:1.2em;text-transform:uppercase;letter-spacing:.03em;margin-bottom:2em}
+.nav-links{font:normal 300 .65em "Gotham",Montserrat,Arial;font-size:1.2em;text-transform:uppercase;letter-spacing:.03em;margin-bottom:2em}
 .nav-links a{color:#0c0c0c;font-weight:bold}
 .nav-links a:hover{color:#aaa}
-.numbered-navigation{font:normal 400 1em "Poppins",Montserrat,Arial;font-weight:600;font-size:1.5em;text-align:center;width:100%;margin-bottom:2em}
+.numbered-navigation{font:normal 400 1em "Gotham",Montserrat,Arial;font-weight:600;font-size:1.5em;text-align:center;width:100%;margin-bottom:2em}
 .numbered-navigation ul{list-style:none;padding-left:0;text-align:center}
 .numbered-navigation ul li{display:inline-block;padding:0 .25em}
 .numbered-navigation ul a{color:#0c0c0c}
@@ -429,6 +430,7 @@ article.first-post .entry-content a button:hover{color:#aaa}
 .before-content-home{margin-top:-4em}
 blockquote,.wp-block-quote{position:relative}
 blockquote:before,.wp-block-quote:before{content:"\201C";font-size:8em;font-family:Georgia;position:absolute;top:-20px;left:0;line-height:1em;color:#aaa;z-index:-1}
+.elementor-widget-heading.elementor-widget-heading .elementor-heading-title{color:#0c0c0c !important}
 .site-main article.comment-body{padding-bottom:0;margin-bottom:1em}
 .comment-list{list-style:none;padding:1em}
 .comment-list .children{display:block !important;list-style:none;margin-bottom:4.5em}
@@ -437,12 +439,12 @@ blockquote:before,.wp-block-quote:before{content:"\201C";font-size:8em;font-fami
 .comment-list .children .comment-content p{margin:.5em}
 .comment-list li{margin-bottom:3em}
 .comment-content a{word-wrap:break-word}
-.comment-metadata{font:normal 300 .65em "Poppins",Montserrat,Arial}
+.comment-metadata{font:normal 300 .65em "Gotham",Montserrat,Arial}
 .comment-metadata time{margin-top:.25em;display:block}
 .bypostauthor{display:block}
 .comment-author.vcard img{margin-right:.35em}
 #commentform input,#commentform textarea{border-radius:0}
-#commentform label{font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;text-transform:none;letter-spacing:0}
+#commentform label{font:normal 400 1em "Gotham",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;font-size:.765em;text-transform:none;letter-spacing:0}
 #commentform p{margin:.45em 0}
 #commentform .form-submit{margin-top:.75em;color:white}
 img.avatar{border-radius:50%}
@@ -480,7 +482,7 @@ img.avatar{border-radius:50%}
 .single-post .entry-content a:hover{color:#aaa;border-bottom:1px solid #aaa}
 .single-post .entry-thumbnail{max-height:550px;overflow:hidden;padding:0 !important}
 .single-post .entry-thumbnail img{-o-object-fit:cover;object-fit:cover;width:100%;height:550px}
-.single-post .entry-content{line-height:1.6em;color:#0c0c0c;font:normal 400 1.15em "Cormorant Garamond",Georgia,Times New Roman}
+.single-post .entry-content{line-height:1.6em;color:#0c0c0c;font:normal 400 1.15em "Gotham",Montserrat,Times New Roman}
 .single-post .entry-content p{font-size:1.1em;line-height:1.65em;max-width:780px;margin:2em auto}
 .single-post .entry-content h2,.single-post .entry-content h3,.single-post .entry-content h4,.single-post .entry-content ul,.single-post .entry-content ol{max-width:780px;margin:2em auto}
 .single-post .entry-content h2,.single-post .entry-content h3,.single-post .entry-content h4{margin-top:1.5em}
@@ -492,7 +494,7 @@ img.avatar{border-radius:50%}
 .single-post .entry-footer .share{width:100%;text-align:center;font-size:1.25em}
 .single-post .entry-footer .share a{margin:0 .5em}
 .single-post .posts-navigation{margin-bottom:4em;max-width:1280px;margin-left:auto;margin-right:auto;padding:20px;width:100%}
-.single-post .posts-navigation p{margin-bottom:.5em;font:normal 300 .65em "Poppins",Montserrat,Arial}
+.single-post .posts-navigation p{margin-bottom:.5em;font:normal 300 .65em "Gotham",Montserrat,Arial}
 .single-post .wp-block-columns{-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;max-width:1280px;margin-left:auto;margin-right:auto;padding:20px}
 .single-post .wp-block-columns img{max-width:1280px;margin:auto;padding:0}
 .single-post .wp-block-columns .wp-block-column>figure{margin:0 auto}
@@ -526,16 +528,29 @@ img.avatar{border-radius:50%}
 .site-content{max-width:100%;padding:0}
 .page-title{text-align:center}
 .search .page-content,.error-404 .page-content{text-align:center}
+.has-sidebar .site-main .entry-content{max-width:100%}
 .error404 #primary{width:100%}
-.error404 .error-404 .notice-404{font:normal 400 1em "Poppins",Montserrat,Arial;font-size:10em;color:#faf1ed;margin:0 auto;text-align:center}
+.error404 .error-404 .notice-404{font:normal 400 1em "Gotham",Montserrat,Arial;font-size:10em;color:#faf1ed;margin:0 auto;text-align:center}
 .error404 .page-content .searchform input{width:300px;margin:2em auto;padding:.25em}
-.page-template-default #primary{width:100%;max-width:50em;margin-left:auto;margin-right:auto;margin-top:2em;padding:20px}
+.page-template-default #primary{width:100%;margin-left:auto;margin-right:auto;padding:0}
+.page-template-default .entry-header{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:start;-webkit-justify-content:flex-start;-ms-flex-pack:start;justify-content:flex-start;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}
+.page-template-default .entry-header .title-wrapper{width:50%;position:relative;z-index:7766}
+.page-template-default .entry-header .title-wrapper .entry-title{font-size:3em}
+.page-template-default .entry-header .title-wrapper .subtitle{text-transform:uppercase;font-weight:bold;letter-spacing:.4em;font-size:1.15em}
+.page-template-default .entry-header .entry-thumbnail{width:70%;margin-left:-5em;margin-right:7em}
 .page-template-default .entry-content a{color:#0c0c0c;border-bottom:1px solid #0c0c0c}
 .page-template-default .entry-content a:hover{color:#aaa;border-bottom:1px solid #aaa}
-.page-template-default .entry-content{line-height:1.6em;color:#0c0c0c}
-.page-template-default .entry-content p{font-size:1.15em}
+.page-template-default .entry-content{max-width:100%;line-height:1.6em;color:#0c0c0c}
+.page-template-default .entry-content p{font:normal 400 1em "Gotham",Montserrat,Arial;font-size:1.35em;color:#0c0c0c;line-height:1.55em}
+.page-template-default .entry-content h2,.page-template-default .entry-content h3,.page-template-default .entry-content h4,.page-template-default .entry-content h5{font:normal 700 1.55em "Gotham",Montserrat,Arial;color:#0c0c0c}
+.page-template-default .entry-content h4{font-size:.975em;letter-spacing:.05em;font-weight:600}
 .no-results{margin:0 auto;margin-bottom:6em}
 .no-results .searchform input{width:200px}
+.wpcf7-radio .wpcf7-list-item{display:inline-block;margin:.1em .5em .1em 0;margin-top:-1em}
+.wpcf7-radio .wpcf7-list-item input[type="radio"]{visibility:hidden}
+.wpcf7-radio .wpcf7-list-item-label{font-size:.75em;border:3px dotted #9fc2a1;padding:.35em 1.5em;display:block;border-radius:15px;cursor:pointer}
+.wpcf7-radio .wpcf7-list-item-label:hover{background-color:#9fc2a1}
+.page-template-page-shop .site-content.has-sidebar #primary{width:100%}
 .page-template-page-shop article{max-width:980px;margin:0 auto}
 .shopping-menu{width:100%;margin:2em auto;border-bottom:1px solid #ccc}
 .shopping-menu ul{list-style:none;text-align:center}
@@ -614,27 +629,18 @@ img.avatar{border-radius:50%}
 .woocommerce .product .images .flex-control-thumbs,.woocommerce-page .product .images .flex-control-thumbs{margin-top:.75em !important;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between}
 .woocommerce .product .images .flex-control-thumbs li,.woocommerce-page .product .images .flex-control-thumbs li{width:24% !important}
 .before-footer{width:100%}
-footer.site-footer{margin-top:-3.5em;padding-top:2em;color:white !important;width:100%}
-.footer-container.big-menu{max-width:1280px;padding:20px;margin:2em auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;-webkit-box-orient:vertical;-webkit-box-direction:reverse;-webkit-flex-direction:column-reverse;-ms-flex-direction:column-reverse;flex-direction:column-reverse}
-.footer-container.big-menu .footer-info{padding-right:0;line-height:1.65em;text-align:center;width:100%}
-.footer-container.big-menu .footer-info p.site-title{font:normal 600 1.55em "Poppins",Montserrat,Arial;font-size:1.55em;font-size:2.35em;margin-bottom:1em;text-transform:lowercase}
+footer.site-footer{margin-top:-3.5em;padding-top:2em;width:100%;background-color:#eee}
+.footer-container.big-menu{max-width:1280px;padding:20px;margin:2em auto;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;color:#0c0c0c}
+.footer-container.big-menu .footer-info{padding-right:0;line-height:1.65em;text-align:center}
+.footer-container.big-menu .footer-info p.site-title{font:normal 600 1.55em "Poppins",Montserrat,Arial;font-size:1.55em;font-size:2.35em;margin:.5em 0;text-transform:lowercase}
+.footer-container.big-menu .footer-info p.site-title a{color:#0c0c0c}
 .footer-container.big-menu .footer-info .blog-description{margin-top:.5em;margin-bottom:3em}
-.footer-container.big-menu .footer-menu{font:normal 400 1em "Poppins",Montserrat,Arial;text-transform:uppercase;letter-spacing:.07em;padding:0 20px;color:white}
-.footer-container.big-menu .footer-menu ul#footer-menu{list-style:none;padding:0;margin:0 auto;margin-bottom:1em;text-align:center}
-.footer-container.big-menu .footer-menu ul#footer-menu li{display:inline-block;padding:.785em;text-align:left;font-size:1.2em}
-.footer-container.big-menu .site-info{text-align:center;font:normal 300 .65em "Poppins",Montserrat,Arial;margin-top:2em}
-.footer-container.minimal-menu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;padding:1em;padding-bottom:.5em}
-.footer-container.minimal-menu .footer-info{width:100%;font-size:.75em}
-.footer-container.minimal-menu .footer-menu{margin:2em auto;width:100%}
-.footer-container.minimal-menu .footer-menu ul{list-style:none;padding-left:0;text-align:center}
-.footer-container.minimal-menu .footer-menu li{display:inline-block;padding:0 1em}
-.footer-container.big-logo{display:block;max-width:960px;padding:20px;margin:0 auto}
-.footer-container.big-logo .footer-logo{text-align:center;max-width:300px;margin:0 auto;margin-top:2em}
-.footer-container.big-logo .footer-logo .site-title a{color:white}
-.footer-container.big-logo .footer-menu{margin:4em auto}
-.footer-container.big-logo .footer-menu ul{list-style:none;padding-left:0;text-align:center}
-.footer-container.big-logo .footer-menu li{display:inline-block;padding:0 1em}
-.footer-container.big-logo .footer-info{text-align:center;font-size:.75em}
+.footer-container.big-menu .footer-areas{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:vertical;-webkit-box-direction:normal;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column}
+.footer-container.big-menu .footer-areas .widget{width:100%;padding:20px;margin:0}
+.footer-container.big-menu .footer-areas .widget .widgettitle{text-transform:uppercase;letter-spacing:.05em;font-size:.85em}
+.footer-container.big-menu .footer-areas .widget .menu li{border:0;margin:0;text-align:left;padding:.5em 0;text-transform:uppercase;font-size:.8em;letter-spacing:.05em}
+.footer-container.big-menu .footer-areas .widget .menu li:hover{background:0}
+.footer-container.big-menu .site-info{text-align:center;font:normal 300 .65em "Gotham",Montserrat,Arial;margin-top:2em}
 .page-content .wp-smiley,.entry-content .wp-smiley,.comment-content .wp-smiley{border:0;margin-bottom:0;margin-top:0;padding:0}
 embed,iframe,object{max-width:100%}
 .custom-logo-link{display:inline-block}
@@ -668,27 +674,31 @@ article.slick-slide .entry-thumbnail{width:100%;height:350px}
 article.slick-slide .entry-header{display:block}
 .featured-row.top article{width:49%}
 .archive .site-main,.search .site-main{grid-template-columns:1fr 1fr}
+.footer-container.big-menu .footer-areas{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-box-align:start;-webkit-align-items:flex-start;-ms-flex-align:start;align-items:flex-start}
 }@media(min-width:50em){.header-container{position:-webkit-sticky;position:sticky;top:0;z-index:999;background-color:white}
 #mobile-navigation{display:none}
 #sub-navigation{display:block}
-#site-navigation{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex}
+#site-navigation{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;padding:.75em 1em}
+#site-navigation:before{content:"";width:60px;height:3px;background-color:#0c0c0c;display:inline-block;vertical-align:middle;margin-right:2em}
 .admin-bar .main-navigation{top:0}
-.site-header{margin:2em auto 3em auto}
 #site-navigation+.site-header{margin-top:3em}
-.main-navigation{display:block;clear:both;width:100%;position:relative;height:auto}
+.main-navigation{display:block;clear:both;position:relative;height:auto}
 .main-navigation .menu-toggle{display:none}
 .main-navigation .menu-container,.main-navigation .menu{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;position:relative;background-color:transparent;height:auto;padding:0}
-.main-navigation .menu-container .sub-menu,.main-navigation .menu .sub-menu{float:left;position:absolute;top:100%;left:-999em;z-index:99999;display:inline-block;background-color:#faf1ed;margin-top:1em;-webkit-transition:.5s margin-top ease-in-out;transition:.5s margin-top ease-in-out;padding-bottom:.5em}
+.main-navigation .menu-container .sub-menu,.main-navigation .menu .sub-menu{float:left;position:absolute;top:100%;left:-999em;z-index:99999;display:inline-block;background-color:white;border:1px solid #eee;margin-top:1em;-webkit-transition:.5s margin-top ease-in-out;transition:.5s margin-top ease-in-out}
 .main-navigation .menu-container .sub-menu li.menu-item-has-children .icon-keyboard_arrow_down,.main-navigation .menu .sub-menu li.menu-item-has-children .icon-keyboard_arrow_down{-webkit-transform:rotate(270deg);-ms-transform:rotate(270deg);transform:rotate(270deg);display:inline-block;vertical-align:bottom}
 .main-navigation .menu-container .sub-menu ul,.main-navigation .menu .sub-menu ul{left:-999em;top:-20px;-webkit-transition:top .3s ease-in-out;transition:top .3s ease-in-out}
-.main-navigation .menu-container .sub-menu li,.main-navigation .menu .sub-menu li{text-align:center;padding:.75em}
+.main-navigation .menu-container .sub-menu li,.main-navigation .menu .sub-menu li{text-align:left;padding:1.2em .975em;border-bottom:1px solid #eee}
 .main-navigation .menu-container .sub-menu li:hover>ul,.main-navigation .menu-container .sub-menu li.focus>ul,.main-navigation .menu .sub-menu li:hover>ul,.main-navigation .menu .sub-menu li.focus>ul{float:none;left:100%;top:0;-webkit-transform:translateX(0);-ms-transform:translateX(0);transform:translateX(0)}
+.main-navigation .menu-container .sub-menu li:last-of-type,.main-navigation .menu .sub-menu li:last-of-type{border:0}
+.main-navigation .menu-container .sub-menu li:hover,.main-navigation .menu .sub-menu li:hover{background-color:#eee}
 .main-navigation .menu-container li:hover>.sub-menu,.main-navigation .menu-container li.focus>.sub-menu,.main-navigation .menu li:hover>.sub-menu,.main-navigation .menu li.focus>.sub-menu{float:none;left:50%;-webkit-transform:translateX(-50%);-ms-transform:translateX(-50%);transform:translateX(-50%);width:200px;-webkit-transition:.5s margin-top ease-in-out;transition:.5s margin-top ease-in-out;margin-top:0}
-.main-navigation .menu-container li,.main-navigation .menu li{position:relative;padding:.75em 1.5em}
+.main-navigation .menu-container li,.main-navigation .menu li{position:relative;padding:1.75em 2.5em}
 .main-navigation .menu-container li.social-item+.social-item,.main-navigation .menu li.social-item+.social-item{padding-left:0}
 .main-navigation .menu-container li.mbt-item+.mbt-item,.main-navigation .menu li.mbt-item+.mbt-item{padding-left:0}
+.main-navigation .menu-container li.button-item,.main-navigation .menu li.button-item{background-color:#f9cc44;padding:1em 1.5em;margin-left:2.5em}
 .main-navigation .menu-container li i,.main-navigation .menu li i{vertical-align:top}
-.main-navigation .menu-container a,.main-navigation .menu a{text-decoration:none;text-align:center;display:inline-block;vertical-align:bottom}
+.main-navigation .menu-container a,.main-navigation .menu a{text-decoration:none;text-align:left;display:inline-block;vertical-align:bottom}
 .main-navigation .social-search-container{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-align:center;-webkit-align-items:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:end;-webkit-justify-content:flex-end;-ms-flex-pack:end;justify-content:flex-end}
 .main-navigation .social-search-container .search-icon{font-size:1.25em;margin-left:.25em}
 .main-navigation .social-search-container .cart-contents{margin-left:1.25em;margin-right:.5em;color:#0c0c0c;font-size:.975em}
@@ -773,15 +783,16 @@ article.slick-slide .entry-header{left:10%;-webkit-transform:none;-ms-transform:
 .archive .site-main,.search .site-main{grid-template-columns:1fr 1fr 1fr}
 .archive .site-main article,.search .site-main article{margin-bottom:3.5em}
 .archive .site-main article .entry-thumbnail,.search .site-main article .entry-thumbnail{height:350px}
+.page-template-default .entry-header .title-wrapper{margin-top:3.5em;margin-left:3.5em}
+.page-template-default .entry-header .title-wrapper .entry-title{font-size:3.45em}
 .woocommerce ul.products,.woocommerce-page ul.products{grid-template-columns:1fr 1fr 1fr 1fr !important}
 .footer-container.big-menu{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row}
-.footer-container.big-menu .footer-info,.footer-container.big-menu .footer-menu{-webkit-box-flex:1;-webkit-flex:1;-ms-flex:1;flex:1}
-.footer-container.big-menu .footer-info{text-align:left;width:auto}
-.footer-container.big-menu .footer-menu ul#footer-menu{margin-top:-0.875em;display:grid;grid-template-columns:1fr 1fr;margin-bottom:0}
+.footer-container.big-menu .footer-info{width:100%}
+.footer-container.big-menu .footer-areas{width:100%}
+.footer-container.big-menu .footer-info{text-align:left;margin-right:4em}
 .footer-container.big-menu .site-info{text-align:left}
-.footer-container.minimal-menu .footer-info{width:auto}
-.footer-container.minimal-menu .footer-menu{margin:0;width:auto}
-.footer-container.minimal-menu .footer-menu ul{text-align:left}
+}@media(min-width:50em) and (min-width:50em){.footer-container.big-menu .footer-info{width:40%}
+.footer-container.big-menu .footer-areas{width:60%}
 }@media(min-width:64em){.posts-widget-class .hentry .entry-thumbnail{height:350px}
 .posts-widget-class .hentry .entry-thumbnail img{height:350px}
 .popular-posts article,.featured-row article{height:350px}

@@ -7,11 +7,11 @@
  * @package My_Boutique_Theme
  */
 
-if ( ! function_exists( 'myboutique_posted_on' ) ) :
+if ( ! function_exists( 'parlez_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-	function myboutique_posted_on() {
+	function parlez_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -26,13 +26,13 @@ if ( ! function_exists( 'myboutique_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'myboutique' ),
+			esc_html_x( '%s', 'post date', 'parlez' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
 		// $byline = sprintf(
 		// 	/* translators: %s: post author. */
-		// 	esc_html_x( 'by %s', 'post author', 'myboutique' ),
+		// 	esc_html_x( 'by %s', 'post author', 'parlez' ),
 		// 	'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		// );
 
@@ -41,35 +41,35 @@ if ( ! function_exists( 'myboutique_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'myboutique_entry_categories' ) ) :
+if ( ! function_exists( 'parlez_entry_categories' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function myboutique_entry_categories() {
+	function parlez_entry_categories() {
 		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'myboutique' ) );
+		$categories_list = get_the_category_list( esc_html__( ', ', 'parlez' ) );
 		if ( $categories_list ) {
 			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'myboutique' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'parlez' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}
 endif;
 
-if ( ! function_exists( 'myboutique_entry_footer' ) ) :
+if ( ! function_exists( 'parlez_entry_footer' ) ) :
 	/**
 	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function myboutique_entry_footer() {
+	function parlez_entry_footer() {
 		// Share functionality
-		myboutique_share_buttons();
+		parlez_share_buttons();
 
 		// Hide category and tag text for pages.
 		if ( 'post' === get_post_type() && is_single() ) {
 			/* translators: used between list items, there is a space after the comma */
-			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'myboutique' ) );
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'parlez' ) );
 			if ( $tags_list ) {
 				/* translators: 1: list of tags. */
-				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'myboutique' ) . '</span>', $tags_list ); // WPCS: XSS OK.
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged: %1$s', 'parlez' ) . '</span>', $tags_list ); // WPCS: XSS OK.
 			}
 		}
 
@@ -79,7 +79,7 @@ if ( ! function_exists( 'myboutique_entry_footer' ) ) :
 				sprintf(
 					wp_kses(
 						/* translators: %s: post title */
-						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'myboutique' ),
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'parlez' ),
 						array(
 							'span' => array(
 								'class' => array(),
@@ -96,7 +96,7 @@ if ( ! function_exists( 'myboutique_entry_footer' ) ) :
 			sprintf(
 				wp_kses(
 					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Edit <span class="screen-reader-text">%s</span>', 'myboutique' ),
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'parlez' ),
 					array(
 						'span' => array(
 							'class' => array(),
@@ -111,11 +111,11 @@ if ( ! function_exists( 'myboutique_entry_footer' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'myboutique_social_media' ) ) :
+if ( ! function_exists( 'parlez_social_media' ) ) :
 	/**
 	 * Prints social media icons with links set in the customizer
 	 */
-	function myboutique_social_media() {
+	function parlez_social_media() {
 		?>
 		<div class="social-media-icons">
 
@@ -150,17 +150,17 @@ if ( ! function_exists( 'myboutique_social_media' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
+if ( ! function_exists( 'parlez_related_posts_tags' ) ) :
 	/**
 	 * Shows related Posts by tags
 	 */
-	function myboutique_related_posts_tags() {
+	function parlez_related_posts_tags() {
 	    global $post;
 	    $orig_post = $post;
 	    
 	    $tags = wp_get_post_tags($post->ID);
 
-	    $number_posts = get_theme_mod('myboutique_related_number', 3);
+	    $number_posts = get_theme_mod('parlez_related_number', 3);
 	    
 	    if ($tags) {
 	    	$tag_ids = array();
@@ -176,7 +176,7 @@ if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
 	    
 	    	if( $my_query->have_posts() ) {
 	    		?>
-	    		<div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
+	    		<div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('parlez_related_headline', 'You might also enjoy');?></h3>
 	    		<?php
 
 	    		while( $my_query->have_posts() ) {
@@ -194,17 +194,17 @@ if ( ! function_exists( 'myboutique_related_posts_tags' ) ) :
     }
 endif;
 
-if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
+if ( ! function_exists( 'parlez_related_posts_categories' ) ) :
 	/**
 	 * Shows related Posts by categories
 	 */
-	function myboutique_related_posts_categories() {
+	function parlez_related_posts_categories() {
 			global $post;
 		    $orig_post = $post;
 		    
 		    $categories = get_the_category($post->ID);
 
-		    $number_posts = get_theme_mod('myboutique_related_number', 3);
+		    $number_posts = get_theme_mod('parlez_related_number', 3);
 		    
 		    if ($categories) {
 		    	$category_ids = array();
@@ -221,7 +221,7 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 		    
 		    	if( $my_query->have_posts() ) {
 		    		?>
-				    <div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('myboutique_related_headline', 'You might also enjoy');?></h3>
+				    <div id="related-posts" class="col-<?php echo $number_posts ?>"><h3 class="related-title"><?php echo get_theme_mod('parlez_related_headline', 'You might also enjoy');?></h3>
 				    <?php
 				    while( $my_query->have_posts() ) {
 				    	$my_query->the_post();
@@ -238,11 +238,11 @@ if ( ! function_exists( 'myboutique_related_posts_categories' ) ) :
 		}
 endif;
 
-if ( ! function_exists( 'myboutique_share_buttons' ) ) :
+if ( ! function_exists( 'parlez_share_buttons' ) ) :
 	/**
 	 * Shows social share buttons
 	 */
-	function myboutique_share_buttons() {
+	function parlez_share_buttons() {
 		?>
 		<div class="share social-media-widget">
 			<a href="mailto:?subject=<?php the_title();?>&amp;body=<?php the_permalink() ?>" target="_blank" title="Send this article to a friend!"><i class="icon-mail-bold"></i></a>
@@ -256,11 +256,11 @@ endif;
 
 
 
-if ( ! function_exists( 'myboutique_custom_query' ) ) :
+if ( ! function_exists( 'parlez_custom_query' ) ) :
 	/**
 	 * Simple custom WP Query Function
 	 */
-	function myboutique_custom_query($args, $template) {
+	function parlez_custom_query($args, $template) {
 		// Define query args
 		$my_args = $args;
 

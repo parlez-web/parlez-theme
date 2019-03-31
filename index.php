@@ -14,9 +14,9 @@
 
 get_header(); 
 
-$sidebar = (get_theme_mod('myboutique_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
+$sidebar = (get_theme_mod('parlez_show_sidebar', 'fullwidth') == 'sidebar') ? true : false;
 
-$post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
+$post_layout = get_theme_mod('parlez_posts_layout', 'normal');
 ?>
 
 	<div id="primary" class="content-area">
@@ -89,7 +89,7 @@ $post_layout = get_theme_mod('myboutique_posts_layout', 'normal');
 			endwhile;
 
 			// Older and newer posts
-			myboutique_numeric_posts_nav();
+			parlez_numeric_posts_nav();
 
 		else :
 

@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function myboutique_body_classes( $classes ) {
+function parlez_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -19,36 +19,36 @@ function myboutique_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'myboutique_body_classes' );
+add_filter( 'body_class', 'parlez_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for singularly identifiable articles.
  */
-function myboutique_pingback_header() {
+function parlez_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'myboutique_pingback_header' );
+add_action( 'wp_head', 'parlez_pingback_header' );
 
 
 /**
 * Replace [...] after automatic excerpts
 */
-function myboutique_excerpt_readmore($more) {
+function parlez_excerpt_readmore($more) {
 	global $post;
-	if(get_theme_mod('myboutique_readmore_checkbox', true) == true)
+	if(get_theme_mod('parlez_readmore_checkbox', true) == true)
 		return ' ...';
 }
-add_filter('excerpt_more', 'myboutique_excerpt_readmore');
+add_filter('excerpt_more', 'parlez_excerpt_readmore');
 
 //Read More Button For Excerpt
-function myboutique_excerpt_read_more_link( $output ) {
+function parlez_excerpt_read_more_link( $output ) {
 	global $post;
-	if(get_theme_mod('myboutique_readmore_checkbox', true) == true)
-		return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('myboutique_readmore_text', 'Read more') . ' >></button></a>';
+	if(get_theme_mod('parlez_readmore_checkbox', true) == true)
+		return $output . ' <a href="' . get_permalink( $post->ID ) . '" class="readmore" title="Read More"><button class="btn read-more">' . get_theme_mod('parlez_readmore_text', 'Read more') . ' >></button></a>';
 }
-add_filter( 'the_excerpt', 'myboutique_excerpt_read_more_link' );
+add_filter( 'the_excerpt', 'parlez_excerpt_read_more_link' );
 
 
 
@@ -115,7 +115,7 @@ return $urls;
 * http://www.wpbeginner.com/wp-themes/how-to-add-numeric-pagination-in-your-wordpress-theme/
 *
 */
-function myboutique_numeric_posts_nav() {
+function parlez_numeric_posts_nav() {
  
     if( is_singular() )
         return;
@@ -191,12 +191,12 @@ function myboutique_numeric_posts_nav() {
 /*
 * Add Images to RSS feed (for Bloglovin Support)
 */
-function myboutique_rss_featured_image($content) {
+function parlez_rss_featured_image($content) {
     global $post;
     if ( has_post_thumbnail( $post->ID ) ){
     $content = '<div>' . get_the_post_thumbnail( $post->ID, 'medium', array( 'style' => 'margin-bottom: 15px;' ) ) . '</div>' . $content;
     }
     return $content;
 }
-add_filter('the_excerpt_rss', 'myboutique_rss_featured_image');
-add_filter('the_content_feed', 'myboutique_rss_featured_image');
+add_filter('the_excerpt_rss', 'parlez_rss_featured_image');
+add_filter('the_content_feed', 'parlez_rss_featured_image');

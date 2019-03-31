@@ -22,6 +22,11 @@
 			display: block;
 		}
 
+		li.button-item {
+			background-color: $color__yellow;
+			padding: 1em 1.5em;
+		}
+
 		.sub-menu {
 			display: none;
 		}
@@ -87,10 +92,8 @@
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	width: 100%;
 	font: $font__menu;
 	padding: 1em;
-	flex: 1;
 
 	.menu-toggle {
 		display: block;
@@ -127,7 +130,7 @@
 				top: 0;
 				left: 0;
 				z-index: 99999;
-				padding: 10px 0px 20px 0px;
+				padding: 0;
 				height: auto;
 				display: none;
 
@@ -163,8 +166,10 @@
 			position: relative;
 			display: block;
 			padding: 1em 1.5em;
-			letter-spacing: 0.05em;
-			font-size: 0.975em;
+			letter-spacing: 0.1em;
+			font-size: 0.85em;
+			text-transform: uppercase;
+			font-weight: bold;
 
 			&:hover > a,
 			&.focus > a {

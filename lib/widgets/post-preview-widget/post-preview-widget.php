@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class myboutique_Posts_Widget extends WP_Widget {
+class parlez_Posts_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -42,11 +42,11 @@ class myboutique_Posts_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'myboutique' ) );		
+		add_action( 'init', array( $this, 'parlez' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'myboutique Posts Widget', $this->get_widget_slug() ),
+			__( 'parlez Posts Widget', $this->get_widget_slug() ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
 				'description' => __( 'Show featured posts in different theme locations.', $this->get_widget_slug() )
@@ -107,10 +107,10 @@ class myboutique_Posts_Widget extends WP_Widget {
 	   	if($type == 'category' && !empty($category)) {
 	   		$cat_slug = get_cat_name( $category );
 
-	   		myboutique_featured_row('featured-small', $number, $cat_slug, 'columns-' . $number);
+	   		parlez_featured_row('featured-small', $number, $cat_slug, 'columns-' . $number);
 
 	  	} else if ($type == 'popular') {
-	  		myboutique_popular_posts('featured-small', $number, 'columns-' . $number );
+	  		parlez_popular_posts('featured-small', $number, 'columns-' . $number );
 	  	} 
 
 	  	// No category set (if type is category)
@@ -157,7 +157,7 @@ class myboutique_Posts_Widget extends WP_Widget {
 	 * @param array instance The array of keys and values for the widget.
 	 */
 	public function form( $instance ) {
-	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'myboutique' );
+	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'parlez' );
 
 	   $number = ! empty ( $instance['number']) ? $instance['number'] : 4;
 	   $type = ! empty ( $instance['type'] ) ? esc_attr($instance['type']): 'featured';
@@ -175,7 +175,7 @@ class myboutique_Posts_Widget extends WP_Widget {
 	   <!-- Type of posts -->
 	   <p>
 			<label for="<?php echo $this->get_field_id( 'type' ) ?>">
-				<?php esc_html_e( 'Which kind of posts would you like to show?', 'myboutique' ); ?>
+				<?php esc_html_e( 'Which kind of posts would you like to show?', 'parlez' ); ?>
 			</label>
 			
 			<select class="widefat" id="<?php echo $this->get_field_id( 'type' ); ?>" name="<?php echo $this->get_field_name( 'type' ); ?>">
@@ -190,7 +190,7 @@ class myboutique_Posts_Widget extends WP_Widget {
 		<p>
 
 			<label for="<?php echo $this->get_field_id( 'type' ) ?>">
-				<?php esc_html_e( 'Category', 'myboutique' ); ?>
+				<?php esc_html_e( 'Category', 'parlez' ); ?>
 			</label>
 
 		<?php 
@@ -212,7 +212,7 @@ class myboutique_Posts_Widget extends WP_Widget {
 		<!-- Number of posts -->
 		<p>
 			<label for="<?php echo $this->get_field_id( 'number' ) ?>">
-				<?php esc_html_e( 'Number of Posts to show', 'myboutique' ); ?>
+				<?php esc_html_e( 'Number of Posts to show', 'parlez' ); ?>
 			</label>
 			<input id="<?php echo $this->get_field_id( 'number' ) ?>"
 		       name="<?php echo $this->get_field_name( 'number' ) ?>"
@@ -233,8 +233,8 @@ class myboutique_Posts_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function myboutique() {
-		// TODO be sure to change 'myboutique-profile-widget' to the name of *your* plugin
+	public function parlez() {
+		// TODO be sure to change 'parlez-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -301,15 +301,15 @@ class myboutique_Posts_Widget extends WP_Widget {
 /*
 * Register the widget.
 */
-function myboutique_load_widget() {
-	register_widget( 'myboutique_Posts_Widget' );
+function parlez_load_widget() {
+	register_widget( 'parlez_Posts_Widget' );
 }
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', 'myboutique_load_widget' );
+add_action( 'widgets_init', 'parlez_load_widget' );
 // Hooks fired when the Widget is activated and deactivated
-register_activation_hook( __FILE__, array( 'myboutique Posts Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'myboutique Posts Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'parlez Posts Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'parlez Posts Widget', 'deactivate' ) );
 
 

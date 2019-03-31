@@ -5,8 +5,8 @@
 footer.site-footer {
 	margin-top: -3.5em;
 	padding-top: 2em;
-	color: white!important;
 	width: 100%;
+	background-color: $color__grey;
 }
 
 
@@ -17,13 +17,25 @@ footer.site-footer {
 	margin: 2em auto;
 	display: flex;
 	align-items: flex-start;
-	flex-direction: column-reverse;
+	flex-direction: column;
+	color: $color__primary;
 
 	@include breakpoint(tablet) {
 		flex-direction: row;
 		
-		.footer-info, .footer-menu {
-			flex: 1;
+		.footer-info {
+			width: 100%;
+
+			@include breakpoint(tablet) {
+				width: 40%;
+			}
+		}
+		.footer-areas {
+			width: 100%;
+
+			@include breakpoint(tablet) {
+				width: 60%;
+			}
 		}
 	}
 
@@ -31,19 +43,22 @@ footer.site-footer {
 		padding-right: 0em;
 		line-height: 1.65em;
 		text-align: center;
-		width: 100%;
 
 		@include breakpoint(tablet) {
 			text-align: left;
-			width: auto;
+			margin-right: 4em;
 		}
 
 		p.site-title {
 			font: normal 600 1.55em "Poppins", Montserrat, Arial;
 			font-size: 1.55em;
 			font-size: 2.35em;
-			margin-bottom: 1em;
+			margin: 0.5em 0;
 			text-transform: lowercase;
+
+			a {
+				color: $color__primary;
+			}
 		}
 
 		.blog-description {
@@ -52,32 +67,44 @@ footer.site-footer {
 		}
 	}
 
-	.footer-menu {
-		@include menu-font();
-		padding: 0 $padding__general;
-		color: white;
+	.footer-areas {
+		display: flex;
+		flex-direction: column;
 
-		ul#footer-menu {
-			list-style: none;
-			padding: 0;
-			margin: 0 auto;
-			margin-bottom: 1em;
-			text-align: center;
+		@include breakpoint(smartphone) {
+			flex-direction: row;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
 
-			@include breakpoint(tablet) {
-				margin-top: -0.875em;
-				display: grid;
-				grid-template-columns: 1fr 1fr;
-				margin-bottom: 0;
+		.widget {
+			width: 100%;
+			padding: $padding__general;
+			margin: 0;
+
+			.widgettitle {
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+				font-size: 0.85em;
 			}
 
-			li {
-				display: inline-block;
-				padding: 0.785em;
-				text-align: left;
-				font-size: 1.2em;
+			.menu {
+				li {
+					border: none;
+					margin: 0;
+					text-align: left;
+					padding: 0.5em 0em;
+					text-transform: uppercase;
+					font-size: 0.8em;
+					letter-spacing: 0.05em;
+
+					&:hover {
+						background: none;
+					}
+				}
 			}
 		}
+
 	}
 
 	.site-info {
@@ -88,91 +115,5 @@ footer.site-footer {
 		@include breakpoint(tablet) {
 			text-align: left;
 		}
-	}
-}
-
-
-// Style 2
-.footer-container.minimal-menu {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	flex-wrap: wrap;
-	padding: 1em;
-	padding-bottom: 0.5em;
-
-	.footer-info {
-		width: 100%;
-		font-size: 0.75em;
-
-		@include breakpoint(tablet) {
-			width: auto;
-		}
-	}
-
-	.footer-menu {
-		margin: 2em auto;
-		width: 100%;
-
-		@include breakpoint(tablet) {
-			margin: 0;
-			width: auto;
-		}
-
-		ul {
-			list-style: none;
-			padding-left: 0;
-			text-align: center;
-
-			@include breakpoint(tablet) {
-				text-align: left;
-			}
-		}
-
-		li {
-			display: inline-block;
-			padding: 0 1em;
-		}
-
-	}
-}
-
-
-// Style 3
-.footer-container.big-logo {
-	display: block;
-	max-width: 960px;
-	padding: $padding__general;
-	margin: 0 auto;
-
-	.footer-logo {
-		text-align: center;
-		max-width: 300px;
-		margin: 0 auto;
-		margin-top: 2em;
-
-		.site-title a {
-			color: white;
-		}
-	}
-
-	.footer-menu {
-		margin: 4em auto;
-
-		ul {
-			list-style: none;
-			padding-left: 0;
-			text-align: center;
-		}
-
-		li {
-			display: inline-block;
-			padding: 0 1em;
-		}
-	}
-
-	.footer-info {
-		text-align: center;
-		font-size: 0.75em;
 	}
 }

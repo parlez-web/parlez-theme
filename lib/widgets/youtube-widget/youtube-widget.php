@@ -18,9 +18,9 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class myboutique_Youtube_Widget extends WP_Widget {
+class parlez_Youtube_Widget extends WP_Widget {
     /**
-     * @TODO - Rename "myboutique-profile-widget" to the name your your widget
+     * @TODO - Rename "parlez-profile-widget" to the name your your widget
      *
      * Unique identifier for your widget.
      *
@@ -33,7 +33,7 @@ class myboutique_Youtube_Widget extends WP_Widget {
      *
      * @var      string
      */
-    protected $widget_slug = 'myboutique-youtube-widget';
+    protected $widget_slug = 'parlez-youtube-widget';
 	/*--------------------------------------------------*/
 	/* Constructor
 	/*--------------------------------------------------*/
@@ -43,14 +43,14 @@ class myboutique_Youtube_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'myboutique' ) );		
+		add_action( 'init', array( $this, 'parlez' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'myboutique Youtube Widget', 'myboutique' ),
+			__( 'parlez Youtube Widget', 'parlez' ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Youtube Gallery Widget - shows your latest videos from YT.', 'myboutique' )
+				'description' => __( 'Youtube Gallery Widget - shows your latest videos from YT.', 'parlez' )
 			)
 		);
 		// Register admin styles and scripts
@@ -106,7 +106,7 @@ class myboutique_Youtube_Widget extends WP_Widget {
 		}
 
 		if (!empty($channel_id)) {
-			if ( false === ( $output = get_transient( 'myboutique_youtube_widget' ) ) ) { // transient
+			if ( false === ( $output = get_transient( 'parlez_youtube_widget' ) ) ) { // transient
 				$first = 'za'.'Sy'.'BWD'.'L_D'.'xYY'.'4c'; 
 
 				$api_url = 'https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId='. $channel_id . '&maxResults=3&key=AI'. $first .'CGi'.'KLi'.'bTU'.'lhi'.'fG'.'8-V2'.'iZ'.'U4';
@@ -135,12 +135,12 @@ class myboutique_Youtube_Widget extends WP_Widget {
 
 				$output .= '</div>';
 
-				set_transient('myboutique_youtube_widget', $output, 30 * MINUTE_IN_SECONDS);
+				set_transient('parlez_youtube_widget', $output, 30 * MINUTE_IN_SECONDS);
 			}
 			echo $output;
 			
 		} else {
-			_e('Setup not complete. Please check the widget options.', 'myboutique');
+			_e('Setup not complete. Please check the widget options.', 'parlez');
 		} 
 	 
 	   echo $args['after_widget'];
@@ -165,7 +165,7 @@ class myboutique_Youtube_Widget extends WP_Widget {
 
 		$instance['title'] = strip_tags( $new_instance['title'] );
 		$instance['channel_id'] = strip_tags( $new_instance['channel_id'] );
-		delete_transient('myboutique_youtube_widget'); // delete transient
+		delete_transient('parlez_youtube_widget'); // delete transient
 		
 		return $instance;
 	}
@@ -188,18 +188,18 @@ class myboutique_Youtube_Widget extends WP_Widget {
 		?>
 		 
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'parlez'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" 
 			name="<?php echo $this->get_field_name('title'); ?>" type="text" 
 			value="<?php echo esc_attr($title); ?>" />
 			</label>
 		</p>
 
-		<p><?php _e('Enter your YouTube <a href="https://support.google.com/youtube/answer/3250431" target="_blank">Channel ID</a>.', 'myboutique'); ?></p>
-		<p><?php _e('For example, the red part below:', 'myboutique'); ?></p> <p><?php echo esc_url('https://youtube.com/channel/'); ?><span style="color:red">UCyxZB7SqkRFqij18X1rDYHQ</span></p>
+		<p><?php _e('Enter your YouTube <a href="https://support.google.com/youtube/answer/3250431" target="_blank">Channel ID</a>.', 'parlez'); ?></p>
+		<p><?php _e('For example, the red part below:', 'parlez'); ?></p> <p><?php echo esc_url('https://youtube.com/channel/'); ?><span style="color:red">UCyxZB7SqkRFqij18X1rDYHQ</span></p>
 		
 		<p>
-			<label for="<?php echo $this->get_field_id('channel_id'); ?>"><?php _e('YouTube Channel ID:', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('channel_id'); ?>"><?php _e('YouTube Channel ID:', 'parlez'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('channel_id'); ?>" 
 			name="<?php echo $this->get_field_name('channel_id'); ?>" type="text" 
 			value="<?php if (isset($instance['channel_id'])) { echo esc_attr($channel_id); } ?>" placeholder="UCyxZB7SqkRFqij18X1rDYHQ" />
@@ -215,8 +215,8 @@ class myboutique_Youtube_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function myboutique() {
-		// TODO be sure to change 'myboutique-profile-widget' to the name of *your* plugin
+	public function parlez() {
+		// TODO be sure to change 'parlez-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -281,10 +281,10 @@ class myboutique_Youtube_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-//add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_Youtube_Widget");' ) );
+//add_action( 'widgets_init', create_function( '', 'register_widget("parlez_Youtube_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-register_activation_hook( __FILE__, array( 'myboutique Youtube Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'myboutique Youtube Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'parlez Youtube Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'parlez Youtube Widget', 'deactivate' ) );
 
 

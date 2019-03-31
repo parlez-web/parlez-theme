@@ -13,6 +13,10 @@
 	text-align: center;
 }
 
+.has-sidebar .site-main .entry-content {
+  max-width: 100%;
+}
+
 .error404 {
 
   #primary {
@@ -40,11 +44,57 @@
 .page-template-default {
   #primary {
     width: 100%;
-    max-width: 50em;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 2em;
-    padding: $padding__general;
+    padding: 0;
+  }
+
+  .entry-header {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    .title-wrapper {
+      width: 50%;
+      position: relative;
+      z-index: 7766;
+
+      @include breakpoint(tablet) {
+        margin-top: 3.5em;
+        margin-left: 3.5em;
+
+        // &:after {
+        //   content: '';
+        //   width: 100%;
+        //   height: 500px;
+        //   background-color: $color__grey;
+        //   display: block;
+        //   z-index: -1;
+        //   margin-left: -4.5em;
+        // }
+      }
+
+      .entry-title {
+        font-size: 3em;
+
+        @include breakpoint(tablet) {
+          font-size: 3.45em;
+        }
+      }
+
+      .subtitle {
+        text-transform: uppercase;
+        font-weight: bold;
+        letter-spacing: 0.4em;
+        font-size: 1.15em;
+      }
+    }
+
+    .entry-thumbnail {
+      width: 70%;
+      margin-left: -5em;
+      margin-right: 7em;
+    }
   }
 
 
@@ -59,11 +109,26 @@
   }
 
   .entry-content {
+    max-width: 100%;
     line-height: 1.6em;
     color: $color__primary;
 
     p {
-      font-size: 1.15em;
+      font: $font__text;
+      font-size: 1.35em;
+      color: $color__primary;
+      line-height: 1.55em;
+    }
+
+    h2, h3, h4, h5 {
+      font: $font__headline;
+      color: $color__primary;
+    }
+
+    h4 {
+      font-size: 0.975em;
+      letter-spacing: 0.05em;
+      font-weight: 600;
     }
   }
 }
@@ -78,5 +143,33 @@
     input {
       width: 200px;
     }
+  }
+}
+
+
+/* Colorful radiobuttons */
+.wpcf7-radio {
+  .wpcf7-list-item {
+    display: inline-block;
+    margin: 0.1em 0.5em 0.1em 0;
+    margin-top: -1em;
+
+    input[type="radio"] {
+      visibility: hidden;
+    }
+
+    &-label {
+      font-size: 0.75em;
+      border: 3px dotted #9FC2A1;
+      padding: 0.35em 1.5em;
+      display: block;
+      border-radius: 15px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #9FC2A1;
+      }
+    }
+
   }
 }

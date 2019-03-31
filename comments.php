@@ -31,13 +31,13 @@ if ( post_password_required() ) {
 			if ( 1 === $comment_count ) {
 				printf(
 					/* translators: 1: title. */
-					esc_html_e( 'One comment', 'myboutique' ),
+					esc_html_e( 'One comment', 'parlez' ),
 					'<span>' . get_the_title() . '</span>'
 				);
 			} else {
 				printf( // WPCS: XSS OK.
 					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s comment', '%1$s comments', $comment_count, 'comments title', 'myboutique' ) ),
+					esc_html( _nx( '%1$s comment', '%1$s comments', $comment_count, 'comments title', 'parlez' ) ),
 					number_format_i18n( $comment_count ),
 					'<span>' . get_the_title() . '</span>'
 				);
@@ -60,7 +60,7 @@ if ( post_password_required() ) {
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) : ?>
-			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'myboutique' ); ?></p>
+			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'parlez' ); ?></p>
 		<?php
 		endif;
 

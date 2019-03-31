@@ -2,14 +2,14 @@
 /**
  * Different Navigations for different use cases
  *
- * @package myboutique
+ * @package parlez
  */
 
-if ( ! function_exists( 'myboutique_top_sticky_navigation' ) ) :
+if ( ! function_exists( 'parlez_top_sticky_navigation' ) ) :
 	/**
 	 * Top Sticky Navigation (different view on desktop and mobile)
 	 */
-	function myboutique_top_sticky_navigation() {
+	function parlez_top_sticky_navigation() {
 		?>
 		<nav id="site-navigation" class="main-navigation" role="navigation">
 			<div class="top-social">

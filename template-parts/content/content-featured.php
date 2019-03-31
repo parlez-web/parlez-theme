@@ -8,7 +8,7 @@
  */
 
 
-$show_overlay = get_theme_mod('myboutique_featured_overlay_checkbox', true);
+$show_overlay = get_theme_mod('parlez_featured_overlay_checkbox', true);
 ?>
 
 <article <?php post_class(); ?>>
@@ -26,7 +26,7 @@ $show_overlay = get_theme_mod('myboutique_featured_overlay_checkbox', true);
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php myboutique_entry_categories(); ?>
+			<?php parlez_entry_categories(); ?>
 		</div><!-- .entry-meta -->
 		<?php
 		endif; ?>
@@ -35,9 +35,9 @@ $show_overlay = get_theme_mod('myboutique_featured_overlay_checkbox', true);
 			the_title( '<h3 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h3>' );
 		?>
 
-		<?php if(get_theme_mod('myboutique_readmore_text', 'Read more') != '') : ?>
+		<?php if(get_theme_mod('parlez_readmore_text', 'Read more') != '') : ?>
 
-			<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('myboutique_readmore_text', 'Read more') ?> >></a>
+			<a href="<?php echo esc_url(get_permalink()) ?>" class="readmore"><?php echo get_theme_mod('parlez_readmore_text', 'Read more') ?> >></a>
 
 		<?php endif; ?>
 

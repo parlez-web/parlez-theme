@@ -11,7 +11,17 @@
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<div class="title-wrapper">
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); 
+				echo '<h2 class="subtitle">' . get_field("subtitle_2") . '</h2>';
+			?>
+		</div>
+		<?php 
+		if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
+				?><div class="entry-thumbnail">
+         		<?php the_post_thumbnail('featured-large'); ?>
+         		</div>
+         	<?php } ?>
 	</header><!-- .entry-header -->
 
 	<div class="entry-content">
@@ -19,7 +29,7 @@
 			the_content();
 
 			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'myboutique' ),
+				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'parlez' ),
 				'after'  => '</div>',
 			) );
 		?>
@@ -32,7 +42,7 @@
 					sprintf(
 						wp_kses(
 							/* translators: %s: Name of current post. Only visible to screen readers */
-							__( 'Edit <span class="screen-reader-text">%s</span>', 'myboutique' ),
+							__( 'Edit <span class="screen-reader-text">%s</span>', 'parlez' ),
 							array(
 								'span' => array(
 									'class' => array(),

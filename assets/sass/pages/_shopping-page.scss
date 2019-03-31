@@ -1,5 +1,9 @@
 /* Shopping Page
 ------------------ */
+.page-template-page-shop .site-content.has-sidebar #primary {
+  width: 100%;
+}
+
 .page-template-page-shop article {
   max-width: $max_size__article;
   margin: 0 auto;

@@ -5,7 +5,7 @@
 * Slider Type 1: Standard one slide fullwidth slider
 *
 */
-if ( ! function_exists( 'myboutique_post_slider' ) ) :
+if ( ! function_exists( 'parlez_post_slider' ) ) :
 	/**
 	 * Show a featured post slider
    *
@@ -13,11 +13,11 @@ if ( ! function_exists( 'myboutique_post_slider' ) ) :
    * @param $template: Content template to use
    *
 	 */
-	function myboutique_post_slider($ppp, $template) {
+	function parlez_post_slider($ppp, $template) {
 
-      $category = get_theme_mod('myboutique_featured_category', 0);
+      $category = get_theme_mod('parlez_featured_category', 0);
 
-      $layout_type = get_theme_mod('myboutique_featured_layout', 'slider_fullwidth');
+      $layout_type = get_theme_mod('parlez_featured_layout', 'slider_fullwidth');
 
     	$loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'cat' => $category));  
         
@@ -40,7 +40,7 @@ endif;
 * Slider Type 2: Three-half slider with one centered slide
 *
 */
-if ( ! function_exists( 'myboutique_centered_slider' ) ) :
+if ( ! function_exists( 'parlez_centered_slider' ) ) :
   /**
    * Show a featured post slider
    *
@@ -48,9 +48,9 @@ if ( ! function_exists( 'myboutique_centered_slider' ) ) :
    * @param $template: Content template to use
    *
    */
-  function myboutique_centered_slider($ppp, $template) {
+  function parlez_centered_slider($ppp, $template) {
 
-      $category = get_theme_mod('myboutique_featured_category', 0);
+      $category = get_theme_mod('parlez_featured_category', 0);
 
       $loop = new WP_Query(array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'cat' => $category));  
         

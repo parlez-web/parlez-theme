@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class Myboutique_Thumbnails_Widget extends WP_Widget {
+class parlez_Thumbnails_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -42,7 +42,7 @@ class Myboutique_Thumbnails_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'myboutique' ) );		
+		add_action( 'init', array( $this, 'parlez' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
@@ -181,7 +181,7 @@ class Myboutique_Thumbnails_Widget extends WP_Widget {
 	 * @param array instance The array of keys and values for the widget.
 	 */
 	public function form( $instance ) {
-	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'myboutique' );
+	   $title = ! empty( $instance['title'] ) ? $instance['title'] : __( '', 'parlez' );
 
 	   $image1 = ! empty( $instance['image-1'] ) ? $instance['image-1'] : get_template_directory_uri() . '/lib/widgets/thumbnails-widget/no-image.PNG';
 	   $image2 = ! empty( $instance['image-2'] ) ? $instance['image-2'] : get_template_directory_uri() . '/lib/widgets/thumbnails-widget/no-image.PNG';
@@ -381,8 +381,8 @@ class Myboutique_Thumbnails_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function myboutique() {
-		// TODO be sure to change 'myboutique-thumbnails-widget' to the name of *your* plugin
+	public function parlez() {
+		// TODO be sure to change 'parlez-thumbnails-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -449,13 +449,13 @@ class Myboutique_Thumbnails_Widget extends WP_Widget {
 /*
 * Register the widget.
 */
-function myboutique_load_thumbnails_widget() {
-	register_widget( 'Myboutique_Thumbnails_Widget' );
+function parlez_load_thumbnails_widget() {
+	register_widget( 'parlez_Thumbnails_Widget' );
 }
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', 'myboutique_load_thumbnails_widget' );
+add_action( 'widgets_init', 'parlez_load_thumbnails_widget' );
 // Hooks fired when the Widget is activated and deactivated
 register_activation_hook( __FILE__, array( 'MBT Thumbnails Widget', 'activate' ) );
 register_deactivation_hook( __FILE__, array( 'MBT Thumbnails Widget', 'deactivate' ) );

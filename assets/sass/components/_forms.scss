@@ -15,9 +15,9 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: $color__text-input;
-	border: 1px solid $color__border-input;
-	border-radius: 3px;
-	padding: 7px;
+	border: 1px solid $color__primary;
+	border-radius: 0px;
+	padding: 0.75em 1em;
 	width: 100%;
 
 	&:focus {
@@ -38,16 +38,16 @@ input[type="button"],
 input[type="reset"],
 input[type="submit"] {
 	border: 0px solid $color__primary;
-	background: $color__accent;
+	background: $color__yellow;
 	color: rgba(0, 0, 0, .8);
 	line-height: 1;
 	padding: 0.75em 1.25em;
 	margin: .7em 0;
 	@include menu-font-small();
-	text-transform: uppercase;
-	letter-spacing: 0.02em;
-	color: $color__secondary;
-	font-size: 0.875em;
+	font-weight: 600;
+	letter-spacing: 0.05em;
+	color: $color__primary;
+	font-size: 0.8em;
 
 	&:hover {
 		border-color: $color__border-button-hover;
@@ -61,4 +61,44 @@ input[type="submit"] {
 
 .searchform input {
 	width: 85%;
+}
+
+button.small-yellow, .small-yellow .elementor-button {
+	font: $font__menu!important;
+	font-size: 1.5em!important;
+	font-weight: 600!important;
+	border: none!important;
+	border-radius: 0px!important;
+	padding: 0!important;
+
+
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(249,204,68,1) 56%, rgba(249,204,68,1) 61%, rgba(249,204,68,1) 65%, rgba(249,204,68,1) 68%, rgba(249,204,68,1) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(55%, rgba(255,255,255,1)), color-stop(56%, rgba(249,204,68,1)), color-stop(61%, rgba(249,204,68,1)), color-stop(65%, rgba(249,204,68,1)), color-stop(68%, rgba(249,204,68,1)), color-stop(100%, rgba(249,204,68,1)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(249,204,68,1) 56%, rgba(249,204,68,1) 61%, rgba(249,204,68,1) 65%, rgba(249,204,68,1) 68%, rgba(249,204,68,1) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(249,204,68,1) 56%, rgba(249,204,68,1) 61%, rgba(249,204,68,1) 65%, rgba(249,204,68,1) 68%, rgba(249,204,68,1) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(249,204,68,1) 56%, rgba(249,204,68,1) 61%, rgba(249,204,68,1) 65%, rgba(249,204,68,1) 68%, rgba(249,204,68,1) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 55%, rgba(249,204,68,1) 56%, rgba(249,204,68,1) 61%, rgba(249,204,68,1) 65%, rgba(249,204,68,1) 68%, rgba(249,204,68,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f9cc44', GradientType=0 );
+
+}
+
+button.yellow, .yellow .elementor-button {
+	font: $font__menu!important;
+	font-size: 1.35em!important;
+	font-weight: 600!important;
+	border: none!important;
+	border-radius: 0px!important;
+	background-color: rgba(249,204,68,1)!important;
+}
+
+.wpcf7 {
+	label {
+		color: $color__primary;
+		font: $font__menu;
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		font-weight: 600;
+		font-size: 0.75em;
+	}
 }

@@ -174,7 +174,7 @@ if ( ! class_exists( 'Fox' ) ) {
 
 
 		/**
-		 * Load myboutique theme components.  Themes must use `add_theme_support( $component )`
+		 * Load parlez theme components.  Themes must use `add_theme_support( $component )`
 		 * to use a specific extension within the theme.
 		 *
 		 * @access public
@@ -192,7 +192,7 @@ if ( ! class_exists( 'Fox' ) ) {
 
 
 		/**
-		 * Load myboutique theme admin functionality.
+		 * Load parlez theme admin functionality.
 		 *
 		 * @access public
 		 * @return void
@@ -205,7 +205,7 @@ if ( ! class_exists( 'Fox' ) ) {
 		}
 
 		/**
-		 * Load myboutique theme widgets that are not part of the myboutique Plugin. 
+		 * Load parlez theme widgets that are not part of the parlez Plugin. 
 		 * Themes must use `add_theme_support( $widget )` to add a widget.
 		 *
 		 * @access public

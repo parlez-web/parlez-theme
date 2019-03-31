@@ -36,7 +36,7 @@ function load_ajax_cat_posts( slug ) {
             url: ajaxpagination.ajaxurl,
             data: {
                 'cat': slug,
-                'action': 'myboutique_category_post_ajax'
+                'action': 'parlez_category_post_ajax'
             },
             beforeSend : function () {
                 // $content.html( $loading );
@@ -85,6 +85,20 @@ $('.featured-row').each(function() {
 
 })
 
+// Radio buttons 
+// $('.radio-buttons').on('click', function() {
+// 	$button = $(this).find('.');
+// 	$radio = $button.siblings( 'input[type="radio"]' );
+
+// 	if($radio.is(':checked')) {
+// 		$button.siblings( 'input[type="radio"]' ).prop("checked", false);
+// 		$button.css( 'background', 'white' );
+// 	} else {
+// 		$button.siblings( 'input[type="radio"]' ).prop("checked", true);
+// 		$button.css( 'background', 'yellow' );
+// 	}
+	
+// })
 
 } )(jQuery);
 /**

@@ -25,7 +25,7 @@ add_action( 'pre_get_posts', 'wpsites_query' );
 
 
 // Re-build posts navigation
-function myboutique_posts_navigation() {
+function parlez_posts_navigation() {
 	?>
 	<nav class="posts-navigation">
 		<div class="nav-links">
@@ -37,7 +37,7 @@ function myboutique_posts_navigation() {
 }
 
 // Next Post slide-in
-function myboutique_next_post_slider() {
+function parlez_next_post_slider() {
 	$nextPost = get_next_post(true);
         if($nextPost) {
             $args = array(
@@ -49,7 +49,7 @@ function myboutique_next_post_slider() {
                 setup_postdata($post);
 		    	?>
 		        <div class="next-post-box">
-		            <a class="next" href="<?php the_permalink(); ?>"><?php echo __('Next Story &raquo;', 'myboutique') ?></a>
+		            <a class="next" href="<?php the_permalink(); ?>"><?php echo __('Next Story &raquo;', 'parlez') ?></a>
 		            <div class="next-thumbnail-title">
 		            	<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 		            	<h4><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
@@ -63,15 +63,15 @@ function myboutique_next_post_slider() {
 			
 
 // Popup Search Function
-function myboutique_popup_search() {
+function parlez_popup_search() {
 	?>
 	<div class="popup-search">
 		<div class="search-container">
 			<i class="icon-delete close-search"></i>
-			<h2><?php echo __('What are you looking for?', 'myboutique'); ?></h2>
+			<h2><?php echo __('What are you looking for?', 'parlez'); ?></h2>
 			<form role="search" method="get" class="searchform" action="<?php echo home_url( '/' ); ?>">
 				<label for="search-top"><i class="icon-search-bold"></i></label>
-			    <input type="text" id="search-top" placeholder="<?php echo esc_attr( 'Type search', 'myboutique' ); ?>" value="" name="s" id="s" />
+			    <input type="text" id="search-top" placeholder="<?php echo esc_attr( 'Type search', 'parlez' ); ?>" value="" name="s" id="s" />
 			</form>
 		</div>
 	</div>

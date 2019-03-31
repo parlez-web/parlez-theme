@@ -9,7 +9,7 @@
 
 $sticky = '';
 
-if(get_theme_mod('myboutique_stickysidebar_checkbox', true) == true ) {
+if(get_theme_mod('parlez_stickysidebar_checkbox', true) == true ) {
 	$sticky = 'sticky';
 }
 

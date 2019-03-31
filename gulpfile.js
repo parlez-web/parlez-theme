@@ -36,7 +36,7 @@ const
   sort         = require('gulp-sort'), // Recommended to prevent unnecessary changes in pot-file.
 
 
-  build     = './myboutique/', // Files that you want to package into a zip go here
+  build     = './parlez/', // Files that you want to package into a zip go here
   buildInclude  = [
         // include common file types
         '**/*.php',
@@ -70,9 +70,9 @@ var browsersync = false;
 
 // START Editing Project Variables.
 // Project related.
-var project                 = 'myboutique'; // Project Name.
-var projectURL              = 'boutique.test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
-var productURL              = './myboutique'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
+var project                 = 'parlez'; // Project Name.
+var projectURL              = 'agency.test'; // Local project URL of your already running WordPress site. Could be something like local.dev or localhost:8888.
+var productURL              = './parlez'; // Theme/Plugin URL. Leave it like it is, since our gulpfile.js lives in the root folder.
 
 
 // Style related.
@@ -238,7 +238,7 @@ gulp.task('browser-sync', function(done) {
     //initialize browsersync
     browserSync.init(files, {
     //browsersync with a php server
-    proxy: "http://boutique.test/",
+    proxy: "http://agency.test/parlez",
     port: 3020,
     notify: false,
     });

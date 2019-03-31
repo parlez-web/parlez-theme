@@ -1,12 +1,12 @@
 <?php 
-if ( ! function_exists( 'myboutique_featured_row' ) ) :
+if ( ! function_exists( 'parlez_featured_row' ) ) :
 	/**
 	 * Shows a number of featured posts with thumbnail in a row.
 	 * 
 	 * @param $ppp: Number of posts to show
 	 * @param $template: Content template to use
 	 */
-	function myboutique_featured_row($template, $ppp, $cat, $classname) {
+	function parlez_featured_row($template, $ppp, $cat, $classname) {
 
 		$featured_args = array('post_type' => 'post', 'posts_per_page' => $ppp, 'orderby'=> 'ASC', 'category_name' => $cat); //WP Query for Featured Posts on top 
 		?>
@@ -17,7 +17,7 @@ if ( ! function_exists( 'myboutique_featured_row' ) ) :
 	        /* 
 	        * Invoke a custom WP-query
 	        */
-	        myboutique_custom_query($featured_args, $template);
+	        parlez_custom_query($featured_args, $template);
 	        ?>
 
 	    </section>

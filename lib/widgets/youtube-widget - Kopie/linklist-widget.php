@@ -18,7 +18,7 @@ if ( ! defined ( 'ABSPATH' ) ) {
 	exit;
 }
 
-class myboutique_LinkList_Widget extends WP_Widget {
+class parlez_LinkList_Widget extends WP_Widget {
     /**
      *
      * Unique identifier for your widget.
@@ -32,7 +32,7 @@ class myboutique_LinkList_Widget extends WP_Widget {
      *
      * @var      string
      */
-    protected $widget_slug = 'myboutique-linklist-widget';
+    protected $widget_slug = 'parlez-linklist-widget';
 	/*--------------------------------------------------*/
 	/* Constructor
 	/*--------------------------------------------------*/
@@ -42,14 +42,14 @@ class myboutique_LinkList_Widget extends WP_Widget {
 	 */
 	public function __construct() {
 		// load plugin text domain
-		add_action( 'init', array( $this, 'myboutique' ) );		
+		add_action( 'init', array( $this, 'parlez' ) );		
 		// TODO: update description
 		parent::__construct(
 			$this->get_widget_slug(),
-			__( 'myboutique LinkList Widget', 'myboutique' ),
+			__( 'parlez LinkList Widget', 'parlez' ),
 			array(
 				'classname'  => $this->get_widget_slug().'-class',
-				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'myboutique' )
+				'description' => __( 'Link List Widget - show your favorite blogs, websites or online shops. Great for affiliate links as well.', 'parlez' )
 			)
 		);
 		// Register admin styles and scripts
@@ -157,7 +157,7 @@ class myboutique_LinkList_Widget extends WP_Widget {
 	  ?>
 		 
 		<p>
-			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title:', 'parlez'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('title'); ?>" 
 			name="<?php echo $this->get_field_name('title'); ?>" type="text" 
 			value="<?php echo esc_attr($title); ?>" />
@@ -165,7 +165,7 @@ class myboutique_LinkList_Widget extends WP_Widget {
 		</p>
 
 		<p>
-			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description:', 'parlez'); ?>
 			<textarea id="<?php echo $this->get_field_id('description'); ?>" 
 			name="<?php echo $this->get_field_name('description'); ?>"><?php echo esc_attr($description); ?>" /></textarea>
 			</label>
@@ -181,11 +181,11 @@ class myboutique_LinkList_Widget extends WP_Widget {
 			?>
 			<h4>Link #<?php echo $key ?></h4>
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>"><?php _e('Insert Name', 'parlez'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $name . ']'; ?>" value="<?php echo $value['name']; ?>" type="url"/>
 			</label> 
 
-			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'myboutique'); ?>
+			<label for="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>"><?php _e('Insert Link', 'parlez'); ?>
 			<input class="widefat" id="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" name="<?php echo $this->get_field_id('link') . '[' . $key . '][' . $linkKey . ']'; ?>" value="<?php echo $value['link']; ?>" type="url"/>
 			</label> 
 
@@ -208,8 +208,8 @@ class myboutique_LinkList_Widget extends WP_Widget {
 	/**
 	 * Loads the Widget's text domain for localization and translation.
 	 */
-	public function myboutique() {
-		// TODO be sure to change 'myboutique-profile-widget' to the name of *your* plugin
+	public function parlez() {
+		// TODO be sure to change 'parlez-profile-widget' to the name of *your* plugin
 		load_plugin_textdomain( $this->get_widget_slug(), false, dirname( plugin_basename( __FILE__ ) ) . 'lang/' );
 	} // end widget_textdomain
 
@@ -274,10 +274,10 @@ class myboutique_LinkList_Widget extends WP_Widget {
 
 
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-add_action( 'widgets_init', create_function( '', 'register_widget("myboutique_LinkList_Widget");' ) );
+add_action( 'widgets_init', create_function( '', 'register_widget("parlez_LinkList_Widget");' ) );
 // Hooks fired when the Widget is activated and deactivated
 // TODO: Remember to change 'Widget_Name' to match the class name definition
-register_activation_hook( __FILE__, array( 'myboutique LinkList Widget', 'activate' ) );
-register_deactivation_hook( __FILE__, array( 'myboutique LinkList Widget', 'deactivate' ) );
+register_activation_hook( __FILE__, array( 'parlez LinkList Widget', 'activate' ) );
+register_deactivation_hook( __FILE__, array( 'parlez LinkList Widget', 'deactivate' ) );
 
 

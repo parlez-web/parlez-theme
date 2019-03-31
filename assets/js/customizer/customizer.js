@@ -47,7 +47,7 @@
 				url: ajaxurl,
 				type: 'post',
 				data: {
-					action: 'myboutique_google_fonts_ajax',
+					action: 'parlez_google_fonts_ajax',
 					font: to
 				},
 				success: function( response ) {

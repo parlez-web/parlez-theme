@@ -5,18 +5,18 @@
 * Shows the most popular posts by visitors count and can be styled accordingly.
 *
 */
-if ( ! function_exists( 'myboutique_popular_posts' ) ) :
+if ( ! function_exists( 'parlez_popular_posts' ) ) :
 	/**
 	 * Shows most popular posts by views
 	 * 
 	 * @param $templates: Content template
 	 * @param $ppp: Posts per page
 	 */
-	function myboutique_popular_posts($template, $ppp, $classname = '') {
+	function parlez_popular_posts($template, $ppp, $classname = '') {
 
 		$popular_posts_args = array(
 		    'posts_per_page' => $ppp,
-		    'meta_key' => 'myboutique_post_viewed',
+		    'meta_key' => 'parlez_post_viewed',
 		    'orderby' => 'meta_value_num',
 		    'order'=> 'DESC'
 		);
@@ -37,19 +37,19 @@ if ( ! function_exists( 'myboutique_popular_posts' ) ) :
 endif;
 
 
-if ( ! function_exists( 'myboutique_count_post_visits' ) ) :
+if ( ! function_exists( 'parlez_count_post_visits' ) ) :
 //* Function that counts post visits - needed for the popular posts widget
-function myboutique_count_post_visits() {
+function parlez_count_post_visits() {
     if( is_single() ) {
         global $post;
-        $views = get_post_meta( $post->ID, 'myboutique_post_viewed', true );
+        $views = get_post_meta( $post->ID, 'parlez_post_viewed', true );
         if( $views == '' ) {
-            update_post_meta( $post->ID, 'myboutique_post_viewed', '1' );   
+            update_post_meta( $post->ID, 'parlez_post_viewed', '1' );   
         } else {
             $views_no = intval( $views );
-            update_post_meta( $post->ID, 'myboutique_post_viewed', ++$views_no );
+            update_post_meta( $post->ID, 'parlez_post_viewed', ++$views_no );
         }
     }
 }
-add_action( 'wp_head', 'myboutique_count_post_visits' );
+add_action( 'wp_head', 'parlez_count_post_visits' );
 endif;

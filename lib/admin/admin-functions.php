@@ -1,11 +1,11 @@
 <?php
 /**
- * myboutique Admin Functionality
+ * parlez Admin Functionality
  *
- * @package myboutique
+ * @package parlez
  */
 
-function myboutique_theme_docs_admin_notice(){
+function parlez_theme_docs_admin_notice(){
     global $pagenow;
     if ( $pagenow == 'themes.php' ) {
          echo '<div class="notice notice-success is-dismissible">
@@ -13,4 +13,4 @@ function myboutique_theme_docs_admin_notice(){
          </div>';
     }
 }
-add_action('admin_notices', 'myboutique_theme_docs_admin_notice');
+add_action('admin_notices', 'parlez_theme_docs_admin_notice');
